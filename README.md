@@ -12,7 +12,7 @@ Delivered by AEM Edge Delivery Services behind a Cloudflare worker. Data and gen
 | `content/` | Markdown for hand-written pages. `---` separates sections; `{{block:name}}` inserts a generated block. |
 | `prompts/templates/` | Copy-paste prompt templates, filled per work item. |
 | `lib/` | Data loading, status resolution, prompt rendering, and the reference `addAttribution()` with test vectors. |
-| `build/` | `validate.mjs`, `render.mjs` (→ `dist/`), `preview.mjs` (local server), `publish.mjs` (AEM Admin API), `config.json`. |
+| `build/` | `validate.mjs`, `render.mjs` (→ `dist/`), `preview.mjs` (local server), `sourcebus.mjs` (push pages to SourceBus + preview), `publish.mjs` (AEM Admin API), `config.json`. |
 | `blocks/`, `scripts/`, `styles/`, `head.html` | EDS site code (from `adobe/aem-boilerplate`). Blocks: `status-table`, `work-item`, `lab-tiles`, `changelog`, `test-echo`. |
 | `worker/` | Cloudflare worker: Adobe's AEM proxy (unchanged, `src/aem-proxy.mjs`) wrapped with the `/t/*` logger, D1 migrations, `export-hits`. |
 | `test-kit/` | Target URLs and the manual checklist. |
@@ -31,6 +31,17 @@ npm run lint
 ## How status is computed
 
 Per lab × surface × link location × test: newest result by date; on the same date a verified method (manual, automated, community) beats `reported`; then an exact surface/location beats `*`. A surface cell aggregates its locations (all works → Works, all missing → Missing, mixed → Partial), using verified results where any exist. When only reported results exist, the cell reads **Reported: <finding>**. Web-only tests are `n/a` on native surfaces.
+
+## Push pages to SourceBus
+
+The site's content source is SourceBus (`https://api.aem.live/keepthebyte/sites/attribution-now/source/`). To push rendered pages and preview them (add `--publish` to go live):
+
+```sh
+npm run render
+AEM_TOKEN=<IMS token> node build/sourcebus.mjs /nav /footer / /why
+```
+
+This overwrites the SourceBus document at each path. Once `/` and `/why` are edited in SourceBus, don't push them again.
 
 ## Setup still to do (M2–M4)
 

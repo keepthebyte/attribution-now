@@ -429,3 +429,9 @@ Deviations from the text above, with reasons:
   - October incident: the decline began Oct 8 and steepened Oct 14; the fix landed Oct 15–16; the cause is attributed differently by different sources.
   - anthropics/claude-code#43398 was filed in the Claude Code repo and auto-closed by a bot as off-topic. It was not a product decision by Anthropic, so the site doesn't present it as one.
   - The "Why AI Labs Should Improve Outbound Link Attribution" doc wasn't found publicly; `/why` was drafted from the outline in section 7.
+
+**2026-10-20**
+
+- EDS site created: `main--attribution-now--keepthebyte.aem.page` / `.aem.live`. The repo is **private** for now (labs get a preview before anything is public), so GitHub Pages isn't available as the BYOM host on the current plan.
+- The content source is **SourceBus**, `https://api.aem.live/{org}/sites/{site}/source/…`. It accepts HTML body fragments via `PUT` with an IMS bearer token. Preview and publish go through `api.aem.live/{org}/sites/{site}/preview|live/{path}`.
+- First content pushed with `build/sourcebus.mjs`: `/nav`, `/footer`, `/` and `/why` (drafts from `content/`, to be edited in SourceBus).
