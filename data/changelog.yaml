@@ -2,27 +2,31 @@
 # type: shipped | change | site
 # Every shipped improvement gets a thank_you line.
 entries:
-  - date: 2026-10-16
+  - date: 2026-10-15
     lab: openai-chatgpt
     type: shipped
-    title: ChatGPT restored the utm_source tag on cited links
+    title: ChatGPT restored the utm_source=chatgpt.com tag
     text: >
-      By October 16, about 99% of ChatGPT answers with cited links had at least one tagged link again,
-      about a week after the tag dropped. Reports say the referrer is still missing on many web clicks.
-    source_url: https://www.tryprofound.com/blog/chatgpt-missing-utm-tags
-    verified: false
-    thank_you: Thank you to the OpenAI team for the quick fix, and to Profound for the open data.
+      On October 14, OpenAI confirmed the missing tag was a known bug and that a fix was coming that week. The fix
+      started rolling out around 2am PT on October 15, in stages, and by 9am PT tagged ChatGPT clicks were back to
+      about 95–100% of the same hour a week earlier, across thousands of domains in AEM Operational Telemetry.
+      The referrer is still missing on most ChatGPT clicks, so the tag is the signal sites can rely on.
+    source_url: https://www.linkedin.com/posts/cedrichuesler_relieved-it-was-a-bug-chatgpt-is-tagging-share-7516558430854152192-vTAO/
+    verified: true
+    thank_you: Thank you to the OpenAI team for confirming within hours and shipping the fix within a day.
   - date: 2026-10-08
     lab: openai-chatgpt
     type: change
-    title: ChatGPT links lost the UTM tag and referrer after a UI update
+    title: ChatGPT links lost the UTM tag after the GPT-6 rollout
     text: >
-      Starting October 8, a growing share of ChatGPT links arrived without `utm_source=chatgpt.com` and without
-      a referrer. Many sites saw ChatGPT traffic fall and Direct traffic rise. We share it as a common lesson:
-      link handling is easy to change by accident in a fast UI cycle, and a regression test per link location
-      catches it.
-    source_url: https://www.searchenginejournal.com/chatgpt-traffic-drop-appears-to-be-a-tracking-problem/593157/
-    verified: false
+      Around 2pm PT on October 8, ChatGPT stopped adding `utm_source=chatgpt.com` to its links. With no tag and no
+      referrer, ChatGPT visits that sites could attribute fell to about a third of normal within hours and showed up
+      as Direct instead. The visits were never lost, only hidden. The drop was reported publicly on October 13
+      by Cedric Huesler. We share it as a common lesson: link handling is easy to change by accident in a fast
+      UI cycle, and a regression test per link location catches it. If you report on this period, annotate
+      October 8–15 as one event, not a trend.
+    source_url: https://www.linkedin.com/posts/cedrichuesler_relieved-it-was-a-bug-chatgpt-is-tagging-share-7516558430854152192-vTAO/
+    verified: true
   - date: 2026-09-29
     lab: google-gemini
     type: change
