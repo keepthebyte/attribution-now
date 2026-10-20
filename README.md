@@ -43,30 +43,19 @@ AEM_TOKEN=<IMS token> node build/sourcebus.mjs /nav /footer / /why
 
 This overwrites the SourceBus document at each path. Once `/` and `/why` are edited in SourceBus, don't push them again.
 
-## Setup still to do (M2–M4)
+## Infrastructure
 
-These steps need accounts and decisions, so they aren't automated yet.
+Set up per [Cloudflare Setup (worker)](https://www.aem.live/docs/byo-cdn-cloudflare-worker-setup).
 
-1. **GitHub**: push to `keepthebyte/attribution-now`. Enable Pages with source **GitHub Actions**. Install the [AEM Code Sync app](https://github.com/apps/aem-code-sync) on the repo.
-2. **EDS site config** (configuration service; `fstab.yaml` is retired). With SourceBus as primary and this repo as overlay:
-   ```json
-   "content": {
-     "source":  { "url": "<SourceBus content source URL>", "type": "<SourceBus type>" },
-     "overlay": { "url": "https://keepthebyte.github.io/attribution-now", "type": "markup", "suffix": ".html" }
-   }
-   ```
-   Until SourceBus is ready, set `byom.authored_paths` to `[]` in `build/config.json` and use the overlay URL as the `source`.
-   Add the `cdn.prod` settings (`type: cloudflare`, `host: attribution.now`, `zoneId`, `apiToken`) for push invalidation.
-3. **Secrets**: `AEM_ADMIN_TOKEN` (admin API key for `keepthebyte/attribution-now`) in the repo's Actions secrets.
-4. **Cloudflare**: add the `attribution.now` zone. Then:
-   ```sh
-   cd worker && npm install
-   npx wrangler d1 create attribution-now-hits      # put the id in wrangler.toml
-   npm run migrate
-   npm run deploy
-   ```
-   Set `account_id` in `wrangler.toml`. Add a proxied DNS record for `www` so the redirect route fires.
-5. **Export hits**: `npm run export-hits -- --since 2026-10-20 --out exports/hits.csv`.
+- **Domain**: registered at Gandi, nameservers delegated to Cloudflare.
+- **Cloudflare** (zone `attribution.now`, Free plan): proxied CNAMEs for `@` and `www` to the `aem.live` origin, Always Use HTTPS, Browser Cache TTL "Respect Existing Headers", one cache rule (hostname contains `attribution.now` → eligible for cache, browser TTL from origin). The worker routes `attribution.now/*` and `www.attribution.now/*`.
+- **EDS site config** (configuration service; `fstab.yaml` is retired):
+  - `content.source`: SourceBus, `https://api.aem.live/keepthebyte/sites/attribution-now/source`
+  - `content.overlay`: `https://keepthebyte.github.io/attribution-now` (`markup`, suffix `.html`), deployed by the Build and publish workflow
+  - `cdn.prod`: `cloudflare`, `plan: free`, so every publish purges the whole zone
+- **Secrets**: `AEM_ADMIN_TOKEN` (admin API key) in the repo's Actions secrets.
+
+Deploy worker changes with `cd worker && npm run deploy`; schema changes with `npm run migrate`. Export hits with `npm run export-hits -- --since 2026-10-20 --out exports/hits.csv`.
 
 ## Privacy
 
