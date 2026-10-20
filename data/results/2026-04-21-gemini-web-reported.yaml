@@ -6,8 +6,8 @@ tester: null
 client: null
 source_url: https://www.wislr.com/articles/llm-traffic-analytics-blind-spot/
 results:
-  - location: "*"
+  - location: inline-citation
     test: REF-01
     status: works
     evidence:
-      notes: Desktop browser passed a referrer (WISLR test, April 12, 2026).
+      notes: Links in chat answers passed a referrer in a desktop browser (WISLR test, April 12, 2026). Other link locations were not covered.
