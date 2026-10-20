@@ -31,7 +31,7 @@ entries:
       On September 29 the `utm_source=gemini` tag stopped appearing on Gemini links, after 11 days. Visits that
       arrive without a referrer, mostly on mobile, are counted as Direct again. Our October 20 web test found no
       tag on any Gemini link.
-    source_url: null
+    source_url: https://www.linkedin.com/posts/cedrichuesler_for-11-days-in-september-gemini-tagged-its-share-7516660753714663425-52Pm/
     verified: true
   - date: 2026-09-18
     lab: google-gemini
@@ -43,6 +43,6 @@ entries:
       AEM Operational Telemetry (real-user visits, bots excluded), real Gemini clicks were 2.1× what the
       referrer alone shows, about 2.5× once untagged links are accounted for. Most of the gap was mobile visits
       with no referrer, normally counted as Direct.
-    source_url: null
+    source_url: https://www.linkedin.com/posts/cedrichuesler_for-11-days-in-september-gemini-tagged-its-share-7516660753714663425-52Pm/
     verified: true
     thank_you: Thank you to the Gemini team. Eleven days of tagging showed the size of the gap more clearly than any estimate.
