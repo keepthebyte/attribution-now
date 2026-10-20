@@ -6,9 +6,9 @@ suggested_utm: claude.ai
 docs_url: null
 contact: null
 what_works: >
-  Links clicked on claude.ai send a `claude.ai` referrer, so sites that read the referrer can already count
-  visits from Claude on the web.
-what_works_date: 2026-10-19
+  Links Claude writes in the answer text on claude.ai send `https://claude.ai/` as the referrer: the origin
+  only, with no conversation path. Sites that read the referrer can already count those visits as Claude.
+what_works_date: 2026-10-20
 # link_locations are candidates until confirmed by a verified test run.
 surfaces:
   - id: web
@@ -46,6 +46,18 @@ work_items:
     suggested_fix: >
       Add one stable `utm_source` value (for example `claude.ai`) to outbound links on every surface with a safe
       merge, and publish the value in the Help Center.
+  - id: claude-citation-referrer
+    title: Send the claude.ai referrer from citation chips
+    tests: [REF-01, REF-03]
+    surfaces: [web]
+    link_locations: [inline-citation]
+    status: open
+    summary: >
+      Links in the answer text already send the `claude.ai` referrer, but the inline citation chips use
+      `rel="noopener noreferrer"`, so clicks on citations arrive with no referrer and count as Direct.
+    suggested_fix: >
+      Drop `noreferrer` from the citation chip component and keep `noopener`, matching links in the answer text.
+      The page's `strict-origin-when-cross-origin` policy keeps it to the origin.
   - id: claude-android-referrer
     title: Pass an app referrer from the Android app
     tests: [REF-01]

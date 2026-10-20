@@ -16,7 +16,7 @@ locations:
   - id: canvas
     name: Canvas / document / artifact view
   - id: bare-url
-    name: Bare URL written in answer text
+    name: Link or URL written in answer text
   - id: pasted-link
     name: Link the user pasted, echoed back
   - id: shared-conversation

@@ -1,0 +1,76 @@
+date: 2026-10-20
+lab: anthropic-claude
+surface: web
+method: manual
+tester: cedric (via Claude in Chrome)
+client: Chrome 155.0.8059.85 / macOS 27.2
+source_url: null
+results:
+  # Answer with web search. claude.ai sends Referrer-Policy: strict-origin-when-cross-origin, no referrer meta.
+  - location: inline-citation
+    test: REF-01
+    status: missing
+    evidence:
+      document_referrer: null
+      landing_url: https://httpwg.org/specs/rfc9110.html
+      notes: Clicked an inline citation chip ("httpwg"); document.referrer was empty on the landing page.
+  - location: inline-citation
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent, so nothing can leak.
+  - location: inline-citation
+    test: REF-03
+    status: missing
+    evidence:
+      notes: Citation chips use rel="noopener noreferrer".
+  - location: inline-citation
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://httpwg.org/specs/rfc9110.html
+      notes: No utm_* parameter on citation links.
+  - location: bare-url
+    test: REF-03
+    status: works
+    evidence:
+      notes: Links written in the answer text (incl. the "Sources" list) have no rel attribute; the page policy is strict-origin-when-cross-origin.
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on links in the answer text.
+  # Pasted test URLs, echoed back as links in the answer text.
+  - location: pasted-link
+    test: REF-01
+    status: works
+    evidence:
+      document_referrer: https://claude.ai/
+      landing_url: https://main--attribution-now--keepthebyte.aem.page/t/ref-01
+      notes: The link has target="_blank" and no rel. In the automated browser the new tab opened outside the test tab group, so the link was opened in the same tab (target removed); target does not change the referrer.
+  - location: pasted-link
+    test: REF-02
+    status: works
+    evidence:
+      document_referrer: https://claude.ai/
+      notes: Origin only; no conversation path or ID.
+  - location: pasted-link
+    test: REF-03
+    status: works
+    evidence:
+      notes: No rel attribute; page policy strict-origin-when-cross-origin.
+  - location: pasted-link
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: Echoed links carry no utm_* parameter.
+  - location: pasted-link
+    test: MRG-01
+    status: works
+    evidence:
+      notes: "?a=1&b=2 intact (no tag is added, so the link is unchanged)."
+  - location: pasted-link
+    test: MRG-02
+    status: works
+    evidence:
+      notes: "#section-2 intact (no tag is added)."

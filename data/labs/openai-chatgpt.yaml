@@ -5,10 +5,11 @@ documented_utm: chatgpt.com
 docs_url: https://help.openai.com/en/articles/12627856
 contact: null
 what_works: >
-  OpenAI publishes the `utm_source=chatgpt.com` value in its publisher FAQ, and ChatGPT adds it to links in
-  sources and citations, in the apps too. On the web, citation clicks have carried a `chatgpt.com` referrer.
-  After a UI update in early October 2026, the tag was restored within about a week.
-what_works_date: 2026-10-19
+  OpenAI publishes the `utm_source=chatgpt.com` value in its publisher FAQ, and ChatGPT adds it to every
+  outbound link we tested on the web: citations, links in the answer text and links the user pasted. It keeps
+  existing query parameters and inserts the tag before a `#fragment`. After a UI update in early October 2026,
+  the tag was restored within about a week.
+what_works_date: 2026-10-20
 # link_locations are candidates until confirmed by a verified test run.
 surfaces:
   - id: web-desktop
@@ -42,11 +43,23 @@ work_items:
     surfaces: [web-desktop, web-mobile]
     status: open
     summary: >
-      After the October 2026 fix the tag came back, but many web clicks reportedly still arrive without a referrer,
-      so sites that rely on the referrer count them as Direct.
+      chatgpt.com already sets an `origin` referrer policy, but every outbound link also has
+      `rel="noopener noreferrer"`, so no referrer arrives and sites that rely on it count the visit as Direct.
     suggested_fix: >
-      Use `rel="noopener"` without `noreferrer` on every outbound link component, and set the referrer policy to
-      `strict-origin-when-cross-origin`. Add a regression test that checks each link location.
+      Drop `noreferrer` from the outbound link component and keep `noopener`. The page's existing `origin` policy
+      then sends `https://chatgpt.com/` and nothing more. Add a regression test that checks each link location.
+  - id: chatgpt-safe-merge
+    title: Keep sites' own UTM tags and signed URLs intact
+    tests: [MRG-03, MRG-04]
+    surfaces: [web-desktop, web-mobile, ios, android, macos, windows]
+    status: open
+    summary: >
+      ChatGPT already merges the tag cleanly into existing queries and fragments. Two edge cases remain: a link
+      that already has `utm_source=newsletter` gets it replaced with `chatgpt.com`, and signed URLs (with
+      `signature` or `expires`) get the tag appended, which can break them.
+    suggested_fix: >
+      Skip tagging when the URL already has a `utm_*` parameter or a signature/expiry parameter, as in the
+      reference implementation and test vectors.
   - id: chatgpt-android-referrer
     title: Pass an app referrer from the Android app
     tests: [REF-01]
