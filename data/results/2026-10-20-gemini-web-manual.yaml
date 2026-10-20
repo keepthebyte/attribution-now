@@ -1,0 +1,78 @@
+date: 2026-10-20
+lab: google-gemini
+surface: web
+method: manual
+tester: cedric (via Claude in Chrome)
+client: Chrome 155.0.8059.85 / macOS 27.2
+source_url: null
+results:
+  # Personal Google account (Gemini Pro), answer with web search. gemini.google.com sets
+  # <meta name="referrer" content="origin">; all outbound links use rel="noopener" (no noreferrer).
+  # The answer cited sources as links in the answer text; its sources-list was empty.
+  - location: bare-url
+    test: REF-01
+    status: works
+    evidence:
+      document_referrer: https://gemini.google.com/
+      landing_url: https://www.rfc-editor.org/rfc/rfc9110.html
+      notes: Clicked the "RFC 9110 HTTP Semantics" source link in the answer text.
+  - location: bare-url
+    test: REF-02
+    status: works
+    evidence:
+      document_referrer: https://gemini.google.com/
+      notes: Origin only; no conversation path or ID.
+  - location: bare-url
+    test: REF-03
+    status: works
+    evidence:
+      notes: rel="noopener" without noreferrer; page referrer policy origin.
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://www.rfc-editor.org/rfc/rfc9110.html
+      notes: No utm_* parameter on source links, in the DOM or on the landing URL.
+  - location: pasted-link
+    test: REF-01
+    status: works
+    evidence:
+      document_referrer: https://gemini.google.com/
+      landing_url: https://main--attribution-now--keepthebyte.aem.page/t/mrg-01?a=1&b=2
+      notes: Clicked the echoed mrg-01 link; the test page showed document.referrer https://gemini.google.com/.
+  - location: pasted-link
+    test: REF-02
+    status: works
+    evidence:
+      document_referrer: https://gemini.google.com/
+      notes: Origin only.
+  - location: pasted-link
+    test: REF-03
+    status: works
+    evidence:
+      notes: rel="noopener" without noreferrer.
+  - location: pasted-link
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: Echoed links carry no utm_* parameter.
+  - location: pasted-link
+    test: MRG-01
+    status: works
+    evidence:
+      notes: "?a=1&b=2 arrived intact (no tag is added, so the link is unchanged)."
+  - location: pasted-link
+    test: MRG-02
+    status: works
+    evidence:
+      notes: "#section-2 intact in the link (no tag is added)."
+  - location: pasted-link
+    test: MRG-03
+    status: works
+    evidence:
+      notes: utm_source=newsletter kept (no tag is added).
+  - location: pasted-link
+    test: MRG-04
+    status: works
+    evidence:
+      notes: Signed URL unchanged (no tag is added).

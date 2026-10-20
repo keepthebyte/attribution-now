@@ -6,10 +6,10 @@ observed_utm: gemini
 docs_url: null
 contact: null
 what_works: >
-  Gemini on the web sends a referrer on most links in chat answers. Since September 2026, Gemini links have
-  also been seen with `utm_source=gemini` (and `geminiforbusiness` for Workspace), which gives sites a second
-  signal that works where a referrer can't.
-what_works_date: 2026-10-19
+  Gemini on the web sends `https://gemini.google.com/` as the referrer: the origin only, from source links and
+  from links the user pasted. Its links use `rel="noopener"` without `noreferrer`, exactly as recommended. In
+  September 2026, Gemini links were also seen with `utm_source=gemini` (and `geminiforbusiness` for Workspace).
+what_works_date: 2026-10-20
 # link_locations are candidates until confirmed by a verified test run.
 surfaces:
   - id: web
@@ -42,16 +42,17 @@ work_items:
     suggested_fix: >
       Publish both values, and which surfaces use each, on a Gemini help page or the Search Central docs.
   - id: gemini-app-coverage
-    title: Confirm UTM coverage in the apps
+    title: Tag every outbound link with utm_source=gemini
     tests: [UTM-01, UTM-02]
-    surfaces: [ios, android]
+    surfaces: [web, ios, android]
     status: open
     summary: >
-      The apps rarely or never send a referrer. Tests from before the September 2026 UTM rollout found no tag in the
-      apps, and no test since has confirmed one.
+      The `utm_source=gemini` tag seen in September 2026 was not on any link in our October 20 web test, and the
+      apps rarely or never send a referrer, so app visits depend on the tag most.
     suggested_fix: >
-      Add `utm_source=gemini` to outbound links in the iOS and Android apps with the same safe merge used on the
-      web, and on Android also set an app referrer when opening Custom Tabs.
+      Add `utm_source=gemini` to outbound links on the web and in the iOS and Android apps with a safe merge (keep
+      existing query, fragment and `utm_*` values; skip signed URLs). On Android also set an app referrer when
+      opening Custom Tabs.
   - id: gemini-deep-research-referrer
     title: Keep the referrer on Deep Research sources
     tests: [REF-01, REF-03]
