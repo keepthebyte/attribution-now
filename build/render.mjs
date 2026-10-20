@@ -124,7 +124,7 @@ function statusTables(lab) {
   const perLocation = data.tests.filter((t) => t.scope === 'location');
   const labWide = data.tests.filter((t) => t.scope === 'lab');
   const header = row('Test', ...lab.surfaces.map((s) => esc(s.name)));
-  const testLabel = (t) => p(`<strong>${t.id}</strong> ${esc(t.name)}`);
+  const testLabel = (t) => p(a(testAnchor(t.id), `<strong>${t.id}</strong> ${esc(t.name)}`));
   const rows = perLocation.map((t) => row(
     testLabel(t),
     ...lab.surfaces.map((s) => {
