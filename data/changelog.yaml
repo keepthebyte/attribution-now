@@ -23,13 +23,26 @@ entries:
       catches it.
     source_url: https://www.searchenginejournal.com/chatgpt-traffic-drop-appears-to-be-a-tracking-problem/593157/
     verified: false
-  - date: 2026-09-10
+  - date: 2026-09-29
+    lab: google-gemini
+    type: change
+    title: Gemini stopped tagging links with utm_source=gemini
+    text: >
+      On September 29 the `utm_source=gemini` tag stopped appearing on Gemini links, after 11 days. Visits that
+      arrive without a referrer, mostly on mobile, are counted as Direct again. Our October 20 web test found no
+      tag on any Gemini link.
+    source_url: null
+    verified: true
+  - date: 2026-09-18
     lab: google-gemini
     type: shipped
-    title: Gemini started tagging links with utm_source=gemini
+    title: Gemini tagged its links with utm_source=gemini for 11 days
     text: >
-      Gemini links began to carry `utm_source=gemini`, and Workspace links `utm_source=geminiforbusiness`.
-      Coverage reached 100% of captured links on September 28.
-    source_url: https://vizzybl.ai/blog/gemini-utms
-    verified: false
-    thank_you: Thank you to the Gemini team. This helps every site that receives Gemini visits.
+      From September 18 to 28, Gemini links carried `utm_source=gemini` (`geminiforbusiness` for Workspace;
+      earlier partial sightings from September 10). It gave sites a rare measurement: across 1,000+ domains in
+      AEM Operational Telemetry (real-user visits, bots excluded), real Gemini clicks were 2.1× what the
+      referrer alone shows, about 2.5× once untagged links are accounted for. Most of the gap was mobile visits
+      with no referrer, normally counted as Direct.
+    source_url: null
+    verified: true
+    thank_you: Thank you to the Gemini team. Eleven days of tagging showed the size of the gap more clearly than any estimate.

@@ -7,8 +7,8 @@ docs_url: null
 contact: null
 what_works: >
   Gemini on the web sends `https://gemini.google.com/` as the referrer: the origin only, from source links and
-  from links the user pasted. Its links use `rel="noopener"` without `noreferrer`, exactly as recommended. In
-  September 2026, Gemini links were also seen with `utm_source=gemini` (and `geminiforbusiness` for Workspace).
+  from links the user pasted. Its links use `rel="noopener"` without `noreferrer`, exactly as recommended. From
+  September 18 to 28, 2026, Gemini links also carried `utm_source=gemini` (and `geminiforbusiness` for Workspace).
 what_works_date: 2026-10-20
 # link_locations are candidates until confirmed by a verified test run.
 surfaces:
@@ -36,9 +36,8 @@ work_items:
     surfaces: [web, ios, android, workspace]
     status: open
     summary: >
-      Sites have seen `utm_source=gemini` and `utm_source=geminiforbusiness` since September 2026, but the values
-      are not in Google's public docs, and the tags briefly disappeared after September 29, so teams can't be sure
-      they will stay.
+      Gemini used `utm_source=gemini` and `utm_source=geminiforbusiness` from September 18 to 28, 2026, but the
+      values are not in Google's public docs, so teams can't plan for them or tell when they change.
     suggested_fix: >
       Publish both values, and which surfaces use each, on a Gemini help page or the Search Central docs.
   - id: gemini-app-coverage
@@ -47,8 +46,9 @@ work_items:
     surfaces: [web, ios, android]
     status: open
     summary: >
-      The `utm_source=gemini` tag seen in September 2026 was not on any link in our October 20 web test, and the
-      apps rarely or never send a referrer, so app visits depend on the tag most.
+      Gemini tagged links for 11 days in September 2026 and stopped on September 29. In that window, real Gemini
+      clicks measured 2.1× what the referrer alone shows, mostly mobile visits with no referrer. Our October 20
+      web test found no tag on any link.
     suggested_fix: >
       Add `utm_source=gemini` to outbound links on the web and in the iOS and Android apps with a safe merge (keep
       existing query, fragment and `utm_*` values; skip signed URLs). On Android also set an app referrer when
