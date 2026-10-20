@@ -1,0 +1,13 @@
+date: 2025-05-26
+lab: anthropic-claude
+surface: web
+method: reported
+tester: null
+client: null
+source_url: https://ahrefs.com/blog/generative-engines-are-breaking-web-analytics/
+results:
+  - location: "*"
+    test: REF-01
+    status: works
+    evidence:
+      notes: 'Ahrefs: "Claude seems to have the referrer for all the links in all the areas I tested."'

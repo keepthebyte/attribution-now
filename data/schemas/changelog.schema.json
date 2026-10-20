@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Changelog",
+  "type": "object",
+  "required": ["entries"],
+  "additionalProperties": false,
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "lab", "type", "title", "text", "source_url", "verified"],
+        "additionalProperties": false,
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "lab": { "type": ["string", "null"] },
+          "type": { "enum": ["shipped", "change", "site"] },
+          "title": { "type": "string" },
+          "text": { "type": "string" },
+          "source_url": { "type": ["string", "null"], "format": "uri" },
+          "verified": { "type": "boolean" },
+          "thank_you": { "type": "string" }
+        },
+        "if": { "properties": { "type": { "const": "shipped" } } },
+        "then": { "required": ["thank_you"] }
+      }
+    }
+  }
+}

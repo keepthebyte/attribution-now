@@ -1,0 +1,70 @@
+id: openai-chatgpt
+name: ChatGPT
+company: OpenAI
+documented_utm: chatgpt.com
+docs_url: https://help.openai.com/en/articles/12627856
+contact: null
+what_works: >
+  OpenAI publishes the `utm_source=chatgpt.com` value in its publisher FAQ, and ChatGPT adds it to links in
+  sources and citations, in the apps too. On the web, citation clicks have carried a `chatgpt.com` referrer.
+  After a UI update in early October 2026, the tag was restored within about a week.
+what_works_date: 2026-10-19
+# link_locations are candidates until confirmed by a verified test run.
+surfaces:
+  - id: web-desktop
+    name: Web (desktop)
+    platform: web
+    link_locations: [inline-citation, sources-panel, search-cards, shopping-cards, map-cards, deep-research, canvas, bare-url, pasted-link, shared-conversation]
+  - id: web-mobile
+    name: Web (mobile)
+    platform: web
+    link_locations: [inline-citation, sources-panel, search-cards, shopping-cards, map-cards, deep-research, bare-url, pasted-link, shared-conversation]
+  - id: ios
+    name: iOS app
+    platform: native
+    link_locations: [inline-citation, sources-panel, search-cards, shopping-cards, map-cards, deep-research, bare-url, pasted-link]
+  - id: android
+    name: Android app
+    platform: native
+    link_locations: [inline-citation, sources-panel, search-cards, shopping-cards, map-cards, deep-research, bare-url, pasted-link]
+  - id: macos
+    name: macOS app
+    platform: native
+    link_locations: [inline-citation, sources-panel, search-cards, deep-research, canvas, bare-url, pasted-link]
+  - id: windows
+    name: Windows app
+    platform: native
+    link_locations: [inline-citation, sources-panel, search-cards, deep-research, canvas, bare-url, pasted-link]
+work_items:
+  - id: chatgpt-web-referrer
+    title: Send the chatgpt.com referrer on every web link location
+    tests: [REF-01, REF-03]
+    surfaces: [web-desktop, web-mobile]
+    status: open
+    summary: >
+      After the October 2026 fix the tag came back, but many web clicks reportedly still arrive without a referrer,
+      so sites that rely on the referrer count them as Direct.
+    suggested_fix: >
+      Use `rel="noopener"` without `noreferrer` on every outbound link component, and set the referrer policy to
+      `strict-origin-when-cross-origin`. Add a regression test that checks each link location.
+  - id: chatgpt-android-referrer
+    title: Pass an app referrer from the Android app
+    tests: [REF-01]
+    surfaces: [android]
+    status: open
+    summary: >
+      The Android app carries the UTM tag, but no referrer arrives, so tools that rely on the referrer see Direct.
+    suggested_fix: >
+      Open links in a Custom Tab and set `Intent.EXTRA_REFERRER` to `android-app://com.openai.chatgpt`, so the
+      browser can pass an app referrer.
+  - id: chatgpt-changelog
+    title: Publish a changelog for link behavior
+    tests: [OPS-01]
+    surfaces: [web-desktop, web-mobile, ios, android, macos, windows]
+    status: open
+    summary: >
+      The October 2026 change was found by analytics vendors, not announced, so sites spent a week guessing
+      why ChatGPT traffic dropped.
+    suggested_fix: >
+      Add a dated "Link attribution" section to the publisher FAQ or release notes, and note there whenever
+      the referrer or UTM behavior changes.

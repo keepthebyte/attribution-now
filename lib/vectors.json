@@ -1,0 +1,17 @@
+{
+  "source": "example.ai",
+  "vectors": [
+    { "test": "UTM-01", "name": "Adds the tag to a plain URL", "input": "https://example.com/page", "expected": "https://example.com/page?utm_source=example.ai" },
+    { "test": "UTM-01", "name": "Adds source and medium", "medium": "ai-assistant", "input": "https://example.com/page", "expected": "https://example.com/page?utm_source=example.ai&utm_medium=ai-assistant" },
+    { "test": "MRG-01", "name": "Keeps existing query", "input": "https://example.com/p?a=1&b=2", "expected": "https://example.com/p?a=1&b=2&utm_source=example.ai" },
+    { "test": "MRG-01", "name": "Keeps existing encoding and valueless keys", "input": "https://example.com/s?q=a%20b&flag", "expected": "https://example.com/s?q=a%20b&flag&utm_source=example.ai" },
+    { "test": "MRG-02", "name": "Inserts before the fragment", "input": "https://example.com/doc#section-2", "expected": "https://example.com/doc?utm_source=example.ai#section-2" },
+    { "test": "MRG-02", "name": "Query and fragment", "input": "https://example.com/doc?a=1#section-2", "expected": "https://example.com/doc?a=1&utm_source=example.ai#section-2" },
+    { "test": "MRG-03", "name": "Leaves existing utm_source alone", "input": "https://example.com/p?utm_source=newsletter&utm_medium=email", "expected": "https://example.com/p?utm_source=newsletter&utm_medium=email" },
+    { "test": "MRG-03", "name": "Any utm_* key counts, any case", "input": "https://example.com/p?UTM_Campaign=fall", "expected": "https://example.com/p?UTM_Campaign=fall" },
+    { "test": "MRG-04", "name": "Signed URL untouched", "input": "https://example.com/f?expires=2099-01-01&signature=abc123", "expected": "https://example.com/f?expires=2099-01-01&signature=abc123" },
+    { "test": "MRG-04", "name": "Cloud storage signature untouched", "input": "https://bucket.s3.amazonaws.com/k?X-Amz-Signature=abc&X-Amz-Expires=60", "expected": "https://bucket.s3.amazonaws.com/k?X-Amz-Signature=abc&X-Amz-Expires=60" },
+    { "test": "UTM-01", "name": "Non-http links untouched", "input": "mailto:hello@example.com", "expected": "mailto:hello@example.com" },
+    { "test": "UTM-01", "name": "Invalid URL returned as is", "input": "not a url", "expected": "not a url" }
+  ]
+}

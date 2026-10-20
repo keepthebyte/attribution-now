@@ -1,0 +1,13 @@
+date: 2026-10-01
+lab: google-gemini
+surface: "*"
+method: reported
+tester: null
+client: null
+source_url: https://www.searchenginejournal.com/google-gemini-adds-utm-parameters-for-referral-attribution/591754/
+results:
+  - location: "*"
+    test: UTM-03
+    status: missing
+    evidence:
+      notes: 'Search Engine Journal: the implementation "is undocumented".'

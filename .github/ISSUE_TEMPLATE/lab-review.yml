@@ -1,0 +1,23 @@
+name: Request a review (labs)
+description: You work on one of the assistants and an entry is out of date or wrong.
+labels: [lab-review]
+body:
+  - type: input
+    id: lab
+    attributes:
+      label: Lab and surface
+      placeholder: e.g. Claude, iOS app
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What should change?
+      description: Link to docs, release notes or a build where the behavior changed, if you can.
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact for future reviews (optional)
+      description: We will reach out here before publishing anything new about your product.

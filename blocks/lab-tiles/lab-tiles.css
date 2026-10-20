@@ -1,0 +1,40 @@
+.lab-tiles ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.lab-tiles li {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line-color);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.lab-tiles h3 {
+  margin: 0;
+}
+
+.lab-tiles p {
+  margin: 8px 0 0;
+}
+
+.lab-tiles .lab-tiles-name p {
+  font-size: var(--body-font-size-xs);
+  opacity: 0.75;
+  margin: 0;
+}
+
+.lab-tiles .lab-tiles-works {
+  flex: 1;
+  font-size: var(--body-font-size-s);
+}
+
+.lab-tiles .lab-tiles-next {
+  font-size: var(--body-font-size-xs);
+  margin-top: 12px;
+}

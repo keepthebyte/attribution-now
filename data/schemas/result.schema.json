@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Test run result file",
+  "type": "object",
+  "required": ["date", "lab", "surface", "method", "tester", "client", "source_url", "results"],
+  "additionalProperties": false,
+  "properties": {
+    "date": { "type": "string", "format": "date" },
+    "lab": { "type": "string" },
+    "surface": { "type": "string", "description": "surface id, or * for lab-wide tests" },
+    "method": { "enum": ["manual", "automated", "community", "reported"] },
+    "tester": { "type": ["string", "null"] },
+    "client": { "type": ["string", "null"] },
+    "source_url": { "type": ["string", "null"], "format": "uri" },
+    "results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["location", "test", "status", "evidence"],
+        "additionalProperties": false,
+        "properties": {
+          "location": { "type": "string", "description": "link location id, or * for all locations on the surface" },
+          "test": { "type": "string" },
+          "status": { "enum": ["works", "partial", "missing", "n/a"] },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "referer": { "type": ["string", "null"] },
+              "document_referrer": { "type": ["string", "null"] },
+              "landing_url": { "type": ["string", "null"] },
+              "screenshot": { "type": ["string", "null"] },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "if": { "properties": { "method": { "const": "reported" } } },
+  "then": { "properties": { "source_url": { "type": "string" } } },
+  "else": { "properties": { "tester": { "type": "string" }, "client": { "type": "string" } } }
+}

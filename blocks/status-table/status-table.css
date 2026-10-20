@@ -1,0 +1,97 @@
+.status-table .status-scroll {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.status-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--body-font-size-xs);
+}
+
+.status-table th,
+.status-table td {
+  border-bottom: 1px solid var(--line-color);
+  padding: 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.status-table thead th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-table tbody th {
+  font-weight: normal;
+  min-width: 160px;
+}
+
+.status-table td p,
+.status-table tbody th p {
+  margin: 0;
+}
+
+.status-table .cell-button {
+  all: unset;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.status-table .cell-button:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.status-table .chip {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 10px;
+  white-space: nowrap;
+  background: var(--chip-untested);
+  color: var(--text-color);
+}
+
+.status-table .chip em {
+  font-style: normal;
+  opacity: 0.75;
+}
+
+.status-table .chip-works { background: var(--chip-works); }
+.status-table .chip-partial { background: var(--chip-partial); }
+.status-table .chip-missing { background: var(--chip-missing); }
+.status-table .chip-reported { background: var(--chip-reported); }
+
+.status-table .chip-na {
+  background: transparent;
+  opacity: 0.6;
+}
+
+.status-table .cell-button[aria-expanded='true'] .chip {
+  box-shadow: 0 0 0 2px var(--text-color);
+}
+
+.status-table .status-detail {
+  border: 1px solid var(--line-color);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: var(--body-font-size-xs);
+}
+
+.status-table .status-detail h4 {
+  margin: 0 0 8px;
+  font-size: var(--body-font-size-s);
+}
+
+.status-table .status-detail ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.status-table .status-detail li + li {
+  margin-top: 8px;
+}
+
+.status-table.lab table {
+  width: auto;
+}

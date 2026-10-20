@@ -1,0 +1,62 @@
+.work-item {
+  border: 1px solid var(--line-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 24px 0;
+}
+
+.work-item h3 {
+  margin-top: 0;
+}
+
+.work-item h4 {
+  margin: 16px 0 4px;
+  font-size: var(--body-font-size-s);
+}
+
+.work-item p {
+  margin: 0;
+}
+
+.work-item-meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 12px;
+  margin: 0 0 16px;
+  font-size: var(--body-font-size-xs);
+}
+
+.work-item-meta dt {
+  font-weight: 600;
+}
+
+.work-item-meta dd {
+  margin: 0;
+}
+
+.work-item-prompts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.work-item-prompt .button {
+  margin: 0;
+}
+
+.work-item-copied {
+  margin-left: 12px;
+  font-size: var(--body-font-size-xs);
+}
+
+.work-item details summary {
+  cursor: pointer;
+  margin-top: 8px;
+  font-size: var(--body-font-size-xs);
+}
+
+.work-item pre {
+  white-space: pre-wrap;
+  font-size: var(--body-font-size-xs);
+}

@@ -1,0 +1,18 @@
+date: 2026-04-21
+lab: openai-chatgpt
+surface: android
+method: reported
+tester: null
+client: null
+source_url: https://www.wislr.com/articles/llm-traffic-analytics-blind-spot/
+results:
+  - location: "*"
+    test: REF-01
+    status: missing
+    evidence:
+      notes: Mobile app passed no referrer (WISLR test, April 12, 2026; iOS and Android reported together).
+  - location: "*"
+    test: UTM-01
+    status: works
+    evidence:
+      notes: 'WISLR: "The app passes utm_source=chatgpt.com on outbound links."'

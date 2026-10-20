@@ -1,0 +1,24 @@
+name = "attribution-now"
+main = "src/index.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = true
+# TODO: Cloudflare account ID
+account_id = "<account id>"
+
+routes = [
+  { pattern = "attribution.now/*", zone_name = "attribution.now" },
+  { pattern = "www.attribution.now/*", zone_name = "attribution.now" },
+]
+
+[vars]
+ORIGIN_HOSTNAME = "main--attribution-now--keepthebyte.aem.live"
+CANONICAL_HOST = "attribution.now"
+# PUSH_INVALIDATION = "disabled"
+# ORIGIN_AUTHENTICATION is a secret: wrangler secret put ORIGIN_AUTHENTICATION
+
+[[d1_databases]]
+binding = "HITS"
+database_name = "attribution-now-hits"
+# TODO: from `npx wrangler d1 create attribution-now-hits`
+database_id = "<database id>"
+migrations_dir = "migrations"

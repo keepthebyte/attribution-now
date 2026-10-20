@@ -1,0 +1,43 @@
+.test-echo {
+  border: 1px solid var(--line-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 24px 0;
+}
+
+.test-echo h2 {
+  margin-top: 0;
+  font-size: var(--heading-font-size-s);
+}
+
+.test-echo dl {
+  display: grid;
+  grid-template-columns: minmax(120px, max-content) 1fr;
+  gap: 8px 16px;
+  margin: 0;
+}
+
+.test-echo dt {
+  font-weight: 600;
+}
+
+.test-echo dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.test-echo-note {
+  margin: 16px 0 0;
+  font-size: var(--body-font-size-xs);
+}
+
+@media (width < 600px) {
+  .test-echo dl {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .test-echo dd {
+    margin-bottom: 8px;
+  }
+}

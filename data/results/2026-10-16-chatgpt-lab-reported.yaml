@@ -1,0 +1,13 @@
+date: 2026-10-16
+lab: openai-chatgpt
+surface: "*"
+method: reported
+tester: null
+client: null
+source_url: https://www.relevantaudience.com/analytics/chatgpt-utm-tag-bug-fixed-openai-confirmed-adobe/
+results:
+  - location: "*"
+    test: OPS-01
+    status: missing
+    evidence:
+      notes: The October change and fix were found and reported by third parties; no public OpenAI note at time of writing (Relevant Audience).

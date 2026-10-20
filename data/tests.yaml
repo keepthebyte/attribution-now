@@ -1,0 +1,128 @@
+# Test catalog. IDs are stable: they are used in data, pages, prompts and target URLs.
+#
+# scope:      location = tested per link location; lab = one answer for the whole product
+# applies_to: all | web  (web-only tests are n/a on native surfaces)
+# target:     test target path on attribution.now (see test-kit/targets.md)
+tests:
+  - id: REF-01
+    group: Referrer
+    name: Referrer present
+    pass_criteria: Request to the target carries `Referer` with the assistant's origin (e.g. `https://chatgpt.com/`).
+    scope: location
+    applies_to: all
+    target: /t/ref-01
+    explainer: >
+      When a person clicks a link, the browser can send a `Referer` header that names the page they came from.
+      Analytics tools use it to say where a visit came from. If an assistant sends its origin, such as
+      `https://chatgpt.com/`, the website can count the visit as coming from that assistant instead of "Direct".
+
+  - id: REF-02
+    group: Referrer
+    name: No full-URL leak
+    pass_criteria: "`Referer` is origin only; no conversation path or IDs."
+    scope: location
+    applies_to: all
+    target: /t/ref-02
+    explainer: >
+      The referrer should say which product sent the visit, not which conversation. Sending only the origin
+      (`https://claude.ai/`) keeps conversation paths and IDs private while still giving websites the signal they need.
+
+  - id: REF-03
+    group: Referrer
+    name: Link markup (web only)
+    pass_criteria: Citation links use `noopener` without `noreferrer`; page/link referrer policy is `origin` or `strict-origin-when-cross-origin`.
+    scope: location
+    applies_to: web
+    target: /t/ref-03
+    explainer: >
+      On the web, `rel="noreferrer"` and `window.open(url, "_blank", "noopener,noreferrer")` remove the referrer.
+      `rel="noopener"` alone keeps the security benefit and still lets the origin through. A referrer policy of
+      `origin` or `strict-origin-when-cross-origin` sends the origin to other sites and never the full path.
+
+  - id: UTM-01
+    group: UTM
+    name: UTM present
+    pass_criteria: Landing URL contains `utm_source=<documented value>`.
+    scope: location
+    applies_to: all
+    target: /t/utm-01
+    explainer: >
+      Apps and webviews often cannot send a referrer. A `utm_source` parameter on the link still tells the
+      website where the visit came from. It works in every browser and every app.
+
+  - id: UTM-02
+    group: UTM
+    name: UTM consistent
+    pass_criteria: Same `utm_source` value on every surface and link location.
+    scope: lab
+    applies_to: all
+    target: /t/utm-02
+    explainer: >
+      One stable value per product lets websites write one rule and keep it. Different values per app or
+      per link type split the same traffic into several rows that teams then have to merge by hand.
+
+  - id: UTM-03
+    group: UTM
+    name: UTM documented
+    pass_criteria: Value published in the lab's public docs/help.
+    scope: lab
+    applies_to: all
+    target: /t/utm-03
+    explainer: >
+      A documented value turns a guess into a contract. Analytics vendors and site owners can add it to their
+      channel rules with confidence, and they know where to look if it changes.
+
+  - id: MRG-01
+    group: Merge
+    name: Keeps existing query
+    pass_criteria: Target `?a=1&b=2` arrives with `a` and `b` intact.
+    scope: location
+    applies_to: all
+    target: /t/mrg-01?a=1&b=2
+    explainer: >
+      Many links already carry query parameters for search, filters or product variants. Adding attribution
+      must keep every existing parameter and its value exactly as it was.
+
+  - id: MRG-02
+    group: Merge
+    name: Keeps fragment
+    pass_criteria: "`#section` is preserved and the tag is inserted before it."
+    scope: location
+    applies_to: all
+    target: /t/mrg-02#section-2
+    explainer: >
+      A fragment such as `#section-2` points to a place on the page. Query parameters must go before the `#`;
+      anything after it never reaches the server and breaks the jump to the right section.
+
+  - id: MRG-03
+    group: Merge
+    name: No overwrite
+    pass_criteria: Target with existing `utm_source=newsletter` keeps that value.
+    scope: location
+    applies_to: all
+    target: /t/mrg-03?utm_source=newsletter&utm_medium=email
+    explainer: >
+      Some links already carry campaign tags set by the website itself. Replacing them would erase the site's
+      own campaign data. The safe default is to leave existing `utm_*` parameters alone.
+
+  - id: MRG-04
+    group: Merge
+    name: Signed URLs untouched
+    pass_criteria: Target with `signature`/`token`/`expires` params arrives byte-identical.
+    scope: location
+    applies_to: all
+    target: /t/mrg-04?expires=2099-01-01&signature=abc123
+    explainer: >
+      Signed and expiring URLs (downloads, cloud storage, one-time links) stop working if a single byte changes.
+      Links with parameters such as `signature`, `token` or `expires` should be passed through unchanged.
+
+  - id: OPS-01
+    group: Operations
+    name: Changelog
+    pass_criteria: Lab publishes link-behavior changes (help page, release notes).
+    scope: lab
+    applies_to: all
+    target: /t/ops-01
+    explainer: >
+      Link behavior changes with UI updates. A short public note when it changes lets websites tell a product
+      change from a real drop in traffic, and saves both sides time.

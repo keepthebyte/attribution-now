@@ -1,0 +1,32 @@
+name: Validate data
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - run: npm ci
+      - name: Schema and cross-reference checks
+        run: npm run validate
+      - name: Unit tests (reference implementation, statuses, prompts, worker logger)
+        run: npm test
+      - name: Render all pages
+        run: npm run render
+      - name: Results are append-only
+        if: github.event_name == 'pull_request'
+        run: |
+          changed=$(git diff --name-status "origin/${{ github.base_ref }}...HEAD" -- data/results | grep -v '^A' || true)
+          if [ -n "$changed" ]; then
+            echo "Result files are append-only. Add a new file instead of changing these:"
+            echo "$changed"
+            exit 1
+          fi

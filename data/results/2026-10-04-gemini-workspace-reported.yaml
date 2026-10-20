@@ -1,0 +1,13 @@
+date: 2026-10-04
+lab: google-gemini
+surface: workspace
+method: reported
+tester: null
+client: null
+source_url: https://vizzybl.ai/blog/gemini-utms
+results:
+  - location: "*"
+    test: UTM-01
+    status: works
+    evidence:
+      notes: Workspace traffic carries utm_source=geminiforbusiness (Vizzybl).

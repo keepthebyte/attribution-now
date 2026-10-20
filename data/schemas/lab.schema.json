@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lab",
+  "type": "object",
+  "required": ["id", "name", "company", "documented_utm", "docs_url", "contact", "what_works", "what_works_date", "surfaces", "work_items"],
+  "additionalProperties": false,
+  "$defs": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "date": { "type": "string", "format": "date" },
+    "nullableString": { "type": ["string", "null"] },
+    "nullableUri": { "type": ["string", "null"], "format": "uri" }
+  },
+  "properties": {
+    "id": { "$ref": "#/$defs/slug" },
+    "name": { "type": "string" },
+    "company": { "type": "string" },
+    "documented_utm": { "$ref": "#/$defs/nullableString" },
+    "observed_utm": { "$ref": "#/$defs/nullableString" },
+    "suggested_utm": { "$ref": "#/$defs/nullableString" },
+    "docs_url": { "$ref": "#/$defs/nullableUri" },
+    "contact": { "$ref": "#/$defs/nullableString" },
+    "what_works": { "type": "string", "minLength": 1 },
+    "what_works_date": { "$ref": "#/$defs/date" },
+    "surfaces": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "platform", "link_locations"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/slug" },
+          "name": { "type": "string" },
+          "platform": { "enum": ["web", "native"] },
+          "observed_utm": { "$ref": "#/$defs/nullableString" },
+          "link_locations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/slug" } }
+        }
+      }
+    },
+    "work_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "tests", "surfaces", "status", "summary", "suggested_fix"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/slug" },
+          "title": { "type": "string" },
+          "tests": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+          "surfaces": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/slug" } },
+          "link_locations": { "type": "array", "items": { "$ref": "#/$defs/slug" } },
+          "status": { "enum": ["open", "in-progress", "shipped", "wont-do"] },
+          "summary": { "type": "string" },
+          "suggested_fix": { "type": "string" },
+          "shipped_date": { "$ref": "#/$defs/date" },
+          "thank_you": { "type": "string" },
+          "source_url": { "$ref": "#/$defs/nullableUri" }
+        },
+        "if": { "properties": { "status": { "const": "shipped" } } },
+        "then": { "required": ["shipped_date", "thank_you"] }
+      }
+    }
+  }
+}

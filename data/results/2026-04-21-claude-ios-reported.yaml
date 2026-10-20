@@ -1,0 +1,18 @@
+date: 2026-04-21
+lab: anthropic-claude
+surface: ios
+method: reported
+tester: null
+client: null
+source_url: https://www.wislr.com/articles/llm-traffic-analytics-blind-spot/
+results:
+  - location: "*"
+    test: REF-01
+    status: missing
+    evidence:
+      notes: Native app passed no referrer (WISLR test, April 12, 2026).
+  - location: "*"
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: Native app passed no UTM (WISLR test, April 12, 2026).

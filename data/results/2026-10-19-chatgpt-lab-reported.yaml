@@ -1,0 +1,13 @@
+date: 2026-10-19
+lab: openai-chatgpt
+surface: "*"
+method: reported
+tester: null
+client: null
+source_url: https://help.openai.com/en/articles/12627856
+results:
+  - location: "*"
+    test: UTM-03
+    status: works
+    evidence:
+      notes: 'Publishers and Developers FAQ: "ChatGPT automatically includes the UTM parameter utm_source=chatgpt.com in referral URLs." (page text confirmed via search index; direct fetch returned 403).'

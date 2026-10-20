@@ -1,0 +1,23 @@
+.changelog ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.changelog li {
+  border-left: 3px solid var(--line-color);
+  padding: 0 0 24px 20px;
+}
+
+.changelog .changelog-meta {
+  margin: 0;
+  font-size: var(--body-font-size-xs);
+}
+
+.changelog h3 {
+  margin: 4px 0 8px;
+}
+
+.changelog p {
+  margin: 8px 0 0;
+}

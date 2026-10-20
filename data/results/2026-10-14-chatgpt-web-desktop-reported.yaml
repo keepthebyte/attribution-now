@@ -1,0 +1,23 @@
+date: 2026-10-14
+lab: openai-chatgpt
+surface: web-desktop
+method: reported
+tester: null
+client: null
+source_url: https://www.seroundtable.com/utm-parameters-missing-chatgpt-42299.html
+results:
+  - location: "*"
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: "Tagged share of answers fell from about 98% (Oct 8) to about 5-12% after Oct 14, 19:00 UTC (Profound). Shared learning: a UI update changed link handling."
+  - location: "*"
+    test: REF-01
+    status: missing
+    evidence:
+      notes: Links opened with "noopener,noreferrer", so no referrer arrived (Search Engine Roundtable, quoting C. Huesler).
+  - location: "*"
+    test: REF-03
+    status: missing
+    evidence:
+      notes: window.open with "noopener,noreferrer" (Search Engine Roundtable).

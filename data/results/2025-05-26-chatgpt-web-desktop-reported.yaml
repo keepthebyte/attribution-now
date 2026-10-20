@@ -1,0 +1,38 @@
+date: 2025-05-26
+lab: openai-chatgpt
+surface: web-desktop
+method: reported
+tester: null
+client: null
+source_url: https://ahrefs.com/blog/generative-engines-are-breaking-web-analytics/
+results:
+  - location: inline-citation
+    test: REF-01
+    status: partial
+    evidence:
+      notes: Most in-content links passed the referrer; one in a paid account had noreferrer (Ahrefs).
+  - location: sources-panel
+    test: REF-01
+    status: works
+    evidence:
+      notes: Source links at the bottom of answers passed the referrer (Ahrefs).
+  - location: deep-research
+    test: REF-01
+    status: missing
+    evidence:
+      notes: Deep Research end sources used noreferrer (Ahrefs).
+  - location: deep-research
+    test: REF-03
+    status: missing
+    evidence:
+      notes: Deep Research end sources used noreferrer (Ahrefs).
+  - location: inline-citation
+    test: UTM-01
+    status: works
+    evidence:
+      notes: In-content source links carried utm_source=chatgpt.com (Ahrefs).
+  - location: sources-panel
+    test: UTM-01
+    status: works
+    evidence:
+      notes: Source links carried utm_source=chatgpt.com (Ahrefs).

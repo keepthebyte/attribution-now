@@ -1,0 +1,13 @@
+date: 2026-06-22
+lab: anthropic-claude
+surface: "*"
+method: reported
+tester: null
+client: null
+source_url: https://www.seerinteractive.com/insights/are-ai-sites-like-chatgpt-sending-your-website-traffic
+results:
+  - location: "*"
+    test: UTM-03
+    status: missing
+    evidence:
+      notes: No UTM value is added, so none is documented (Seer Interactive). A feature request (anthropics/claude-code#43398) was filed in the Claude Code repo and auto-closed there as off-topic, not reviewed as a product decision.

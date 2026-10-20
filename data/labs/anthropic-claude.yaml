@@ -1,0 +1,68 @@
+id: anthropic-claude
+name: Claude
+company: Anthropic
+documented_utm: null
+suggested_utm: claude.ai
+docs_url: null
+contact: null
+what_works: >
+  Links clicked on claude.ai send a `claude.ai` referrer, so sites that read the referrer can already count
+  visits from Claude on the web.
+what_works_date: 2026-10-19
+# link_locations are candidates until confirmed by a verified test run.
+surfaces:
+  - id: web
+    name: claude.ai web
+    platform: web
+    link_locations: [inline-citation, sources-panel, deep-research, canvas, bare-url, pasted-link, shared-conversation]
+  - id: ios
+    name: iOS app
+    platform: native
+    link_locations: [inline-citation, sources-panel, deep-research, bare-url, pasted-link]
+  - id: android
+    name: Android app
+    platform: native
+    link_locations: [inline-citation, sources-panel, deep-research, bare-url, pasted-link]
+  - id: macos
+    name: macOS app
+    platform: native
+    link_locations: [inline-citation, sources-panel, deep-research, canvas, bare-url, pasted-link]
+  - id: windows
+    name: Windows app
+    platform: native
+    link_locations: [inline-citation, sources-panel, deep-research, canvas, bare-url, pasted-link]
+  - id: chrome
+    name: Claude in Chrome
+    platform: web
+    link_locations: [inline-citation, bare-url, pasted-link]
+work_items:
+  - id: claude-utm
+    title: Add a documented UTM tag
+    tests: [UTM-01, UTM-02, UTM-03]
+    surfaces: [web, ios, android, macos, windows, chrome]
+    status: open
+    summary: >
+      Claude links carry no UTM tag, so visits from the apps, where no referrer is possible, arrive as Direct.
+    suggested_fix: >
+      Add one stable `utm_source` value (for example `claude.ai`) to outbound links on every surface with a safe
+      merge, and publish the value in the Help Center.
+  - id: claude-android-referrer
+    title: Pass an app referrer from the Android app
+    tests: [REF-01]
+    surfaces: [android]
+    status: open
+    summary: >
+      The Android app sends no referrer, so tools that rely on the referrer see Direct even when Claude sent the visit.
+    suggested_fix: >
+      Open links in a Custom Tab and set `Intent.EXTRA_REFERRER` to `android-app://com.anthropic.claude`, so the
+      browser can pass an app referrer.
+  - id: claude-changelog
+    title: Publish a changelog for link behavior
+    tests: [OPS-01]
+    surfaces: [web, ios, android, macos, windows, chrome]
+    status: open
+    summary: >
+      There is no public note on how Claude links are attributed, so sites can't tell a product change from a
+      traffic change.
+    suggested_fix: >
+      Add a short Help Center page on link attribution (referrer, UTM value once added) with dated updates.

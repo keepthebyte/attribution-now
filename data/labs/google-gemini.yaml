@@ -1,0 +1,66 @@
+id: google-gemini
+name: Gemini
+company: Google
+documented_utm: null
+observed_utm: gemini
+docs_url: null
+contact: null
+what_works: >
+  Gemini on the web sends a referrer on most links in chat answers. Since September 2026, Gemini links have
+  also been seen with `utm_source=gemini` (and `geminiforbusiness` for Workspace), which gives sites a second
+  signal that works where a referrer can't.
+what_works_date: 2026-10-19
+# link_locations are candidates until confirmed by a verified test run.
+surfaces:
+  - id: web
+    name: Web
+    platform: web
+    link_locations: [inline-citation, sources-panel, search-cards, shopping-cards, map-cards, deep-research, canvas, bare-url, pasted-link, shared-conversation]
+  - id: ios
+    name: iOS app
+    platform: native
+    link_locations: [inline-citation, sources-panel, search-cards, map-cards, deep-research, bare-url, pasted-link]
+  - id: android
+    name: Android app (incl. assistant)
+    platform: native
+    link_locations: [inline-citation, sources-panel, search-cards, map-cards, deep-research, bare-url, pasted-link]
+  - id: workspace
+    name: Workspace
+    platform: web
+    observed_utm: geminiforbusiness
+    link_locations: [inline-citation, sources-panel, deep-research, canvas, bare-url, pasted-link]
+work_items:
+  - id: gemini-document-utm
+    title: Document the UTM values
+    tests: [UTM-03]
+    surfaces: [web, ios, android, workspace]
+    status: open
+    summary: >
+      Sites have seen `utm_source=gemini` and `utm_source=geminiforbusiness` since September 2026, but the values
+      are not in Google's public docs, and the tags briefly disappeared after September 29, so teams can't be sure
+      they will stay.
+    suggested_fix: >
+      Publish both values, and which surfaces use each, on a Gemini help page or the Search Central docs.
+  - id: gemini-app-coverage
+    title: Confirm UTM coverage in the apps
+    tests: [UTM-01, UTM-02]
+    surfaces: [ios, android]
+    status: open
+    summary: >
+      The apps rarely or never send a referrer. Tests from before the September 2026 UTM rollout found no tag in the
+      apps, and no test since has confirmed one.
+    suggested_fix: >
+      Add `utm_source=gemini` to outbound links in the iOS and Android apps with the same safe merge used on the
+      web, and on Android also set an app referrer when opening Custom Tabs.
+  - id: gemini-deep-research-referrer
+    title: Keep the referrer on Deep Research sources
+    tests: [REF-01, REF-03]
+    surfaces: [web, workspace]
+    link_locations: [deep-research]
+    status: open
+    summary: >
+      Chat links send a referrer, but links in the "Researching websites" section of Deep Research were reported
+      (May 2025) to use `noreferrer`, so those visits show as Direct.
+    suggested_fix: >
+      Use the same link component as chat answers: `rel="noopener"` without `noreferrer`, with a
+      `strict-origin-when-cross-origin` referrer policy.

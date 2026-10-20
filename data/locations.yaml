@@ -1,0 +1,23 @@
+# Link locations: where a link is shown inside a surface.
+# Which ones exist per lab/surface is listed in data/labs/<lab>.yaml and must be confirmed by testing.
+locations:
+  - id: inline-citation
+    name: Inline citation in an answer
+  - id: sources-panel
+    name: Sources / citations panel
+  - id: search-cards
+    name: Search result or link cards
+  - id: shopping-cards
+    name: Shopping / product cards
+  - id: map-cards
+    name: Map / place cards
+  - id: deep-research
+    name: Deep research / research report
+  - id: canvas
+    name: Canvas / document / artifact view
+  - id: bare-url
+    name: Bare URL written in answer text
+  - id: pasted-link
+    name: Link the user pasted, echoed back
+  - id: shared-conversation
+    name: Shared conversation page (public share link)

@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "attribution-now-worker",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "attribution.now Cloudflare worker: AEM production proxy plus /t/* test logger.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "migrate": "wrangler d1 migrations apply attribution-now-hits --remote",
+    "tail": "wrangler tail -f pretty"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "wrangler": "4.151.2"
+  }
+}

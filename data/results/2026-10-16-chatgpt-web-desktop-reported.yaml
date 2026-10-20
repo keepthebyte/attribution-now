@@ -1,0 +1,18 @@
+date: 2026-10-16
+lab: openai-chatgpt
+surface: web-desktop
+method: reported
+tester: null
+client: null
+source_url: https://www.relevantaudience.com/analytics/chatgpt-utm-tag-bug-fixed-openai-confirmed-adobe/
+results:
+  - location: "*"
+    test: UTM-01
+    status: works
+    evidence:
+      notes: "About 99% of answers with cited links had at least one tagged link again by Oct 16, 06:30 UTC (Profound: https://www.tryprofound.com/blog/chatgpt-missing-utm-tags)."
+  - location: "*"
+    test: REF-01
+    status: missing
+    evidence:
+      notes: After the fix, "the referrer is still missing on most ChatGPT clicks" (C. Huesler, via Relevant Audience).

@@ -1,0 +1,35 @@
+# Dated lab changes, newest first on the site (order here doesn't matter).
+# type: shipped | change | site
+# Every shipped improvement gets a thank_you line.
+entries:
+  - date: 2026-10-16
+    lab: openai-chatgpt
+    type: shipped
+    title: ChatGPT restored the utm_source tag on cited links
+    text: >
+      By October 16, about 99% of ChatGPT answers with cited links had at least one tagged link again,
+      about a week after the tag dropped. Reports say the referrer is still missing on many web clicks.
+    source_url: https://www.tryprofound.com/blog/chatgpt-missing-utm-tags
+    verified: false
+    thank_you: Thank you to the OpenAI team for the quick fix, and to Profound for the open data.
+  - date: 2026-10-08
+    lab: openai-chatgpt
+    type: change
+    title: ChatGPT links lost the UTM tag and referrer after a UI update
+    text: >
+      Starting October 8, a growing share of ChatGPT links arrived without `utm_source=chatgpt.com` and without
+      a referrer. Many sites saw ChatGPT traffic fall and Direct traffic rise. We share it as a common lesson:
+      link handling is easy to change by accident in a fast UI cycle, and a regression test per link location
+      catches it.
+    source_url: https://www.searchenginejournal.com/chatgpt-traffic-drop-appears-to-be-a-tracking-problem/593157/
+    verified: false
+  - date: 2026-09-10
+    lab: google-gemini
+    type: shipped
+    title: Gemini started tagging links with utm_source=gemini
+    text: >
+      Gemini links began to carry `utm_source=gemini`, and Workspace links `utm_source=geminiforbusiness`.
+      Coverage reached 100% of captured links on September 28.
+    source_url: https://vizzybl.ai/blog/gemini-utms
+    verified: false
+    thank_you: Thank you to the Gemini team. This helps every site that receives Gemini visits.

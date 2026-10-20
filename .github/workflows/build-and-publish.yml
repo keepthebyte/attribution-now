@@ -1,0 +1,72 @@
+name: Build and publish
+on:
+  push:
+    branches: [main]
+    paths: [data/**, content/**, prompts/**, build/**, lib/**]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: Preview and publish every path, not only changed ones
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: build-and-publish
+  cancel-in-progress: false
+
+env:
+  BYOM_URL: https://keepthebyte.github.io/attribution-now
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.diff.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - run: npm ci
+      - run: npm run validate
+      - run: npm test
+      - name: Render BYOM pages (SourceBus-authored paths skipped)
+        run: node build/render.mjs --byom
+      - name: Diff against the deployed manifest
+        id: diff
+        run: |
+          if [ "${{ inputs.all }}" = "true" ]; then echo '{}' > prev.json
+          else curl -fsS "$BYOM_URL/manifest.json" -o prev.json || echo '{}' > prev.json; fi
+          echo "changed=$(node build/publish.mjs diff prev.json dist/manifest.json)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  publish:
+    needs: [build, deploy]
+    if: needs.build.outputs.changed != '[]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Preview and publish changed paths
+        env:
+          AEM_ADMIN_TOKEN: ${{ secrets.AEM_ADMIN_TOKEN }}
+        run: node build/publish.mjs publish '${{ needs.build.outputs.changed }}'

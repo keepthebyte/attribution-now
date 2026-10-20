@@ -1,0 +1,17 @@
+name: Report a third-party finding
+description: A public article or dataset about how an assistant passes referrers or UTM tags.
+labels: [reported]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Source URL
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: What does it report?
+      description: Lab, surface, link location, date, and what arrived (referrer, UTM).
+    validations:
+      required: true
