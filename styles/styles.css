@@ -244,6 +244,11 @@ a:hover {
   text-decoration-thickness: 0.14em;
 }
 
+/* guides (template: guide): running text at a readable measure */
+body.guide main .default-content-wrapper > :is(p, ol, ul) {
+  max-width: 65ch;
+}
+
 /* homepage evidence section: keep running text to a readable measure */
 main .gemini-utm-container .default-content-wrapper > :is(p, ul) {
   max-width: 65ch;

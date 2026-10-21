@@ -2,7 +2,7 @@
 
 A site that helps AI labs improve attribution on outbound links (HTTP referrer + UTM), starting with ChatGPT, Gemini and Claude. See [SPEC.md](SPEC.md) and its decisions log.
 
-Delivered by AEM Edge Delivery Services behind a Cloudflare worker. Data and generated pages come from this repo through BYOM; `/` and `/why` are authored in SourceBus.
+Delivered by AEM Edge Delivery Services behind a Cloudflare worker. Data and generated pages come from this repo through BYOM; `/`, `/why` and `/reclaim-direct-traffic` are authored in SourceBus.
 
 ## Layout
 
@@ -42,7 +42,7 @@ npm run render
 AEM_TOKEN=<IMS token> node build/sourcebus.mjs /nav /footer / /why
 ```
 
-This overwrites the SourceBus document at each path. Once `/` and `/why` are edited in SourceBus, don't push them again.
+This overwrites the SourceBus document at each path. Once `/`, `/why` and `/reclaim-direct-traffic` are edited in SourceBus, don't push them again.
 
 ## Infrastructure
 

@@ -3,6 +3,6 @@
   "aem": { "org": "keepthebyte", "site": "attribution-now", "ref": "main" },
   "byom": {
     "comment": "Paths authored in SourceBus (primary source). They are rendered locally for preview but not deployed to the BYOM overlay, so the overlay returns 404 and EDS falls back to SourceBus. Set to [] to serve every page from GitHub.",
-    "authored_paths": ["/", "/why"]
+    "authored_paths": ["/", "/why", "/reclaim-direct-traffic"]
   }
 }
