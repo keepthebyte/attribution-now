@@ -29,6 +29,9 @@ function split(html) {
   const main = html.match(/<main>([\s\S]*)<\/main>/)?.[1] || '';
   const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1] || '';
   const meta = {};
+  // generated pages carry metadata in <head>; authored pages in a metadata block
+  [...(html.match(/<head>([\s\S]*?)<\/head>/)?.[1] || '').matchAll(/<meta name="([^"]+)" content="([^"]*)">/g)]
+    .forEach(([, k, v]) => { meta[k] = v; });
   const content = main.replace(/<div class="metadata">([\s\S]*?)<\/div><\/div><\/div>/, (m) => {
     [...m.matchAll(/<div><div>([^<]*)<\/div><div>([^<]*)<\/div><\/div>/g)].forEach(([, k, v]) => {
       meta[k.toLowerCase()] = v;
