@@ -1,0 +1,130 @@
+# Tested in a second Claude instance (the "Claude Work" launcher), not in the window running the Claude Code session
+# that prepared the run; Claude can't be driven by computer use, so the tester typed the prompts and clicked.
+# Plan and model weren't recorded. Web search on; Research mode for deep-research; an HTML artifact for canvas.
+# Claude.app is the Electron desktop app (bundle id com.anthropic.claudefordesktop).
+# Every link opened in the default browser (Chrome), not an in-app web view: desktop Chrome user agent and
+# Sec-Fetch-Site: none, the same as a URL typed into the address bar. No referrer and no utm_* arrived from any location.
+# Evidence is from the worker log (npm run export-hits). Claude's own fetches of the cited URLs show up separately
+# with user agent "Claude-User/1.0".
+date: 2026-10-20
+lab: anthropic-claude
+surface: macos
+method: manual
+tester: cedric
+client: Claude 3.1623.0 (macOS app) → Chrome 155 / macOS 27.2
+source_url: null
+results:
+  - location: inline-citation
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/inline-citation
+      notes: Clicked the inline citation chip (twice). Opened in Chrome with no Referer and Sec-Fetch-Site none.
+  - location: inline-citation
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent, so nothing can leak.
+  - location: inline-citation
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/inline-citation
+      notes: No utm_* parameter.
+  - location: sources-panel
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/sources-panel
+      notes: Clicked the test page in the answer's sources list. No Referer.
+  - location: sources-panel
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/sources-panel
+      notes: No utm_* parameter.
+  - location: deep-research
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/deep-research
+      notes: Clicked the test page in the research report's source list. No Referer.
+  - location: deep-research
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/deep-research
+      notes: No utm_* parameter.
+  - location: canvas
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/canvas
+      notes: Clicked the link inside an HTML artifact preview. No Referer.
+  - location: canvas
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/canvas
+      notes: No utm_* parameter.
+  - location: bare-url
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/bare-url
+      notes: The URL written in the answer was rendered as a link. No Referer.
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/bare-url
+      notes: No utm_* parameter.
+  # Pasted test URLs, echoed back as a numbered list of links.
+  - location: pasted-link
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/pasted-link
+      notes: No Referer.
+  - location: pasted-link
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/macos/pasted-link
+      notes: No utm_* parameter on echoed links.
+  - location: pasted-link
+    test: MRG-01
+    status: n/a
+    evidence:
+      landing_url: https://attribution.now/t/mrg-01/anthropic-claude/macos/pasted-link?a=1&b=2
+      notes: No tag is added, so there is nothing to merge; "?a=1&b=2" arrived intact.
+  - location: pasted-link
+    test: MRG-02
+    status: n/a
+    evidence:
+      landing_url: https://attribution.now/t/mrg-02/anthropic-claude/macos/pasted-link#section-2
+      notes: No tag is added; the fragment arrived intact.
+  - location: pasted-link
+    test: MRG-03
+    status: n/a
+    evidence:
+      landing_url: https://attribution.now/t/mrg-03/anthropic-claude/macos/pasted-link?utm_source=newsletter&utm_medium=email
+      notes: No tag is added; utm_source=newsletter kept.
+  - location: pasted-link
+    test: MRG-04
+    status: n/a
+    evidence:
+      landing_url: https://attribution.now/t/mrg-04/anthropic-claude/macos/pasted-link?expires=2099-01-01&signature=abc123
+      notes: No tag is added; the signed URL arrived byte-identical.
