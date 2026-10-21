@@ -46,6 +46,7 @@
 
 .gemini-utm figcaption {
   margin-top: 16px;
+  text-wrap: pretty;
   color: var(--ink-soft);
   font-size: var(--body-font-size-xs);
 }
@@ -56,8 +57,9 @@
 }
 
 .gemini-utm .gemini-utm-data summary {
+  padding-block: 4px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .gemini-utm .gemini-utm-data table {

@@ -25,8 +25,15 @@ function renderTable(widget, data, values) {
     <tbody>${rows}</tbody></table>`;
 }
 
-/** Shades the days Gemini tagged its links and labels the band */
-function taggedWindow(from, to, label, colors) {
+/** Share of visits in the tagged window that arrived with no referrer */
+function hiddenShare(data, from, to) {
+  const sum = (list) => list.slice(from, to + 1).reduce((a, b) => a + b, 0);
+  const hidden = sum(data.hidden);
+  return Math.round((hidden / (hidden + sum(data.visible))) * 100);
+}
+
+/** Shades the days Gemini tagged its links and labels the band in two lines */
+function taggedWindow(from, to, [title, detail], colors) {
   return {
     id: 'taggedWindow',
     beforeDatasetsDraw(chart) {
@@ -36,11 +43,13 @@ function taggedWindow(from, to, label, colors) {
       const right = x.getPixelForValue(to) + half;
       ctx.save();
       ctx.fillStyle = colors.band;
-      ctx.fillRect(left, chartArea.top - 26, right - left, chartArea.bottom - chartArea.top + 26);
+      ctx.fillRect(left, chartArea.top - 44, right - left, chartArea.bottom - chartArea.top + 44);
       ctx.fillStyle = colors.label;
-      ctx.font = `600 13px ${colors.font}`;
       ctx.textAlign = 'center';
-      ctx.fillText(label, (left + right) / 2, chartArea.top - 9, right - left - 8);
+      ctx.font = `700 13px ${colors.font}`;
+      ctx.fillText(title, (left + right) / 2, chartArea.top - 27, right - left - 8);
+      ctx.font = `500 13px ${colors.font}`;
+      ctx.fillText(detail, (left + right) / 2, chartArea.top - 10, right - left - 8);
       ctx.restore();
     },
   };
@@ -91,7 +100,7 @@ export default async function decorate(widget) {
     options: {
       maintainAspectRatio: false,
       animation: reduceMotion ? false : { duration: 700 },
-      layout: { padding: { top: 30 } },
+      layout: { padding: { top: 48 } },
       interaction: { mode: 'index', intersect: false },
       datasets: { bar: { categoryPercentage: 0.86, barPercentage: 0.92 } },
       plugins: {
@@ -117,6 +126,9 @@ export default async function decorate(widget) {
         },
       },
     },
-    plugins: [taggedWindow(from, to, `Tagged ${data.tagged.from}–${data.tagged.to.replace(/^\D+/, '')}`, colors)],
+    plugins: [taggedWindow(from, to, [
+      `Tagged ${data.tagged.from}–${data.tagged.to.replace(/^\D+/, '')}`,
+      `${hiddenShare(data, from, to)}% no referrer`,
+    ], colors)],
   });
 }
