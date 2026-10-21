@@ -206,8 +206,12 @@ function testVectors() {
   ].join('\n');
 }
 
+// The homepage is authored in SourceBus, so its lab tiles come from a generated fragment that CI keeps current.
+const LAB_STATUS_FRAGMENT = '/fragments/lab-status';
+
 const GENERATED = {
   'lab-tiles': labTilesBlock,
+  'lab-status-fragment': () => block('fragment', [row(p(a(LAB_STATUS_FRAGMENT, LAB_STATUS_FRAGMENT)))]),
   'test-catalog': testCatalog,
   'test-vectors': testVectors,
   changelog: () => changelogBlock(data.changelog),
@@ -338,6 +342,13 @@ ${section(p(a('/t/check', 'Check a link')))}
 `;
 }
 
+function labStatusFragment() {
+  return `<!DOCTYPE html><html><head><title>Lab status</title></head><body><main>
+${section(labTilesBlock())}
+</main></body></html>
+`;
+}
+
 function footer() {
   return `<!DOCTYPE html><html><head><title>Footer</title></head><body><main>
 ${section(
@@ -368,6 +379,7 @@ pages.set('/t/check', checkPage);
 data.tests.forEach((t) => pages.set(`/t/${t.id.toLowerCase()}`, () => targetPage(t)));
 pages.set('/nav', nav);
 pages.set('/footer', footer);
+pages.set(LAB_STATUS_FRAGMENT, labStatusFragment);
 
 const authored = new Set(config.byom.authored_paths);
 rmSync(out, { recursive: true, force: true });

@@ -19,7 +19,7 @@ Two small signals fix most of it: **the assistant's origin as the referrer**, an
 
 Each lab page starts with what already works, then lists the next improvements with prompts teams can paste into their coding assistant or tracker.
 
-{{block:lab-tiles}}
+{{block:lab-status-fragment}}
 
 Statuses marked **Reported** come from public third-party reports. We are verifying them first-hand. See [how we test](/tests).
 
