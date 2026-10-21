@@ -416,7 +416,6 @@ ${section(scorecard())}
 function footer() {
   return `<!DOCTYPE html><html><head><title>Footer</title></head><body><main>
 ${section(
-    p('attribution.now: helping AI labs and websites see where visits come from.'),
     p(`A side project by ${a('https://www.linkedin.com/in/cedrichuesler/', 'Cedric Huesler')}, running on ${a('https://www.aem.live/', 'Adobe Experience Manager')}, with traffic data from ${a('https://business.adobe.com/products/brand-visibility.html', 'Adobe Brand Visibility')}.`),
     p(`${a('/contribute', 'Contribute')} · ${a(repoUrl, 'GitHub')} · Code, content and data under the ${a(`${repoUrl}/blob/main/LICENSE`, 'Apache License 2.0')}.`),
   )}
