@@ -28,7 +28,7 @@ Tone rules (apply to all copy and generated text):
 
 | Lab | Surfaces in scope |
 | --- | --- |
-| OpenAI ChatGPT | Web (desktop browser), web (mobile browser), iOS app, Android app, macOS app, Windows app |
+| OpenAI ChatGPT | Web, iOS app, Android app, macOS app, Windows app |
 | Google Gemini | Web, iOS app, Android app (incl. assistant entry points), Workspace (Gemini for business) |
 | Anthropic Claude | claude.ai web, iOS app, Android app, macOS app, Windows app, Claude in Chrome |
 
