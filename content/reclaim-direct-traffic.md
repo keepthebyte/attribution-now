@@ -23,6 +23,8 @@ Why the tag first: over the past year, tagged ChatGPT visits grew from about 177
 
 <p><a href="/widgets/chatgpt-utm/chatgpt-utm.html">/widgets/chatgpt-utm/chatgpt-utm.html</a></p>
 
+So expect little of ChatGPT's traffic in Direct. OpenAI tags most of the links ChatGPT generates, so unlike Gemini, there is no hidden share to add on top.
+
 
 ## Gemini: the referrer, then the hidden share
 
@@ -30,8 +32,10 @@ Gemini on the web sends `https://gemini.google.com/` as the referrer, and no tag
 
 1. Count visits with a `gemini.google.com` referrer.
 2. Multiply by 2.1 to 2.5.
-   - 2.1 is measured. From Sep 18 to 28, 2026, Gemini tagged its links: for every 100 visits with the referrer, 108 more arrived with only the tag. [How we know](/#how-we-know-gemini-tagged-its-links-for-11-days).
+   - 2.1 is measured. From Sep 18 to 28, 2026, Gemini tagged its links: for every 100 visits with the referrer, 108 more arrived with only the tag. The chart below shows that window.
    - 2.5 adds an estimate for the links that weren't tagged and arrived with no referrer either.
+
+<p><a href="/widgets/gemini-utm/gemini-utm.html">/widgets/gemini-utm/gemini-utm.html</a></p>
 
 Use 2.1 when you need a number nobody can dispute, and 2.5 as your best estimate. Workspace accounts tagged links `utm_source=geminiforbusiness` in the same window.
 
