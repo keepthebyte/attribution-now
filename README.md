@@ -14,6 +14,7 @@ Delivered by AEM Edge Delivery Services behind a Cloudflare worker. Data and gen
 | `lib/` | Data loading, status resolution, prompt rendering, and the reference `addAttribution()` with test vectors. |
 | `build/` | `validate.mjs`, `render.mjs` (→ `dist/`), `preview.mjs` (local server), `sourcebus.mjs` (push pages to SourceBus + preview), `publish.mjs` (AEM Admin API), `config.json`. |
 | `blocks/`, `scripts/`, `styles/`, `head.html` | EDS site code (from `adobe/aem-boilerplate`). Blocks: `status-table`, `work-item`, `scorecard`, `lab-tiles`, `changelog`, `test-echo`, and `columns (audiences)` for the homepage split. Design system in `DESIGN.md`. Section metadata `Style`: `card` sets a section on a page-coloured card; `analysts` (violet) and `labs` (pink) colour a whole section by audience. `columns (audiences)` puts analysts first; add `labs-first` to swap. |
+| `widgets/` | [Widgets](https://www.aem.live/docs/widgets): an authored link to `/widgets/<name>/<name>.html` becomes the widget. `gemini-utm` charts Gemini's Sep 2026 tagging window with a self-hosted Chart.js (`vendor/`), data in `gemini-utm.json`. |
 | `worker/` | Cloudflare worker: Adobe's AEM proxy (unchanged, `src/aem-proxy.mjs`) wrapped with the `/t/*` logger, D1 migrations, `export-hits`. |
 | `test-kit/` | Target URLs and the manual checklist. |
 

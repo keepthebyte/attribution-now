@@ -244,6 +244,33 @@ a:hover {
   text-decoration-thickness: 0.14em;
 }
 
+/* citation marker after a claim in the H1: links to the evidence further down */
+h1 sup {
+  margin-left: 0.1em;
+  font-size: 0.36em;
+  font-variation-settings: 'opsz' 24;
+  letter-spacing: 0;
+  line-height: 0;
+  vertical-align: 1em;
+}
+
+h1 sup a:any-link {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 0.2em 0.45em;
+  border-radius: 1em;
+  background: var(--pink-deep);
+  color: var(--page);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+h1 sup a:hover {
+  background: var(--pink-ink);
+  color: var(--page);
+}
+
 /* buttons */
 p.button-wrapper {
   margin: 12px 0;

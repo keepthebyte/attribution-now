@@ -1,0 +1,78 @@
+.gemini-utm {
+  margin-block: 24px;
+}
+
+.gemini-utm .gemini-utm-figure {
+  margin: 0;
+  padding: 24px clamp(16px, 3vw, 32px);
+  border-radius: var(--radius);
+  background: var(--page);
+}
+
+.gemini-utm .gemini-utm-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0 0 16px;
+  padding: 0;
+  font-size: var(--body-font-size-xs);
+  list-style: none;
+}
+
+.gemini-utm .gemini-utm-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gemini-utm .gemini-utm-legend li::before {
+  content: '';
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--violet);
+}
+
+.gemini-utm .gemini-utm-legend .gemini-utm-key-hidden::before {
+  background: var(--mark-pink);
+}
+
+/* fixed height so jumping to the section doesn't shift when the chart draws */
+.gemini-utm .gemini-utm-chart {
+  position: relative;
+  height: clamp(260px, 42vw, 380px);
+}
+
+.gemini-utm figcaption {
+  margin-top: 16px;
+  color: var(--ink-soft);
+  font-size: var(--body-font-size-xs);
+}
+
+.gemini-utm .gemini-utm-data {
+  margin-top: 12px;
+  font-size: var(--body-font-size-xs);
+}
+
+.gemini-utm .gemini-utm-data summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.gemini-utm .gemini-utm-data table {
+  margin-top: 8px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.gemini-utm .gemini-utm-data th,
+.gemini-utm .gemini-utm-data td {
+  padding: 2px 16px 2px 0;
+  text-align: right;
+}
+
+.gemini-utm .gemini-utm-data th[scope='row'],
+.gemini-utm .gemini-utm-data thead th:first-child {
+  text-align: left;
+}
