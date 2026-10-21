@@ -50,6 +50,15 @@
         "value": "bricolage-fallback",
         "createdAt": "2026-10-21T07:27:56.224Z",
         "reason": "agent: metric-adjusted local Arial fallback faces for the DESIGN.md fonts (CLS guard), not a new typeface"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          "stardust/prototypes/logo-fix-concepts.html"
+        ],
+        "createdAt": "2026-10-21T15:30:18.817Z",
+        "reason": "agent: concept sheet comparing candidate handwriting faces for the user's requested 'fix' scrawl; the pick gets outlined to an SVG path, no new web font ships"
       }
     ]
   }

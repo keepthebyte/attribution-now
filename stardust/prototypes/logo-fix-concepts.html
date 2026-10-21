@@ -1,0 +1,162 @@
+<!doctype html>
+<!-- stardust:provenance writtenBy=stardust:prototype (wordmark "fix" concepts) writtenAt=2026-10-22 againstDirection=stardust/direction.md readArtifacts=DESIGN.md,blocks/header/header.css,scripts/brand-mark.js synthesized="five hand-written 'fix' treatments in front of the wordmark; pen colour = mark-pink oklch(0.62 0.21 358), not red, because red means Missing in status marks" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fix wordmark concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700..800&family=Hanken+Grotesk:wght@400;500;700&family=Nanum+Pen+Script&family=Gochi+Hand&family=Kalam:wght@700&family=Reenie+Beanie&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page: oklch(0.985 0.006 290);
+    --haze: oklch(0.945 0.035 295);
+    --violet: oklch(0.46 0.215 290);
+    --ink: oklch(0.21 0.035 290);
+    --ink-soft: oklch(0.40 0.03 290);
+    --pen: oklch(0.62 0.21 358);
+    --display: 'Bricolage Grotesque', system-ui, sans-serif;
+    --body: 'Hanken Grotesk', system-ui, sans-serif;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--haze); color: var(--ink); font: 400 1.125rem/1.6 var(--body); }
+  main { max-width: 1200px; margin: 0 auto; padding: 48px 20px 96px; }
+  h1 { font: 800 clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem)/1.04 var(--display); letter-spacing: -0.02em; margin: 0 0 12px; }
+  h2 { font: 800 clamp(1.5rem, 1.3rem + 1vw, 2rem)/1.1 var(--display); margin: 0; }
+  p { max-width: 62ch; margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); }
+  .replay { font: 600 1rem/1 var(--body); padding: 10px 18px; border: 0; border-radius: 999px; background: var(--ink); color: var(--page); cursor: pointer; }
+  .replay:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  .concept { background: var(--page); border-radius: 14px; padding: 32px; margin-top: 32px; }
+  .concept > header { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; }
+  .tag { font: 700 0.9rem/1.3 var(--body); color: var(--violet); }
+  .note { color: var(--ink-soft); font-size: 1rem; margin-top: 8px; }
+  .stage { margin-top: 24px; padding: 72px 32px 40px; border-radius: 10px; background: var(--haze); overflow: hidden; }
+  .sizes { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; border-radius: 10px; background: var(--haze); }
+  .bar.desk { flex: 1 1 520px; min-width: 0; }
+  .stage .logo { --s: 2.6; }
+  @media (width < 760px) { .stage { padding-inline: 16px; } .stage .logo { --s: 1.12; } .bar.desk { flex-basis: 100%; } .concept { padding: 20px; } }
+  .bar.phone { flex: 0 0 360px; max-width: 100%; }
+  .bar small { font: 500 0.75rem/1.2 var(--body); color: var(--ink-soft); }
+  .menu { font: 600 0.9rem/1 var(--body); padding: 8px 14px; border-radius: 999px; background: var(--ink); color: var(--page); }
+
+  /* the logo, sized in em so one font-size scales everything */
+  .logo { --s: 1; position: relative; display: inline-flex; align-items: center; gap: 0.48em; font: 800 calc(20.8px * var(--s))/1 var(--display); font-variation-settings: 'opsz' 48; letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; }
+  .logo .dots { width: 2.12em; height: 2.12em; margin-block: -0.3em; flex: none; }
+  .logo .wm { position: relative; }
+  .logo .fix { position: relative; display: inline-block; color: var(--pen); white-space: nowrap; letter-spacing: 0; font-weight: 400; }
+  .logo svg.pen { position: absolute; overflow: visible; pointer-events: none; }
+  .pen path { fill: none; stroke: var(--pen); stroke-linecap: round; stroke-linejoin: round; }
+
+  /* pen motion: the hand-written parts are written on, once */
+  .write .fix { clip-path: inset(-150% 100% -150% -150%); animation: write-in 520ms var(--ease-out) 300ms forwards; }
+  .write .pen path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: stroke-in 420ms ease-out forwards; animation-delay: var(--d, 700ms); }
+  @keyframes write-in { to { clip-path: inset(-150% -150% -150% -150%); } }
+  @keyframes stroke-in { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .write .fix { animation: none; clip-path: none; }
+    .write .pen path { animation: none; stroke-dashoffset: 0; }
+  }
+</style>
+<style>
+  /* A: proofreader's caret, "fix" written above the gap */
+  .c-a .ins { position: relative; width: 0.2em; align-self: stretch; }
+  .c-a .fix { position: absolute; left: -0.3em; bottom: 0.6em; font: 400 1.9em/1 'Nanum Pen Script', cursive; transform: rotate(-7deg); }
+  .c-a svg.pen { left: -0.36em; bottom: 0.52em; width: 0.72em; height: 0.7em; }
+  .c-a .pen path { stroke-width: 2.4; --d: 250ms; }
+
+  /* B: margin scrawl, inline, double underline */
+  .c-b .fix { font: 400 1.42em/1 'Gochi Hand', cursive; transform: rotate(-8deg) translateY(-0.04em); margin-inline-end: -0.05em; }
+  .c-b svg.pen { left: -0.1em; bottom: -0.32em; width: 1.6em; height: 0.42em; }
+  .c-b .pen path { stroke-width: 2.2; }
+  .c-b .pen path + path { --d: 900ms; }
+
+  /* C: circled, the way a teacher rings a word */
+  .c-c .fix { font: 700 1.08em/1 'Kalam', cursive; padding: 0 0.12em; transform: rotate(-5deg); }
+  .c-c svg.pen { left: -0.42em; top: -0.42em; width: calc(100% + 0.84em); height: calc(100% + 0.84em); }
+  .c-c .pen path { stroke-width: 2.4; }
+
+  /* D: raised note with an arrow into the wordmark */
+  .c-d .fix { font: 600 1.5em/1 'Caveat', cursive; transform: rotate(-9deg) translateY(-0.62em); margin-inline-end: -0.15em; }
+  .c-d svg.pen { width: 1.05em; height: 0.88em; }
+  .c-d .pen path { stroke-width: 2.4; }
+
+  /* E: "fix" plus one wavy pen line under the whole name */
+  .c-e .fix { font: 400 2em/1 'Reenie Beanie', cursive; transform: rotate(-6deg) translateY(-0.02em); margin-inline-end: -0.12em; }
+  .c-e .wm svg.pen { left: -2.4em; bottom: -0.42em; width: calc(100% + 2.5em); height: 0.36em; }
+  .c-e .pen path { stroke-width: 2; --d: 820ms; }
+</style>
+</head>
+<body>
+<main>
+  <h1>"fix" in front of the wordmark</h1>
+  <p class="lede">Five ways to scrawl "fix" in front of attribution.now, like a teacher correcting homework. "attribution.now" stays exactly as it is. The pen colour is the mark pink, not red, because red means Missing in the status marks. Each one is shown large, then at header size on desktop and on a phone. The writing animates once on load (not with reduced motion).</p>
+  <button class="replay" type="button">Write them again</button>
+  <div id="concepts"></div>
+</main>
+
+<template id="dots">
+  <svg class="dots" viewBox="0 0 64 64" aria-hidden="true"><defs><clipPath id="CLIP"><circle cx="22" cy="32" r="15"/></clipPath></defs><circle cx="22" cy="32" r="15" fill="#5e2dc4"/><circle cx="42" cy="32" r="15" fill="#e13b86"/><g clip-path="url(#CLIP)"><circle cx="42" cy="32" r="15" fill="#181527"/></g></svg>
+</template>
+
+<script>
+const CONCEPTS = [
+  {
+    id: 'a', name: "Proofreader's caret", hand: 'Nanum Pen Script',
+    note: 'The insertion mark from proofreading: a caret in the gap, "fix" written above it. Most "corrected homework". Adds height above the wordmark, so the header needs about 12px more room on top.',
+    html: `DOTS<span class="ins"><span class="fix">fix</span><svg class="pen" viewBox="0 0 12 12"><path pathLength="1" d="M1 11.2 6.2 1.4 11 11.4"/></svg></span><span class="wm">attribution.now</span>`,
+  },
+  {
+    id: 'b', name: 'Margin scrawl', hand: 'Gochi Hand',
+    note: 'Inline, tilted, with two quick underlines like a teacher stressing the word. Reads left to right as "fix attribution.now". Stays on one line on phones.',
+    html: `DOTS<span class="fix">fix<svg class="pen" viewBox="0 0 40 10" preserveAspectRatio="none"><path pathLength="1" d="M1 4.2c9-1.6 24-2.4 37-1.4"/><path pathLength="1" d="M5 8.4c8-1.1 19-1.6 30-0.9"/></svg></span><span class="wm">attribution.now</span>`,
+  },
+  {
+    id: 'c', name: 'Circled', hand: 'Kalam',
+    note: 'The ring a teacher draws around a word, loose and overshooting where the pen comes back. The ring keeps "fix" a separate mark, so the name still reads first.',
+    html: `DOTS<span class="fix">fix<svg class="pen" viewBox="0 0 60 40" preserveAspectRatio="none"><path pathLength="1" d="M44 4.5C30-1 6 3 3.5 17c-2.2 13 15 20 32 19.5C51 36 58.5 27 56.5 16 55 8.5 47 4.6 36.5 3.6"/></svg></span><span class="wm">attribution.now</span>`,
+  },
+  {
+    id: 'd', name: 'Note with arrow', hand: 'Caveat',
+    note: 'A raised note with a little arrow pointing into the name, as if the teacher scribbled the correction in the margin. The most playful, and the arrow repeats the site\'s arrow links.',
+    html: `DOTS<span class="fix">fix</span><span class="wm"><svg class="pen" viewBox="0 0 24 20" style="left:-1.12em;top:-0.18em"><path pathLength="1" d="M3 1.5c-.6 7.5 4.5 12.6 17.5 12.6"/><path pathLength="1" d="M15.6 9.6 20.6 14.1 15.6 18.4" style="--d:1050ms"/></svg>attribution.now</span>`,
+  },
+  {
+    id: 'e', name: 'Underlined sentence', hand: 'Reenie Beanie',
+    note: 'A thin, scratchy "fix" and one wavy line under the whole name, the way a teacher underlines a sentence that needs work. Most expressive; it adds a line under the wordmark, though the letters stay as they are.',
+    html: `DOTS<span class="fix">fix</span><span class="wm">attribution.now<svg class="pen" viewBox="0 0 200 10" preserveAspectRatio="none"><path pathLength="1" d="M2 6.5c14-3 22 2.5 36-.4s22-3.2 36 .2 22 2.9 36-.3 22-3 36 .2 22 2.6 36 .1 14-1.8 16-1.4"/></svg></span>`,
+  },
+];
+
+let clip = 0;
+function logo(c, scale) {
+  const dots = document.getElementById('dots').innerHTML.replaceAll('CLIP', `clip-${clip += 1}`);
+  return `<span class="logo c-${c.id}"${scale ? ` style="--s:${scale}"` : ''} aria-label="fix attribution.now">${c.html.replace('DOTS', dots)}</span>`;
+}
+
+const root = document.getElementById('concepts');
+root.innerHTML = CONCEPTS.map((c, i) => `
+  <section class="concept" aria-labelledby="h-${c.id}">
+    <header><span class="tag">${String.fromCharCode(65 + i)}</span><h2 id="h-${c.id}">${c.name}</h2><span class="tag">hand: ${c.hand}</span></header>
+    <p class="note">${c.note}</p>
+    <div class="stage">${logo(c)}</div>
+    <div class="sizes">
+      <div class="bar desk">${logo(c, 1)}<small>header, desktop</small></div>
+      <div class="bar phone">${logo(c, 0.885)}<span class="menu">Menu</span></div>
+    </div>
+  </section>`).join('');
+
+function write() {
+  document.body.classList.remove('write');
+  void document.body.offsetWidth;
+  document.body.classList.add('write');
+}
+document.querySelector('.replay').addEventListener('click', write);
+document.fonts.ready.then(write);
+</script>
+</body>
+</html>

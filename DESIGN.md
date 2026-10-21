@@ -90,7 +90,7 @@ components:
 
 ## Overview
 
-attribution.now is a text-only site whose structure is drawn in background colour. Each section is a full-bleed colour field, and the field tells you who the content is for: **Report violet** is the analysts' side (the website receiving the visit), **Link pink** is the labs' side (the assistant sending it), and **Direct haze** is shared ground where both read the same evidence. Heavy, friendly display type does the talking; there are no images. The single signature is the two-dot mark: one violet dot, one pink dot, reconnected.
+attribution.now is a text-only site whose structure is drawn in background colour. Each section is a full-bleed colour field, and the field tells you who the content is for: **Report violet** is the analysts' side (the website receiving the visit), **Link pink** is the labs' side (the assistant sending it), and **Direct haze** is shared ground where both read the same evidence. Heavy, friendly display type does the talking; there are no images. The single signature is the two-dot mark: one violet dot, one pink dot, reconnected. In the header, a hand-written "fix" in `mark-pink` sits between the mark and the name, tilted with two quick underlines, like a teacher's correction (Gochi Hand, outlined to SVG; the name itself never changes). It is the only hand-drawn element on the site.
 
 Anchor: the nicepage "Research, strategy and design" template (equal full-bleed colour panels, bold geometric display, one arrow per panel). We borrow its strategy (deep saturated + pale tint + warm accent, colour as structure, the arrow as the affordance) and fix its flaws: white body text on mid-tone colour (fails AA) and an orphaned cell at tablet width.
 
