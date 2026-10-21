@@ -1,0 +1,89 @@
+# Gemini iOS app 1.2026.4171302 on iOS 27.2. Link test session, 23:00-23:13 UTC; evidence is the worker's hit log.
+# Every link opened in Gemini's in-app web view (user agent "GoogleWv/1.0 (WKWebView) GeminiiOS"), with
+# Sec-Fetch-Site: none, no Referer header and an empty document.referrer, the same as a typed URL. No utm_*
+# arrived from any location, so every visit lands in Direct. Gemini's own fetches of the cited URLs show up
+# separately with user agent "Google" (chat) and "Gemini-Deep-Research" (deep research).
+date: 2026-10-21
+lab: google-gemini
+surface: ios
+method: manual
+tester: cedric
+client: Gemini 1.2026.4171302 (iOS app, in-app web view) / iOS 27.2
+source_url: null
+results:
+  - location: inline-citation
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/google-gemini/ios/inline-citation
+      notes: Opened in the in-app web view with Sec-Fetch-Site none.
+  - location: inline-citation
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on the landing URL.
+  - location: inline-citation
+    test: MRG-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-01/google-gemini/ios/inline-citation?a=1&b=2
+      notes: "?a=1&b=2 arrived intact (no tag is added, so the link is unchanged)."
+  - location: inline-citation
+    test: MRG-02
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-02/google-gemini/ios/inline-citation#section-2
+      notes: "#section-2 arrived intact (no tag is added)."
+  - location: inline-citation
+    test: MRG-03
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-03/google-gemini/ios/inline-citation?utm_source=newsletter&utm_medium=email
+      notes: utm_source=newsletter kept (no tag is added).
+  - location: inline-citation
+    test: MRG-04
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-04/google-gemini/ios/inline-citation?expires=2099-01-01&signature=abc123
+      notes: Signed URL unchanged (no tag is added).
+  - location: sources-panel
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/google-gemini/ios/sources-panel
+      notes: Opened in the in-app web view with Sec-Fetch-Site none.
+  - location: sources-panel
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on the landing URL.
+  - location: deep-research
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/google-gemini/ios/deep-research
+      notes: Clicked from the finished report. While researching, Gemini fetched the page with user agent Gemini-Deep-Research.
+  - location: deep-research
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on the landing URL.
+  - location: bare-url
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/google-gemini/ios/bare-url
+      notes: Opened in the in-app web view with Sec-Fetch-Site none.
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on the landing URL.
