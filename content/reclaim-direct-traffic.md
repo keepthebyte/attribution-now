@@ -19,6 +19,10 @@ ChatGPT adds `utm_source=chatgpt.com` to the links it sends, and OpenAI document
 
 Count a visit with both the tag and the referrer once.
 
+Why the tag first: over the past year, tagged ChatGPT visits grew from about 177,000 to 750,000 a day on sites measured by AEM Operational Telemetry, while visits with a chatgpt.com referrer fell from 167,000 to 9,000. By October 2026, only 0.7% of tagged visits still carried the referrer.
+
+<p><a href="/widgets/chatgpt-utm/chatgpt-utm.html">/widgets/chatgpt-utm/chatgpt-utm.html</a></p>
+
 
 ## Gemini: the referrer, then the hidden share
 

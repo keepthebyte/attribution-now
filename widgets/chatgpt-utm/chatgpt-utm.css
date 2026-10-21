@@ -1,0 +1,90 @@
+.chatgpt-utm {
+  margin-block: 24px;
+}
+
+.chatgpt-utm .chatgpt-utm-figure {
+  margin: 0;
+  padding: 24px clamp(16px, 3vw, 32px);
+  border-radius: var(--radius);
+  background: var(--page);
+}
+
+.chatgpt-utm .chatgpt-utm-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0 0 16px;
+  padding: 0;
+  font-size: var(--body-font-size-xs);
+  list-style: none;
+}
+
+.chatgpt-utm .chatgpt-utm-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* line keys: solid for the tag, dashed for the referrer, as in the chart */
+.chatgpt-utm .chatgpt-utm-legend li::before {
+  content: '';
+  flex: none;
+  width: 20px;
+  border-top: 3px solid var(--violet);
+}
+
+.chatgpt-utm .chatgpt-utm-legend .chatgpt-utm-key-referrer::before {
+  border-top-style: dashed;
+  border-top-color: var(--mark-pink);
+}
+
+/* fixed heights so jumping to the section doesn't shift when the charts draw */
+.chatgpt-utm .chatgpt-utm-chart {
+  position: relative;
+  height: clamp(260px, 42vw, 380px);
+}
+
+.chatgpt-utm .chatgpt-utm-share {
+  height: clamp(130px, 16vw, 170px);
+}
+
+.chatgpt-utm .chatgpt-utm-subtitle {
+  margin: 24px 0 8px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+}
+
+.chatgpt-utm figcaption {
+  margin-top: 16px;
+  text-wrap: pretty;
+  color: var(--ink-soft);
+  font-size: var(--body-font-size-xs);
+}
+
+.chatgpt-utm .chatgpt-utm-data {
+  margin-top: 12px;
+  font-size: var(--body-font-size-xs);
+}
+
+.chatgpt-utm .chatgpt-utm-data summary {
+  padding-block: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.chatgpt-utm .chatgpt-utm-data table {
+  margin-top: 8px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.chatgpt-utm .chatgpt-utm-data th,
+.chatgpt-utm .chatgpt-utm-data td {
+  padding: 2px 16px 2px 0;
+  text-align: right;
+}
+
+.chatgpt-utm .chatgpt-utm-data th[scope='row'],
+.chatgpt-utm .chatgpt-utm-data thead th:first-child {
+  text-align: left;
+}

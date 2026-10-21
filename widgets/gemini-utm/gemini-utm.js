@@ -1,7 +1,7 @@
 import { loadScript } from '../../scripts/aem.js';
 
 const DATA_URL = new URL('./gemini-utm.json', import.meta.url);
-const CHART_JS_URL = new URL('./vendor/chart.umd.min.js', import.meta.url);
+const CHART_JS_URL = new URL('../../scripts/vendor/chart.umd.min.js', import.meta.url);
 
 /** Resolves a CSS custom property to a colour string the canvas can paint */
 function token(el, name) {
