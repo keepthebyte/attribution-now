@@ -29,7 +29,7 @@ Tone rules (apply to all copy and generated text):
 | Lab | Surfaces in scope |
 | --- | --- |
 | OpenAI ChatGPT | Web, iOS app, Android app, macOS app, Windows app |
-| Google Gemini | Web, iOS app, Android app (incl. assistant entry points), Workspace (Gemini for business) |
+| Google Gemini | Web, iOS app, Android app (incl. assistant entry points), macOS app, Workspace (Gemini for business) |
 | Anthropic Claude | claude.ai web, iOS app, Android app, macOS app, Windows app, Claude in Chrome |
 
 Out of scope for v1 (data model must allow adding later): Google AI Mode / AI Overviews, Perplexity, Copilot, Meta AI, Grok, DeepSeek, Mistral, API/embedded contexts.

@@ -24,6 +24,12 @@ The computer-use rules forbid Claude from clicking web links in native apps, and
 
 Batch the clicks: set up one conversation that cites every URL for a location, then ask for all the clicks in one message, in a numbered list.
 
+## Testing Claude Desktop
+
+When the app under test is Claude itself, never type test prompts into the window running this session. Run the session in one Claude window and test in another: a second instance (e.g. the person's `Claude Work` or `Claude Private` launcher) or a separate window with a fresh conversation. Before the first prompt, confirm with a screenshot which window is the test target, and say which one it is in the result's top comment.
+
+If computer use won't grant access to the Claude app, stop and say so; don't fall back to links in this session's own replies. Those would test the session, not a normal conversation.
+
 ## Run
 
 1. **Client**: read the app version from its About window, and the OS version (`sw_vers` on macOS via Bash). Record the default browser too, since it receives the click: `client: "ChatGPT 1.2026.xxx (macOS app) → Chrome 155 / macOS 27.2"`.
