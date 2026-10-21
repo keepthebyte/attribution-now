@@ -1,12 +1,14 @@
 ---
-title: Estimate hidden AI traffic from ChatGPT, Gemini and Claude
-description: "For SEO, GEO and analytics teams: count ChatGPT by its utm_source tag, multiply Gemini referrals by 2.1 to 2.5, and treat Claude's referrer as a floor."
+title: Estimate hidden AI traffic from ChatGPT, Gemini, Claude, Copilot and Perplexity
+description: "For SEO, GEO and analytics teams: count ChatGPT by its tag, multiply Gemini referrals by 2.1 to 2.5, add Perplexity's tag to its referrer, treat Claude and Copilot as floors."
 template: guide
 ---
 
 # Estimate your hidden AI traffic
 
 Each assistant leaves different traces on the visits it sends: a referrer, a UTM tag, both or neither. So count them one assistant at a time. Start with what you can see, then add what we know is hidden. These steps reflect our tests as of October 2026; the [scorecard](/#scorecard) shows the current state.
+
+<div class="toc"><div><div><ul><li><a href="#chatgpt-start-with-the-tag">ChatGPT</a></li><li><a href="#gemini-the-referrer-then-the-hidden-share">Gemini</a></li><li><a href="#claude-the-referrer-as-a-floor">Claude</a></li><li><a href="#copilot-the-referrer-now-the-tag-is-fading">Copilot</a></li><li><a href="#perplexity-the-referrer-plus-the-tag">Perplexity</a></li><li><a href="#set-up-your-reports-so-they-keep-counting">Set up your reports</a></li></ul></div></div></div>
 
 
 ## ChatGPT: start with the tag
@@ -47,9 +49,30 @@ Links in Claude's answers on claude.ai send `https://claude.ai/` as the referrer
 2. Treat that number as a floor. Claude has never tagged its links, so we have no measured share for its hidden visits yet. We'll add one here when we can measure it.
 
 
+## Copilot: the referrer, now the tag is fading
+
+Microsoft Copilot sends a referrer from each of its sites: `copilot.com` and `copilot.microsoft.com` for consumers, `copilot.cloud.microsoft` and `m365copilotapp.svc.cloud.microsoft` for Microsoft 365. Links from copilot.microsoft.com also carried `utm_source=copilot.com`, but Copilot is moving its users to copilot.com, whose links carry no tag.
+
+1. Count visits with a referrer from any of the four Copilot sites.
+2. Add visits tagged `utm_source=copilot.com` that arrived with no referrer. Match values that start with `copilot.com`: some links arrive as `utm_source=copilot.com?form=MG0AUO`.
+3. Treat the total as a floor, especially on mobile. On sites measured by AEM Operational Telemetry in the 8 weeks to October 18, 2026, 93% of tagged mobile visits came with no referrer, so as the tag fades, those visits move to Direct.
+
+Between late August and mid-October 2026, visits from copilot.com grew more than tenfold, while tagged visits from copilot.microsoft.com fell by almost half.
+
+
+## Perplexity: the referrer plus the tag
+
+Perplexity on the web sends `https://www.perplexity.ai/` as the referrer, and no tag. Its apps do the opposite: they tag links `utm_source=perplexity` and send no referrer. On sites measured by AEM Operational Telemetry, August 24 to October 18, 2026, no visit carried both.
+
+1. Count visits with a `perplexity.ai` referrer.
+2. Add visits tagged `utm_source=perplexity`.
+
+Skip the second step and you miss more than a third of Perplexity's visits, nearly all of them on mobile.
+
+
 ## Set up your reports so they keep counting
 
 1. Create one channel for AI assistants and put it above Referral and Organic Search, so it wins.
-2. Match a visit when its source is `chatgpt.com`, `gemini.google.com`, `gemini`, `geminiforbusiness` or `claude.ai`, whether that source came from the referrer or from `utm_source`.
+2. Match a visit when its source is `chatgpt.com`, `gemini.google.com`, `gemini`, `geminiforbusiness`, `claude.ai`, `copilot.com`, `copilot.microsoft.com`, `copilot.cloud.microsoft`, `m365copilotapp.svc.cloud.microsoft`, `perplexity.ai` or `perplexity`, whether that source came from the referrer or from `utm_source`.
 3. Keep the Google exception from the ChatGPT steps: a `utm_source=chatgpt.com` visit with a Google referrer stays in Organic Search.
 4. Check a link yourself now and then: ask an assistant to link to [attribution.now/t/check](/t/check) and see what arrives. Assistants change their links without notice.
