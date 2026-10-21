@@ -121,10 +121,11 @@ Anchor: the nicepage "Research, strategy and design" template (equal full-bleed 
 **Bricolage Grotesque** (800/700) for display and headings: a heavy grotesque with optical quirks that keeps the anchor's bold geometric voice but feels warmer and less templated than Montserrat. **Hanken Grotesk** (400/500/700) for body and UI: open, even, very legible at 18px. Code and UTM values in the system monospace, never a webfont.
 
 ### Hierarchy
-Ratio 1.25 (committed). Display `clamp(2.5rem → 4.5rem)`, heading `clamp(1.75rem → 2.75rem)`, subheading 1.375rem, body 1.125rem / 1.6, small 0.9rem. No labels above headings: an audience line ("For teams at AI labs") is the first line of its heading, in the heading face and a second tone of the field.
+Ratio 1.25 (committed). Display `clamp(2.5rem → 4.5rem)`, heading `clamp(1.75rem → 2.75rem)`, subheading 1.375rem, body 1.125rem / 1.6, small 0.9rem. No labels above headings: an audience line ("For teams at AI labs") is the first line of its heading, in the heading face at half size (700, never below 1.2rem) and a second tone of the field, so the heading's promise stays the loud part.
 
 ### Named Rules
 - **Headlines carry the message; body never exceeds 65ch.**
+- **800 is for headlines only.** The H1, section H2s and the audience headings. Links, labels, card titles and the citation marker are 700 or lighter; status marks and row labels are 500. A section's heading is its message ("No assistant sends both signals yet…"), never a label like "Scorecard".
 - **Two families only.** Mono is the system stack.
 
 ## Layout
@@ -159,7 +160,7 @@ Cards are page-coloured on haze or pink fields, 14px radius, no border, no shado
 Inherit the field's text colour, underlined at 0.12em offset 0.2em; hover thickens the underline.
 
 ### Citations and charts
-A number claimed in a heading carries a citation marker: a small `pink-deep` pill with the footnote number in page colour, linking to the evidence further down the page. Evidence charts are widgets (`/widgets/<name>/`) drawn with Chart.js on a page-coloured card: report violet for what analytics can see, `mark-pink` for what it can't, haze for an annotated window. No gridlines on the x-axis, a `line-color` grid on y, the legend and source written as HTML around the canvas, and a "Daily numbers" table for screen readers and anyone who wants the data.
+A number claimed in a heading carries a citation marker: a small `pink-deep` pill with the footnote number in page colour (body face, 700), linking to the evidence further down the page. Evidence charts are widgets (`/widgets/<name>/`) drawn with Chart.js on a page-coloured card: report violet for what analytics can see, `mark-pink` for what it can't, haze for an annotated window. No gridlines on the x-axis, a `line-color` grid on y, the legend and source written as HTML around the canvas, and a "Daily numbers" table for screen readers and anyone who wants the data.
 
 ## Do's and Don'ts
 
