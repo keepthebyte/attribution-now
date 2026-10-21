@@ -200,6 +200,7 @@ pre {
 
 :not(pre) > code {
   overflow-wrap: anywhere;
+  color: var(--code-color, inherit);
   padding: 1px 6px;
   border-radius: 6px;
   background: var(--page);
@@ -390,6 +391,28 @@ main > .section > .default-content-wrapper > :first-child {
 main .section.light,
 main .section.highlight {
   background-color: var(--page);
+}
+
+/* audience fields: violet for analysts, pink for AI labs (section style or block field) */
+main .section.analysts,
+.field-analysts {
+  --link-color: var(--page);
+  --link-hover-color: var(--page);
+  --code-color: var(--ink);
+
+  background-color: var(--violet);
+  color: var(--page);
+}
+
+main .section.labs,
+.field-labs {
+  background-color: var(--pink);
+  color: var(--ink);
+}
+
+main .section.analysts :focus-visible,
+.field-analysts :focus-visible {
+  outline-color: var(--page);
 }
 
 /* a quieter aside: the section's text sits on one page-coloured card */
