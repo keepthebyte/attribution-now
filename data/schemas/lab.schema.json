@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Lab",
   "type": "object",
-  "required": ["id", "name", "company", "documented_utm", "docs_url", "contact", "what_works", "what_works_date", "surfaces", "work_items"],
+  "required": ["id", "name", "company", "documented_utm", "docs_url", "contact", "what_works", "what_works_date", "seo_summary", "surfaces", "work_items"],
   "additionalProperties": false,
   "$defs": {
     "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
@@ -21,6 +21,7 @@
     "contact": { "$ref": "#/$defs/nullableString" },
     "what_works": { "type": "string", "minLength": 1 },
     "what_works_date": { "$ref": "#/$defs/date" },
+    "seo_summary": { "type": "string", "minLength": 1, "maxLength": 125, "description": "The key finding in one sentence, for the meta description (after \"For <company> teams and analysts: \")." },
     "surfaces": {
       "type": "array",
       "minItems": 1,

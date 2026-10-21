@@ -351,8 +351,8 @@ function labPage(lab) {
     ),
   ];
   return page({
-    title: `${lab.name} link attribution status`,
-    description: `Referrer and UTM status for ${lab.name} links, by surface and link location, with next improvements.`,
+    title: `${lab.name} link attribution: referrer and UTM status`,
+    description: `For ${lab.company} teams and analysts: ${lab.seo_summary}`,
   }, sections);
 }
 
@@ -442,9 +442,9 @@ readdirSync(join(root, 'content')).filter((f) => f.endsWith('.md')).forEach((f) 
   pages.set(name === 'index' ? '/' : `/${name}`, () => renderMarkdown(f));
 });
 pages.set('/changelog', () => page({
-  title: 'Changelog',
+  title: 'AI assistant link attribution changelog',
   template: 'guide',
-  description: 'Dated changes to how AI assistants attribute outbound links, newest first.',
+  description: 'For analysts and AI lab teams: dated changes in how ChatGPT, Gemini and Claude tag and refer links, like Gemini\'s 11 days of UTM tags and ChatGPT\'s tag bug.',
 }, [section(
   '<h1>Changelog</h1>',
   p('Dated changes to link attribution, newest first. Shipped improvements come with a thank-you. <strong>Reported</strong> entries come from third parties and are not yet verified by us.'),

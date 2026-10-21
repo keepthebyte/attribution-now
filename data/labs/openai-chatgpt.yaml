@@ -10,6 +10,7 @@ what_works: >
   existing query parameters and inserts the tag before a `#fragment`. After a UI update in early October 2026,
   the tag was restored within about a week.
 what_works_date: 2026-10-20
+seo_summary: "ChatGPT tags every web link we tested with utm_source=chatgpt.com, but most arrive with no referrer."
 # link_locations are candidates until confirmed by a verified test run.
 surfaces:
   - id: web-desktop

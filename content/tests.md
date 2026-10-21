@@ -1,6 +1,6 @@
 ---
-title: Tests and methodology
-description: The tests attribution.now runs on AI assistant outbound links, how results are recorded, and how to reproduce them.
+title: "How we test AI assistant links: methodology and test IDs"
+description: "For analysts and lab engineers: the tests behind every status, per surface and link location (referrer, UTM, merge safety), and how to reproduce them."
 ---
 
 # Tests and methodology

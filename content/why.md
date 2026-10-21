@@ -1,6 +1,6 @@
 ---
-title: Why outbound link attribution matters
-description: Why AI labs benefit from sending a referrer and a documented UTM tag, seen from both the lab and the website side.
+title: Why AI labs should send a referrer and a UTM tag
+description: "For teams at AI labs: send your origin as the referrer and one documented utm_source, and every site can count and credit your visits, without exposing chats."
 ---
 
 # Why outbound link attribution matters

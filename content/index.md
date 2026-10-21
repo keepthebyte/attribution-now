@@ -1,6 +1,6 @@
 ---
-title: attribution.now
-description: How ChatGPT, Gemini and Claude attribute the visits they send, for the analysts who measure them and the labs who can fix it.
+title: "attribution.now: where AI assistant visits come from"
+description: "For SEO, GEO and analytics teams and AI labs: which ChatGPT, Gemini and Claude links carry a referrer or UTM tag. For Gemini, 52% of visits land in Direct."
 ---
 
 <h1 id="ai-assistants-send-you-visitors">AI assistants send you visitors. For Gemini, 52% of those visits show up as <em>"Direct"</em>.<a href="#how-we-know-gemini-tagged-its-links-for-11-days"><sup>1</sup></a></h1>

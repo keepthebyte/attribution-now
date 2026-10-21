@@ -9,6 +9,7 @@ what_works: >
   Links Claude writes in the answer text on claude.ai send `https://claude.ai/` as the referrer: the origin
   only, with no conversation path. Sites that read the referrer can already count those visits as Claude.
 what_works_date: 2026-10-20
+seo_summary: "Claude's answer links send the claude.ai referrer, but Claude adds no UTM tag and its citation chips send no referrer."
 # link_locations are candidates until confirmed by a verified test run.
 surfaces:
   - id: web
