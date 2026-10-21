@@ -47,8 +47,12 @@ function metadata(meta) {
   return block('metadata', rows);
 }
 
-function page({ title, description, robots }, sections) {
-  const meta = metadata({ Title: title, Description: description, Robots: robots });
+function page({
+  title, description, robots, template,
+}, sections) {
+  const meta = metadata({
+    Title: title, Description: description, Robots: robots, Template: template,
+  });
   const body = [...sections];
   body[body.length - 1] = body[body.length - 1].replace(/<\/div>$/, `${meta}</div>`);
   return `<!DOCTYPE html>
@@ -56,7 +60,8 @@ function page({ title, description, robots }, sections) {
 <head>
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">${robots ? `
-<meta name="robots" content="${esc(robots)}">` : ''}
+<meta name="robots" content="${esc(robots)}">` : ''}${template ? `
+<meta name="template" content="${esc(template)}">` : ''}
 </head>
 <body>
 <header></header>
