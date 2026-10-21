@@ -3,9 +3,9 @@ title: attribution.now
 description: How ChatGPT, Gemini and Claude attribute the visits they send, for the analysts who measure them and the labs who can fix it.
 ---
 
-# AI assistants send you visitors. Most of those visits show up as "Direct".
+# AI assistants send you visitors. Most of those visits show up as *"Direct"*.
 
-<div class="columns"><div><div>
+<div class="columns audiences"><div><div>
 <p>For SEO, GEO and analytics teams</p>
 <h2 id="your-ai-traffic-is-bigger-than-your-reports-show">Your AI traffic is bigger than your reports show</h2>
 <p>ChatGPT, Gemini and Claude send people to your site every day. Many of those visits arrive with no referrer and no UTM tag, so your analytics file them under Direct, next to bookmarks and typed URLs. We test each assistant on web, mobile and desktop, so you know which of its visits you can see and which you can't.</p>
@@ -34,3 +34,5 @@ See [how we test](/tests).
 ## Check a link yourself
 
 Ask any assistant to link to [attribution.now/t/check](/t/check), then open the link. The page shows the referrer and UTM tag it received.
+
+<div class="section-metadata"><div><div>Style</div><div>card</div></div></div>

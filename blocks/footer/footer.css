@@ -1,20 +1,41 @@
+/* source-ink field: system chrome */
 footer {
-  background-color: var(--light-color);
+  background-color: var(--ink);
+  color: var(--page);
   font-size: var(--body-font-size-xs);
 }
 
 footer .footer > div {
+  display: grid;
+  gap: 16px;
+  max-width: var(--max-width);
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 64px var(--gutter) 40px;
+  box-sizing: border-box;
+}
+
+footer .footer .brand-mark {
+  width: 48px;
+  height: 48px;
 }
 
 footer .footer p {
   margin: 0;
+  color: var(--haze);
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
-  }
+footer .footer .footer-mission {
+  max-width: 36rem;
+  color: var(--page);
+  font-size: var(--body-font-size-m);
+  font-weight: 500;
+}
+
+footer a:any-link,
+footer a:hover {
+  color: var(--page);
+}
+
+footer :focus-visible {
+  outline-color: var(--page);
 }

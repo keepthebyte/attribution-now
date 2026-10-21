@@ -1,0 +1,521 @@
+{
+  "_provenance": {
+    "renderedBy": "playwright",
+    "fetchedAt": "2026-10-21T06:54:05.285Z",
+    "waitMode": "medium",
+    "waitMs": 2500,
+    "httpStatus": 200
+  },
+  "slug": "labs-openai-chatgpt",
+  "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+  "renderedBy": "playwright",
+  "fetchedAt": "2026-10-21T06:54:05.285Z",
+  "finalUrl": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+  "title": "ChatGPT link attribution status",
+  "description": "Referrer and UTM status for ChatGPT links, by surface and link location, with next improvements.",
+  "og": {
+    "title": "ChatGPT link attribution status",
+    "description": "Referrer and UTM status for ChatGPT links, by surface and link location, with next improvements.",
+    "image": "https://attribution.now/default-meta-image.png?width=1200&format=pjpg&optimize=medium",
+    "type": null
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "ChatGPT"
+    },
+    {
+      "tag": "h2",
+      "text": "What works today"
+    },
+    {
+      "tag": "h2",
+      "text": "Status"
+    },
+    {
+      "tag": "h3",
+      "text": "Lab-wide"
+    },
+    {
+      "tag": "h2",
+      "text": "Next improvements"
+    },
+    {
+      "tag": "h3",
+      "text": "Send the chatgpt.com referrer on every web link location"
+    },
+    {
+      "tag": "h4",
+      "text": "Suggested fix"
+    },
+    {
+      "tag": "h3",
+      "text": "Keep sites' own UTM tags and signed URLs intact"
+    },
+    {
+      "tag": "h4",
+      "text": "Suggested fix"
+    },
+    {
+      "tag": "h3",
+      "text": "Pass an app referrer from the Android app"
+    },
+    {
+      "tag": "h4",
+      "text": "Suggested fix"
+    },
+    {
+      "tag": "h3",
+      "text": "Publish a changelog for link behavior"
+    },
+    {
+      "tag": "h4",
+      "text": "Suggested fix"
+    },
+    {
+      "tag": "h2",
+      "text": "Shipped"
+    }
+  ],
+  "body": [
+    "By OpenAI. Documented UTM: utm_source=chatgpt.com (docs).",
+    "OpenAI publishes the utm_source=chatgpt.com value in its publisher FAQ, and ChatGPT adds it to every outbound link we tested on the web: citations, links in the answer text and links the user pasted. It keeps existing query parameters and inserts the tag before a #fragment. After a UI update in early October 2026, the tag was restored within about a week.",
+    "As of 2026-10-20.",
+    "Rows are tests, columns are surfaces. Select a cell to see each link location, the date, the method and the evidence. Reported means a third-party report we have not yet verified first-hand. See how we test.",
+    "Test",
+    "Web",
+    "iOS app",
+    "Android app",
+    "macOS app",
+    "Windows app",
+    "REF-01 Referrer present",
+    "REF-02 No full-URL leak",
+    "REF-03 Link markup (web only)",
+    "UTM-01 UTM present",
+    "MRG-01 Keeps existing query",
+    "MRG-02 Keeps fragment",
+    "MRG-03 No overwrite",
+    "MRG-04 Signed URLs untouched",
+    "Test",
+    "All surfaces",
+    "UTM-02 UTM consistent",
+    "UTM-03 UTM documented",
+    "OPS-01 Changelog",
+    "Each card has two prompts you can paste: one for a coding assistant working in your codebase, one to file a ticket.",
+    "Web",
+    "REF-01, REF-03",
+    "chatgpt.com already sets an origin referrer policy, but every outbound link also has rel=\"noopener noreferrer\", so no referrer arrives and sites that rely on it count the visit as Direct.",
+    "Drop noreferrer from the outbound link component and keep noopener. The page's existing origin policy then sends https://chatgpt.com/ and nothing more. Add a regression test that checks each link location.",
+    "Web, iOS app, Android app, macOS app, Windows app",
+    "MRG-03, MRG-04",
+    "ChatGPT already merges the tag cleanly into existing queries and fragments. Two edge cases remain: a link that already has utm_source=newsletter gets it replaced with chatgpt.com, and signed URLs (with signature or expires) get the tag appended, which can break them.",
+    "Skip tagging when the URL already has a utm_* parameter or a signature/expiry parameter, as in the reference implementation and test vectors.",
+    "Android app",
+    "REF-01",
+    "The Android app carries the UTM tag, but no referrer arrives, so tools that rely on the referrer see Direct.",
+    "Open links in a Custom Tab and set Intent.EXTRA_REFERRER to android-app://com.openai.chatgpt, so the browser can pass an app referrer.",
+    "Web, iOS app, Android app, macOS app, Windows app",
+    "OPS-01",
+    "The October 2026 change was found by analytics vendors, not announced, so sites spent a week guessing why ChatGPT traffic dropped.",
+    "Add a dated \"Link attribution\" section to the publisher FAQ or release notes, and note there whenever the referrer or UTM behavior changes.",
+    "2026-10-15: ChatGPT restored the utm_source=chatgpt.com tag. Thank you to the OpenAI team for confirming within hours and shipping the fix within a day.",
+    "Full history on the changelog.",
+    "Last verified: 2026-10-20. Last checked: 2026-10-20.",
+    "Work on ChatGPT and see something out of date? Request a review and we will update the entry.",
+    "title",
+    "ChatGPT link attribution status",
+    "description",
+    "Referrer and UTM status for ChatGPT links, by surface and link location, with next improvements."
+  ],
+  "codeBlocks": [],
+  "ctas": [
+    {
+      "label": "attribution.now",
+      "href": "/"
+    },
+    {
+      "label": "Why",
+      "href": "/why"
+    },
+    {
+      "label": "Best practices",
+      "href": "/best-practices"
+    },
+    {
+      "label": "Claude",
+      "href": "/labs/anthropic-claude"
+    },
+    {
+      "label": "Gemini",
+      "href": "/labs/google-gemini"
+    },
+    {
+      "label": "ChatGPT",
+      "href": "/labs/openai-chatgpt"
+    },
+    {
+      "label": "Tests",
+      "href": "/tests"
+    },
+    {
+      "label": "Changelog",
+      "href": "/changelog"
+    },
+    {
+      "label": "Check a link",
+      "href": "/t/check"
+    },
+    {
+      "label": "docs",
+      "href": "https://help.openai.com/en/articles/12627856"
+    },
+    {
+      "label": "how we test",
+      "href": "/tests"
+    },
+    {
+      "label": "REF-01 Referrer present",
+      "href": "/tests#ref-01-referrer-present"
+    },
+    {
+      "label": "Missing (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Reported: missing (2026-04-21)",
+      "href": null
+    },
+    {
+      "label": "Reported: missing (2026-04-21)",
+      "href": null
+    },
+    {
+      "label": "Missing (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Reported: missing (2026-04-21)",
+      "href": null
+    },
+    {
+      "label": "REF-02 No full-URL leak",
+      "href": "/tests#ref-02-no-full-url-leak"
+    },
+    {
+      "label": "n/a (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "n/a (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "REF-03 Link markup (web only)",
+      "href": "/tests#ref-03-link-markup-web-only"
+    },
+    {
+      "label": "Missing (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "UTM-01 UTM present",
+      "href": "/tests#utm-01-utm-present"
+    },
+    {
+      "label": "Works (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Reported: works (2026-04-21)",
+      "href": null
+    },
+    {
+      "label": "Reported: works (2026-04-21)",
+      "href": null
+    },
+    {
+      "label": "Partial (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Reported: works (2026-04-21)",
+      "href": null
+    },
+    {
+      "label": "MRG-01 Keeps existing query",
+      "href": "/tests#mrg-01-keeps-existing-query"
+    },
+    {
+      "label": "Works (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "Works (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "MRG-02 Keeps fragment",
+      "href": "/tests#mrg-02-keeps-fragment"
+    },
+    {
+      "label": "Works (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "Works (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "MRG-03 No overwrite",
+      "href": "/tests#mrg-03-no-overwrite"
+    },
+    {
+      "label": "Missing (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "Missing (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "MRG-04 Signed URLs untouched",
+      "href": "/tests#mrg-04-signed-urls-untouched"
+    },
+    {
+      "label": "Missing (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "Missing (2026-10-20)",
+      "href": null
+    },
+    {
+      "label": "Untested",
+      "href": null
+    },
+    {
+      "label": "UTM-02 UTM consistent",
+      "href": "/tests#utm-02-utm-consistent"
+    },
+    {
+      "label": "UTM-03 UTM documented",
+      "href": "/tests#utm-03-utm-documented"
+    },
+    {
+      "label": "Reported: works (2026-10-19)",
+      "href": null
+    },
+    {
+      "label": "OPS-01 Changelog",
+      "href": "/tests#ops-01-changelog"
+    },
+    {
+      "label": "Reported: missing (2026-10-16)",
+      "href": null
+    },
+    {
+      "label": "REF-01",
+      "href": "/tests#ref-01-referrer-present"
+    },
+    {
+      "label": "REF-03",
+      "href": "/tests#ref-03-link-markup-web-only"
+    },
+    {
+      "label": "Copy prompt: fix in your coding harness",
+      "href": null
+    },
+    {
+      "label": "Copy prompt: file a ticket",
+      "href": null
+    },
+    {
+      "label": "MRG-03",
+      "href": "/tests#mrg-03-no-overwrite"
+    },
+    {
+      "label": "MRG-04",
+      "href": "/tests#mrg-04-signed-urls-untouched"
+    },
+    {
+      "label": "Copy prompt: fix in your coding harness",
+      "href": null
+    },
+    {
+      "label": "Copy prompt: file a ticket",
+      "href": null
+    },
+    {
+      "label": "REF-01",
+      "href": "/tests#ref-01-referrer-present"
+    },
+    {
+      "label": "Copy prompt: fix in your coding harness",
+      "href": null
+    },
+    {
+      "label": "Copy prompt: file a ticket",
+      "href": null
+    },
+    {
+      "label": "OPS-01",
+      "href": "/tests#ops-01-changelog"
+    },
+    {
+      "label": "Copy prompt: fix in your coding harness",
+      "href": null
+    },
+    {
+      "label": "Copy prompt: file a ticket",
+      "href": null
+    },
+    {
+      "label": "changelog",
+      "href": "/changelog"
+    },
+    {
+      "label": "Request a review",
+      "href": "https://github.com/keepthebyte/attribution-now/issues/new?template=lab-review.yml&labels=lab-review&title=Review%20request%3A%20ChatGPT"
+    },
+    {
+      "label": "Contribute",
+      "href": "/contribute"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/keepthebyte/attribution-now"
+    },
+    {
+      "label": "Apache License 2.0",
+      "href": "https://github.com/keepthebyte/attribution-now/blob/main/LICENSE"
+    }
+  ],
+  "links": [
+    "https://main--attribution-now--keepthebyte.aem.page/",
+    "https://main--attribution-now--keepthebyte.aem.page/why",
+    "https://main--attribution-now--keepthebyte.aem.page/best-practices",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/anthropic-claude",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/google-gemini",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+    "https://main--attribution-now--keepthebyte.aem.page/tests",
+    "https://main--attribution-now--keepthebyte.aem.page/changelog",
+    "https://main--attribution-now--keepthebyte.aem.page/t/check",
+    "https://help.openai.com/en/articles/12627856",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#ref-01-referrer-present",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#ref-02-no-full-url-leak",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#ref-03-link-markup-web-only",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#utm-01-utm-present",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#mrg-01-keeps-existing-query",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#mrg-02-keeps-fragment",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#mrg-03-no-overwrite",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#mrg-04-signed-urls-untouched",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#utm-02-utm-consistent",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#utm-03-utm-documented",
+    "https://main--attribution-now--keepthebyte.aem.page/tests#ops-01-changelog",
+    "https://github.com/keepthebyte/attribution-now/issues/new?template=lab-review.yml&labels=lab-review&title=Review%20request%3A%20ChatGPT",
+    "https://main--attribution-now--keepthebyte.aem.page/contribute",
+    "https://github.com/keepthebyte/attribution-now",
+    "https://github.com/keepthebyte/attribution-now/blob/main/LICENSE"
+  ],
+  "media": {
+    "imgs": [],
+    "allImgCount": 0,
+    "cssBackgrounds": [],
+    "modals": [],
+    "videos": [],
+    "iframes": []
+  },
+  "customProps": {
+    "--background-color": "white",
+    "--light-color": "#f8f8f8",
+    "--dark-color": "#505050",
+    "--text-color": "#131313",
+    "--link-color": "#3b63fb",
+    "--link-hover-color": "#1d3ecf",
+    "--line-color": "#dadada",
+    "--chip-works": "#d6f0dc",
+    "--chip-partial": "#fbeec2",
+    "--chip-missing": "#f6dcd6",
+    "--chip-reported": "#e3e7f7",
+    "--chip-untested": "#eee",
+    "--body-font-family": "roboto, roboto-fallback, sans-serif",
+    "--heading-font-family": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+    "--body-font-size-m": "18px",
+    "--body-font-size-s": "16px",
+    "--body-font-size-xs": "14px",
+    "--heading-font-size-xxl": "45px",
+    "--heading-font-size-xl": "36px",
+    "--heading-font-size-l": "28px",
+    "--heading-font-size-m": "22px",
+    "--heading-font-size-s": "20px",
+    "--heading-font-size-xs": "18px",
+    "--nav-height": "64px"
+  },
+  "_signals": {
+    "filteredInterstitials": 0,
+    "distinctHeadings": 11,
+    "mainTextLen": 15299,
+    "realImageCount": 0,
+    "trackingOnlyMedia": false,
+    "spaShellSuspect": false,
+    "screenshotMode": "fullPage"
+  },
+  "screenshot": "assets/screenshots/labs-openai-chatgpt.png",
+  "renderedHtml": "pages/labs-openai-chatgpt.html"
+}

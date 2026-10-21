@@ -1,0 +1,331 @@
+{
+  "_provenance": {
+    "renderedBy": "playwright",
+    "fetchedAt": "2026-10-21T06:54:05.095Z",
+    "waitMode": "medium",
+    "waitMs": 2500,
+    "httpStatus": 200
+  },
+  "slug": "tests",
+  "url": "https://main--attribution-now--keepthebyte.aem.page/tests",
+  "renderedBy": "playwright",
+  "fetchedAt": "2026-10-21T06:54:05.095Z",
+  "finalUrl": "https://main--attribution-now--keepthebyte.aem.page/tests",
+  "title": "Tests and methodology",
+  "description": "The tests attribution.now runs on AI assistant outbound links, how results are recorded, and how to reproduce them.",
+  "og": {
+    "title": "Tests and methodology",
+    "description": "The tests attribution.now runs on AI assistant outbound links, how results are recorded, and how to reproduce them.",
+    "image": "https://attribution.now/default-meta-image.png?width=1200&format=pjpg&optimize=medium",
+    "type": null
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Tests and methodology"
+    },
+    {
+      "tag": "h2",
+      "text": "Statuses"
+    },
+    {
+      "tag": "h2",
+      "text": "How to reproduce"
+    },
+    {
+      "tag": "h2",
+      "text": "Test catalog"
+    },
+    {
+      "tag": "h3",
+      "text": "REF-01: Referrer present"
+    },
+    {
+      "tag": "h3",
+      "text": "REF-02: No full-URL leak"
+    },
+    {
+      "tag": "h3",
+      "text": "REF-03: Link markup (web only)"
+    },
+    {
+      "tag": "h3",
+      "text": "UTM-01: UTM present"
+    },
+    {
+      "tag": "h3",
+      "text": "UTM-02: UTM consistent"
+    },
+    {
+      "tag": "h3",
+      "text": "UTM-03: UTM documented"
+    },
+    {
+      "tag": "h3",
+      "text": "MRG-01: Keeps existing query"
+    },
+    {
+      "tag": "h3",
+      "text": "MRG-02: Keeps fragment"
+    },
+    {
+      "tag": "h3",
+      "text": "MRG-03: No overwrite"
+    },
+    {
+      "tag": "h3",
+      "text": "MRG-04: Signed URLs untouched"
+    },
+    {
+      "tag": "h3",
+      "text": "OPS-01: Changelog"
+    },
+    {
+      "tag": "h2",
+      "text": "Test vectors"
+    }
+  ],
+  "body": [
+    "We test each surface (for example the web app or the iOS app) at each link location where a link can appear (inline citations, the sources panel, cards, deep research reports and more). Each test has a stable ID used in the data, on lab pages and in the prompts.",
+    "Works: verified passing.",
+    "Partial: passes on some link locations, not others.",
+    "Missing: verified not passing.",
+    "Reported: from a public third-party report, not yet verified by us.",
+    "Untested: no data yet.",
+    "n/a: does not apply, for example link markup on a native app.",
+    "The status shown for a cell is the most recent result by date. On the same date, a verified result (manual, automated or community) takes precedence over a reported one. Every cell links to its evidence.",
+    "Ask the assistant to cite or link one of the target pages below. For a self-identifying link use /t/<test>/<lab>/<surface>/<location>, for example /t/ref-01/openai-chatgpt/web-desktop/inline-citation.",
+    "Open the link from the answer.",
+    "The page shows the server-side Referer, document.referrer, the query string and the fragment. The visit is also logged (without IP addresses).",
+    "Record the result as described on Contribute.",
+    "Pass criteria: Request to the target carries Referer with the assistant's origin (e.g. https://chatgpt.com/).",
+    "When a person clicks a link, the browser can send a Referer header that names the page they came from. Analytics tools use it to say where a visit came from. If an assistant sends its origin, such as https://chatgpt.com/, the website can count the visit as coming from that assistant instead of \"Direct\".",
+    "Scope: per surface and link location. Target: /t/ref-01",
+    "Pass criteria: Referer is origin only; no conversation path or IDs.",
+    "The referrer should say which product sent the visit, not which conversation. Sending only the origin (https://claude.ai/) keeps conversation paths and IDs private while still giving websites the signal they need.",
+    "Scope: per surface and link location. Target: /t/ref-02",
+    "Pass criteria: Citation links use noopener without noreferrer; page/link referrer policy is origin or strict-origin-when-cross-origin.",
+    "On the web, rel=\"noreferrer\" and window.open(url, \"_blank\", \"noopener,noreferrer\") remove the referrer. rel=\"noopener\" alone keeps the security benefit and still lets the origin through. A referrer policy of origin or strict-origin-when-cross-origin sends the origin to other sites and never the full path.",
+    "Scope: per surface and link location, web surfaces only. Target: /t/ref-03",
+    "Pass criteria: Landing URL contains utm_source=<documented value>.",
+    "Apps and webviews often cannot send a referrer. A utm_source parameter on the link still tells the website where the visit came from. It works in every browser and every app.",
+    "Scope: per surface and link location. Target: /t/utm-01",
+    "Pass criteria: Same utm_source value on every surface and link location.",
+    "One stable value per product lets websites write one rule and keep it. Different values per app or per link type split the same traffic into several rows that teams then have to merge by hand.",
+    "Scope: once per lab. Target: /t/utm-02",
+    "Pass criteria: Value published in the lab's public docs/help.",
+    "A documented value turns a guess into a contract. Analytics vendors and site owners can add it to their channel rules with confidence, and they know where to look if it changes.",
+    "Scope: once per lab. Target: /t/utm-03",
+    "Pass criteria: Target ?a=1&b=2 arrives with a and b intact.",
+    "Many links already carry query parameters for search, filters or product variants. Adding attribution must keep every existing parameter and its value exactly as it was.",
+    "Scope: per surface and link location. Target: /t/mrg-01?a=1&b=2",
+    "Pass criteria: #section is preserved and the tag is inserted before it.",
+    "A fragment such as #section-2 points to a place on the page. Query parameters must go before the #; anything after it never reaches the server and breaks the jump to the right section.",
+    "Scope: per surface and link location. Target: /t/mrg-02#section-2",
+    "Pass criteria: Target with existing utm_source=newsletter keeps that value.",
+    "Some links already carry campaign tags set by the website itself. Replacing them would erase the site's own campaign data. The safe default is to leave existing utm_* parameters alone.",
+    "Scope: per surface and link location. Target: /t/mrg-03?utm_source=newsletter&utm_medium=email",
+    "Pass criteria: Target with signature/token/expires params arrives byte-identical.",
+    "Signed and expiring URLs (downloads, cloud storage, one-time links) stop working if a single byte changes. Links with parameters such as signature, token or expires should be passed through unchanged.",
+    "Scope: per surface and link location. Target: /t/mrg-04?expires=2099-01-01&signature=abc123",
+    "Pass criteria: Lab publishes link-behavior changes (help page, release notes).",
+    "Link behavior changes with UI updates. A short public note when it changes lets websites tell a product change from a real drop in traffic, and saves both sides time.",
+    "Scope: once per lab. Target: /t/ops-01",
+    "Use these input and output pairs to test a link-tagging function. They match the reference implementation on best practices. Each one runs as a unit test in our build.",
+    "Source value example.ai. Machine-readable: lib/vectors.json.",
+    "UTM-01 Adds the tag to a plain URLin: https://example.com/pageout: https://example.com/page?utm_source=example.ai",
+    "UTM-01 Adds source and medium (medium ai-assistant)in: https://example.com/pageout: https://example.com/page?utm_source=example.ai&utm_medium=ai-assistant",
+    "MRG-01 Keeps existing queryin: https://example.com/p?a=1&b=2out: https://example.com/p?a=1&b=2&utm_source=example.ai",
+    "MRG-01 Keeps existing encoding and valueless keysin: https://example.com/s?q=a%20b&flagout: https://example.com/s?q=a%20b&flag&utm_source=example.ai",
+    "MRG-02 Inserts before the fragmentin: https://example.com/doc#section-2out: https://example.com/doc?utm_source=example.ai#section-2",
+    "MRG-02 Query and fragmentin: https://example.com/doc?a=1#section-2out: https://example.com/doc?a=1&utm_source=example.ai#section-2",
+    "MRG-03 Leaves existing utm_source alonein: https://example.com/p?utm_source=newsletter&utm_medium=emailout: https://example.com/p?utm_source=newsletter&utm_medium=email",
+    "MRG-03 Any utm_* key counts, any casein: https://example.com/p?UTM_Campaign=fallout: https://example.com/p?UTM_Campaign=fall",
+    "MRG-04 Signed URL untouchedin: https://example.com/f?expires=2099-01-01&signature=abc123out: https://example.com/f?expires=2099-01-01&signature=abc123",
+    "MRG-04 Cloud storage signature untouchedin: https://bucket.s3.amazonaws.com/k?X-Amz-Signature=abc&X-Amz-Expires=60out: https://bucket.s3.amazonaws.com/k?X-Amz-Signature=abc&X-Amz-Expires=60",
+    "UTM-01 Non-http links untouchedin: mailto:hello@example.comout: mailto:hello@example.com",
+    "UTM-01 Invalid URL returned as isin: not a urlout: not a url",
+    "title",
+    "Tests and methodology",
+    "description",
+    "The tests attribution.now runs on AI assistant outbound links, how results are recorded, and how to reproduce them."
+  ],
+  "codeBlocks": [],
+  "ctas": [
+    {
+      "label": "attribution.now",
+      "href": "/"
+    },
+    {
+      "label": "Why",
+      "href": "/why"
+    },
+    {
+      "label": "Best practices",
+      "href": "/best-practices"
+    },
+    {
+      "label": "Claude",
+      "href": "/labs/anthropic-claude"
+    },
+    {
+      "label": "Gemini",
+      "href": "/labs/google-gemini"
+    },
+    {
+      "label": "ChatGPT",
+      "href": "/labs/openai-chatgpt"
+    },
+    {
+      "label": "Tests",
+      "href": "/tests"
+    },
+    {
+      "label": "Changelog",
+      "href": "/changelog"
+    },
+    {
+      "label": "Check a link",
+      "href": "/t/check"
+    },
+    {
+      "label": "Contribute",
+      "href": "/contribute"
+    },
+    {
+      "label": "/t/ref-01",
+      "href": "/t/ref-01"
+    },
+    {
+      "label": "/t/ref-02",
+      "href": "/t/ref-02"
+    },
+    {
+      "label": "/t/ref-03",
+      "href": "/t/ref-03"
+    },
+    {
+      "label": "/t/utm-01",
+      "href": "/t/utm-01"
+    },
+    {
+      "label": "/t/utm-02",
+      "href": "/t/utm-02"
+    },
+    {
+      "label": "/t/utm-03",
+      "href": "/t/utm-03"
+    },
+    {
+      "label": "/t/mrg-01?a=1&b=2",
+      "href": "/t/mrg-01?a=1&b=2"
+    },
+    {
+      "label": "/t/mrg-02#section-2",
+      "href": "/t/mrg-02"
+    },
+    {
+      "label": "/t/mrg-03?utm_source=newsletter&utm_medium=email",
+      "href": "/t/mrg-03?utm_source=newsletter&utm_medium=email"
+    },
+    {
+      "label": "/t/mrg-04?expires=2099-01-01&signature=abc123",
+      "href": "/t/mrg-04?expires=2099-01-01&signature=abc123"
+    },
+    {
+      "label": "/t/ops-01",
+      "href": "/t/ops-01"
+    },
+    {
+      "label": "best practices",
+      "href": "/best-practices"
+    },
+    {
+      "label": "lib/vectors.json",
+      "href": "https://github.com/keepthebyte/attribution-now/blob/main/lib/vectors.json"
+    },
+    {
+      "label": "Contribute",
+      "href": "/contribute"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/keepthebyte/attribution-now"
+    },
+    {
+      "label": "Apache License 2.0",
+      "href": "https://github.com/keepthebyte/attribution-now/blob/main/LICENSE"
+    }
+  ],
+  "links": [
+    "https://main--attribution-now--keepthebyte.aem.page/",
+    "https://main--attribution-now--keepthebyte.aem.page/why",
+    "https://main--attribution-now--keepthebyte.aem.page/best-practices",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/anthropic-claude",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/google-gemini",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+    "https://main--attribution-now--keepthebyte.aem.page/tests",
+    "https://main--attribution-now--keepthebyte.aem.page/changelog",
+    "https://main--attribution-now--keepthebyte.aem.page/t/check",
+    "https://main--attribution-now--keepthebyte.aem.page/contribute",
+    "https://main--attribution-now--keepthebyte.aem.page/t/ref-01",
+    "https://main--attribution-now--keepthebyte.aem.page/t/ref-02",
+    "https://main--attribution-now--keepthebyte.aem.page/t/ref-03",
+    "https://main--attribution-now--keepthebyte.aem.page/t/utm-01",
+    "https://main--attribution-now--keepthebyte.aem.page/t/utm-02",
+    "https://main--attribution-now--keepthebyte.aem.page/t/utm-03",
+    "https://main--attribution-now--keepthebyte.aem.page/t/mrg-01?a=1&b=2",
+    "https://main--attribution-now--keepthebyte.aem.page/t/mrg-02",
+    "https://main--attribution-now--keepthebyte.aem.page/t/mrg-03?utm_source=newsletter&utm_medium=email",
+    "https://main--attribution-now--keepthebyte.aem.page/t/mrg-04?expires=2099-01-01&signature=abc123",
+    "https://main--attribution-now--keepthebyte.aem.page/t/ops-01",
+    "https://github.com/keepthebyte/attribution-now/blob/main/lib/vectors.json",
+    "https://github.com/keepthebyte/attribution-now",
+    "https://github.com/keepthebyte/attribution-now/blob/main/LICENSE"
+  ],
+  "media": {
+    "imgs": [],
+    "allImgCount": 0,
+    "cssBackgrounds": [],
+    "modals": [],
+    "videos": [],
+    "iframes": []
+  },
+  "customProps": {
+    "--background-color": "white",
+    "--light-color": "#f8f8f8",
+    "--dark-color": "#505050",
+    "--text-color": "#131313",
+    "--link-color": "#3b63fb",
+    "--link-hover-color": "#1d3ecf",
+    "--line-color": "#dadada",
+    "--chip-works": "#d6f0dc",
+    "--chip-partial": "#fbeec2",
+    "--chip-missing": "#f6dcd6",
+    "--chip-reported": "#e3e7f7",
+    "--chip-untested": "#eee",
+    "--body-font-family": "roboto, roboto-fallback, sans-serif",
+    "--heading-font-family": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+    "--body-font-size-m": "18px",
+    "--body-font-size-s": "16px",
+    "--body-font-size-xs": "14px",
+    "--heading-font-size-xxl": "45px",
+    "--heading-font-size-xl": "36px",
+    "--heading-font-size-l": "28px",
+    "--heading-font-size-m": "22px",
+    "--heading-font-size-s": "20px",
+    "--heading-font-size-xs": "18px",
+    "--nav-height": "64px"
+  },
+  "_signals": {
+    "filteredInterstitials": 0,
+    "distinctHeadings": 16,
+    "mainTextLen": 7250,
+    "realImageCount": 0,
+    "trackingOnlyMedia": false,
+    "spaShellSuspect": false,
+    "screenshotMode": "fullPage"
+  },
+  "screenshot": "assets/screenshots/tests.png",
+  "renderedHtml": "pages/tests.html"
+}

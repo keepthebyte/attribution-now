@@ -1,0 +1,353 @@
+{
+  "_provenance": {
+    "renderedBy": "playwright",
+    "fetchedAt": "2026-10-21T06:54:04.910Z",
+    "waitMode": "medium",
+    "waitMs": 2500,
+    "httpStatus": 200
+  },
+  "slug": "index",
+  "url": "https://main--attribution-now--keepthebyte.aem.page/",
+  "renderedBy": "playwright",
+  "fetchedAt": "2026-10-21T06:54:04.910Z",
+  "finalUrl": "https://main--attribution-now--keepthebyte.aem.page/",
+  "title": "attribution.now",
+  "description": "How ChatGPT, Gemini and Claude attribute the visits they send, for the analysts who measure them and the labs who can fix it.",
+  "og": {
+    "title": "attribution.now",
+    "description": "How ChatGPT, Gemini and Claude attribute the visits they send, for the analysts who measure them and the labs who can fix it.",
+    "image": "https://attribution.now/default-meta-image.png?width=1200&format=pjpg&optimize=medium",
+    "type": null
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "AI assistants send you visitors. Most of those visits show up as \"Direct\"."
+    },
+    {
+      "tag": "h2",
+      "text": "Your AI traffic is bigger than your reports show"
+    },
+    {
+      "tag": "h2",
+      "text": "Small fixes, so every site can see the visits you send"
+    },
+    {
+      "tag": "h2",
+      "text": "Scorecard"
+    },
+    {
+      "tag": "h3",
+      "text": "Claude"
+    },
+    {
+      "tag": "h3",
+      "text": "Gemini"
+    },
+    {
+      "tag": "h3",
+      "text": "ChatGPT"
+    },
+    {
+      "tag": "h2",
+      "text": "Check a link yourself"
+    }
+  ],
+  "body": [
+    "For SEO, GEO and analytics teams",
+    "ChatGPT, Gemini and Claude send people to your site every day. Many of those visits arrive with no referrer and no UTM tag, so your analytics file them under Direct, next to bookmarks and typed URLs. We test each assistant on web, mobile and desktop, so you know which of its visits you can see and which you can't.",
+    "Estimate your hidden AI traffic",
+    "See what each assistant sends",
+    "For teams at AI labs",
+    "When a link from your assistant arrives with no referrer or tag, the site can't give you credit. The fixes are small: send your origin as the referrer, and add one documented utm_source value. Each lab page shows what already works, what to fix next, and a prompt your team can paste into a coding assistant or a ticket.",
+    "See your status: ChatGPT · Gemini · Claude",
+    "Why it matters · Best practices",
+    "What arrives with a visit when someone clicks a link in each assistant: the assistant as the referrer, and a UTM tag.",
+    "No assistant sends both signals yet, on any surface we have tested.",
+    "Assistant",
+    "Web",
+    "Mobile apps",
+    "Desktop apps",
+    "Documented UTM",
+    "Anthropic",
+    "Referrer: Partial",
+    "UTM: Missing",
+    "Referrer: Reported missing",
+    "UTM: Reported missing",
+    "Referrer: Missing",
+    "UTM: Missing",
+    "No",
+    "Google",
+    "Referrer: Works",
+    "UTM: Missing",
+    "Referrer: Reported missing",
+    "UTM: Reported missing",
+    "Referrer: Missing",
+    "UTM: Missing",
+    "No",
+    "OpenAI",
+    "Referrer: Missing",
+    "UTM: Works",
+    "Referrer: Reported missing",
+    "UTM: Reported works",
+    "Referrer: Missing",
+    "UTM: Partial",
+    "Yes: chatgpt.com",
+    "Reported means a third-party report we have not yet verified first-hand. Select a status to see the evidence on the lab page.",
+    "See how we test.",
+    "Ask any assistant to link to attribution.now/t/check, then open the link. The page shows the referrer and UTM tag it received."
+  ],
+  "codeBlocks": [],
+  "ctas": [
+    {
+      "label": "attribution.now",
+      "href": "/"
+    },
+    {
+      "label": "Why",
+      "href": "/why"
+    },
+    {
+      "label": "Best practices",
+      "href": "/best-practices"
+    },
+    {
+      "label": "Claude",
+      "href": "/labs/anthropic-claude"
+    },
+    {
+      "label": "Gemini",
+      "href": "/labs/google-gemini"
+    },
+    {
+      "label": "ChatGPT",
+      "href": "/labs/openai-chatgpt"
+    },
+    {
+      "label": "Tests",
+      "href": "/tests"
+    },
+    {
+      "label": "Changelog",
+      "href": "/changelog"
+    },
+    {
+      "label": "Check a link",
+      "href": "/t/check"
+    },
+    {
+      "label": "Estimate your hidden AI traffic",
+      "href": "/reclaim-direct-traffic"
+    },
+    {
+      "label": "See what each assistant sends",
+      "href": "#scorecard"
+    },
+    {
+      "label": "ChatGPT",
+      "href": "/labs/openai-chatgpt"
+    },
+    {
+      "label": "Gemini",
+      "href": "/labs/google-gemini"
+    },
+    {
+      "label": "Claude",
+      "href": "/labs/anthropic-claude"
+    },
+    {
+      "label": "Why it matters",
+      "href": "/why"
+    },
+    {
+      "label": "Best practices",
+      "href": "/best-practices"
+    },
+    {
+      "label": "Claude",
+      "href": "/labs/anthropic-claude"
+    },
+    {
+      "label": "Referrer: Partial",
+      "href": "/labs/anthropic-claude#status-ref-01"
+    },
+    {
+      "label": "UTM: Missing",
+      "href": "/labs/anthropic-claude#status-utm-01"
+    },
+    {
+      "label": "Referrer: Reported missing",
+      "href": "/labs/anthropic-claude#status-ref-01"
+    },
+    {
+      "label": "UTM: Reported missing",
+      "href": "/labs/anthropic-claude#status-utm-01"
+    },
+    {
+      "label": "Referrer: Missing",
+      "href": "/labs/anthropic-claude#status-ref-01"
+    },
+    {
+      "label": "UTM: Missing",
+      "href": "/labs/anthropic-claude#status-utm-01"
+    },
+    {
+      "label": "No",
+      "href": "/labs/anthropic-claude#status-utm-03"
+    },
+    {
+      "label": "Gemini",
+      "href": "/labs/google-gemini"
+    },
+    {
+      "label": "Referrer: Works",
+      "href": "/labs/google-gemini#status-ref-01"
+    },
+    {
+      "label": "UTM: Missing",
+      "href": "/labs/google-gemini#status-utm-01"
+    },
+    {
+      "label": "Referrer: Reported missing",
+      "href": "/labs/google-gemini#status-ref-01"
+    },
+    {
+      "label": "UTM: Reported missing",
+      "href": "/labs/google-gemini#status-utm-01"
+    },
+    {
+      "label": "Referrer: Missing",
+      "href": "/labs/google-gemini#status-ref-01"
+    },
+    {
+      "label": "UTM: Missing",
+      "href": "/labs/google-gemini#status-utm-01"
+    },
+    {
+      "label": "No",
+      "href": "/labs/google-gemini#status-utm-03"
+    },
+    {
+      "label": "ChatGPT",
+      "href": "/labs/openai-chatgpt"
+    },
+    {
+      "label": "Referrer: Missing",
+      "href": "/labs/openai-chatgpt#status-ref-01"
+    },
+    {
+      "label": "UTM: Works",
+      "href": "/labs/openai-chatgpt#status-utm-01"
+    },
+    {
+      "label": "Referrer: Reported missing",
+      "href": "/labs/openai-chatgpt#status-ref-01"
+    },
+    {
+      "label": "UTM: Reported works",
+      "href": "/labs/openai-chatgpt#status-utm-01"
+    },
+    {
+      "label": "Referrer: Missing",
+      "href": "/labs/openai-chatgpt#status-ref-01"
+    },
+    {
+      "label": "UTM: Partial",
+      "href": "/labs/openai-chatgpt#status-utm-01"
+    },
+    {
+      "label": "Yes: chatgpt.com",
+      "href": "/labs/openai-chatgpt#status-utm-03"
+    },
+    {
+      "label": "how we test",
+      "href": "/tests"
+    },
+    {
+      "label": "attribution.now/t/check",
+      "href": "/t/check"
+    },
+    {
+      "label": "Contribute",
+      "href": "/contribute"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/keepthebyte/attribution-now"
+    },
+    {
+      "label": "Apache License 2.0",
+      "href": "https://github.com/keepthebyte/attribution-now/blob/main/LICENSE"
+    }
+  ],
+  "links": [
+    "https://main--attribution-now--keepthebyte.aem.page/",
+    "https://main--attribution-now--keepthebyte.aem.page/why",
+    "https://main--attribution-now--keepthebyte.aem.page/best-practices",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/anthropic-claude",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/google-gemini",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+    "https://main--attribution-now--keepthebyte.aem.page/tests",
+    "https://main--attribution-now--keepthebyte.aem.page/changelog",
+    "https://main--attribution-now--keepthebyte.aem.page/t/check",
+    "https://main--attribution-now--keepthebyte.aem.page/reclaim-direct-traffic",
+    "https://main--attribution-now--keepthebyte.aem.page/#scorecard",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/anthropic-claude#status-ref-01",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/anthropic-claude#status-utm-01",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/anthropic-claude#status-utm-03",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/google-gemini#status-ref-01",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/google-gemini#status-utm-01",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/google-gemini#status-utm-03",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt#status-ref-01",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt#status-utm-01",
+    "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt#status-utm-03",
+    "https://main--attribution-now--keepthebyte.aem.page/contribute",
+    "https://github.com/keepthebyte/attribution-now",
+    "https://github.com/keepthebyte/attribution-now/blob/main/LICENSE"
+  ],
+  "media": {
+    "imgs": [],
+    "allImgCount": 0,
+    "cssBackgrounds": [],
+    "modals": [],
+    "videos": [],
+    "iframes": []
+  },
+  "customProps": {
+    "--background-color": "white",
+    "--light-color": "#f8f8f8",
+    "--dark-color": "#505050",
+    "--text-color": "#131313",
+    "--link-color": "#3b63fb",
+    "--link-hover-color": "#1d3ecf",
+    "--line-color": "#dadada",
+    "--chip-works": "#d6f0dc",
+    "--chip-partial": "#fbeec2",
+    "--chip-missing": "#f6dcd6",
+    "--chip-reported": "#e3e7f7",
+    "--chip-untested": "#eee",
+    "--body-font-family": "roboto, roboto-fallback, sans-serif",
+    "--heading-font-family": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+    "--body-font-size-m": "18px",
+    "--body-font-size-s": "16px",
+    "--body-font-size-xs": "14px",
+    "--heading-font-size-xxl": "45px",
+    "--heading-font-size-xl": "36px",
+    "--heading-font-size-l": "28px",
+    "--heading-font-size-m": "22px",
+    "--heading-font-size-s": "20px",
+    "--heading-font-size-xs": "18px",
+    "--nav-height": "64px"
+  },
+  "_signals": {
+    "filteredInterstitials": 0,
+    "distinctHeadings": 8,
+    "mainTextLen": 1935,
+    "realImageCount": 0,
+    "trackingOnlyMedia": false,
+    "spaShellSuspect": false,
+    "screenshotMode": "fullPage"
+  },
+  "screenshot": "assets/screenshots/index.png",
+  "renderedHtml": "pages/index.html"
+}

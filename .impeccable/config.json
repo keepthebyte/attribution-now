@@ -1,0 +1,56 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "stardust/prototypes/index-proposed.html"
+        ],
+        "createdAt": "2026-10-21T07:17:07.232Z",
+        "reason": "agent: Playwright computed .field padding 32px 20px at 360 and 64px + edge inset at 1440; detector misreads custom-property padding"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "stardust/current/brand-review.html"
+        ],
+        "createdAt": "2026-10-21T07:17:07.289Z",
+        "reason": "agent: stardust extract artifact documenting the current stock-boilerplate site, not shipped UI"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "stardust/current/brand-review.html"
+        ],
+        "createdAt": "2026-10-21T07:17:07.347Z",
+        "reason": "agent: stardust extract artifact documenting the current stock-boilerplate site, not shipped UI"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "stardust/current/brand-review.html"
+        ],
+        "createdAt": "2026-10-21T07:17:07.405Z",
+        "reason": "agent: stardust extract artifact documenting the current stock-boilerplate site, not shipped UI"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "hanken-fallback",
+        "createdAt": "2026-10-21T07:27:56.184Z",
+        "reason": "agent: metric-adjusted local Arial fallback faces for the DESIGN.md fonts (CLS guard), not a new typeface"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "bricolage-fallback",
+        "createdAt": "2026-10-21T07:27:56.224Z",
+        "reason": "agent: metric-adjusted local Arial fallback faces for the DESIGN.md fonts (CLS guard), not a new typeface"
+      }
+    ]
+  }
+}

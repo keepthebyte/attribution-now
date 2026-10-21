@@ -1,0 +1,263 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:extract",
+    "writtenAt": "2026-10-21T06:55:26.901Z",
+    "readArtifacts": [
+      "stardust/current/_computed-styles.json",
+      "stardust/current/pages/index.json",
+      "stardust/current/pages/why.json",
+      "stardust/current/pages/labs-openai-chatgpt.json",
+      "stardust/current/pages/tests.json"
+    ],
+    "synthesizedInputs": [],
+    "stardustVersion": "0.34.0",
+    "notes": "Source host is the EDS preview (main--attribution-now--keepthebyte.aem.page) because the new homepage copy is in preview only; content is otherwise identical to https://attribution.now. Census ran at 390px only. The visual system is the stock aem-boilerplate; brand signal is thin by construction."
+  },
+  "site": {
+    "name": "attribution.now",
+    "tagline": "AI assistants send you visitors. Most of those visits show up as \"Direct\".",
+    "originUrl": "https://attribution.now",
+    "capturedFrom": "https://main--attribution-now--keepthebyte.aem.page"
+  },
+  "origins": [
+    {
+      "origin": "https://main--attribution-now--keepthebyte.aem.page",
+      "role": "primary",
+      "pages": 4
+    }
+  ],
+  "logo": {
+    "source": "none",
+    "path": null,
+    "note": "Wordmark is plain text \"attribution.now\" in the nav; no logo asset exists."
+  },
+  "favicon": {
+    "path": "stardust/current/assets/favicon.ico"
+  },
+  "palette": [
+    {
+      "hex": "#131313",
+      "role": "text",
+      "weight": 503,
+      "sources": [
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/tests",
+          "selector": "#nav > div:nth-of-type(2) > div > p > a",
+          "prop": "text"
+        },
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+          "selector": "#nav > div:nth-of-type(2) > div > p > a",
+          "prop": "text"
+        }
+      ]
+    },
+    {
+      "hex": "#3b63fb",
+      "role": "primary",
+      "weight": 132,
+      "sources": [
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+          "selector": "main > div:nth-of-type(1) > div > p:nth-of-type(1) > a",
+          "prop": "text"
+        },
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+          "selector": "main > div:nth-of-type(1) > div > p:nth-of-type(1) > a",
+          "prop": "link"
+        }
+      ]
+    },
+    {
+      "hex": "#dadada",
+      "role": "border",
+      "weight": 86,
+      "sources": [
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+          "selector": "div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > table > thead > tr > th:nth-of-type(1)",
+          "prop": "border"
+        },
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/",
+          "selector": "div:nth-of-type(2) > div:nth-of-type(3) > div > div > table > thead > tr > th:nth-of-type(1)",
+          "prop": "border"
+        }
+      ]
+    },
+    {
+      "hex": "#eeeeee",
+      "role": "surface",
+      "weight": 44,
+      "sources": [
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+          "selector": "#status-ref-02 > td:nth-of-type(2) > button > span",
+          "prop": "background"
+        },
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+          "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button",
+          "prop": "background"
+        }
+      ]
+    },
+    {
+      "hex": "#f6dcd6",
+      "role": "status-missing",
+      "weight": 23,
+      "sources": [
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/",
+          "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(2) > a",
+          "prop": "background"
+        },
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/",
+          "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(2) > a",
+          "prop": "button-background"
+        }
+      ]
+    },
+    {
+      "hex": "#ffffff",
+      "role": "background",
+      "weight": 14,
+      "sources": [
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/tests",
+          "selector": "body",
+          "prop": "background"
+        },
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+          "selector": "body",
+          "prop": "background"
+        }
+      ]
+    },
+    {
+      "hex": "#d6f0dc",
+      "role": "status-works",
+      "weight": 9,
+      "sources": [
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+          "selector": "#status-utm-01 > td:nth-of-type(1) > button > span",
+          "prop": "background"
+        },
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/",
+          "selector": "div > div > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+          "prop": "background"
+        }
+      ]
+    },
+    {
+      "hex": "#fbeec2",
+      "role": "status-partial",
+      "weight": 5,
+      "sources": [
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/",
+          "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+          "prop": "background"
+        },
+        {
+          "url": "https://main--attribution-now--keepthebyte.aem.page/",
+          "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+          "prop": "button-background"
+        }
+      ]
+    },
+    {
+      "hex": "#e3e7f7",
+      "role": "status-reported",
+      "weight": null,
+      "sources": [
+        {
+          "url": "styles/styles.css",
+          "selector": ":root",
+          "prop": "--chip-reported"
+        }
+      ]
+    }
+  ],
+  "type": {
+    "headingFamily": {
+      "name": "Roboto Condensed",
+      "weights": [
+        700
+      ]
+    },
+    "bodyFamily": {
+      "name": "Roboto",
+      "weights": [
+        400,
+        700
+      ]
+    },
+    "sizes": [
+      55,
+      44,
+      34,
+      22,
+      19,
+      17
+    ],
+    "scaleAudit": {
+      "kind": "ad-hoc",
+      "note": "boilerplate clamp-free sizes at 390px: 55/44/34 headings, 22 body, 19/17 small"
+    }
+  },
+  "spacing": {
+    "note": "boilerplate section padding 40px 24px; no custom rhythm"
+  },
+  "motifs": {
+    "radius": {
+      "pill": "999px",
+      "card": "12px",
+      "table": "8px"
+    },
+    "shadows": [
+      "inset 0 0 0 1px #dadada"
+    ],
+    "gradients": [],
+    "patterns": [
+      "pill button",
+      "status chip",
+      "bordered card (lab tiles, work items)",
+      "data table"
+    ]
+  },
+  "componentStyle": {
+    "buttons": "pill, dark fill primary / outline secondary (boilerplate)",
+    "chips": "pill pastel status chips (works/partial/missing/reported/untested)"
+  },
+  "systemComponents": [
+    {
+      "name": "site header",
+      "pages": 4,
+      "content": "wordmark, nav (Why, Best practices, Claude, Gemini, ChatGPT, Tests, Changelog), Check a link"
+    },
+    {
+      "name": "site footer",
+      "pages": 4,
+      "content": "mission line, Contribute · GitHub · license"
+    }
+  ],
+  "iconFont": null,
+  "voice": {
+    "heroHeadline": "AI assistants send you visitors. Most of those visits show up as \"Direct\".",
+    "ctaSamples": [
+      "Estimate your hidden AI traffic",
+      "See what each assistant sends",
+      "Why it matters"
+    ],
+    "tone": "plain, factual, courteous; partnership framing",
+    "heroImage": null,
+    "heroMedium": null
+  },
+  "register": "brand"
+}

@@ -1,0 +1,28 @@
+{
+  "discovery": {
+    "fetchTechnique": "headless",
+    "count": 4,
+    "concurrency": 4
+  },
+  "consent": {
+    "method": "auto"
+  },
+  "favicon": {
+    "url": "https://main--attribution-now--keepthebyte.aem.page/favicon.ico",
+    "file": "assets/favicon.ico"
+  },
+  "crawl": {
+    "failures": []
+  },
+  "captureGaps": {
+    "roots": [
+      {
+        "root": "/why",
+        "slug": "why",
+        "linked": 0,
+        "uncaptured": []
+      }
+    ],
+    "detail": "uncaptured first-level targets: why 0"
+  }
+}

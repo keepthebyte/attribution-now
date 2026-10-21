@@ -60,7 +60,38 @@
 .status-table .chip-works { background: var(--chip-works); }
 .status-table .chip-partial { background: var(--chip-partial); }
 .status-table .chip-missing { background: var(--chip-missing); }
-.status-table .chip-reported { background: var(--chip-reported); }
+
+.status-table .chip-reported {
+  outline: 1.5px dashed var(--ink-soft);
+  outline-offset: -1.5px;
+  background: var(--chip-reported);
+}
+
+/* colour lives in the dot, the word carries the meaning */
+.status-table .chip-works::before,
+.status-table .chip-partial::before,
+.status-table .chip-missing::before,
+.status-table .chip-finding-works::before,
+.status-table .chip-finding-partial::before,
+.status-table .chip-finding-missing::before {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 6px;
+  border-radius: 50%;
+  vertical-align: 0.05em;
+}
+
+.status-table .chip-works::before,
+.status-table .chip-finding-works::before { background: var(--works); }
+
+.status-table .chip-partial::before,
+.status-table .chip-finding-partial::before { background: var(--partial); }
+
+.status-table .chip-missing::before,
+.status-table .chip-finding-missing::before { background: var(--missing); }
+
 
 .status-table .chip-na {
   background: transparent;

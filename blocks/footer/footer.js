@@ -1,4 +1,5 @@
 import { getMetadata } from '../../scripts/aem.js';
+import { brandMark } from '../../scripts/brand-mark.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -14,7 +15,11 @@ export default async function decorate(block) {
   // decorate footer DOM
   block.textContent = '';
   const footer = document.createElement('div');
+  footer.append(brandMark({ reversed: true }));
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
+
+  // the first paragraph is the mission line
+  footer.querySelector('p')?.classList.add('footer-mission');
 
   block.append(footer);
 }

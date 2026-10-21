@@ -1,0 +1,3693 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:extract",
+    "writtenAt": "2026-10-21T06:54:59.065Z",
+    "script": "style-census.mjs",
+    "readArtifacts": [
+      "https://main--attribution-now--keepthebyte.aem.page/",
+      "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+      "https://main--attribution-now--keepthebyte.aem.page/tests",
+      "https://main--attribution-now--keepthebyte.aem.page/why"
+    ],
+    "widths": [
+      390
+    ],
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+    "synthesizedInputs": [],
+    "failed": []
+  },
+  "pages": {
+    "https://main--attribution-now--keepthebyte.aem.page/": {
+      "390": {
+        "title": "attribution.now",
+        "viewport": {
+          "width": 390,
+          "height": 900
+        },
+        "elements": {
+          "total": 176,
+          "visible": 158
+        },
+        "occluders": [],
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "AI assistants send you visitors. Most o…",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(1) > h1",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "55px",
+            "fontWeight": "600",
+            "lineHeight": "68.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Your AI traffic is bigger than your rep…",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > h2",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Small fixes, so every site can see the …",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(2) > h2",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Scorecard",
+            "selector": "#scorecard",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "Claude",
+            "selector": "#claude",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "19px",
+            "fontWeight": "600",
+            "lineHeight": "23.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "Gemini",
+            "selector": "#gemini",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "19px",
+            "fontWeight": "600",
+            "lineHeight": "23.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "ChatGPT",
+            "selector": "#chatgpt",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "19px",
+            "fontWeight": "600",
+            "lineHeight": "23.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Check a link yourself",
+            "selector": "#check-a-link-yourself",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          }
+        ],
+        "text": [
+          {
+            "tag": "p",
+            "text": "For SEO, GEO and analytics teams",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(1)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "ChatGPT, Gemini and Claude send people …",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(2)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "Estimate your hidden AI traffic",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(3)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "See what each assistant sends",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(4)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "When a link from your assistant arrives…",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(2) > p:nth-of-type(2)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "See your status: ChatGPT · Gemini · Cla…",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(2) > p:nth-of-type(3)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "Why it matters · Best practices",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(2) > p:nth-of-type(4)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "What arrives with a visit when someone …",
+            "selector": "main > div:nth-of-type(2) > div:nth-of-type(1) > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "No assistant sends both signals yet, on…",
+            "selector": "main > div:nth-of-type(2) > div:nth-of-type(2) > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "Referrer: Reported missing",
+            "selector": "div:nth-of-type(3) > div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "UTM: Reported missing",
+            "selector": "div:nth-of-type(3) > div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "Referrer: Reported missing",
+            "selector": "div:nth-of-type(3) > div > div > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > p:nth-of-type(1)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Estimate your hidden AI traffic",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(3) > a",
+            "count": 1,
+            "backgroundColor": "rgb(19, 19, 19)",
+            "color": "rgb(255, 255, 255)",
+            "borderRadius": "52.8px",
+            "padding": "11px 26.4px",
+            "border": "2px solid rgb(19, 19, 19)",
+            "borderColor": "rgb(19, 19, 19)",
+            "boxShadow": "none",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "500",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(80, 80, 80)",
+              "color": "rgb(248, 248, 248)",
+              "borderColor": "rgb(80, 80, 80)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "See what each assistant sends",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(4) > a",
+            "count": 1,
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "borderRadius": "52.8px",
+            "padding": "11px 26.4px",
+            "border": "2px solid rgb(19, 19, 19)",
+            "borderColor": "rgb(19, 19, 19)",
+            "boxShadow": "none",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "500",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(248, 248, 248)",
+              "color": "rgb(80, 80, 80)",
+              "borderColor": "rgb(80, 80, 80)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "Referrer: Partial",
+            "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+            "count": 2,
+            "backgroundColor": "rgb(251, 238, 194)",
+            "color": "rgb(19, 19, 19)",
+            "borderRadius": "999px",
+            "padding": "2px 10px",
+            "border": "0px none rgb(19, 19, 19)",
+            "borderColor": "rgb(19, 19, 19)",
+            "boxShadow": "none",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(251, 238, 194)",
+              "color": "rgb(19, 19, 19)",
+              "borderColor": "rgb(19, 19, 19)",
+              "boxShadow": "none",
+              "changed": false
+            }
+          },
+          {
+            "text": "UTM: Missing",
+            "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(2) > a",
+            "count": 8,
+            "backgroundColor": "rgb(246, 220, 214)",
+            "color": "rgb(19, 19, 19)",
+            "borderRadius": "999px",
+            "padding": "2px 10px",
+            "border": "0px none rgb(19, 19, 19)",
+            "borderColor": "rgb(19, 19, 19)",
+            "boxShadow": "none",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(246, 220, 214)",
+              "color": "rgb(19, 19, 19)",
+              "borderColor": "rgb(19, 19, 19)",
+              "boxShadow": "none",
+              "changed": false
+            }
+          },
+          {
+            "text": "Referrer: Works",
+            "selector": "div > div > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+            "count": 2,
+            "backgroundColor": "rgb(214, 240, 220)",
+            "color": "rgb(19, 19, 19)",
+            "borderRadius": "999px",
+            "padding": "2px 10px",
+            "border": "0px none rgb(19, 19, 19)",
+            "borderColor": "rgb(19, 19, 19)",
+            "boxShadow": "none",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": null
+          }
+        ],
+        "links": [
+          {
+            "text": "ChatGPT",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(2) > p:nth-of-type(3) > a:nth-of-type(1)",
+            "count": 10,
+            "color": "rgb(59, 99, 251)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(29, 62, 207)",
+              "borderColor": "rgb(29, 62, 207)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "Claude",
+            "selector": "#claude > a",
+            "count": 3,
+            "color": "rgb(59, 99, 251)",
+            "textDecoration": "none",
+            "fontWeight": "600",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(29, 62, 207)",
+              "borderColor": "rgb(29, 62, 207)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "Referrer: Reported missing",
+            "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1) > a",
+            "count": 6,
+            "color": "rgb(19, 19, 19)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(19, 19, 19)",
+              "borderColor": "rgb(19, 19, 19)",
+              "boxShadow": "rgb(218, 218, 218) 0px 0px 0px 1px inset",
+              "changed": true
+            }
+          }
+        ],
+        "surfaces": [
+          {
+            "matched": "header",
+            "selector": "header",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 64
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "nav",
+            "selector": "#nav",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 64
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px 24px",
+            "maxWidth": "1248px",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main",
+            "selector": "main",
+            "rect": {
+              "x": 0,
+              "y": 108,
+              "w": 390,
+              "h": 3197
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "footer",
+            "selector": "footer",
+            "rect": {
+              "x": 0,
+              "y": 3345,
+              "w": 390,
+              "h": 173
+            },
+            "backgroundColor": "rgb(248, 248, 248)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(1)",
+            "rect": {
+              "x": 0,
+              "y": 108,
+              "w": 390,
+              "h": 1960
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(2)",
+            "rect": {
+              "x": 0,
+              "y": 2108,
+              "w": 390,
+              "h": 888
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(3)",
+            "rect": {
+              "x": 0,
+              "y": 3036,
+              "w": 390,
+              "h": 268
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          }
+        ],
+        "radii": [
+          {
+            "value": "999px",
+            "count": 18,
+            "area": 88248,
+            "sources": [
+              "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+              "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(2) > a",
+              "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1) > a"
+            ]
+          },
+          {
+            "value": "52.8px",
+            "count": 2,
+            "area": 36594,
+            "sources": [
+              "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(3) > a",
+              "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(4) > a"
+            ]
+          },
+          {
+            "value": "2px",
+            "count": 1,
+            "area": 40,
+            "sources": [
+              "#nav > div:nth-of-type(1) > button > span"
+            ]
+          }
+        ],
+        "shadows": [
+          {
+            "value": "rgb(218, 218, 218) 0px 0px 0px 1px inset",
+            "count": 6,
+            "sources": [
+              "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1) > a",
+              "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2) > a",
+              "div > div > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > p:nth-of-type(1) > a"
+            ]
+          }
+        ],
+        "gradients": [],
+        "bgColors": [
+          {
+            "value": "rgb(246, 220, 214)",
+            "count": 8,
+            "area": 33940,
+            "sources": [
+              "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(2) > a",
+              "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(3) > p:nth-of-type(1) > a",
+              "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(3) > p:nth-of-type(2) > a"
+            ]
+          },
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 3,
+            "area": 1397128,
+            "sources": [
+              "body",
+              "header > div > div",
+              "#nav > div:nth-of-type(1) > button"
+            ]
+          },
+          {
+            "value": "rgb(19, 19, 19)",
+            "count": 2,
+            "area": 18337,
+            "sources": [
+              "#nav > div:nth-of-type(1) > button > span",
+              "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(3) > a"
+            ]
+          },
+          {
+            "value": "rgb(251, 238, 194)",
+            "count": 2,
+            "area": 7833,
+            "sources": [
+              "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+              "div > div > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > p:nth-of-type(2) > a"
+            ]
+          },
+          {
+            "value": "rgb(214, 240, 220)",
+            "count": 2,
+            "area": 7743,
+            "sources": [
+              "div > div > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+              "div > div > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > p:nth-of-type(2) > a"
+            ]
+          },
+          {
+            "value": "rgb(248, 248, 248)",
+            "count": 1,
+            "area": 67373,
+            "sources": [
+              "footer"
+            ]
+          }
+        ],
+        "textColors": [
+          {
+            "value": "rgb(19, 19, 19)",
+            "count": 49,
+            "sources": [
+              "#nav > div:nth-of-type(2) > div > p > a",
+              "#nav > div:nth-of-type(4) > div > p > a",
+              "main > div:nth-of-type(1) > div:nth-of-type(1) > h1"
+            ]
+          },
+          {
+            "value": "rgb(59, 99, 251)",
+            "count": 17,
+            "sources": [
+              "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(2) > p:nth-of-type(3) > a:nth-of-type(1)",
+              "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(2) > p:nth-of-type(3) > a:nth-of-type(2)",
+              "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(2) > p:nth-of-type(3) > a:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 1,
+            "sources": [
+              "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(3) > a"
+            ]
+          }
+        ],
+        "borderColors": [
+          {
+            "value": "rgb(218, 218, 218)",
+            "count": 20,
+            "sources": [
+              "div:nth-of-type(2) > div:nth-of-type(3) > div > div > table > thead > tr > th:nth-of-type(1)",
+              "div:nth-of-type(2) > div:nth-of-type(3) > div > div > table > thead > tr > th:nth-of-type(2)",
+              "div:nth-of-type(2) > div:nth-of-type(3) > div > div > table > thead > tr > th:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "rgb(19, 19, 19)",
+            "count": 2,
+            "sources": [
+              "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(3) > a",
+              "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(4) > a"
+            ]
+          }
+        ],
+        "customProps": {
+          "--background-color": {
+            "declared": "white",
+            "computed": "white"
+          },
+          "--light-color": {
+            "declared": "#f8f8f8",
+            "computed": "#f8f8f8"
+          },
+          "--dark-color": {
+            "declared": "#505050",
+            "computed": "#505050"
+          },
+          "--text-color": {
+            "declared": "#131313",
+            "computed": "#131313"
+          },
+          "--link-color": {
+            "declared": "#3b63fb",
+            "computed": "#3b63fb"
+          },
+          "--link-hover-color": {
+            "declared": "#1d3ecf",
+            "computed": "#1d3ecf"
+          },
+          "--line-color": {
+            "declared": "#dadada",
+            "computed": "#dadada"
+          },
+          "--chip-works": {
+            "declared": "#d6f0dc",
+            "computed": "#d6f0dc"
+          },
+          "--chip-partial": {
+            "declared": "#fbeec2",
+            "computed": "#fbeec2"
+          },
+          "--chip-missing": {
+            "declared": "#f6dcd6",
+            "computed": "#f6dcd6"
+          },
+          "--chip-reported": {
+            "declared": "#e3e7f7",
+            "computed": "#e3e7f7"
+          },
+          "--chip-untested": {
+            "declared": "#eee",
+            "computed": "#eee"
+          },
+          "--body-font-family": {
+            "declared": "roboto, roboto-fallback, sans-serif",
+            "computed": "roboto, roboto-fallback, sans-serif"
+          },
+          "--heading-font-family": {
+            "declared": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "computed": "roboto-condensed, roboto-condensed-fallback, sans-serif"
+          },
+          "--body-font-size-m": {
+            "declared": "18px",
+            "computed": "22px"
+          },
+          "--body-font-size-s": {
+            "declared": "16px",
+            "computed": "19px"
+          },
+          "--body-font-size-xs": {
+            "declared": "14px",
+            "computed": "17px"
+          },
+          "--heading-font-size-xxl": {
+            "declared": "45px",
+            "computed": "55px"
+          },
+          "--heading-font-size-xl": {
+            "declared": "36px",
+            "computed": "44px"
+          },
+          "--heading-font-size-l": {
+            "declared": "28px",
+            "computed": "34px"
+          },
+          "--heading-font-size-m": {
+            "declared": "22px",
+            "computed": "27px"
+          },
+          "--heading-font-size-s": {
+            "declared": "20px",
+            "computed": "24px"
+          },
+          "--heading-font-size-xs": {
+            "declared": "18px",
+            "computed": "22px"
+          },
+          "--nav-height": {
+            "declared": "64px",
+            "computed": "64px"
+          }
+        },
+        "fonts": [
+          {
+            "family": "roboto-condensed-fallback",
+            "weight": "normal",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto-fallback",
+            "weight": "normal",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto-condensed",
+            "weight": "700",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "700",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "500",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "400",
+            "style": "normal",
+            "status": "loaded"
+          }
+        ],
+        "logoCandidates": [],
+        "iconFont": null,
+        "consent": {
+          "dismissed": null
+        },
+        "finalUrl": "https://main--attribution-now--keepthebyte.aem.page/"
+      }
+    },
+    "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt": {
+      "390": {
+        "title": "ChatGPT link attribution status",
+        "viewport": {
+          "width": 390,
+          "height": 900
+        },
+        "elements": {
+          "total": 472,
+          "visible": 436
+        },
+        "occluders": [],
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ChatGPT",
+            "selector": "#chatgpt",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "55px",
+            "fontWeight": "600",
+            "lineHeight": "68.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "What works today",
+            "selector": "#what-works-today",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Status",
+            "selector": "#status",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "Lab-wide",
+            "selector": "#lab-wide",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Next improvements",
+            "selector": "#next-improvements",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "Send the chatgpt.com referrer on every …",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > h3",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h4",
+            "text": "Suggested fix",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(2) > h4",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "19px",
+            "fontWeight": "600",
+            "lineHeight": "23.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "Keep sites' own UTM tags and signed URL…",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(3) > div > article > h3",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h4",
+            "text": "Suggested fix",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(3) > div > article > div:nth-of-type(2) > h4",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "19px",
+            "fontWeight": "600",
+            "lineHeight": "23.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "Pass an app referrer from the Android a…",
+            "selector": "#pass-an-app-referrer-from-the-android-app",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h4",
+            "text": "Suggested fix",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(4) > div > article > div:nth-of-type(2) > h4",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "19px",
+            "fontWeight": "600",
+            "lineHeight": "23.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "Publish a changelog for link behavior",
+            "selector": "#publish-a-changelog-for-link-behavior",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h4",
+            "text": "Suggested fix",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(5) > div > article > div:nth-of-type(2) > h4",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "19px",
+            "fontWeight": "600",
+            "lineHeight": "23.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Shipped",
+            "selector": "#shipped",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          }
+        ],
+        "text": [
+          {
+            "tag": "p",
+            "text": "By OpenAI. Documented UTM: utm_source=c…",
+            "selector": "main > div:nth-of-type(1) > div > p:nth-of-type(1)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "OpenAI publishes the utm_source=chatgpt…",
+            "selector": "main > div:nth-of-type(1) > div > p:nth-of-type(2)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "Rows are tests, columns are surfaces. S…",
+            "selector": "main > div:nth-of-type(2) > div:nth-of-type(1) > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "REF-01 Referrer present",
+            "selector": "#status-ref-01 > th > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "REF-02 No full-URL leak",
+            "selector": "#status-ref-02 > th > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "REF-03 Link markup (web only)",
+            "selector": "#status-ref-03 > th > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "MRG-01 Keeps existing query",
+            "selector": "#status-mrg-01 > th > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "MRG-02 Keeps fragment",
+            "selector": "#status-mrg-02 > th > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "MRG-04 Signed URLs untouched",
+            "selector": "#status-mrg-04 > th > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "UTM-02 UTM consistent",
+            "selector": "#status-utm-02 > th > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "UTM-03 UTM documented",
+            "selector": "#status-utm-03 > th > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px",
+            "fontWeight": "400",
+            "lineHeight": "27.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "Each card has two prompts you can paste…",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(1) > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Copy prompt: fix in your coding harness",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button",
+            "count": 8,
+            "backgroundColor": "rgb(239, 239, 239)",
+            "color": "rgb(0, 0, 0)",
+            "borderRadius": "52.8px",
+            "padding": "11px 26.4px",
+            "border": "2px solid rgba(0, 0, 0, 0)",
+            "borderColor": "rgba(0, 0, 0, 0)",
+            "boxShadow": "none",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "500",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(239, 239, 239)",
+              "color": "rgb(0, 0, 0)",
+              "borderColor": "rgba(0, 0, 0, 0)",
+              "boxShadow": "none",
+              "changed": false
+            }
+          }
+        ],
+        "links": [
+          {
+            "text": "docs",
+            "selector": "main > div:nth-of-type(1) > div > p:nth-of-type(1) > a",
+            "count": 21,
+            "color": "rgb(59, 99, 251)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(29, 62, 207)",
+              "borderColor": "rgb(29, 62, 207)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          }
+        ],
+        "surfaces": [
+          {
+            "matched": "header",
+            "selector": "header",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 64
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "nav",
+            "selector": "#nav",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 64
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px 24px",
+            "maxWidth": "1248px",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main",
+            "selector": "main",
+            "rect": {
+              "x": 0,
+              "y": 108,
+              "w": 390,
+              "h": 7254
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "footer",
+            "selector": "footer",
+            "rect": {
+              "x": 0,
+              "y": 7402,
+              "w": 390,
+              "h": 173
+            },
+            "backgroundColor": "rgb(248, 248, 248)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(1)",
+            "rect": {
+              "x": 0,
+              "y": 108,
+              "w": 390,
+              "h": 740
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(2)",
+            "rect": {
+              "x": 0,
+              "y": 888,
+              "w": 390,
+              "h": 1307
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(3)",
+            "rect": {
+              "x": 0,
+              "y": 2234,
+              "w": 390,
+              "h": 4166
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(4)",
+            "rect": {
+              "x": 0,
+              "y": 6440,
+              "w": 390,
+              "h": 372
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          }
+        ],
+        "radii": [
+          {
+            "value": "999px",
+            "count": 81,
+            "area": 377197,
+            "sources": [
+              "#status-ref-01 > td:nth-of-type(1) > button",
+              "#status-ref-01 > td:nth-of-type(1) > button > span",
+              "#status-ref-01 > td:nth-of-type(2) > button"
+            ]
+          },
+          {
+            "value": "52.8px",
+            "count": 8,
+            "area": 128400,
+            "sources": [
+              "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button",
+              "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(2) > button",
+              "main > div:nth-of-type(3) > div:nth-of-type(3) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button"
+            ]
+          },
+          {
+            "value": "12px",
+            "count": 4,
+            "area": 1318858,
+            "sources": [
+              "main > div:nth-of-type(3) > div:nth-of-type(2) > div",
+              "main > div:nth-of-type(3) > div:nth-of-type(3) > div",
+              "main > div:nth-of-type(3) > div:nth-of-type(4) > div"
+            ]
+          },
+          {
+            "value": "2px",
+            "count": 1,
+            "area": 40,
+            "sources": [
+              "#nav > div:nth-of-type(1) > button > span"
+            ]
+          }
+        ],
+        "shadows": [],
+        "gradients": [],
+        "bgColors": [
+          {
+            "value": "rgb(238, 238, 238)",
+            "count": 16,
+            "area": 43856,
+            "sources": [
+              "#status-ref-02 > td:nth-of-type(2) > button > span",
+              "#status-ref-02 > td:nth-of-type(3) > button > span",
+              "#status-ref-02 > td:nth-of-type(5) > button > span"
+            ]
+          },
+          {
+            "value": "rgb(239, 239, 239)",
+            "count": 8,
+            "area": 128400,
+            "sources": [
+              "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button",
+              "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(2) > button",
+              "main > div:nth-of-type(3) > div:nth-of-type(3) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button"
+            ]
+          },
+          {
+            "value": "rgb(227, 231, 247)",
+            "count": 8,
+            "area": 62784,
+            "sources": [
+              "#status-ref-01 > td:nth-of-type(2) > button > span",
+              "#status-ref-01 > td:nth-of-type(3) > button > span",
+              "#status-ref-01 > td:nth-of-type(5) > button > span"
+            ]
+          },
+          {
+            "value": "rgb(246, 220, 214)",
+            "count": 7,
+            "area": 39564,
+            "sources": [
+              "#status-ref-01 > td:nth-of-type(1) > button > span",
+              "#status-ref-01 > td:nth-of-type(4) > button > span",
+              "#status-ref-03 > td:nth-of-type(1) > button > span"
+            ]
+          },
+          {
+            "value": "rgb(214, 240, 220)",
+            "count": 5,
+            "area": 26405,
+            "sources": [
+              "#status-utm-01 > td:nth-of-type(1) > button > span",
+              "#status-mrg-01 > td:nth-of-type(1) > button > span",
+              "#status-mrg-01 > td:nth-of-type(4) > button > span"
+            ]
+          },
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 3,
+            "area": 2979431,
+            "sources": [
+              "body",
+              "header > div > div",
+              "#nav > div:nth-of-type(1) > button"
+            ]
+          },
+          {
+            "value": "rgb(248, 248, 248)",
+            "count": 1,
+            "area": 67373,
+            "sources": [
+              "footer"
+            ]
+          },
+          {
+            "value": "rgb(251, 238, 194)",
+            "count": 1,
+            "area": 5326,
+            "sources": [
+              "#status-utm-01 > td:nth-of-type(4) > button > span"
+            ]
+          },
+          {
+            "value": "rgb(19, 19, 19)",
+            "count": 1,
+            "area": 40,
+            "sources": [
+              "#nav > div:nth-of-type(1) > button > span"
+            ]
+          }
+        ],
+        "textColors": [
+          {
+            "value": "rgb(19, 19, 19)",
+            "count": 162,
+            "sources": [
+              "#nav > div:nth-of-type(2) > div > p > a",
+              "#nav > div:nth-of-type(4) > div > p > a",
+              "#chatgpt"
+            ]
+          },
+          {
+            "value": "rgb(59, 99, 251)",
+            "count": 35,
+            "sources": [
+              "main > div:nth-of-type(1) > div > p:nth-of-type(1) > a",
+              "main > div:nth-of-type(2) > div:nth-of-type(1) > p > a",
+              "#status-ref-01 > th > p > a"
+            ]
+          },
+          {
+            "value": "rgb(0, 0, 0)",
+            "count": 8,
+            "sources": [
+              "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button",
+              "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(2) > button",
+              "main > div:nth-of-type(3) > div:nth-of-type(3) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button"
+            ]
+          }
+        ],
+        "borderColors": [
+          {
+            "value": "rgb(218, 218, 218)",
+            "count": 66,
+            "sources": [
+              "div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > table > thead > tr > th:nth-of-type(1)",
+              "div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > table > thead > tr > th:nth-of-type(2)",
+              "div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > table > thead > tr > th:nth-of-type(3)"
+            ]
+          }
+        ],
+        "customProps": {
+          "--background-color": {
+            "declared": "white",
+            "computed": "white"
+          },
+          "--light-color": {
+            "declared": "#f8f8f8",
+            "computed": "#f8f8f8"
+          },
+          "--dark-color": {
+            "declared": "#505050",
+            "computed": "#505050"
+          },
+          "--text-color": {
+            "declared": "#131313",
+            "computed": "#131313"
+          },
+          "--link-color": {
+            "declared": "#3b63fb",
+            "computed": "#3b63fb"
+          },
+          "--link-hover-color": {
+            "declared": "#1d3ecf",
+            "computed": "#1d3ecf"
+          },
+          "--line-color": {
+            "declared": "#dadada",
+            "computed": "#dadada"
+          },
+          "--chip-works": {
+            "declared": "#d6f0dc",
+            "computed": "#d6f0dc"
+          },
+          "--chip-partial": {
+            "declared": "#fbeec2",
+            "computed": "#fbeec2"
+          },
+          "--chip-missing": {
+            "declared": "#f6dcd6",
+            "computed": "#f6dcd6"
+          },
+          "--chip-reported": {
+            "declared": "#e3e7f7",
+            "computed": "#e3e7f7"
+          },
+          "--chip-untested": {
+            "declared": "#eee",
+            "computed": "#eee"
+          },
+          "--body-font-family": {
+            "declared": "roboto, roboto-fallback, sans-serif",
+            "computed": "roboto, roboto-fallback, sans-serif"
+          },
+          "--heading-font-family": {
+            "declared": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "computed": "roboto-condensed, roboto-condensed-fallback, sans-serif"
+          },
+          "--body-font-size-m": {
+            "declared": "18px",
+            "computed": "22px"
+          },
+          "--body-font-size-s": {
+            "declared": "16px",
+            "computed": "19px"
+          },
+          "--body-font-size-xs": {
+            "declared": "14px",
+            "computed": "17px"
+          },
+          "--heading-font-size-xxl": {
+            "declared": "45px",
+            "computed": "55px"
+          },
+          "--heading-font-size-xl": {
+            "declared": "36px",
+            "computed": "44px"
+          },
+          "--heading-font-size-l": {
+            "declared": "28px",
+            "computed": "34px"
+          },
+          "--heading-font-size-m": {
+            "declared": "22px",
+            "computed": "27px"
+          },
+          "--heading-font-size-s": {
+            "declared": "20px",
+            "computed": "24px"
+          },
+          "--heading-font-size-xs": {
+            "declared": "18px",
+            "computed": "22px"
+          },
+          "--nav-height": {
+            "declared": "64px",
+            "computed": "64px"
+          }
+        },
+        "fonts": [
+          {
+            "family": "roboto-condensed-fallback",
+            "weight": "normal",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto-fallback",
+            "weight": "normal",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto-condensed",
+            "weight": "700",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "700",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "500",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "400",
+            "style": "normal",
+            "status": "loaded"
+          }
+        ],
+        "logoCandidates": [],
+        "iconFont": null,
+        "consent": {
+          "dismissed": null
+        },
+        "finalUrl": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt"
+      }
+    },
+    "https://main--attribution-now--keepthebyte.aem.page/tests": {
+      "390": {
+        "title": "Tests and methodology",
+        "viewport": {
+          "width": 390,
+          "height": 900
+        },
+        "elements": {
+          "total": 283,
+          "visible": 241
+        },
+        "occluders": [],
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Tests and methodology",
+            "selector": "#tests-and-methodology",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "55px",
+            "fontWeight": "600",
+            "lineHeight": "68.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Statuses",
+            "selector": "#statuses",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "How to reproduce",
+            "selector": "#how-to-reproduce",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Test catalog",
+            "selector": "#test-catalog",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "REF-01: Referrer present",
+            "selector": "#ref-01-referrer-present",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "REF-02: No full-URL leak",
+            "selector": "#ref-02-no-full-url-leak",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "REF-03: Link markup (web only)",
+            "selector": "#ref-03-link-markup-web-only",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "UTM-01: UTM present",
+            "selector": "#utm-01-utm-present",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "UTM-02: UTM consistent",
+            "selector": "#utm-02-utm-consistent",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "UTM-03: UTM documented",
+            "selector": "#utm-03-utm-documented",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "MRG-01: Keeps existing query",
+            "selector": "#mrg-01-keeps-existing-query",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "MRG-02: Keeps fragment",
+            "selector": "#mrg-02-keeps-fragment",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "MRG-03: No overwrite",
+            "selector": "#mrg-03-no-overwrite",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "MRG-04: Signed URLs untouched",
+            "selector": "#mrg-04-signed-urls-untouched",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "OPS-01: Changelog",
+            "selector": "#ops-01-changelog",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Test vectors",
+            "selector": "#test-vectors",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          }
+        ],
+        "text": [
+          {
+            "tag": "p",
+            "text": "We test each surface (for example the w…",
+            "selector": "main > div:nth-of-type(1) > div > p:nth-of-type(1)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Works: verified passing.",
+            "selector": "main > div:nth-of-type(1) > div > ul > li:nth-of-type(1)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Partial: passes on some link locations,…",
+            "selector": "main > div:nth-of-type(1) > div > ul > li:nth-of-type(2)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Missing: verified not passing.",
+            "selector": "main > div:nth-of-type(1) > div > ul > li:nth-of-type(3)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Reported: from a public third-party rep…",
+            "selector": "main > div:nth-of-type(1) > div > ul > li:nth-of-type(4)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Untested: no data yet.",
+            "selector": "main > div:nth-of-type(1) > div > ul > li:nth-of-type(5)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "n/a: does not apply, for example link m…",
+            "selector": "main > div:nth-of-type(1) > div > ul > li:nth-of-type(6)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "p",
+            "text": "The status shown for a cell is the most…",
+            "selector": "main > div:nth-of-type(1) > div > p:nth-of-type(2)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Ask the assistant to cite or link one o…",
+            "selector": "main > div:nth-of-type(1) > div > ol > li:nth-of-type(1)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Open the link from the answer.",
+            "selector": "main > div:nth-of-type(1) > div > ol > li:nth-of-type(2)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "The page shows the server-side Referer,…",
+            "selector": "main > div:nth-of-type(1) > div > ol > li:nth-of-type(3)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Record the result as described on Contr…",
+            "selector": "main > div:nth-of-type(1) > div > ol > li:nth-of-type(4)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          }
+        ],
+        "buttons": [],
+        "links": [
+          {
+            "text": "Contribute",
+            "selector": "main > div:nth-of-type(1) > div > ol > li:nth-of-type(4) > a",
+            "count": 14,
+            "color": "rgb(59, 99, 251)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(29, 62, 207)",
+              "borderColor": "rgb(29, 62, 207)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          }
+        ],
+        "surfaces": [
+          {
+            "matched": "header",
+            "selector": "header",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 64
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "nav",
+            "selector": "#nav",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 64
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px 24px",
+            "maxWidth": "1248px",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main",
+            "selector": "main",
+            "rect": {
+              "x": 0,
+              "y": 108,
+              "w": 390,
+              "h": 11930
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "footer",
+            "selector": "footer",
+            "rect": {
+              "x": 0,
+              "y": 12078,
+              "w": 390,
+              "h": 173
+            },
+            "backgroundColor": "rgb(248, 248, 248)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(1)",
+            "rect": {
+              "x": 0,
+              "y": 108,
+              "w": 390,
+              "h": 1901
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(2)",
+            "rect": {
+              "x": 0,
+              "y": 2049,
+              "w": 390,
+              "h": 6393
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(3)",
+            "rect": {
+              "x": 0,
+              "y": 8482,
+              "w": 390,
+              "h": 3556
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          }
+        ],
+        "radii": [
+          {
+            "value": "2px",
+            "count": 1,
+            "area": 40,
+            "sources": [
+              "#nav > div:nth-of-type(1) > button > span"
+            ]
+          }
+        ],
+        "shadows": [],
+        "gradients": [],
+        "bgColors": [
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 3,
+            "area": 4803314,
+            "sources": [
+              "body",
+              "header > div > div",
+              "#nav > div:nth-of-type(1) > button"
+            ]
+          },
+          {
+            "value": "rgb(248, 248, 248)",
+            "count": 1,
+            "area": 67373,
+            "sources": [
+              "footer"
+            ]
+          },
+          {
+            "value": "rgb(19, 19, 19)",
+            "count": 1,
+            "area": 40,
+            "sources": [
+              "#nav > div:nth-of-type(1) > button > span"
+            ]
+          }
+        ],
+        "textColors": [
+          {
+            "value": "rgb(19, 19, 19)",
+            "count": 176,
+            "sources": [
+              "#nav > div:nth-of-type(2) > div > p > a",
+              "#nav > div:nth-of-type(4) > div > p > a",
+              "#tests-and-methodology"
+            ]
+          },
+          {
+            "value": "rgb(59, 99, 251)",
+            "count": 17,
+            "sources": [
+              "main > div:nth-of-type(1) > div > ol > li:nth-of-type(4) > a",
+              "main > div:nth-of-type(2) > div > p:nth-of-type(3) > a > code",
+              "main > div:nth-of-type(2) > div > p:nth-of-type(6) > a > code"
+            ]
+          }
+        ],
+        "borderColors": [],
+        "customProps": {
+          "--background-color": {
+            "declared": "white",
+            "computed": "white"
+          },
+          "--light-color": {
+            "declared": "#f8f8f8",
+            "computed": "#f8f8f8"
+          },
+          "--dark-color": {
+            "declared": "#505050",
+            "computed": "#505050"
+          },
+          "--text-color": {
+            "declared": "#131313",
+            "computed": "#131313"
+          },
+          "--link-color": {
+            "declared": "#3b63fb",
+            "computed": "#3b63fb"
+          },
+          "--link-hover-color": {
+            "declared": "#1d3ecf",
+            "computed": "#1d3ecf"
+          },
+          "--line-color": {
+            "declared": "#dadada",
+            "computed": "#dadada"
+          },
+          "--chip-works": {
+            "declared": "#d6f0dc",
+            "computed": "#d6f0dc"
+          },
+          "--chip-partial": {
+            "declared": "#fbeec2",
+            "computed": "#fbeec2"
+          },
+          "--chip-missing": {
+            "declared": "#f6dcd6",
+            "computed": "#f6dcd6"
+          },
+          "--chip-reported": {
+            "declared": "#e3e7f7",
+            "computed": "#e3e7f7"
+          },
+          "--chip-untested": {
+            "declared": "#eee",
+            "computed": "#eee"
+          },
+          "--body-font-family": {
+            "declared": "roboto, roboto-fallback, sans-serif",
+            "computed": "roboto, roboto-fallback, sans-serif"
+          },
+          "--heading-font-family": {
+            "declared": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "computed": "roboto-condensed, roboto-condensed-fallback, sans-serif"
+          },
+          "--body-font-size-m": {
+            "declared": "18px",
+            "computed": "22px"
+          },
+          "--body-font-size-s": {
+            "declared": "16px",
+            "computed": "19px"
+          },
+          "--body-font-size-xs": {
+            "declared": "14px",
+            "computed": "17px"
+          },
+          "--heading-font-size-xxl": {
+            "declared": "45px",
+            "computed": "55px"
+          },
+          "--heading-font-size-xl": {
+            "declared": "36px",
+            "computed": "44px"
+          },
+          "--heading-font-size-l": {
+            "declared": "28px",
+            "computed": "34px"
+          },
+          "--heading-font-size-m": {
+            "declared": "22px",
+            "computed": "27px"
+          },
+          "--heading-font-size-s": {
+            "declared": "20px",
+            "computed": "24px"
+          },
+          "--heading-font-size-xs": {
+            "declared": "18px",
+            "computed": "22px"
+          },
+          "--nav-height": {
+            "declared": "64px",
+            "computed": "64px"
+          }
+        },
+        "fonts": [
+          {
+            "family": "roboto-condensed-fallback",
+            "weight": "normal",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto-fallback",
+            "weight": "normal",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto-condensed",
+            "weight": "700",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "700",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "500",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "400",
+            "style": "normal",
+            "status": "loaded"
+          }
+        ],
+        "logoCandidates": [],
+        "iconFont": null,
+        "consent": {
+          "dismissed": null
+        },
+        "finalUrl": "https://main--attribution-now--keepthebyte.aem.page/tests"
+      }
+    },
+    "https://main--attribution-now--keepthebyte.aem.page/why": {
+      "390": {
+        "title": "Why outbound link attribution matters",
+        "viewport": {
+          "width": 390,
+          "height": 900
+        },
+        "elements": {
+          "total": 100,
+          "visible": 82
+        },
+        "occluders": [],
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Why outbound link attribution matters",
+            "selector": "#why-outbound-link-attribution-matters",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "55px",
+            "fontWeight": "600",
+            "lineHeight": "68.75px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "The ask in one paragraph",
+            "selector": "#the-ask-in-one-paragraph",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Why it helps labs",
+            "selector": "#why-it-helps-labs",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "Seeing it from both sides",
+            "selector": "#seeing-it-from-both-sides",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "For the teams who build assistants",
+            "selector": "#for-the-teams-who-build-assistants",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "For the teams who run websites",
+            "selector": "#for-the-teams-who-run-websites",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h2",
+            "text": "What teams see today",
+            "selector": "#what-teams-see-today",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "44px",
+            "fontWeight": "600",
+            "lineHeight": "55px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "h3",
+            "text": "A shared lesson: October 8–16, 2026",
+            "selector": "main > div:nth-of-type(4) > div > h3",
+            "fontFamily": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "fontSize": "34px",
+            "fontWeight": "600",
+            "lineHeight": "42.5px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          }
+        ],
+        "text": [
+          {
+            "tag": "p",
+            "text": "We'd like to work with AI labs on two s…",
+            "selector": "main > div:nth-of-type(1) > div > p",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Proof of value. Every attributed visit …",
+            "selector": "main > div:nth-of-type(2) > div > ul > li:nth-of-type(1)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Better relationships with publishers an…",
+            "selector": "main > div:nth-of-type(2) > div > ul > li:nth-of-type(2)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "A fairer story about traffic. The commo…",
+            "selector": "main > div:nth-of-type(2) > div > ul > li:nth-of-type(3)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "A healthier ecosystem. When sites can s…",
+            "selector": "main > div:nth-of-type(2) > div > ul > li:nth-of-type(4)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Fewer escalations. A documented, stable…",
+            "selector": "main > div:nth-of-type(2) > div > ul > li:nth-of-type(5)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Labs build chat experiences, not websit…",
+            "selector": "main > div:nth-of-type(3) > div > ul:nth-of-type(1) > li:nth-of-type(1)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "The referrer is optional by design. RFC…",
+            "selector": "main > div:nth-of-type(3) > div > ul:nth-of-type(1) > li:nth-of-type(2)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Privacy matters. Sending the full conve…",
+            "selector": "main > div:nth-of-type(3) > div > ul:nth-of-type(1) > li:nth-of-type(3)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Apps and webviews often can't send a re…",
+            "selector": "main > div:nth-of-type(3) > div > ul:nth-of-type(1) > li:nth-of-type(4)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "UI cycles are fast. A refactor of a lin…",
+            "selector": "main > div:nth-of-type(3) > div > ul:nth-of-type(1) > li:nth-of-type(5)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          },
+          {
+            "tag": "li",
+            "text": "Visits without a referrer or tag land i…",
+            "selector": "main > div:nth-of-type(3) > div > ul:nth-of-type(2) > li:nth-of-type(1)",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "400",
+            "lineHeight": "35.2px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(19, 19, 19)"
+          }
+        ],
+        "buttons": [],
+        "links": [
+          {
+            "text": "RFC 9110 §10.1.3",
+            "selector": "main > div:nth-of-type(3) > div > ul:nth-of-type(1) > li:nth-of-type(2) > a",
+            "count": 6,
+            "color": "rgb(59, 99, 251)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(29, 62, 207)",
+              "borderColor": "rgb(29, 62, 207)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          }
+        ],
+        "surfaces": [
+          {
+            "matched": "header",
+            "selector": "header",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 64
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "nav",
+            "selector": "#nav",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 64
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px 24px",
+            "maxWidth": "1248px",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main",
+            "selector": "main",
+            "rect": {
+              "x": 0,
+              "y": 108,
+              "w": 390,
+              "h": 5446
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "footer",
+            "selector": "footer",
+            "rect": {
+              "x": 0,
+              "y": 5594,
+              "w": 390,
+              "h": 173
+            },
+            "backgroundColor": "rgb(248, 248, 248)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "17px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(1)",
+            "rect": {
+              "x": 0,
+              "y": 108,
+              "w": 390,
+              "h": 897
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(2)",
+            "rect": {
+              "x": 0,
+              "y": 1045,
+              "w": 390,
+              "h": 1093
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(3)",
+            "rect": {
+              "x": 0,
+              "y": 2178,
+              "w": 390,
+              "h": 1636
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          },
+          {
+            "matched": "main > *",
+            "selector": "main > div:nth-of-type(4)",
+            "rect": {
+              "x": 0,
+              "y": 3854,
+              "w": 390,
+              "h": 1700
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(19, 19, 19)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "roboto, roboto-fallback, sans-serif",
+            "fontSize": "22px"
+          }
+        ],
+        "radii": [
+          {
+            "value": "2px",
+            "count": 1,
+            "area": 40,
+            "sources": [
+              "#nav > div:nth-of-type(1) > button > span"
+            ]
+          }
+        ],
+        "shadows": [],
+        "gradients": [],
+        "bgColors": [
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 3,
+            "area": 2274530,
+            "sources": [
+              "body",
+              "header > div > div",
+              "#nav > div:nth-of-type(1) > button"
+            ]
+          },
+          {
+            "value": "rgb(248, 248, 248)",
+            "count": 1,
+            "area": 67373,
+            "sources": [
+              "footer"
+            ]
+          },
+          {
+            "value": "rgb(19, 19, 19)",
+            "count": 1,
+            "area": 40,
+            "sources": [
+              "#nav > div:nth-of-type(1) > button > span"
+            ]
+          }
+        ],
+        "textColors": [
+          {
+            "value": "rgb(19, 19, 19)",
+            "count": 41,
+            "sources": [
+              "#nav > div:nth-of-type(2) > div > p > a",
+              "#nav > div:nth-of-type(4) > div > p > a",
+              "#why-outbound-link-attribution-matters"
+            ]
+          },
+          {
+            "value": "rgb(59, 99, 251)",
+            "count": 9,
+            "sources": [
+              "main > div:nth-of-type(3) > div > ul:nth-of-type(1) > li:nth-of-type(2) > a",
+              "main > div:nth-of-type(4) > div > ul > li:nth-of-type(1) > a",
+              "main > div:nth-of-type(4) > div > ul > li:nth-of-type(2) > a"
+            ]
+          }
+        ],
+        "borderColors": [],
+        "customProps": {
+          "--background-color": {
+            "declared": "white",
+            "computed": "white"
+          },
+          "--light-color": {
+            "declared": "#f8f8f8",
+            "computed": "#f8f8f8"
+          },
+          "--dark-color": {
+            "declared": "#505050",
+            "computed": "#505050"
+          },
+          "--text-color": {
+            "declared": "#131313",
+            "computed": "#131313"
+          },
+          "--link-color": {
+            "declared": "#3b63fb",
+            "computed": "#3b63fb"
+          },
+          "--link-hover-color": {
+            "declared": "#1d3ecf",
+            "computed": "#1d3ecf"
+          },
+          "--line-color": {
+            "declared": "#dadada",
+            "computed": "#dadada"
+          },
+          "--chip-works": {
+            "declared": "#d6f0dc",
+            "computed": "#d6f0dc"
+          },
+          "--chip-partial": {
+            "declared": "#fbeec2",
+            "computed": "#fbeec2"
+          },
+          "--chip-missing": {
+            "declared": "#f6dcd6",
+            "computed": "#f6dcd6"
+          },
+          "--chip-reported": {
+            "declared": "#e3e7f7",
+            "computed": "#e3e7f7"
+          },
+          "--chip-untested": {
+            "declared": "#eee",
+            "computed": "#eee"
+          },
+          "--body-font-family": {
+            "declared": "roboto, roboto-fallback, sans-serif",
+            "computed": "roboto, roboto-fallback, sans-serif"
+          },
+          "--heading-font-family": {
+            "declared": "roboto-condensed, roboto-condensed-fallback, sans-serif",
+            "computed": "roboto-condensed, roboto-condensed-fallback, sans-serif"
+          },
+          "--body-font-size-m": {
+            "declared": "18px",
+            "computed": "22px"
+          },
+          "--body-font-size-s": {
+            "declared": "16px",
+            "computed": "19px"
+          },
+          "--body-font-size-xs": {
+            "declared": "14px",
+            "computed": "17px"
+          },
+          "--heading-font-size-xxl": {
+            "declared": "45px",
+            "computed": "55px"
+          },
+          "--heading-font-size-xl": {
+            "declared": "36px",
+            "computed": "44px"
+          },
+          "--heading-font-size-l": {
+            "declared": "28px",
+            "computed": "34px"
+          },
+          "--heading-font-size-m": {
+            "declared": "22px",
+            "computed": "27px"
+          },
+          "--heading-font-size-s": {
+            "declared": "20px",
+            "computed": "24px"
+          },
+          "--heading-font-size-xs": {
+            "declared": "18px",
+            "computed": "22px"
+          },
+          "--nav-height": {
+            "declared": "64px",
+            "computed": "64px"
+          }
+        },
+        "fonts": [
+          {
+            "family": "roboto-condensed-fallback",
+            "weight": "normal",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto-fallback",
+            "weight": "normal",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto-condensed",
+            "weight": "700",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "700",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "500",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "roboto",
+            "weight": "400",
+            "style": "normal",
+            "status": "loaded"
+          }
+        ],
+        "logoCandidates": [],
+        "iconFont": null,
+        "consent": {
+          "dismissed": null
+        },
+        "finalUrl": "https://main--attribution-now--keepthebyte.aem.page/why"
+      }
+    }
+  },
+  "aggregate": {
+    "counts": {
+      "pages": 4,
+      "widths": [
+        390
+      ],
+      "measurements": 4
+    },
+    "colors": [
+      {
+        "hex": "#131313",
+        "values": [
+          "rgb(19, 19, 19)"
+        ],
+        "weight": 503,
+        "bgArea": 18457,
+        "by": {
+          "text": 428,
+          "button-text": 13,
+          "link": 6,
+          "background": 5,
+          "border": 2,
+          "button-background": 1,
+          "button-border": 2,
+          "heading": 46
+        },
+        "roles": [
+          "text",
+          "heading"
+        ],
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/tests",
+            "selector": "#nav > div:nth-of-type(2) > div > p > a",
+            "prop": "text"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "#nav > div:nth-of-type(2) > div > p > a",
+            "prop": "text"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "#nav > div:nth-of-type(2) > div > p > a",
+            "prop": "text"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/why",
+            "selector": "#nav > div:nth-of-type(2) > div > p > a",
+            "prop": "text"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(2) > a",
+            "prop": "button-text"
+          }
+        ]
+      },
+      {
+        "hex": "#3b63fb",
+        "values": [
+          "rgb(59, 99, 251)"
+        ],
+        "weight": 132,
+        "by": {
+          "text": 78,
+          "link": 54
+        },
+        "roles": [
+          "accent"
+        ],
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "main > div:nth-of-type(1) > div > p:nth-of-type(1) > a",
+            "prop": "text"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "main > div:nth-of-type(1) > div > p:nth-of-type(1) > a",
+            "prop": "link"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(2) > p:nth-of-type(3) > a:nth-of-type(1)",
+            "prop": "text"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/tests",
+            "selector": "main > div:nth-of-type(1) > div > ol > li:nth-of-type(4) > a",
+            "prop": "text"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/tests",
+            "selector": "main > div:nth-of-type(1) > div > ol > li:nth-of-type(4) > a",
+            "prop": "link"
+          }
+        ]
+      },
+      {
+        "hex": "#dadada",
+        "values": [
+          "rgb(218, 218, 218)"
+        ],
+        "weight": 86,
+        "by": {
+          "border": 86
+        },
+        "roles": [
+          "border"
+        ],
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > table > thead > tr > th:nth-of-type(1)",
+            "prop": "border"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "div:nth-of-type(2) > div:nth-of-type(3) > div > div > table > thead > tr > th:nth-of-type(1)",
+            "prop": "border"
+          }
+        ]
+      },
+      {
+        "hex": "#eeeeee",
+        "values": [
+          "rgb(238, 238, 238)",
+          "rgb(239, 239, 239)",
+          "rgb(227, 231, 247)",
+          "rgb(248, 248, 248)"
+        ],
+        "weight": 44,
+        "bgArea": 504532,
+        "by": {
+          "background": 36,
+          "button-background": 8
+        },
+        "roles": [
+          "surface",
+          "primary"
+        ],
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "#status-ref-02 > td:nth-of-type(2) > button > span",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "#status-ref-01 > td:nth-of-type(2) > button > span",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button",
+            "prop": "button-background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "footer",
+            "prop": "background"
+          }
+        ]
+      },
+      {
+        "hex": "#f6dcd6",
+        "values": [
+          "rgb(246, 220, 214)"
+        ],
+        "weight": 23,
+        "bgArea": 73504,
+        "by": {
+          "background": 15,
+          "button-background": 8
+        },
+        "roles": [
+          "secondary"
+        ],
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(2) > a",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(2) > a",
+            "prop": "button-background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "#status-ref-01 > td:nth-of-type(1) > button > span",
+            "prop": "background"
+          }
+        ]
+      },
+      {
+        "hex": "#ffffff",
+        "values": [
+          "rgb(255, 255, 255)"
+        ],
+        "weight": 14,
+        "bgArea": 11454403,
+        "by": {
+          "background": 12,
+          "button-text": 1,
+          "text": 1
+        },
+        "roles": [
+          "background"
+        ],
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/tests",
+            "selector": "body",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "body",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/why",
+            "selector": "body",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "body",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(3) > a",
+            "prop": "button-text"
+          }
+        ]
+      },
+      {
+        "hex": "#000000",
+        "values": [
+          "rgb(0, 0, 0)"
+        ],
+        "weight": 16,
+        "by": {
+          "button-text": 8,
+          "text": 8
+        },
+        "roles": [],
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button",
+            "prop": "button-text"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button",
+            "prop": "text"
+          }
+        ]
+      },
+      {
+        "hex": "#d6f0dc",
+        "values": [
+          "rgb(214, 240, 220)"
+        ],
+        "weight": 9,
+        "bgArea": 34148,
+        "by": {
+          "background": 7,
+          "button-background": 2
+        },
+        "roles": [],
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "#status-utm-01 > td:nth-of-type(1) > button > span",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "div > div > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "div > div > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+            "prop": "button-background"
+          }
+        ]
+      },
+      {
+        "hex": "#fbeec2",
+        "values": [
+          "rgb(251, 238, 194)"
+        ],
+        "weight": 5,
+        "bgArea": 13159,
+        "by": {
+          "background": 3,
+          "button-background": 2
+        },
+        "roles": [],
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+            "prop": "background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(1) > a",
+            "prop": "button-background"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "#status-utm-01 > td:nth-of-type(4) > button > span",
+            "prop": "background"
+          }
+        ]
+      }
+    ],
+    "type": {
+      "families": [
+        {
+          "family": "roboto",
+          "count": 70,
+          "headings": 0,
+          "text": 48,
+          "buttons": 22
+        },
+        {
+          "family": "roboto-condensed",
+          "count": 46,
+          "headings": 46,
+          "text": 0,
+          "buttons": 0
+        }
+      ],
+      "headingFamily": "roboto-condensed",
+      "bodyFamily": "roboto",
+      "sizes": [
+        {
+          "px": 55,
+          "count": 4,
+          "headings": 4,
+          "text": 0,
+          "buttons": 0
+        },
+        {
+          "px": 44,
+          "count": 16,
+          "headings": 16,
+          "text": 0,
+          "buttons": 0
+        },
+        {
+          "px": 34,
+          "count": 19,
+          "headings": 19,
+          "text": 0,
+          "buttons": 0
+        },
+        {
+          "px": 22,
+          "count": 47,
+          "headings": 0,
+          "text": 37,
+          "buttons": 10
+        },
+        {
+          "px": 19,
+          "count": 7,
+          "headings": 7,
+          "text": 0,
+          "buttons": 0
+        },
+        {
+          "px": 17,
+          "count": 23,
+          "headings": 0,
+          "text": 11,
+          "buttons": 12
+        }
+      ],
+      "weights": [
+        {
+          "weight": "400",
+          "count": 60,
+          "headings": 0,
+          "text": 48,
+          "buttons": 12
+        },
+        {
+          "weight": "600",
+          "count": 46,
+          "headings": 46,
+          "text": 0,
+          "buttons": 0
+        },
+        {
+          "weight": "500",
+          "count": 10,
+          "headings": 0,
+          "text": 0,
+          "buttons": 10
+        }
+      ],
+      "levels": {
+        "h1": {
+          "fontSize": 55,
+          "fontWeight": "600",
+          "count": 4,
+          "score": 165
+        },
+        "h2": {
+          "fontSize": 44,
+          "fontWeight": "600",
+          "count": 16,
+          "score": 264
+        },
+        "h3": {
+          "fontSize": 34,
+          "fontWeight": "600",
+          "count": 19,
+          "score": 222.3
+        },
+        "h4": {
+          "fontSize": 19,
+          "fontWeight": "600",
+          "count": 4,
+          "score": 57
+        }
+      }
+    },
+    "motifs": {
+      "radius": {
+        "mode": "52.8px",
+        "areaMode": "12px",
+        "pill": "999px",
+        "values": [
+          {
+            "value": "999px",
+            "count": 99,
+            "area": 465445,
+            "sources": [
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/",
+                "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(1) > a"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/",
+                "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > p:nth-of-type(2) > a"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/",
+                "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1) > a"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+                "selector": "#status-ref-01 > td:nth-of-type(1) > button"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+                "selector": "#status-ref-01 > td:nth-of-type(1) > button > span"
+              }
+            ]
+          },
+          {
+            "value": "52.8px",
+            "count": 10,
+            "area": 164994,
+            "sources": [
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/",
+                "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(3) > a"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/",
+                "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(4) > a"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+                "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+                "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div > article > div:nth-of-type(3) > div:nth-of-type(2) > button"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+                "selector": "main > div:nth-of-type(3) > div:nth-of-type(3) > div > article > div:nth-of-type(3) > div:nth-of-type(1) > button"
+              }
+            ]
+          },
+          {
+            "value": "12px",
+            "count": 4,
+            "area": 1318858,
+            "sources": [
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+                "selector": "main > div:nth-of-type(3) > div:nth-of-type(2) > div"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+                "selector": "main > div:nth-of-type(3) > div:nth-of-type(3) > div"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+                "selector": "main > div:nth-of-type(3) > div:nth-of-type(4) > div"
+              }
+            ]
+          },
+          {
+            "value": "2px",
+            "count": 4,
+            "area": 160,
+            "sources": [
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/",
+                "selector": "#nav > div:nth-of-type(1) > button > span"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+                "selector": "#nav > div:nth-of-type(1) > button > span"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/tests",
+                "selector": "#nav > div:nth-of-type(1) > button > span"
+              },
+              {
+                "url": "https://main--attribution-now--keepthebyte.aem.page/why",
+                "selector": "#nav > div:nth-of-type(1) > button > span"
+              }
+            ]
+          }
+        ]
+      },
+      "shadows": [
+        {
+          "value": "rgb(218, 218, 218) 0px 0px 0px 1px inset",
+          "count": 6,
+          "sources": [
+            {
+              "url": "https://main--attribution-now--keepthebyte.aem.page/",
+              "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1) > a"
+            },
+            {
+              "url": "https://main--attribution-now--keepthebyte.aem.page/",
+              "selector": "div > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2) > a"
+            },
+            {
+              "url": "https://main--attribution-now--keepthebyte.aem.page/",
+              "selector": "div > div > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > p:nth-of-type(1) > a"
+            }
+          ]
+        }
+      ],
+      "gradients": []
+    },
+    "hover": [
+      {
+        "kind": "link",
+        "from": {
+          "color": "rgb(59, 99, 251)"
+        },
+        "to": {
+          "color": "rgb(29, 62, 207)"
+        },
+        "count": 5,
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(2) > p:nth-of-type(3) > a:nth-of-type(1)"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "#claude > a"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/labs/openai-chatgpt",
+            "selector": "main > div:nth-of-type(1) > div > p:nth-of-type(1) > a"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/tests",
+            "selector": "main > div:nth-of-type(1) > div > ol > li:nth-of-type(4) > a"
+          },
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/why",
+            "selector": "main > div:nth-of-type(3) > div > ul:nth-of-type(1) > li:nth-of-type(2) > a"
+          }
+        ]
+      },
+      {
+        "kind": "button",
+        "from": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "color": "rgb(19, 19, 19)",
+          "borderColor": "rgb(19, 19, 19)"
+        },
+        "to": {
+          "backgroundColor": "rgb(248, 248, 248)",
+          "color": "rgb(80, 80, 80)",
+          "borderColor": "rgb(80, 80, 80)"
+        },
+        "count": 1,
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(4) > a"
+          }
+        ]
+      },
+      {
+        "kind": "button",
+        "from": {
+          "backgroundColor": "rgb(19, 19, 19)",
+          "color": "rgb(255, 255, 255)",
+          "borderColor": "rgb(19, 19, 19)"
+        },
+        "to": {
+          "backgroundColor": "rgb(80, 80, 80)",
+          "color": "rgb(248, 248, 248)",
+          "borderColor": "rgb(80, 80, 80)"
+        },
+        "count": 1,
+        "sources": [
+          {
+            "url": "https://main--attribution-now--keepthebyte.aem.page/",
+            "selector": "main > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > p:nth-of-type(3) > a"
+          }
+        ]
+      }
+    ],
+    "logo": {
+      "source": "none",
+      "url": null,
+      "selector": null
+    },
+    "iconFont": null
+  }
+}

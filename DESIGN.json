@@ -1,0 +1,385 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:direct",
+    "writtenAt": "2026-10-21T06:59:51.573Z",
+    "userInput": "--rebrand \"Simple, colour-blocked, text-only site ...\" + anchor nicepage research-strategy-and-design",
+    "readArtifacts": [
+      "stardust/current/_brand-extraction.json",
+      "stardust/current/pages/index.json",
+      "PRODUCT.md"
+    ],
+    "synthesized": [
+      "palette (derived, AA-validated)",
+      "type scale"
+    ]
+  },
+  "schemaVersion": 2,
+  "name": "attribution.now",
+  "description": "Colour fields carry the structure; two dots carry the meaning.",
+  "colors": {
+    "page": "oklch(0.985 0.006 290)",
+    "direct-haze": "oklch(0.945 0.035 295)",
+    "report-violet": "oklch(0.46 0.215 290)",
+    "report-violet-deep": "oklch(0.36 0.18 290)",
+    "link-pink": "oklch(0.78 0.13 355)",
+    "link-pink-deep": "oklch(0.52 0.19 355)",
+    "source-ink": "oklch(0.21 0.035 290)",
+    "source-ink-soft": "oklch(0.40 0.03 290)",
+    "haze-ink": "oklch(0.40 0.20 292)",
+    "works": "oklch(0.52 0.13 150)",
+    "partial": "oklch(0.52 0.11 70)",
+    "missing": "oklch(0.53 0.19 27)"
+  },
+  "typography": {
+    "display": {
+      "fontFamily": "'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif",
+      "fontSize": "clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem)",
+      "fontWeight": 800,
+      "lineHeight": 1.02,
+      "letterSpacing": "-0.02em"
+    },
+    "heading": {
+      "fontFamily": "'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif",
+      "fontSize": "clamp(1.75rem, 1.35rem + 1.6vw, 2.75rem)",
+      "fontWeight": 800,
+      "lineHeight": 1.08,
+      "letterSpacing": "-0.015em"
+    },
+    "subheading": {
+      "fontFamily": "'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif",
+      "fontSize": "1.375rem",
+      "fontWeight": 700,
+      "lineHeight": 1.2
+    },
+    "body": {
+      "fontFamily": "'Hanken Grotesk', system-ui, sans-serif",
+      "fontSize": "1.125rem",
+      "fontWeight": 400,
+      "lineHeight": 1.6
+    },
+    "small": {
+      "fontFamily": "'Hanken Grotesk', system-ui, sans-serif",
+      "fontSize": "0.9rem",
+      "fontWeight": 500,
+      "lineHeight": 1.45
+    },
+    "code": {
+      "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+      "fontSize": "0.92em",
+      "fontWeight": 400
+    }
+  },
+  "rounded": {
+    "field": "0",
+    "card": "14px",
+    "pill": "999px"
+  },
+  "spacing": {
+    "xs": "4px",
+    "sm": "8px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "40px",
+    "section-desktop": "64px",
+    "section-tablet": "48px",
+    "section-mobile": "32px",
+    "gutter-mobile": "20px"
+  },
+  "components": {
+    "button-primary": {
+      "backgroundColor": "{colors.source-ink}",
+      "textColor": "{colors.page}",
+      "rounded": "{rounded.pill}",
+      "padding": "14px 26px"
+    },
+    "button-on-violet": {
+      "backgroundColor": "{colors.page}",
+      "textColor": "{colors.report-violet-deep}",
+      "rounded": "{rounded.pill}",
+      "padding": "14px 26px"
+    },
+    "arrow-link": {
+      "textColor": "currentColor",
+      "typography": "{typography.subheading}"
+    },
+    "status-mark": {
+      "backgroundColor": "{colors.page}",
+      "textColor": "{colors.source-ink}",
+      "rounded": "{rounded.pill}",
+      "padding": "3px 10px 3px 6px"
+    },
+    "card": {
+      "backgroundColor": "{colors.page}",
+      "textColor": "{colors.source-ink}",
+      "rounded": "{rounded.card}",
+      "padding": "24px"
+    },
+    "link": {
+      "textColor": "currentColor"
+    }
+  },
+  "extensions": {
+    "colorMeta": {
+      "report-violet": {
+        "role": "Report violet",
+        "use": "analyst field (SEO/GEO/analytics); page text on it 7.60:1",
+        "hex": "#5e2dc4"
+      },
+      "link-pink": {
+        "role": "Link pink",
+        "use": "lab field (AI lab teams); source-ink text on it 8.39:1",
+        "hex": "#f893bc"
+      },
+      "direct-haze": {
+        "role": "Direct haze",
+        "use": "shared field (scorecard, tests, changelog); source-ink 15.02:1, haze-ink 8.62:1",
+        "hex": "#eee9ff"
+      },
+      "page": {
+        "role": "Page",
+        "use": "default ground, text on violet",
+        "hex": "#faf9fe"
+      },
+      "source-ink": {
+        "role": "Source ink",
+        "use": "body text on light fields; footer field",
+        "hex": "#181527"
+      },
+      "works": {
+        "role": "Works",
+        "use": "status mark only; 4.96:1 on page",
+        "hex": "#1d7d3e"
+      },
+      "partial": {
+        "role": "Partial",
+        "use": "status mark only; 5.40:1 on page",
+        "hex": "#915c08"
+      },
+      "missing": {
+        "role": "Missing",
+        "use": "status mark only; 5.57:1 on page",
+        "hex": "#c22826"
+      },
+      "link-pink-deep": {
+        "role": "Link pink (text)",
+        "use": "pink as text/rule on light grounds; 5.87:1 on page",
+        "hex": "#b5236e"
+      }
+    },
+    "contrastChecks": {
+      "method": "OKLCH → sRGB, WCAG 2.x relative luminance",
+      "script": "computed in direct run 2026-10-21",
+      "pairs": {
+        "page/report-violet": 7.6,
+        "source-ink/link-pink": 8.39,
+        "source-ink/direct-haze": 15.02,
+        "haze-ink/direct-haze": 8.62,
+        "source-ink/page": 17.05,
+        "page/source-ink": 17.05,
+        "works/page": 4.96,
+        "partial/page": 5.4,
+        "missing/page": 5.57,
+        "link-pink-deep/page": 5.87,
+        "report-violet/direct-haze": 6.7
+      }
+    },
+    "typographyMeta": {
+      "fonts": [
+        {
+          "family": "Bricolage Grotesque",
+          "weights": [
+            700,
+            800
+          ],
+          "source": "Google Fonts (self-host for EDS)",
+          "license": "OFL"
+        },
+        {
+          "family": "Hanken Grotesk",
+          "weights": [
+            400,
+            500,
+            700
+          ],
+          "source": "Google Fonts (self-host for EDS)",
+          "license": "OFL"
+        }
+      ],
+      "ratio": 1.25
+    },
+    "shadows": [],
+    "motion": {
+      "register": "live-systems",
+      "registerRationale": "PRODUCT.md Brand Commitments personality: data-led, operationally-transparent",
+      "easings": {
+        "entrance": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+        "transition": "cubic-bezier(0.4, 0, 0.2, 1)"
+      },
+      "durations": {
+        "enter": 240,
+        "stagger": 40
+      },
+      "note": "Selected only; prototype stays static unless --cinematic."
+    },
+    "breakpoints": {
+      "layout": [
+        "700px",
+        "1024px"
+      ],
+      "containerMaxWidth": "1200px",
+      "sectionPadding": {
+        "desktop": "64px",
+        "tablet": "48px",
+        "mobile": "32px"
+      },
+      "rules": [
+        "split fields stack below 1024px, analysts first",
+        "three-up fields go 3 → 1 column, never 2 + 1"
+      ]
+    },
+    "componentStyle": {
+      "buttons": "one primary pill per field; secondary is an arrow link (text + →), never an outlined button",
+      "cards": "page-coloured, 14px radius, no border, no shadow, inside haze or pink fields",
+      "inputs": "none on current pages",
+      "dualCTAPattern": "primary pill + arrow link"
+    },
+    "systemComponentRoles": {
+      "header": {
+        "purpose": "mark + wordmark, primary nav, \"Check a link\"",
+        "position": "top, not sticky",
+        "constraint": "sits on page ground; nav items for labs carry a pink dot, analyst items a violet dot"
+      },
+      "footer": {
+        "purpose": "mission line, contribute, GitHub, license",
+        "position": "bottom",
+        "constraint": "source-ink field with page text"
+      },
+      "audience-split": {
+        "purpose": "address both audiences side by side",
+        "position": "first viewport on home",
+        "constraint": "violet field (analysts) then pink field (labs); stacks analysts-first below 1024px"
+      },
+      "shared-evidence": {
+        "purpose": "content both audiences read (scorecard, tests)",
+        "position": "any",
+        "constraint": "direct-haze field"
+      }
+    },
+    "voice": {
+      "do": [
+        "Say what works first, then the next fix",
+        "Name the audience as the first line of the heading (\"For SEO, GEO and analytics teams\")",
+        "Short declarative headlines; numbers only from data/"
+      ],
+      "dont": [
+        "Blame or outrage toward labs",
+        "Marketing adjectives (seamless, powerful, revolutionary)",
+        "Invented statistics"
+      ]
+    },
+    "iaPriorities": [
+      {
+        "signal": "audience-routing",
+        "evidence": "pages/index.json headings: \"For SEO, GEO and analytics teams\" / \"For teams at AI labs\" in the first section",
+        "preserveAs": "first-viewport",
+        "scope": "home",
+        "mutability": "locked"
+      },
+      {
+        "signal": "audience-order-mobile",
+        "evidence": "user instruction 2026-10-20: SEO/GEO folks first on mobile",
+        "preserveAs": "analysts-first when stacked",
+        "scope": "site-wide",
+        "mutability": "locked"
+      },
+      {
+        "signal": "scorecard",
+        "evidence": "pages/index.json section \"Scorecard\" with deep links into lab status tables",
+        "preserveAs": "second section on home, directly after the audience split",
+        "scope": "home",
+        "mutability": "locked"
+      }
+    ],
+    "divergence": {
+      "toolkit_version": "v1.0 (stardust v2)",
+      "seed": {
+        "input": "attribution.now|2026-10-21",
+        "decade": "2025-now",
+        "craft": "flat colour-field print (poster blocks)",
+        "register": "civic-advocacy explainer",
+        "ground_family": "monochrome-tint (cool violet)",
+        "picked_by": "anchor-reference: nicepage research-strategy-and-design",
+        "overrides": []
+      },
+      "font_deck": "off-deck: Bricolage Grotesque + Hanken Grotesk",
+      "divergence_justifications": [
+        {
+          "font": "Bricolage Grotesque",
+          "position": "display",
+          "why": "anchor reference uses a heavy geometric display (Montserrat 700); Bricolage is the toolkit substitute for geometric-sans display and is off the reflex list"
+        },
+        {
+          "font": "Hanken Grotesk",
+          "position": "body",
+          "why": "toolkit substitute for Inter/IBM Plex workhorse body; off the reflex list"
+        }
+      ],
+      "anti_toolbox_count": 1,
+      "anti_toolbox_hits": [
+        {
+          "move": "Generic-2026-SaaS silhouette (partial: hero + CTA pair)",
+          "justification": "avoided as a composite: header not sticky, secondary action is an arrow link not an outlined button, hero headline capped at 4.5rem; only 1 of 4 elements remains (a primary pill)"
+        }
+      ],
+      "off_toolbox_moves": [
+        "audience colour-coding of full-bleed fields",
+        "status marks separated from structural colour",
+        "two-dot logo whose dots are the two audience colours"
+      ],
+      "audit_adjustments": [
+        "coral warm accent from the anchor replaced by pink to avoid collision with the Missing red (user answer Q1)",
+        "partial status darkened from L0.58 to L0.52 to pass AA (4.18 → 5.40)"
+      ],
+      "references_used": [
+        {
+          "source": "user-provided (studied live in Chrome)",
+          "title": "nicepage: Research, strategy and design",
+          "url": "https://nicepage.com/website-templates/preview/research-strategy-and-design-2341480",
+          "grounds": "colour-field structure, deep+tint+warm palette strategy, heavy geometric display, arrow affordance; flaws avoided: white-on-mid-tone text, 2+1 orphan at tablet",
+          "tag": "off-toolbox"
+        }
+      ],
+      "palette_source": {
+        "basis": "derived from anchor strategy, re-hued per user answers; every text/ground pair computed for WCAG AA",
+        "library_version": null
+      }
+    }
+  },
+  "narrative": {
+    "northStar": "Two dots, reconnected: the site that receives the visit and the assistant that sent it, each in its own colour, reading the same evidence.",
+    "overview": "Full-bleed colour fields carry structure and audience; heavy friendly type carries the message; status lives in small marks with symbols.",
+    "keyCharacteristics": [
+      "colour fields as structure",
+      "audience colour-coding",
+      "no imagery",
+      "heavy grotesque display",
+      "arrow affordance",
+      "status marks never fill a section"
+    ],
+    "rules": [
+      "Fields are for audiences, marks are for status.",
+      "One audience per field.",
+      "Dark text on light fields, light text on dark fields."
+    ],
+    "dos": [
+      "Lead with who a section is for",
+      "Pair status colour with symbol and word"
+    ],
+    "donts": [
+      "Images or decorative icons",
+      "White text on pink",
+      "Red/green outside status marks",
+      "Sticky header"
+    ]
+  }
+}
