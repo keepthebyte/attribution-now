@@ -1,0 +1,153 @@
+date: 2026-10-21
+lab: google-gemini
+surface: web
+method: manual
+tester: cedric
+client: Chrome 155 / macOS
+source_url: null
+results:
+  # Link test session, 20:44-20:53 UTC. Evidence is the worker's hit log: the click's
+  # Referer header and the test page's document.referrer beacon. Before most clicks a
+  # fetch with user agent "Google" requested the same URL (Gemini's own fetcher, not a
+  # visit). REF-03 was not inspected this session; the 2026-10-20 file covers the markup.
+  - location: inline-citation
+    test: REF-01
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      document_referrer: https://gemini.google.com/
+      landing_url: https://attribution.now/t/ref-01/google-gemini/web/inline-citation
+  - location: inline-citation
+    test: REF-02
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      notes: Origin only; no conversation path or ID.
+  - location: inline-citation
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/google-gemini/web/inline-citation
+      notes: No utm_* parameter on the landing URL.
+  - location: inline-citation
+    test: MRG-01
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      landing_url: https://attribution.now/t/mrg-01/google-gemini/web/inline-citation?a=1&b=2
+      notes: "?a=1&b=2 arrived intact (no tag is added, so the link is unchanged)."
+  - location: inline-citation
+    test: MRG-02
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-02/google-gemini/web/inline-citation#section-2
+      notes: "#section-2 arrived intact (no tag is added)."
+  - location: inline-citation
+    test: MRG-03
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-03/google-gemini/web/inline-citation?utm_source=newsletter&utm_medium=email
+      notes: utm_source=newsletter kept (no tag is added).
+  - location: inline-citation
+    test: MRG-04
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-04/google-gemini/web/inline-citation?expires=2099-01-01&signature=abc123
+      notes: Signed URL unchanged (no tag is added).
+  - location: sources-panel
+    test: REF-01
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      document_referrer: https://gemini.google.com/
+      landing_url: https://attribution.now/t/ref-01/google-gemini/web/sources-panel
+  - location: sources-panel
+    test: REF-02
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      notes: Origin only.
+  - location: sources-panel
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on the landing URL.
+  - location: search-cards
+    test: REF-01
+    status: n/a
+    evidence:
+      notes: Gemini showed search results, but attribution.now was not among them, so there was nothing to click.
+  - location: deep-research
+    test: REF-01
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      document_referrer: https://gemini.google.com/
+      landing_url: https://attribution.now/t/ref-01/google-gemini/web/deep-research
+      notes: Clicked from the finished report. While researching, Gemini fetched the page with user agent Gemini-Deep-Research.
+  - location: deep-research
+    test: REF-02
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      notes: Origin only.
+  - location: deep-research
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on the landing URL.
+  - location: canvas
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/google-gemini/web/canvas
+      notes: A real browser click (Sec-Fetch-Site cross-site) with no Referer header and an empty document.referrer, so the visit lands in Direct.
+  - location: canvas
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on the landing URL.
+  - location: bare-url
+    test: REF-01
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      document_referrer: https://gemini.google.com/
+      landing_url: https://attribution.now/t/ref-01/google-gemini/web/bare-url
+  - location: bare-url
+    test: REF-02
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      notes: Origin only.
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on the landing URL.
+  - location: pasted-link
+    test: REF-01
+    status: n/a
+    evidence:
+      notes: The link in the tester's own message was not clickable. Gemini fetched the URL itself (user agent "Google"); no visit followed.
+  - location: shared-conversation
+    test: REF-01
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      document_referrer: https://gemini.google.com/
+      landing_url: https://attribution.now/t/ref-01/google-gemini/web/shared-conversation
+      notes: Clicked in the public share page.
+  - location: shared-conversation
+    test: REF-02
+    status: works
+    evidence:
+      referer: https://gemini.google.com/
+      notes: Origin only; the /share/ path is not sent.
+  - location: shared-conversation
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on the landing URL.
