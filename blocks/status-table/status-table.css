@@ -54,7 +54,7 @@
 
 .status-table .chip em {
   font-style: normal;
-  opacity: 0.75;
+  color: var(--ink-soft);
 }
 
 .status-table .chip-works { background: var(--chip-works); }
@@ -95,7 +95,7 @@
 
 .status-table .chip-na {
   background: transparent;
-  opacity: 0.6;
+  color: var(--ink-soft);
 }
 
 .status-table .cell-button[aria-expanded='true'] .chip {
