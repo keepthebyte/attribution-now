@@ -90,8 +90,13 @@ export default function decorate(block) {
     cards.append(li);
   });
 
+  // the takeaway heading is the section's anchor (#scorecard): the pipeline ids headings by text
+  const takeaway = notes(before, 'scorecard-takeaway');
+  const anchor = takeaway[0]?.querySelector('h1, h2, h3');
+  if (anchor && !document.getElementById('scorecard')) anchor.id = 'scorecard';
+
   block.replaceChildren(
-    ...notes(before, 'scorecard-takeaway'),
+    ...takeaway,
     cards,
     ...notes(after, 'scorecard-note'),
   );
