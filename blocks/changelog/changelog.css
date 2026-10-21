@@ -1,23 +1,171 @@
 .changelog ol {
   list-style: none;
-  margin: 0;
+  margin: 32px 0 0;
   padding: 0;
 }
 
 .changelog li {
-  border-left: 3px solid var(--line-color);
-  padding: 0 0 24px 20px;
+  padding-block: 28px;
+  border-top: 1px solid var(--line-color);
 }
 
+.changelog li:first-child {
+  border-top: 0;
+  padding-top: 8px;
+}
+
+/* date, lab and kind of change: one line on small screens, the rail column on wide ones */
 .changelog .changelog-meta {
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin-bottom: 8px;
   font-size: var(--body-font-size-xs);
 }
 
-.changelog h3 {
-  margin: 4px 0 8px;
+.changelog .changelog-meta p {
+  margin: 0;
 }
 
-.changelog p {
+.changelog time {
+  font-weight: 700;
+}
+
+.changelog .changelog-lab {
+  font-weight: 500;
+}
+
+.changelog .changelog-type {
+  padding: 1px 10px;
+  border-radius: 999px;
+  background: var(--page);
+  font-weight: 500;
+}
+
+.changelog .changelog-shipped .changelog-type {
+  background: var(--pink);
+}
+
+.changelog .changelog-entry {
+  max-width: 65ch;
+}
+
+.changelog h3 {
+  margin: 0 0 8px;
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.changelog .changelog-entry p {
   margin: 8px 0 0;
+  text-wrap: pretty;
+}
+
+/* the thank-you sits on the labs' colour, since it is addressed to them */
+.changelog .changelog-entry .changelog-thanks {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  background: var(--pink);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.changelog .changelog-entry .changelog-proof {
+  margin-top: 16px;
+  color: var(--ink-soft);
+  font-size: var(--body-font-size-xs);
+}
+
+.changelog .changelog-mark {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* third-party reports carry the dashed outline used for Reported everywhere else */
+.changelog .changelog-reported {
+  padding: 1px 10px;
+  border-radius: 999px;
+  outline: 1.5px dashed var(--ink-soft);
+  outline-offset: -1.5px;
+  background: var(--chip-reported);
+}
+
+@media (width >= 900px) {
+  .changelog li {
+    --rail: 10rem;
+
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+    column-gap: 56px;
+    padding-block: 0 56px;
+    border-top: 0;
+  }
+
+  .changelog li:first-child {
+    padding-top: 0;
+  }
+
+  /* the rail, with a dot per entry: filled pink when a lab shipped a fix */
+  .changelog li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--rail) + 27px);
+    border-left: 1px solid var(--line-color);
+  }
+
+  .changelog li:last-child::before {
+    bottom: auto;
+    height: 1em;
+  }
+
+  .changelog li::after {
+    content: '';
+    position: absolute;
+    top: 0.45em;
+    left: calc(var(--rail) + 21px);
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--ink-soft);
+    border-radius: 50%;
+    background: var(--haze);
+  }
+
+  .changelog li.changelog-shipped::after {
+    border-color: var(--mark-pink);
+    background: var(--mark-pink);
+  }
+
+  .changelog .changelog-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0;
+  }
+
+  .changelog time {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .changelog .changelog-day {
+    font-family: var(--heading-font-family);
+    font-size: var(--heading-font-size-m);
+    line-height: 1.1;
+  }
+
+  .changelog .changelog-year {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  .changelog .changelog-sep {
+    display: none;
+  }
 }

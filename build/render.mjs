@@ -163,6 +163,8 @@ function workItemBlock(lab, item) {
   return block('work-item', rows);
 }
 
+const CHANGE_TYPES = { shipped: 'Fix shipped', change: 'Change', site: 'Site update' };
+
 function changelogBlock(entries) {
   const sorted = [...entries].sort((x, y) => (x.date < y.date ? 1 : -1));
   return block('changelog', sorted.map((e) => {
@@ -174,7 +176,8 @@ function changelogBlock(entries) {
       e.thank_you ? p(`<strong>${esc(e.thank_you)}</strong>`) : '',
       p(`${tag}${e.source_url ? ` · ${a(e.source_url, 'Source')}` : ''}`),
     ].join('');
-    return row(p(e.date), p(lab ? a(`/labs/${lab.id}`, esc(lab.name)) : 'attribution.now'), body);
+    const labCell = p(lab ? a(`/labs/${lab.id}`, esc(lab.name)) : 'attribution.now');
+    return row(p(e.date), labCell, body, p(CHANGE_TYPES[e.type] || ''));
   }));
 }
 
@@ -437,6 +440,7 @@ readdirSync(join(root, 'content')).filter((f) => f.endsWith('.md')).forEach((f) 
 });
 pages.set('/changelog', () => page({
   title: 'Changelog',
+  template: 'guide',
   description: 'Dated changes to how AI assistants attribute outbound links, newest first.',
 }, [section(
   '<h1>Changelog</h1>',
