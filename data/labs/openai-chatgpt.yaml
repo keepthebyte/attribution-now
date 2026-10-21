@@ -31,6 +31,8 @@ surfaces:
   - id: macos
     name: macOS app
     platform: native
+    # canvas: as of 2026-10-20 the app answers canvas requests with "Canvas is no longer available" and
+    # writes an inline "Writing" block instead. That block is tested as the canvas location.
     link_locations: [inline-citation, sources-panel, search-cards, deep-research, canvas, bare-url, pasted-link]
   - id: windows
     name: Windows app

@@ -1,0 +1,144 @@
+# Workspace (business) account, Chat mode with "Instant" model; deep research via the composer's + menu.
+# The app installed as ChatGPT.app is a Chromium-based build (bundle id com.openai.codex, Chromium 155.0.8059.80).
+# Every link opened in the default browser (Chrome), not an in-app web view: desktop Chrome user agent and
+# Sec-Fetch-Site: none, the same as a URL typed into the address bar. No referrer arrived from any location.
+# Evidence is from the worker log (npm run export-hits), cross-checked against the echo page in Chrome.
+date: 2026-10-20
+lab: openai-chatgpt
+surface: macos
+method: manual
+tester: cedric (via Claude computer use)
+client: ChatGPT 26.1013.40934 (macOS app) → Chrome 155 / macOS 27.2
+source_url: null
+results:
+  - location: inline-citation
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/inline-citation?utm_source=chatgpt.com
+      notes: Clicked the "attribution.now +1" citation chip; opened in Chrome with no Referer and Sec-Fetch-Site none.
+  - location: inline-citation
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent, so nothing can leak.
+  - location: inline-citation
+    test: UTM-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/inline-citation?utm_source=chatgpt.com
+      notes: utm_source=chatgpt.com.
+  # The sources panel is under the answer's "⋯" menu → "View sources" (no Sources pill in the action row).
+  - location: sources-panel
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/inline-citation?utm_source=chatgpt.com
+      notes: Clicked the second card in the Sources panel; it pointed at the inline-citation test URL (both cards share a title). No Referer.
+  - location: sources-panel
+    test: UTM-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/inline-citation?utm_source=chatgpt.com
+      notes: utm_source=chatgpt.com.
+  - location: search-cards
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/search-cards?utm_source=chatgpt.com
+      notes: Clicked the title of the bordered result card under "Exact match" after a web search. The card may be answer formatting rather than a native search card.
+  - location: search-cards
+    test: UTM-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/search-cards?utm_source=chatgpt.com
+      notes: utm_source=chatgpt.com.
+  - location: deep-research
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/deep-research
+      notes: Clicked the superscript citation inside the deep research report panel. No Referer.
+  - location: deep-research
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/deep-research
+      notes: No utm_source on the deep research report citation, unlike every chat-answer link.
+  - location: canvas
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/canvas
+      notes: >
+        Asked for a canvas; ChatGPT replied "Canvas is no longer available" and made an inline "Writing" block
+        instead. Clicked the link in that block. No Referer.
+  - location: canvas
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/canvas
+      notes: No utm_source on the link inside the Writing block (canvas replacement); confirmed on the echo page.
+  - location: bare-url
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/bare-url?utm_source=chatgpt.com
+      notes: A URL written without https:// stayed plain text; with https:// it became a link. No Referer.
+  - location: bare-url
+    test: UTM-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/bare-url?utm_source=chatgpt.com
+      notes: utm_source=chatgpt.com.
+  # Pasted test URLs, echoed back as a numbered list of links.
+  - location: pasted-link
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/pasted-link?utm_source=chatgpt.com
+      notes: No Referer.
+  - location: pasted-link
+    test: UTM-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/macos/pasted-link?utm_source=chatgpt.com
+      notes: utm_source=chatgpt.com added to echoed links.
+  - location: pasted-link
+    test: MRG-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-01/openai-chatgpt/macos/pasted-link?a=1&b=2&utm_source=chatgpt.com
+      notes: "?a=1&b=2 kept in order; tag appended after them."
+  - location: pasted-link
+    test: MRG-02
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-02/openai-chatgpt/macos/pasted-link?utm_source=chatgpt.com#section-2
+      notes: Fragment kept; tag inserted before it.
+  - location: pasted-link
+    test: MRG-03
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/mrg-03/openai-chatgpt/macos/pasted-link?utm_medium=email&utm_source=chatgpt.com
+      notes: "utm_source=newsletter was replaced with utm_source=chatgpt.com (utm_medium=email kept), as on the web."
+  - location: pasted-link
+    test: MRG-04
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/mrg-04/openai-chatgpt/macos/pasted-link?expires=2099-01-01&signature=abc123&utm_source=chatgpt.com
+      notes: utm_source=chatgpt.com appended to the signed URL, so it is no longer byte-identical.
