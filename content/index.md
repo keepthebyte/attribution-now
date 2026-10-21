@@ -3,12 +3,12 @@ title: attribution.now
 description: How ChatGPT, Gemini and Claude attribute the visits they send, for the analysts who measure them and the labs who can fix it.
 ---
 
-# AI assistants send you visitors. Most of those visits show up as *"Direct"*.
+<h1 id="ai-assistants-send-you-visitors">AI assistants send you visitors. For Gemini, 52% of those visits show up as <em>"Direct"</em>.<sup><a href="#how-we-know-gemini-tagged-its-links-for-11-days">1</a></sup></h1>
 
 <div class="columns audiences"><div><div>
 <p>For SEO, GEO and analytics teams</p>
 <h2 id="your-ai-traffic-is-bigger-than-your-reports-show">Your AI traffic is bigger than your reports show</h2>
-<p>ChatGPT, Gemini and Claude send people to your site every day. Many of those visits arrive with no referrer and no UTM tag, so your analytics file them under Direct, next to bookmarks and typed URLs. We test each assistant on web, mobile and desktop, so you know which of its visits you can see and which you can't.</p>
+<p>ChatGPT, Gemini and Claude send people to your site every day. Many of those visits arrive with no referrer and no UTM tag, so your analytics file them under Direct. Find out how much AI traffic is hiding there, and set up your reports to catch every AI visit they can.</p>
 <p><strong><a href="/reclaim-direct-traffic">Estimate your hidden AI traffic</a></strong></p>
 <p><em><a href="#scorecard">See what each assistant sends</a></em></p>
 </div><div>
@@ -28,6 +28,20 @@ What arrives with a visit when someone clicks a link in each assistant: the assi
 {{block:scorecard-fragment}}
 
 See [how we test](/tests).
+
+---
+
+<h2 id="how-we-know-gemini-tagged-its-links-for-11-days">How we know: Gemini tagged its links for 11 days</h2>
+
+From Sep 18 to 28, 2026, Gemini added `utm_source=gemini` to the links people clicked. Visits with a gemini.google.com referrer held steady. Next to them, a second group appeared: tagged visits with no referrer at all, 52% of Gemini's visits in those 11 days. Without the tag, analytics count them as Direct. On Sep 29 the tag stopped, and they went back to looking like Direct traffic.
+
+<p><a href="/widgets/gemini-utm/gemini-utm.html">/widgets/gemini-utm/gemini-utm.html</a></p>
+
+- **76% were on mobile**, against 6% of referred Gemini visits. The referrer gets lost mainly in the apps.
+- **59% clicked on the page**, against 58% of Google Search visitors. These are people, not bots.
+- **84% landed on deep pages** that nobody types in.
+
+The 52% is a floor: Gemini links that never carried the tag don't show up here at all.
 
 ---
 

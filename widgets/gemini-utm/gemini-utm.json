@@ -1,0 +1,8 @@
+{
+  "source": "AEM Operational Telemetry: real-user pageviews, bots excluded, Gemini visits seen on 1,000+ domains. Sampled visits (about 1% of pageviews). Visits with both the referrer and the tag count as visible.",
+  "baseline": { "from": "Sep 11", "to": "Sep 17" },
+  "tagged": { "from": "Sep 18", "to": "Sep 28" },
+  "days": ["Sep 11", "Sep 12", "Sep 13", "Sep 14", "Sep 15", "Sep 16", "Sep 17", "Sep 18", "Sep 19", "Sep 20", "Sep 21", "Sep 22", "Sep 23", "Sep 24", "Sep 25", "Sep 26", "Sep 27", "Sep 28", "Sep 29", "Sep 30", "Oct 1", "Oct 2", "Oct 3", "Oct 4", "Oct 5", "Oct 6", "Oct 7", "Oct 8", "Oct 9", "Oct 10", "Oct 11"],
+  "visible": [192, 129, 125, 220, 223, 225, 219, 181, 139, 153, 215, 217, 234, 230, 192, 128, 125, 237, 231, 216, 223, 224, 132, 146, 232, 204, 232, 205, 179, 131, 132],
+  "hidden": [16, 11, 15, 19, 26, 20, 33, 178, 177, 152, 182, 191, 230, 251, 220, 195, 202, 228, 29, 36, 9, 9, 5, 4, 7, 6, 1, 6, 6, 1, 1]
+}
