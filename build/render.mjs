@@ -417,6 +417,7 @@ function footer() {
   return `<!DOCTYPE html><html><head><title>Footer</title></head><body><main>
 ${section(
     p('attribution.now: helping AI labs and websites see where visits come from.'),
+    p(`Maintained by ${a('https://www.linkedin.com/in/cedrichuesler/', 'Cedric Huesler')} · Hosted on ${a('https://www.aem.live/', 'Adobe Experience Manager')} · Traffic data by ${a('https://business.adobe.com/products/brand-visibility.html', 'Adobe Brand Visibility')}`),
     p(`${a('/contribute', 'Contribute')} · ${a(repoUrl, 'GitHub')} · Code, content and data under the ${a(`${repoUrl}/blob/main/LICENSE`, 'Apache License 2.0')}.`),
   )}
 </main></body></html>
