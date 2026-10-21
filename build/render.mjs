@@ -171,7 +171,7 @@ function changelogBlock(entries) {
     const lab = e.lab ? labById(e.lab) : null;
     const tag = e.verified ? 'Verified' : 'Reported';
     const body = [
-      `<h3>${esc(e.title)}</h3>`,
+      `<h2>${esc(e.title)}</h2>`,
       p(md(e.text)),
       e.thank_you ? p(`<strong>${esc(e.thank_you)}</strong>`) : '',
       p(`${tag}${e.source_url ? ` · ${a(e.source_url, 'Source')}` : ''}`),
@@ -394,8 +394,11 @@ function checkPage() {
   )]);
 }
 
+// nav, footer and fragments are pieces of other pages: keep them out of search and the sitemap
+const PARTIAL_ROBOTS = '<meta name="robots" content="noindex">';
+
 function nav() {
-  return `<!DOCTYPE html><html><head><title>Navigation</title></head><body><main>
+  return `<!DOCTYPE html><html><head><title>Navigation</title>${PARTIAL_ROBOTS}</head><body><main>
 ${section(p(a('/', 'attribution.now')))}
 ${section(`<ul>${[
     ['/why', 'Why'], ['/best-practices', 'Best practices'],
@@ -408,21 +411,21 @@ ${section(p(a('/t/check', 'Check a link')))}
 }
 
 function labStatusFragment() {
-  return `<!DOCTYPE html><html><head><title>Lab status</title></head><body><main>
+  return `<!DOCTYPE html><html><head><title>Lab status</title>${PARTIAL_ROBOTS}</head><body><main>
 ${section(labTilesBlock())}
 </main></body></html>
 `;
 }
 
 function scorecardFragment() {
-  return `<!DOCTYPE html><html><head><title>Scorecard</title></head><body><main>
+  return `<!DOCTYPE html><html><head><title>Scorecard</title>${PARTIAL_ROBOTS}</head><body><main>
 ${section(scorecard())}
 </main></body></html>
 `;
 }
 
 function footer() {
-  return `<!DOCTYPE html><html><head><title>Footer</title></head><body><main>
+  return `<!DOCTYPE html><html><head><title>Footer</title>${PARTIAL_ROBOTS}</head><body><main>
 ${section(
     p(`A side project by ${a('https://www.linkedin.com/in/cedrichuesler/', 'Cedric Huesler')}, running on ${a('https://www.aem.live/', 'Adobe Experience Manager')}, with traffic data from ${a('https://business.adobe.com/products/brand-visibility.html', 'Adobe Brand Visibility')}.`),
     p(`${a('/contribute', 'Contribute')} · ${a(repoUrl, 'GitHub')} · Code, content and data under the ${a(`${repoUrl}/blob/main/LICENSE`, 'Apache License 2.0')}.`),
