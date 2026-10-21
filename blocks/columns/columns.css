@@ -43,6 +43,11 @@ main > .section:has(> .columns-audiences-wrapper) {
   padding-bottom: 0;
 }
 
+/* keep a haze gap when the next section is a colour field too */
+main > .section:has(> .columns-audiences-wrapper):has(+ .section:is(.analysts, .labs)) {
+  padding-bottom: var(--section-padding);
+}
+
 .columns.audiences > div {
   display: grid;
   grid-template-columns: 1fr;
@@ -58,24 +63,8 @@ main > .section:has(> .columns-audiences-wrapper) {
   max-width: 34rem;
 }
 
-.columns.audiences .columns-field:nth-child(1) {
-  --link-color: var(--page);
-  --link-hover-color: var(--page);
-
-  background: var(--violet);
-  color: var(--page);
-}
-
-.columns.audiences .columns-field:nth-child(2) {
-  background: var(--pink);
-  color: var(--ink);
-}
-
-.columns.audiences .columns-field:nth-child(1) :focus-visible {
-  outline-color: var(--page);
-}
-
-.columns.audiences h2 {
+.columns.audiences h2,
+.columns.audiences h3 {
   margin-top: 0;
 }
 
@@ -83,11 +72,11 @@ main > .section:has(> .columns-audiences-wrapper) {
   display: block;
 }
 
-.columns.audiences .columns-field:nth-child(1) .columns-audience {
+.columns.audiences .field-analysts .columns-audience {
   color: var(--violet-soft);
 }
 
-.columns.audiences .columns-field:nth-child(2) .columns-audience {
+.columns.audiences .field-labs .columns-audience {
   color: var(--pink-ink);
 }
 
@@ -108,16 +97,16 @@ main > .section:has(> .columns-audiences-wrapper) {
 }
 
 /* on violet the primary is a page pill */
-.columns.audiences .columns-field:nth-child(1) a.button.primary {
+.columns.audiences .field-analysts a.button.primary {
   background: var(--page);
   color: var(--violet-deep);
 }
 
-.columns.audiences .columns-field:nth-child(1) a.button.primary:hover {
+.columns.audiences .field-analysts a.button.primary:hover {
   background: var(--haze);
 }
 
-.columns.audiences .columns-field:nth-child(2) a.button.primary:any-link {
+.columns.audiences .field-labs a.button.primary:any-link {
   color: var(--page);
 }
 

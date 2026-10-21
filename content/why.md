@@ -19,9 +19,13 @@ We'd like to work with AI labs on two signals that tell a website a visit came f
 - **A healthier ecosystem.** When sites can see which content gets cited and clicked, they can make more of it.
 - **Fewer escalations.** A documented, stable signal means fewer support threads, fewer press stories about sudden drops, and fewer one-off questions from partners.
 
+<div class="section-metadata"><div><div>Style</div><div>labs</div></div></div>
+
 ---
 
 ## Seeing it from both sides
+
+<div class="columns audiences labs-first"><div><div>
 
 ### For the teams who build assistants
 
@@ -31,12 +35,16 @@ We'd like to work with AI labs on two signals that tell a website a visit came f
 - Apps and webviews often can't send a referrer at all. A UTM tag is the only signal that survives there.
 - UI cycles are fast. A refactor of a link component can remove both signals without anyone noticing.
 
+</div><div>
+
 ### For the teams who run websites
 
 - Visits without a referrer or tag land in **Direct**, next to bookmarks and typed URLs.
 - Reports swing for no visible reason when a product update changes link behavior.
 - Assistant traffic is undercounted in every report that reaches leadership.
 - Analysts spend time on cleanup rules and guesswork instead of on the content people actually came for.
+
+</div></div></div>
 
 ---
 
@@ -46,6 +54,10 @@ Vendor studies, each from their own data, suggest a large share of assistant vis
 
 - One analytics vendor found that about 70% of AI visits in its data landed as Direct ([Loamly, updated February 2026](https://www.loamly.ai/blog/ai-traffic-attribution-crisis)).
 - A study of one US ecommerce site in August 2026 found GA4 missed about 67% of Gemini visitors and about 95% of Claude visitors, while ChatGPT, which tags its links, was counted within about 3% ([WISLR, September 2026](https://www.wislr.com/articles/ai-assistant-traffic-ga4-blind-spots/)).
+
+<div class="section-metadata"><div><div>Style</div><div>analysts</div></div></div>
+
+---
 
 ### A shared lesson: October 8–16, 2026
 

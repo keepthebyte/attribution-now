@@ -1,12 +1,14 @@
 /**
  * Audience fields: one column per audience, each on its own colour field.
- * Authored per cell: an audience line, an H2, body, buttons, and optional link lines.
+ * Analysts (violet) come first unless the block has the `labs-first` option.
+ * Authored per cell: an optional audience line, a heading, body, buttons, and optional link lines.
  * @param {Element} block The columns block
  */
 function decorateAudiences(block) {
   block.parentElement.classList.add('columns-audiences-wrapper');
-  block.querySelectorAll(':scope > div > div').forEach((cell) => {
-    cell.classList.add('columns-field');
+  const audiences = block.classList.contains('labs-first') ? ['labs', 'analysts'] : ['analysts', 'labs'];
+  block.querySelectorAll(':scope > div > div').forEach((cell, i) => {
+    cell.classList.add('columns-field', `field-${audiences[i % 2]}`);
 
     // the audience line becomes the first line of the heading (no labels above headings)
     const heading = cell.querySelector('h2, h3');
