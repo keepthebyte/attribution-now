@@ -43,7 +43,7 @@ jobs:
           if [ "${{ inputs.all }}" = "true" ]; then echo '{}' > prev.json
           else curl -fsS "$BYOM_URL/manifest.json" -o prev.json || echo '{}' > prev.json; fi
           echo "changed=$(node build/publish.mjs diff prev.json dist/manifest.json)" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
@@ -55,7 +55,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   publish:
     needs: [build, deploy]
