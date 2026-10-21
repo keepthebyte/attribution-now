@@ -1,11 +1,18 @@
 ---
 title: Best practices for outbound link attribution
-description: Five practices that let websites attribute visits from an AI assistant, with code, per-platform notes and test vectors.
+description: For teams who build AI assistants. Five practices that let websites attribute the visits your assistant sends, with code, per-platform notes and test vectors.
+template: guide
 ---
+
+<p>For teams at AI labs</p>
 
 # Best practices for outbound link attribution
 
-Five practices, in order of impact. Each maps to tests in the [test catalog](/tests).
+For the teams who build ChatGPT, Gemini, Claude and other assistants. Five practices, in order of impact, so every website can see the visits your assistant sends, from your web app and from your mobile and desktop apps. Each maps to tests in the [test catalog](/tests), and your [lab page](/#scorecard) shows which ones already pass.
+
+Run a website instead? [Estimate your hidden AI traffic](/reclaim-direct-traffic).
+
+<div class="section-metadata"><div><div>Style</div><div>labs</div></div></div>
 
 ---
 

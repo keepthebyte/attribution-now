@@ -171,6 +171,24 @@ function decorateButtons(main) {
 }
 
 /**
+ * In an audience section (analysts or labs), a plain line right before the first heading
+ * becomes the heading's first line, as in the homepage audience fields (no labels above headings).
+ * @param {Element} main The main element
+ */
+function decorateAudienceLines(main) {
+  main.querySelectorAll('.section:is(.analysts, .labs)').forEach((section) => {
+    const heading = section.querySelector('h1, h2');
+    const line = heading?.previousElementSibling;
+    if (line?.tagName !== 'P' || line.querySelector('a') || !line.textContent.trim()) return;
+    const span = document.createElement('span');
+    span.className = 'audience-line';
+    span.textContent = line.textContent.trim();
+    heading.prepend(span, ' ');
+    line.remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -180,6 +198,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSectionMetadata(main);
   decorateSections(main);
+  decorateAudienceLines(main);
   decorateBlocks(main);
   decorateButtons(main);
 }
