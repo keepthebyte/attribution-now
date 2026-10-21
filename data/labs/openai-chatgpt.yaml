@@ -13,13 +13,9 @@ what_works_date: 2026-10-20
 # link_locations are candidates until confirmed by a verified test run.
 surfaces:
   - id: web-desktop
-    name: Web (desktop)
+    name: Web
     platform: web
     link_locations: [inline-citation, sources-panel, search-cards, shopping-cards, map-cards, deep-research, canvas, bare-url, pasted-link, shared-conversation]
-  - id: web-mobile
-    name: Web (mobile)
-    platform: web
-    link_locations: [inline-citation, sources-panel, search-cards, shopping-cards, map-cards, deep-research, bare-url, pasted-link, shared-conversation]
   - id: ios
     name: iOS app
     platform: native
@@ -42,7 +38,7 @@ work_items:
   - id: chatgpt-web-referrer
     title: Send the chatgpt.com referrer on every web link location
     tests: [REF-01, REF-03]
-    surfaces: [web-desktop, web-mobile]
+    surfaces: [web-desktop]
     status: open
     summary: >
       chatgpt.com already sets an `origin` referrer policy, but every outbound link also has
@@ -53,7 +49,7 @@ work_items:
   - id: chatgpt-safe-merge
     title: Keep sites' own UTM tags and signed URLs intact
     tests: [MRG-03, MRG-04]
-    surfaces: [web-desktop, web-mobile, ios, android, macos, windows]
+    surfaces: [web-desktop, ios, android, macos, windows]
     status: open
     summary: >
       ChatGPT already merges the tag cleanly into existing queries and fragments. Two edge cases remain: a link
@@ -75,7 +71,7 @@ work_items:
   - id: chatgpt-changelog
     title: Publish a changelog for link behavior
     tests: [OPS-01]
-    surfaces: [web-desktop, web-mobile, ios, android, macos, windows]
+    surfaces: [web-desktop, ios, android, macos, windows]
     status: open
     summary: >
       The October 2026 change was found by analytics vendors, not announced, so sites spent a week guessing
