@@ -15,7 +15,7 @@
 /* one card per assistant: three-up at 1024px, one column below, never 2 + 1 */
 .scorecard .scorecard-cards {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   margin: 40px 0 0;
   padding: 0;
@@ -115,8 +115,8 @@
   white-space: nowrap;
 }
 
-/* three cards between 1024 and 1240px leave no room for "Referrer: Reported missing" on one line */
-@media (width >= 1024px) and (width < 1240px) {
+/* "Referrer: Reported missing" fits one line only from 360px, and in three cards from 1240px */
+@media (width < 360px), (width >= 1024px) and (width < 1240px) {
   .scorecard a.signal {
     white-space: normal;
   }

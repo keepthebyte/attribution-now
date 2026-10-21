@@ -1,9 +1,9 @@
 import { getMetadata } from '../../scripts/aem.js';
-import { brandMark } from '../../scripts/brand-mark.js';
+import { brandFix, brandMark } from '../../scripts/brand-mark.js';
 import { loadFragment } from '../fragment/fragment.js';
 
-// eight items and the mark need about 1000px; below that the nav sits behind a menu button
-const isDesktop = window.matchMedia('(min-width: 1024px)');
+// eight items, the mark and "fix" need about 1080px; below that the nav sits behind a menu button
+const isDesktop = window.matchMedia('(min-width: 1120px)');
 
 /**
  * Opens or closes the mobile menu
@@ -40,7 +40,10 @@ export default async function decorate(block) {
   const brand = document.createElement('a');
   brand.className = 'nav-brand';
   brand.href = brandSource?.getAttribute('href') || '/';
-  brand.append(brandMark(), (brandSource?.textContent || 'attribution.now').trim());
+  const name = document.createElement('span');
+  name.className = 'nav-brand-name';
+  name.textContent = (brandSource?.textContent || 'attribution.now').trim();
+  brand.append(brandMark(), brandFix(), name);
   nav.append(brand);
 
   // menu button for narrow screens
@@ -49,7 +52,7 @@ export default async function decorate(block) {
   button.className = 'nav-menu-button';
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-controls', 'nav-links');
-  button.innerHTML = '<span class="nav-menu-icon" aria-hidden="true"></span>Menu';
+  button.innerHTML = '<span class="nav-menu-icon" aria-hidden="true"></span><span class="nav-menu-label">Menu</span>';
   button.addEventListener('click', () => toggleMenu(nav));
   nav.append(button);
 

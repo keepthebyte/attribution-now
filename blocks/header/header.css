@@ -45,6 +45,72 @@ header .brand-mark .lens {
   to { transform: none; }
 }
 
+/* "fix", hand-written in pen in front of the name */
+header .brand-fix {
+  flex: none;
+  width: 1.83em;
+  height: 1.9em;
+  margin: -0.2em -0.1em 0 -0.12em;
+  overflow: visible;
+  animation: brand-fix-write 520ms var(--ease-out) 1100ms both;
+}
+
+header .brand-fix-glyphs {
+  fill: var(--mark-pink);
+}
+
+header .brand-fix-line {
+  fill: none;
+  stroke: var(--mark-pink);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  animation: brand-fix-line 360ms ease-out 1550ms both;
+}
+
+header .brand-fix-line + .brand-fix-line {
+  animation-delay: 1800ms;
+}
+
+@keyframes brand-fix-write {
+  from { clip-path: inset(-50% 100% -50% -50%); }
+  to { clip-path: inset(-50%); }
+}
+
+@keyframes brand-fix-line {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* small phones: the name, "fix" and the menu button share 320px */
+@media (width < 400px) {
+  header .nav-brand {
+    gap: 8px;
+    font-size: 1.15rem;
+  }
+
+  header .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* the narrowest phones: the menu button keeps its icon, "Menu" stays for screen readers */
+@media (width < 360px) {
+  header .nav-menu-button {
+    padding: 12px 14px;
+  }
+
+  header .nav-menu-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
 /* menu button (narrow screens) */
 header .nav-menu-button {
   display: inline-flex;
@@ -157,7 +223,7 @@ header .nav-links .nav-tool:hover {
   text-decoration: none;
 }
 
-@media (width >= 1024px) {
+@media (width >= 1120px) {
   header .nav-menu-button {
     display: none;
   }
