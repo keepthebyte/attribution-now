@@ -320,6 +320,7 @@ function labPage(lab) {
       p(`By ${esc(lab.company)}. ${lab.documented_utm ? `Documented UTM: <code>utm_source=${esc(lab.documented_utm)}</code>${lab.docs_url ? ` (${a(lab.docs_url, 'docs')})` : ''}.` : 'No UTM value documented yet.'}`),
       '<h2>What works today</h2>',
       p(md(lab.what_works)),
+      lab.evidence_widget ? p(a(lab.evidence_widget, lab.evidence_widget)) : '',
       p(`<em>As of ${lab.what_works_date}.</em>`),
     ),
     section(
