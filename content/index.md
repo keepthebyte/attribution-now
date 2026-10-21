@@ -1,30 +1,36 @@
 ---
 title: attribution.now
-description: Helping AI labs show where their visits come from, with two small signals on outbound links.
+description: How ChatGPT, Gemini and Claude attribute the visits they send, for the analysts who measure them and the labs who can fix it.
 ---
 
-# Help websites see the visits you send
+# AI assistants send you visitors. Most of those visits show up as "Direct".
 
-When someone clicks a link in an AI assistant, the website often can't tell where the visit came from. It lands in "Direct", and the value the assistant created disappears from the report.
-
-Two small signals fix most of it: **the assistant's origin as the referrer**, and **one documented `utm_source` tag**. This site tracks how each assistant handles them today, and suggests the next improvement in a form a team can act on.
-
-**[Why it matters](/why)**
-
-*[Best practices](/best-practices)*
+<div class="columns"><div><div>
+<p>For SEO, GEO and analytics teams</p>
+<h2 id="your-ai-traffic-is-bigger-than-your-reports-show">Your AI traffic is bigger than your reports show</h2>
+<p>ChatGPT, Gemini and Claude send people to your site every day. Many of those visits arrive with no referrer and no UTM tag, so your analytics file them under Direct, next to bookmarks and typed URLs. We test each assistant on web, mobile and desktop, so you know which of its visits you can see and which you can't.</p>
+<p><strong><a href="/reclaim-direct-traffic">Estimate your hidden AI traffic</a></strong></p>
+<p><em><a href="#scorecard">See what each assistant sends</a></em></p>
+</div><div>
+<p>For teams at AI labs</p>
+<h2 id="small-fixes-so-every-site-can-see-the-visits-you-send">Small fixes, so every site can see the visits you send</h2>
+<p>When a link from your assistant arrives with no referrer or tag, the site can't give you credit. The fixes are small: send your origin as the referrer, and add one documented <code>utm_source</code> value. Each lab page shows what already works, what to fix next, and a prompt your team can paste into a coding assistant or a ticket.</p>
+<p>See your status: <a href="/labs/openai-chatgpt">ChatGPT</a> · <a href="/labs/google-gemini">Gemini</a> · <a href="/labs/anthropic-claude">Claude</a></p>
+<p><a href="/why">Why it matters</a> · <a href="/best-practices">Best practices</a></p>
+</div></div></div>
 
 ---
 
-## Status by lab
+## Scorecard
 
-Each lab page starts with what already works, then lists the next improvements with prompts teams can paste into their coding assistant or tracker.
+What arrives with a visit when someone clicks a link in each assistant: the assistant as the referrer, and a UTM tag.
 
-{{block:lab-status-fragment}}
+{{block:scorecard-fragment}}
 
-Statuses marked **Reported** come from public third-party reports. We are verifying them first-hand. See [how we test](/tests).
+See [how we test](/tests).
 
 ---
 
 ## Check a link yourself
 
-Ask any assistant to link to [attribution.now/t/check](/t/check) and open the link. The page shows the referrer and UTM it received.
+Ask any assistant to link to [attribution.now/t/check](/t/check), then open the link. The page shows the referrer and UTM tag it received.

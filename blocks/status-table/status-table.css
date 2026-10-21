@@ -95,3 +95,11 @@
 .status-table.lab table {
   width: auto;
 }
+
+.status-table tbody tr {
+  scroll-margin-top: calc(var(--nav-height) + 16px);
+}
+
+.status-table tr.status-target > * {
+  background: var(--chip-reported);
+}
