@@ -55,6 +55,8 @@ Set up per [Cloudflare Setup (worker)](https://www.aem.live/docs/byo-cdn-cloudfl
   - `cdn.prod`: `cloudflare`, `plan: free`, so every publish purges the whole zone
 - **Secrets**: `AEM_ADMIN_TOKEN` (admin API key) in the repo's Actions secrets.
 
+Code reaches EDS through the AEM Code Sync GitHub app on every push. To check it, fetch a changed file from `https://main--attribution-now--keepthebyte.aem.page/` (or `{branch}--…`) and look for the change. If sync stalls (seen in October 2026: merges served old code for 15+ minutes and new branches returned 404), push to the branch again, or sync by hand with `curl -X POST -H "Authorization: Bearer $AEM_TOKEN" "https://admin.hlx.page/code/keepthebyte/attribution-now/main/*"`. Don't publish content that needs new block code until the code is live.
+
 Deploy worker changes with `cd worker && npm run deploy`; schema changes with `npm run migrate`. Export hits with `npm run export-hits -- --since 2026-10-20 --out exports/hits.csv`.
 
 ## Privacy
