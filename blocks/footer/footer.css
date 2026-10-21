@@ -24,8 +24,13 @@ footer .footer p {
   color: var(--haze);
 }
 
+footer .footer p + p {
+  margin-top: 8px;
+}
+
 footer .footer .footer-mission {
   max-width: 36rem;
+  margin-bottom: 8px;
   color: var(--page);
   font-size: var(--body-font-size-m);
   font-weight: 500;
