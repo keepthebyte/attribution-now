@@ -162,6 +162,9 @@ Inherit the field's text colour, underlined at 0.12em offset 0.2em; hover thicke
 ### Citations and charts
 A number claimed in a heading carries a citation marker: a small `pink-deep` pill with the footnote number in page colour (body face, 700), linking to the evidence further down the page. Evidence charts are widgets (`/widgets/<name>/`) drawn with Chart.js on a page-coloured card: report violet for what analytics can see, `mark-pink` for what it can't, haze for an annotated window. No gridlines on the x-axis, a `line-color` grid on y, the legend and source written as HTML around the canvas, and a "Daily numbers" table for screen readers and anyone who wants the data.
 
+### Changelog
+A dated list at a 65ch measure. From 900px up, a 10rem rail column holds the date (heading face, 700), the lab and the kind of change, and a 1px `line-color` rule runs beside it with one dot per entry: filled `mark-pink` when a lab shipped a fix, hollow otherwise. Below 900px the same facts sit on one line above the title. Entry titles are subheadings (700). A thank-you sits on a `link-pink` card, because it is addressed to the lab; Reported uses the dashed outline.
+
 ## Do's and Don'ts
 
 - Do say which audience a section serves before saying anything else.
