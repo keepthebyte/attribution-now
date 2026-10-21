@@ -40,6 +40,7 @@ Use `/t/<test>/<lab>/<surface>/<location>`; the worker serves the `/t/<test>` pa
 - **Web** (`web`): `inline-citation`, `sources-panel`, `search-cards`, `shopping-cards`, `map-cards`, `deep-research`, `canvas`, `bare-url`, `pasted-link`, `shared-conversation`
 - **iOS app** (`ios`): `inline-citation`, `sources-panel`, `search-cards`, `map-cards`, `deep-research`, `bare-url`, `pasted-link`
 - **Android app (incl. assistant)** (`android`): `inline-citation`, `sources-panel`, `search-cards`, `map-cards`, `deep-research`, `bare-url`, `pasted-link`
+- **macOS app** (`macos`): `inline-citation`, `sources-panel`, `search-cards`, `map-cards`, `deep-research`, `canvas`, `bare-url`, `pasted-link`
 - **Workspace** (`workspace`): `inline-citation`, `sources-panel`, `deep-research`, `canvas`, `bare-url`, `pasted-link`
 
 ### ChatGPT

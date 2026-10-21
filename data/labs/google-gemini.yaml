@@ -24,6 +24,10 @@ surfaces:
     name: Android app (incl. assistant)
     platform: native
     link_locations: [inline-citation, sources-panel, search-cards, map-cards, deep-research, bare-url, pasted-link]
+  - id: macos
+    name: macOS app
+    platform: native
+    link_locations: [inline-citation, sources-panel, search-cards, map-cards, deep-research, canvas, bare-url, pasted-link]
   - id: workspace
     name: Workspace
     platform: web
