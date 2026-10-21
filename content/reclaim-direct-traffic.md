@@ -1,7 +1,6 @@
 ---
 title: Estimate your hidden AI traffic
 description: How to count the visits ChatGPT, Gemini and Claude send you, assistant by assistant, and estimate the ones hiding in Direct.
-robots: noindex
 template: guide
 ---
 
@@ -26,10 +25,11 @@ Count a visit with both the tag and the referrer once.
 Gemini on the web sends `https://gemini.google.com/` as the referrer, and no tag. Its apps send neither, so those visits land in Direct.
 
 1. Count visits with a `gemini.google.com` referrer.
-2. Add 108% on top, which is the same as multiplying by about 2.1. From Sep 18 to 28, 2026, Gemini tagged its links: for every 100 visits with the referrer, 108 more arrived with only the tag. Those were 52% of all Gemini visits. [How we know](/#how-we-know-gemini-tagged-its-links-for-11-days).
+2. Multiply by 2.1 to 2.5.
+   - 2.1 is measured. From Sep 18 to 28, 2026, Gemini tagged its links: for every 100 visits with the referrer, 108 more arrived with only the tag. [How we know](/#how-we-know-gemini-tagged-its-links-for-11-days).
+   - 2.5 adds an estimate for the links that weren't tagged and arrived with no referrer either.
 
-The result is still a floor: links that never carried the tag aren't in that count. Workspace accounts tagged links `utm_source=geminiforbusiness` in the same window.
-
+Use 2.1 when you need a number nobody can dispute, and 2.5 as your best estimate. Workspace accounts tagged links `utm_source=geminiforbusiness` in the same window.
 
 ## Claude: the referrer, as a floor
 
