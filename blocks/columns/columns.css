@@ -68,8 +68,16 @@ main > .section:has(> .columns-audiences-wrapper):has(+ .section:is(.analysts, .
   margin-top: 0;
 }
 
+/* the audience line opens the heading: same face, half size, the field's second tone.
+   1.2rem/700 is the floor: large text, so 3:1 on the field */
 .columns.audiences .columns-audience {
   display: block;
+  margin-bottom: 0.3em;
+  font-size: max(0.5em, 1.2rem);
+  font-weight: 700;
+  font-variation-settings: 'opsz' 24;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
 }
 
 .columns.audiences .field-analysts .columns-audience {
@@ -112,7 +120,7 @@ main > .section:has(> .columns-audiences-wrapper):has(+ .section:is(.analysts, .
 
 .columns.audiences .columns-field > .columns-links-label {
   margin-top: 40px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .columns.audiences .columns-links {
@@ -126,8 +134,8 @@ main > .section:has(> .columns-audiences-wrapper):has(+ .section:is(.analysts, .
 
 .columns.audiences .columns-links a {
   padding: 6px 0;
-  font: 800 var(--heading-font-size-m)/1.2 var(--heading-font-family);
-  font-variation-settings: 'opsz' 36;
+  font: 700 var(--heading-font-size-s)/1.2 var(--heading-font-family);
+  font-variation-settings: 'opsz' 24;
 }
 
 .columns.audiences .columns-field > .columns-quiet {
@@ -142,6 +150,11 @@ main > .section:has(> .columns-audiences-wrapper):has(+ .section:is(.analysts, .
 
   .columns.audiences .columns-actions p.button-wrapper:has(.primary) {
     flex-basis: 100%;
+  }
+
+  /* one lab per line, never 2 + 1 */
+  .columns.audiences .columns-links {
+    flex-direction: column;
   }
 }
 

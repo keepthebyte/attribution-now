@@ -229,12 +229,12 @@ function scorecard() {
   const takeaway = both.length
     ? `Both signals arrive verified from ${both.join(', ')}.`
     : 'No assistant sends both signals yet, on any surface we have tested.';
-  // single-cell rows before and after the table: the takeaway and the legend
+  // single-cell rows before and after the table: the takeaway (the section heading, #scorecard) and the legend
   return block('scorecard', [
-    row(p(esc(takeaway))),
+    row(`<h2 id="scorecard">${esc(takeaway)}</h2>${p('What arrives with a visit when someone clicks a link in each assistant: the assistant as the referrer, and a UTM tag.')}`),
     row('Assistant', ...SCORECARD_GROUPS.map((g) => g.name), 'Documented UTM'),
     ...rows,
-    row(p('<strong>Reported</strong> means a third-party report we have not yet verified first-hand. Select a status to see the evidence on the lab page.')),
+    row(p(`<strong>Reported</strong> means a third-party report we have not yet verified first-hand. Select a status to see the evidence on the lab page, or see ${a('/tests', 'how we test')}.`)),
   ]);
 }
 

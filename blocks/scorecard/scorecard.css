@@ -1,15 +1,13 @@
-.scorecard .scorecard-takeaway {
+/* the takeaway is the section's heading, the intro sits under it */
+.scorecard .scorecard-takeaway h2 {
   max-width: 22ch;
-  margin-top: 40px;
-  color: var(--haze-ink);
-  font: 800 var(--heading-font-size-l)/1.12 var(--heading-font-family);
-  font-variation-settings: 'opsz' 60;
-  letter-spacing: -0.02em;
+  margin-top: 0;
   text-wrap: balance;
 }
 
 .scorecard .scorecard-takeaway p {
-  margin: 0;
+  max-width: 65ch;
+  margin: 16px 0 0;
 }
 
 /* one card per assistant: three-up at 1024px, one column below, never 2 + 1 */
@@ -41,6 +39,7 @@
 
 .scorecard .scorecard-title h3 {
   font-size: var(--heading-font-size-m);
+  font-weight: 700;
   font-variation-settings: 'opsz' 36;
 }
 
@@ -89,7 +88,8 @@
 .scorecard th {
   width: 7rem;
   padding-right: 8px;
-  font-weight: 600;
+  color: var(--ink-soft);
+  font-weight: 500;
 }
 
 .scorecard .scorecard-marks {
@@ -109,7 +109,7 @@
   border-radius: 999px;
   background: var(--haze);
   color: var(--ink);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.3;
   text-decoration: none;
   white-space: nowrap;

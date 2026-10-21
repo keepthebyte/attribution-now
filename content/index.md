@@ -15,19 +15,12 @@ description: How ChatGPT, Gemini and Claude attribute the visits they send, for 
 <p>For teams at AI labs</p>
 <h2 id="small-fixes-so-every-site-can-see-the-visits-you-send">Small fixes, so every site can see the visits you send</h2>
 <p>When a link from your assistant arrives with no referrer or tag, the site can't give you credit. The fixes are small: send your origin as the referrer, and add one documented <code>utm_source</code> value. Each lab page shows what already works, what to fix next, and a prompt your team can paste into a coding assistant or a ticket.</p>
-<p>See your status: <a href="/labs/openai-chatgpt">ChatGPT</a> · <a href="/labs/google-gemini">Gemini</a> · <a href="/labs/anthropic-claude">Claude</a></p>
-<p><a href="/why">Why it matters</a> · <a href="/best-practices">Best practices</a></p>
+<p>See your status: <a href="/labs/anthropic-claude">Claude</a> · <a href="/labs/google-gemini">Gemini</a> · <a href="/labs/openai-chatgpt">ChatGPT</a></p>
 </div></div></div>
 
 ---
 
-## Scorecard
-
-What arrives with a visit when someone clicks a link in each assistant: the assistant as the referrer, and a UTM tag.
-
 {{block:scorecard-fragment}}
-
-See [how we test](/tests).
 
 ---
 

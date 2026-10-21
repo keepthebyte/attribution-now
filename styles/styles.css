@@ -244,6 +244,11 @@ a:hover {
   text-decoration-thickness: 0.14em;
 }
 
+/* homepage evidence section: keep running text to a readable measure */
+main .gemini-utm-container .default-content-wrapper > :is(p, ul) {
+  max-width: 65ch;
+}
+
 /* homepage hero: on wide screens the first sentence gets its own line */
 @media (width >= 900px) {
   main .section:has(.columns-audiences-wrapper) h1 {
@@ -262,12 +267,13 @@ h1 sup {
   border-radius: 1em;
   background: var(--pink-deep);
   color: var(--page);
-  font-size: 0.36em;
-  font-variation-settings: 'opsz' 24;
+  font-family: var(--body-font-family);
+  font-size: 0.3em;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: 1.2;
   text-align: center;
-  vertical-align: 1.6em;
+  vertical-align: 1.5em;
 }
 
 h1 a:any-link:has(> sup) {

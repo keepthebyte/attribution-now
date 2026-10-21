@@ -121,7 +121,7 @@ header .nav-menu-button {
   border-radius: 999px;
   background: var(--ink);
   color: var(--page);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
   cursor: pointer;
 }
@@ -211,7 +211,7 @@ header .nav-links .nav-tool {
   border-radius: 999px;
   background: var(--ink);
   color: var(--page);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 header .nav-links .nav-tool:any-link {
