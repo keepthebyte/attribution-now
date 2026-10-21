@@ -21,6 +21,7 @@
     "contact": { "$ref": "#/$defs/nullableString" },
     "what_works": { "type": "string", "minLength": 1 },
     "what_works_date": { "$ref": "#/$defs/date" },
+    "evidence_widget": { "type": "string", "pattern": "^/widgets/[a-z0-9-]+/[a-z0-9-]+\\.html$", "description": "Optional chart shown on the lab page under What works today." },
     "seo_summary": { "type": "string", "minLength": 1, "maxLength": 125, "description": "The key finding in one sentence, for the meta description (after \"For <company> teams and analysts: \")." },
     "surfaces": {
       "type": "array",

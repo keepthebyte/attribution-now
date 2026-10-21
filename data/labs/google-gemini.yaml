@@ -6,10 +6,14 @@ observed_utm: gemini
 docs_url: null
 contact: null
 what_works: >
-  Gemini on the web sends `https://gemini.google.com/` as the referrer: the origin only, from source links and
-  from links the user pasted. Its links use `rel="noopener"` without `noreferrer`, exactly as recommended. From
-  September 18 to 28, 2026, Gemini links also carried `utm_source=gemini` (and `geminiforbusiness` for Workspace).
-what_works_date: 2026-10-20
+  Gemini tagged its links with `utm_source=gemini` (`geminiforbusiness` on Workspace) for only 11 days, from
+  September 18 to 28, 2026. Since September 29 no Gemini link carries a tag. In those 11 days the tag revealed
+  about as many visits again as the referrer shows, mostly on mobile. On the web, Gemini still sends
+  `https://gemini.google.com/` as the referrer (the origin only) from answer links, sources, Deep Research and
+  shared conversations, but not from Canvas. The iOS app opens links in its own web view with no referrer, so
+  those visits land in Direct.
+what_works_date: 2026-10-21
+evidence_widget: /widgets/gemini-utm/gemini-utm.html
 seo_summary: "Gemini on the web sends the gemini.google.com referrer but no UTM tag; its apps send neither, so visits land in Direct."
 # link_locations are candidates until confirmed by a verified test run.
 surfaces:
