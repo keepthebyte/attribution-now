@@ -11,7 +11,7 @@ function token(el, name) {
 
 const day = (iso) => new Date(`${iso}T00:00:00Z`);
 const short = (iso) => `${MONTHS[day(iso).getUTCMonth()]} ${day(iso).getUTCDate()}`;
-const thousands = (v) => `${Math.round(v / 1000)}k`;
+const indexed = (v) => Math.round(v);
 
 /** "Oct 23–29, 2025" */
 function weekRange(data, i) {
@@ -30,10 +30,10 @@ function weekPosition(data, iso) {
 
 function renderTable(widget, data) {
   const rows = data.weeks.map((w, i) => `<tr><th scope="row">${weekRange(data, i)}</th>
-    <td>${data.utm[i].toLocaleString('en-US')}</td><td>${data.referrer[i].toLocaleString('en-US')}</td>
+    <td>${indexed(data.utm[i])}</td><td>${indexed(data.referrer[i])}</td>
     <td>${data.withReferrerPct[i]}%</td></tr>`).join('');
   widget.querySelector('.chatgpt-utm-table').innerHTML = `<table>
-    <thead><tr><th scope="col">Week</th><th scope="col">Tagged per day</th><th scope="col">Referrer per day</th>
+    <thead><tr><th scope="col">Week</th><th scope="col">Tagged</th><th scope="col">Referrer</th>
     <th scope="col">Tagged with referrer</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
@@ -162,7 +162,7 @@ export default async function decorate(widget) {
           filter: (item) => item.raw !== null,
           callbacks: {
             title: ([item]) => weekRange(data, item.dataIndex),
-            label: (item) => ` ${item.dataset.label.replace(/ \(.*\)/, '')}: ${thousands(item.raw)} per day`,
+            label: (item) => ` ${item.dataset.label.replace(/ \(.*\)/, '')}: ${indexed(item.raw)}`,
             footer: ([item]) => note(item.dataIndex),
           },
         },
@@ -173,7 +173,7 @@ export default async function decorate(widget) {
           beginAtZero: true,
           border: { display: false },
           grid: { color: colors.line },
-          ticks: { maxTicksLimit: 5, callback: (v) => (v ? thousands(v) : '0') },
+          ticks: { maxTicksLimit: 5 },
         },
       },
     },
