@@ -2,11 +2,14 @@
 //
 //   npm run export-hits -- --since 2026-10-20 [--until 2026-10-27] [--out exports/hits.csv] [--local]
 //
+// Hits inside a window listed in worker/ignored-hits.json (recording mistakes) are left out.
+// The rows stay in D1; add a window there instead of deleting them.
+//
 // Uses wrangler with the worker's wrangler.toml, so run `npx wrangler login` once first.
 // The CSV splits unique test paths (/t/<test>/<lab>/<surface>/<location>) into columns
 // to make converting rows into data/results/ entries straightforward.
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
@@ -39,7 +42,11 @@ const output = execFileSync('npx', [
   'wrangler', 'd1', 'execute', 'attribution-now-hits',
   args.local ? '--local' : '--remote', '--json', '--command', sql,
 ], { cwd: workerDir, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
-const rows = JSON.parse(output).flatMap((r) => r.results || []);
+const ignored = JSON.parse(readFileSync(join(workerDir, 'ignored-hits.json'), 'utf8'));
+const isIgnored = (ts) => ignored.some((w) => ts >= w.from && ts <= w.to);
+const all = JSON.parse(output).flatMap((r) => r.results || []);
+const rows = all.filter((r) => !isIgnored(r.ts));
+if (rows.length < all.length) console.error(`Ignored ${all.length - rows.length} hits in windows from ignored-hits.json`);
 
 const columns = ['ts', 'hit', 'test', 'lab', 'surface', 'location', 'utm_source', 'referer', 'document_referrer',
   'query', 'client_search', 'client_hash', 'sec_fetch_site', 'sec_fetch_dest', 'sec_fetch_mode', 'sec_purpose',
