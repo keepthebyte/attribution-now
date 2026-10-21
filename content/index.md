@@ -3,7 +3,7 @@ title: attribution.now
 description: How ChatGPT, Gemini and Claude attribute the visits they send, for the analysts who measure them and the labs who can fix it.
 ---
 
-<h1 id="ai-assistants-send-you-visitors">AI assistants send you visitors. For Gemini, 52% of those visits show up as <em>"Direct"</em>.<sup><a href="#how-we-know-gemini-tagged-its-links-for-11-days">1</a></sup></h1>
+<h1 id="ai-assistants-send-you-visitors">AI assistants send you visitors. For Gemini, 52% of those visits show up as <em>"Direct"</em>.<a href="#how-we-know-gemini-tagged-its-links-for-11-days"><sup>1</sup></a></h1>
 
 <div class="columns audiences"><div><div>
 <p>For SEO, GEO and analytics teams</p>
