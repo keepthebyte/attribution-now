@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- stardust:provenance
+  writtenBy: stardust:prototype (rendered via impeccable craft → new-work, code-led)
+  writtenAt: 2026-10-21T08:10:00Z
+  page: index · https://attribution.now/
+  againstDirection: stardust/direction.md (Active 2026-10-21T07:35:00Z)
+  brief: stardust/prototypes/index-shape.md
+  readArtifacts: [stardust/current/pages/index.json, stardust/current/pages/index.html, DESIGN.md, DESIGN.json, PRODUCT.md, stardust/prototypes/logo/*.svg]
+  fidelity: quick
+  unsourcedContent: []
+  voiceClassification: all sections captured-verbatim; audience lines merged into their headings (craft-floor: no label above a heading)
+  copyCadenceBypass: prose-cadence detector rules ignored for this file only (ia-fidelity verbatim)
+  reflexRejectAudit: 0 hits (Bricolage Grotesque, Hanken Grotesk)
+  variableAxes: Bricolage Grotesque opsz engaged on display and headings
+  logo: concept C "Overlap" (owner pick 2026-10-21)
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>attribution.now</title>
+<meta name="description" content="How ChatGPT, Gemini and Claude attribute the visits they send, for the analysts who measure them and the labs who can fix it.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjYgNiA1MiA1MiI+CiAgPHN0eWxlPi5se2ZpbGw6IzE4MTUyN31AbWVkaWEgKHByZWZlcnMtY29sb3Itc2NoZW1lOmRhcmspey5se2ZpbGw6I2ZhZjlmZX0uYntmaWxsOiNmODkzYmN9fTwvc3R5bGU+CiAgPGRlZnM+PGNsaXBQYXRoIGlkPSJhIj48Y2lyY2xlIGN4PSIyMiIgY3k9IjMyIiByPSIxNSIvPjwvY2xpcFBhdGg+PC9kZWZzPgogIDxjaXJjbGUgY3g9IjIyIiBjeT0iMzIiIHI9IjE1IiBmaWxsPSIjNWUyZGM0Ii8+CiAgPGNpcmNsZSBjbGFzcz0iYiIgY3g9IjQyIiBjeT0iMzIiIHI9IjE1IiBmaWxsPSIjZTEzYjg2Ii8+CiAgPGNpcmNsZSBjbGFzcz0ibCIgY3g9IjQyIiBjeT0iMzIiIHI9IjE1IiBjbGlwLXBhdGg9InVybCgjYSkiLz4KPC9zdmc+Cg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --heading-font-family: 'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif;
+  --body-font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  --heading-xxl: 4.5rem;
+  --heading-xl: 2.75rem;
+  --heading-lg: 2.2rem;
+  --heading-md: 1.375rem;
+  --body: 1.125rem;
+  --body-sm: 0.9rem;
+  --line-height-heading: 1.06;
+  --line-height-body: 1.6;
+  --color-bg: oklch(0.945 0.035 295);
+  --color-fg: oklch(0.21 0.035 290);
+  --color-accent: oklch(0.46 0.215 290);
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 64px;
+  --section-padding: 64px;
+  --max-width: 1200px;
+  --radius: 14px;
+
+  /* site tokens (DESIGN.md) */
+  --page: oklch(0.985 0.006 290);
+  --haze: oklch(0.945 0.035 295);
+  --violet: oklch(0.46 0.215 290);
+  --violet-deep: oklch(0.36 0.18 290);
+  --pink: oklch(0.78 0.13 355);
+  --pink-deep: oklch(0.52 0.19 355);
+  --mark-pink: oklch(0.62 0.21 358);
+  --ink: oklch(0.21 0.035 290);
+  --ink-soft: oklch(0.40 0.03 290);
+  --haze-ink: oklch(0.40 0.20 292);
+  --works: oklch(0.52 0.13 150);
+  --partial: oklch(0.52 0.11 70);
+  --missing: oklch(0.53 0.19 27);
+  --gutter: 20px;
+  --edge: max(var(--gutter), calc((100vw - var(--max-width)) / 2 + var(--gutter)));
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+</style>
+<style>
+/* base burger rule first (mobile-nav-collapse.md § Source order) */
+.ds-nav-burger { display: none; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { color-scheme: light; -webkit-text-size-adjust: 100%; scrollbar-color: var(--violet) var(--haze); }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font: 400 var(--body)/var(--line-height-body) var(--body-font-family);
+  caret-color: var(--violet);
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--pink); color: var(--ink); }
+h1, h2, h3 {
+  font-family: var(--heading-font-family);
+  font-weight: 800;
+  line-height: var(--line-height-heading);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin: 0;
+}
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 0.14em; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; }
+.wrap { max-width: var(--max-width); margin-inline: auto; padding-inline: var(--gutter); }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; left: var(--gutter); top: -100px; z-index: 10; background: var(--ink); color: var(--page); padding: 10px 16px; border-radius: 999px; font-weight: 600; text-decoration: none; }
+.skip:focus { top: 12px; }
+.icon { width: 1em; height: 1em; flex: none; }
+
+/* ---------- header ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  padding-block: 18px;
+  position: relative;
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 800 1.3rem/1 var(--heading-font-family); letter-spacing: -0.02em; font-variation-settings: 'opsz' 48; }
+.brand svg { width: 44px; height: 44px; margin-block: -6px; }
+.ds-nav { display: flex; align-items: center; gap: 4px 22px; flex-wrap: wrap; font-weight: 500; font-size: 1rem; }
+.ds-nav a { text-decoration: none; padding-block: 6px; display: inline-flex; align-items: center; gap: 7px; }
+.ds-nav a:hover { text-decoration: underline; text-decoration-thickness: 0.1em; }
+.ds-nav a[aria-current] { font-weight: 700; }
+.ds-nav .lab::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--mark-pink); }
+.ds-nav .check { margin-inline-start: 8px; padding: 8px 16px; border-radius: 999px; background: var(--ink); color: var(--page); font-weight: 600; }
+.ds-nav .check:hover { background: var(--violet-deep); text-decoration: none; }
+
+/* brand mark: one authored moment, the two dots reconnect on load */
+.brand-mark .dot-b, .brand-mark .lens { animation: reconnect 900ms var(--ease-out) 250ms both; }
+@keyframes reconnect { from { transform: translateX(12px); } to { transform: none; } }
+</style>
+<style>
+/* ---------- intro (H1 on haze) ---------- */
+.intro { padding-block: var(--spacing-xl) var(--section-padding); }
+.intro h1 {
+  font-size: clamp(2.5rem, 1.6rem + 3.6vw, var(--heading-xxl));
+  font-variation-settings: 'opsz' 96;
+  letter-spacing: -0.035em;
+  max-width: 19ch;
+}
+.channel {
+  display: inline-block;
+  padding: 0 0.32em 0.06em;
+  border-radius: 0.28em;
+  background: var(--ink);
+  color: var(--haze);
+  white-space: nowrap;
+}
+
+/* ---------- audience split ---------- */
+.split { display: grid; grid-template-columns: 1fr; }
+.field { padding-block: var(--section-padding); padding-inline: var(--gutter); }
+.field > * { max-width: 34rem; }
+.field-analysts { background: var(--violet); color: var(--page); }
+.field-labs { background: var(--pink); color: var(--ink); }
+.field h2 { font-size: clamp(1.9rem, 1.4rem + 1.6vw, var(--heading-xl)); font-variation-settings: 'opsz' 72; }
+.field h2 .aud { display: block; }
+.field-analysts h2 .aud { color: oklch(0.84 0.09 290); }
+.field-labs h2 .aud { color: oklch(0.36 0.12 355); }
+.field p { margin-block-start: var(--spacing-lg); }
+.field-analysts :focus-visible { outline-color: var(--page); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-md) var(--spacing-lg); margin-block-start: var(--spacing-xl); }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms var(--ease-out);
+}
+.pill-page { background: var(--page); color: var(--violet-deep); }
+.pill-page:hover { background: var(--haze); }
+
+.arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; text-decoration: none; }
+.arrow .icon { transition: transform 200ms var(--ease-out); }
+.arrow:hover { text-decoration: underline; text-decoration-thickness: 0.1em; }
+.arrow:hover .icon { transform: translateX(3px); }
+
+.status-line { margin-block-start: var(--spacing-xl); font-weight: 600; }
+.lab-links { list-style: none; margin: var(--spacing-sm) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--spacing-xs) var(--spacing-md); }
+.lab-links a { font: 800 var(--heading-md)/1.2 var(--heading-font-family); font-variation-settings: 'opsz' 36; padding-block: 6px; }
+.lab-links .sep { display: none; }
+.quiet-links { margin-block-start: var(--spacing-lg); font-size: var(--body-sm); font-weight: 500; }
+.quiet-links a { padding-block: 6px; }
+
+@media (min-width: 1024px) {
+  .ds-nav { flex-wrap: nowrap; }
+  .intro { padding-block: var(--spacing-lg) 32px; }
+  .field { padding-block-start: var(--spacing-xl); }
+  .split { grid-template-columns: 1fr 1fr; }
+  .field-analysts { padding-inline: var(--edge) var(--spacing-2xl); }
+  .field-labs { padding-inline: var(--spacing-2xl) var(--edge); }
+}
+</style>
+<style>
+/* ---------- scorecard ---------- */
+.band { padding-block: var(--section-padding); }
+.band h2 { font-size: clamp(1.9rem, 1.4rem + 1.6vw, var(--heading-xl)); font-variation-settings: 'opsz' 72; }
+.scorecard-intro { margin-block-start: var(--spacing-md); max-width: 40rem; color: var(--ink-soft); }
+.takeaway {
+  margin-block-start: var(--spacing-xl);
+  max-width: 22ch;
+  font: 800 clamp(1.75rem, 1.3rem + 1.5vw, var(--heading-lg))/1.12 var(--heading-font-family);
+  font-variation-settings: 'opsz' 60;
+  letter-spacing: -0.02em;
+  color: var(--haze-ink);
+  text-wrap: balance;
+}
+.cards { list-style: none; margin: var(--spacing-xl) 0 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: var(--spacing-md); }
+.lab-card { background: var(--page); border-radius: var(--radius); padding: var(--spacing-lg); }
+.lab-card h3 { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; font-size: var(--heading-md); font-variation-settings: 'opsz' 36; }
+.lab-card h3 a { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
+.lab-card h3 a::before { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--mark-pink); }
+.lab-card h3 a:hover { text-decoration: underline; text-decoration-thickness: 0.1em; }
+.lab-card .co { font: 500 var(--body-sm)/1.3 var(--body-font-family); color: var(--ink-soft); letter-spacing: 0; }
+.mini { width: 100%; margin-block-start: var(--spacing-md); border-collapse: collapse; font-size: var(--body-sm); }
+.mini th, .mini td { text-align: start; vertical-align: top; padding-block: 10px; border-top: 1px solid var(--haze); }
+.mini th { width: 7rem; padding-inline-end: var(--spacing-sm); font-weight: 600; }
+.mini .marks { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+
+.mark {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 10px 3px 7px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+  color: var(--ink);
+}
+.mark .icon { width: 15px; height: 15px; }
+.mark:hover { text-decoration: underline; text-decoration-thickness: 0.1em; }
+.mark-works, .mark-partial, .mark-missing { background: var(--haze); }
+.mark-works .icon { color: var(--works); }
+.mark-partial .icon { color: var(--partial); }
+.mark-missing .icon { color: var(--missing); }
+.mark-reported { background: var(--page); border-style: dashed; border-color: var(--ink-soft); }
+.mark-plain { padding-inline: 10px; background: var(--haze); }
+
+.legend { margin-block-start: var(--spacing-lg); max-width: 46rem; font-size: var(--body-sm); color: var(--ink-soft); }
+.legend a { color: var(--ink); font-weight: 600; }
+
+/* ---------- check a link ---------- */
+.check-card { background: var(--page); border-radius: var(--radius); padding: var(--spacing-xl) var(--spacing-lg); display: grid; gap: var(--spacing-md); }
+.check-card h2 { font-size: var(--heading-lg); font-variation-settings: 'opsz' 60; }
+.check-card p { max-width: 44rem; }
+.check-card code { padding: 1px 6px; border-radius: 6px; background: var(--haze); }
+.check-card a code { background: none; padding: 0; }
+.arrow-code { display: inline; font-weight: 600; text-decoration: underline; }
+.arrow-code .icon { vertical-align: -0.15em; }
+
+/* ---------- footer ---------- */
+.site-footer { background: var(--ink); color: var(--page); padding-block: var(--spacing-2xl) var(--spacing-xl); font-size: var(--body-sm); }
+.site-footer .wrap { display: grid; gap: var(--spacing-md); }
+.site-footer svg { width: 48px; height: 48px; }
+.site-footer .mission { font-size: var(--body); font-weight: 500; max-width: 36rem; }
+.site-footer p:last-child { color: var(--haze); }
+.site-footer :focus-visible { outline-color: var(--page); }
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .mini .marks { display: grid; grid-template-columns: 15rem max-content; gap: 6px 8px; align-items: start; }
+}
+@media (min-width: 1024px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .check-card { padding: var(--spacing-xl) var(--spacing-2xl); }
+}
+</style>
+<style>
+/* ---------- nav collapse (8 items + mark need ~1000px, so collapse below 1024) ---------- */
+@media (max-width: 1023px) {
+  .ds-nav-burger {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px;
+    border: 0; border-radius: 999px;
+    background: var(--ink); color: var(--page);
+    font: 600 1rem/1 var(--body-font-family);
+    cursor: pointer;
+  }
+  .ds-nav-burger .icon { width: 18px; height: 18px; }
+  .ds-nav-burger .i-close { display: none; }
+  .ds-nav-burger[aria-expanded="true"] .i-open { display: none; }
+  .ds-nav-burger[aria-expanded="true"] .i-close { display: block; }
+  .ds-nav {
+    display: none;
+    position: absolute; inset-inline: 0; top: 100%; z-index: 5;
+    flex-direction: column; align-items: stretch; gap: 0;
+    margin-inline: var(--gutter);
+    padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-lg);
+    background: var(--page);
+    border-radius: var(--radius);
+    font-size: 1.125rem;
+  }
+  .ds-nav.is-open { display: flex; }
+  .ds-nav a { padding-block: 12px; border-bottom: 1px solid var(--haze); }
+  .ds-nav .check { margin: var(--spacing-md) 0 0; justify-content: center; border-bottom: 0; }
+}
+
+@media (max-width: 640px) {
+  :root { --section-padding: 48px; }
+  .intro { padding-block: var(--spacing-lg) var(--spacing-xl); }
+  .brand { font-size: 1.15rem; }
+  .brand svg { width: 38px; height: 38px; }
+  .lab-card { padding: var(--spacing-md); }
+  .mini th { width: 6rem; }
+  .check-card { padding: var(--spacing-lg) var(--spacing-md); }
+  .pill { width: 100%; justify-content: center; }
+}
+@media (max-width: 380px) {
+  :root { --section-padding: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark .dot-b, .brand-mark .lens { animation: none; }
+  .arrow:hover .icon { transform: none; }
+  .pill, .arrow .icon { transition: none; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M3 10h13M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-works" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="currentColor"/><path d="m4.6 8.3 2.2 2.2 4.6-4.8" fill="none" stroke="oklch(0.985 0.006 290)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-partial" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.8" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M8 1.2a6.8 6.8 0 0 1 0 13.6Z" fill="currentColor"/></symbol>
+  <symbol id="i-missing" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="currentColor"/><path d="m5.3 5.3 5.4 5.4m0-5.4-5.4 5.4" fill="none" stroke="oklch(0.985 0.006 290)" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 20 20"><path d="M3 6h14M3 14h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 20 20"><path d="m5 5 10 10M15 5 5 15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap site-header" data-section="site-header" data-intent="navigate" data-layout="contained" data-nav-collapse="hamburger">
+  <a class="brand" href="/">
+    <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+      <defs><clipPath id="mark-clip"><circle cx="22" cy="32" r="15"/></clipPath></defs>
+      <circle cx="22" cy="32" r="15" fill="#5e2dc4"/>
+      <circle class="dot-b" cx="42" cy="32" r="15" fill="#e13b86"/>
+      <g clip-path="url(#mark-clip)"><circle class="lens" cx="42" cy="32" r="15" fill="#181527"/></g>
+    </svg>
+    attribution.now
+  </a>
+  <button class="ds-nav-burger" type="button" aria-expanded="false" aria-controls="site-nav">
+    <svg class="icon i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+    <svg class="icon i-close" aria-hidden="true"><use href="#i-close"/></svg>
+    Menu
+  </button>
+  <nav class="ds-nav" id="site-nav" aria-label="Main">
+    <a href="/why">Why</a>
+    <a href="/best-practices">Best practices</a>
+    <a class="lab" href="/labs/anthropic-claude">Claude</a>
+    <a class="lab" href="/labs/google-gemini">Gemini</a>
+    <a class="lab" href="/labs/openai-chatgpt">ChatGPT</a>
+    <a href="/tests">Tests</a>
+    <a href="/changelog">Changelog</a>
+    <a class="check" href="/t/check">Check a link</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="audience" data-section="audience-split" data-intent="route each audience to its next step" data-layout="split-fields" data-items="2" data-media="none">
+  <div class="wrap intro">
+    <h1>AI assistants send you visitors. Most of those visits show up as <span class="channel">"Direct"</span>.</h1>
+  </div>
+  <div class="split">
+    <div class="field field-analysts">
+      <h2><span class="aud">For SEO, GEO and analytics teams</span> Your AI traffic is bigger than your reports show</h2>
+      <p>ChatGPT, Gemini and Claude send people to your site every day. Many of those visits arrive with no referrer and no UTM tag, so your analytics file them under Direct, next to bookmarks and typed URLs. We test each assistant on web, mobile and desktop, so you know which of its visits you can see and which you can't.</p>
+      <div class="actions">
+        <a class="pill pill-page" href="/reclaim-direct-traffic">Estimate your hidden AI traffic</a>
+        <a class="arrow" href="#scorecard">See what each assistant sends <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="field field-labs">
+      <h2><span class="aud">For teams at AI labs</span> Small fixes, so every site can see the visits you send</h2>
+      <p>When a link from your assistant arrives with no referrer or tag, the site can't give you credit. The fixes are small: send your origin as the referrer, and add one documented <code>utm_source</code> value. Each lab page shows what already works, what to fix next, and a prompt your team can paste into a coding assistant or a ticket.</p>
+      <p class="status-line" id="see-status">See your status:</p>
+      <ul class="lab-links" aria-labelledby="see-status">
+        <li><a class="arrow" href="/labs/openai-chatgpt">ChatGPT <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><span class="sep"> · </span></li>
+        <li><a class="arrow" href="/labs/google-gemini">Gemini <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><span class="sep"> · </span></li>
+        <li><a class="arrow" href="/labs/anthropic-claude">Claude <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+      <p class="quiet-links"><a href="/why">Why it matters</a> · <a href="/best-practices">Best practices</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="scorecard" data-section="scorecard" data-intent="show what arrives, per lab and surface" data-layout="grid" data-items="3" data-media="none">
+  <div class="wrap">
+    <h2>Scorecard</h2>
+    <p class="scorecard-intro">What arrives with a visit when someone clicks a link in each assistant: the assistant as the referrer, and a UTM tag.</p>
+    <p class="takeaway">No assistant sends both signals yet, on any surface we have tested.</p>
+    <ul class="cards">
+    <li class="lab-card">
+      <h3 id="sc-claude"><a href="/labs/anthropic-claude">Claude</a> <span class="co">Anthropic</span></h3>
+      <table class="mini" aria-labelledby="sc-claude"><tbody>
+        <tr><th scope="row">Web</th><td><div class="marks"><a class="mark mark-partial" href="/labs/anthropic-claude#status-ref-01"><svg class="icon" aria-hidden="true"><use href="#i-partial"/></svg>Referrer: Partial</a><a class="mark mark-missing" href="/labs/anthropic-claude#status-utm-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>UTM: Missing</a></div></td></tr>
+        <tr><th scope="row">Mobile apps</th><td><div class="marks"><a class="mark mark-missing mark-reported" href="/labs/anthropic-claude#status-ref-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>Referrer: Reported missing</a><a class="mark mark-missing mark-reported" href="/labs/anthropic-claude#status-utm-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>UTM: Reported missing</a></div></td></tr>
+        <tr><th scope="row">Desktop apps</th><td><div class="marks"><a class="mark mark-missing" href="/labs/anthropic-claude#status-ref-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>Referrer: Missing</a><a class="mark mark-missing" href="/labs/anthropic-claude#status-utm-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>UTM: Missing</a></div></td></tr>
+        <tr><th scope="row">Documented UTM</th><td><div class="marks"><a class="mark mark-plain" href="/labs/anthropic-claude#status-utm-03">No</a></div></td></tr>
+      </tbody></table>
+    </li>
+    <li class="lab-card">
+      <h3 id="sc-gemini"><a href="/labs/google-gemini">Gemini</a> <span class="co">Google</span></h3>
+      <table class="mini" aria-labelledby="sc-gemini"><tbody>
+        <tr><th scope="row">Web</th><td><div class="marks"><a class="mark mark-works" href="/labs/google-gemini#status-ref-01"><svg class="icon" aria-hidden="true"><use href="#i-works"/></svg>Referrer: Works</a><a class="mark mark-missing" href="/labs/google-gemini#status-utm-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>UTM: Missing</a></div></td></tr>
+        <tr><th scope="row">Mobile apps</th><td><div class="marks"><a class="mark mark-missing mark-reported" href="/labs/google-gemini#status-ref-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>Referrer: Reported missing</a><a class="mark mark-missing mark-reported" href="/labs/google-gemini#status-utm-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>UTM: Reported missing</a></div></td></tr>
+        <tr><th scope="row">Desktop apps</th><td><div class="marks"><a class="mark mark-missing" href="/labs/google-gemini#status-ref-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>Referrer: Missing</a><a class="mark mark-missing" href="/labs/google-gemini#status-utm-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>UTM: Missing</a></div></td></tr>
+        <tr><th scope="row">Documented UTM</th><td><div class="marks"><a class="mark mark-plain" href="/labs/google-gemini#status-utm-03">No</a></div></td></tr>
+      </tbody></table>
+    </li>
+    <li class="lab-card">
+      <h3 id="sc-chatgpt"><a href="/labs/openai-chatgpt">ChatGPT</a> <span class="co">OpenAI</span></h3>
+      <table class="mini" aria-labelledby="sc-chatgpt"><tbody>
+        <tr><th scope="row">Web</th><td><div class="marks"><a class="mark mark-missing" href="/labs/openai-chatgpt#status-ref-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>Referrer: Missing</a><a class="mark mark-works" href="/labs/openai-chatgpt#status-utm-01"><svg class="icon" aria-hidden="true"><use href="#i-works"/></svg>UTM: Works</a></div></td></tr>
+        <tr><th scope="row">Mobile apps</th><td><div class="marks"><a class="mark mark-missing mark-reported" href="/labs/openai-chatgpt#status-ref-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>Referrer: Reported missing</a><a class="mark mark-works mark-reported" href="/labs/openai-chatgpt#status-utm-01"><svg class="icon" aria-hidden="true"><use href="#i-works"/></svg>UTM: Reported works</a></div></td></tr>
+        <tr><th scope="row">Desktop apps</th><td><div class="marks"><a class="mark mark-missing" href="/labs/openai-chatgpt#status-ref-01"><svg class="icon" aria-hidden="true"><use href="#i-missing"/></svg>Referrer: Missing</a><a class="mark mark-partial" href="/labs/openai-chatgpt#status-utm-01"><svg class="icon" aria-hidden="true"><use href="#i-partial"/></svg>UTM: Partial</a></div></td></tr>
+        <tr><th scope="row">Documented UTM</th><td><div class="marks"><a class="mark mark-plain" href="/labs/openai-chatgpt#status-utm-03">Yes: <code>chatgpt.com</code></a></div></td></tr>
+      </tbody></table>
+    </li>
+    </ul>
+    <p class="legend"><strong>Reported</strong> means a third-party report we have not yet verified first-hand. Select a status to see the evidence on the lab page.</p>
+    <p class="legend">See <a href="/tests">how we test</a>.</p>
+  </div>
+</section>
+
+<section class="band band-check" data-section="check-a-link" data-intent="let anyone test a link" data-layout="contained" data-media="none">
+  <div class="wrap">
+    <div class="check-card">
+      <h2>Check a link yourself</h2>
+      <p>Ask any assistant to link to <a class="arrow arrow-code" href="/t/check"><code>attribution.now/t/check</code> <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>, then open the link. The page shows the referrer and UTM tag it received.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer" data-section="site-footer" data-intent="navigate" data-layout="full-bleed">
+  <div class="wrap">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <defs><clipPath id="foot-clip"><circle cx="22" cy="32" r="15"/></clipPath></defs>
+      <circle cx="22" cy="32" r="15" fill="#faf9fe"/>
+      <circle cx="42" cy="32" r="15" fill="#f893bc"/>
+      <circle cx="42" cy="32" r="15" fill="#181527" clip-path="url(#foot-clip)"/>
+    </svg>
+    <p class="mission">attribution.now: helping AI labs and websites see where visits come from.</p>
+    <p><a href="/contribute">Contribute</a> · <a href="https://github.com/keepthebyte/attribution-now">GitHub</a> · Code, content and data under the <a href="https://github.com/keepthebyte/attribution-now/blob/main/LICENSE">Apache License 2.0</a>.</p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.querySelector('.ds-nav-burger');
+  const nav = document.getElementById('site-nav');
+  burger.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') !== 'true';
+    burger.setAttribute('aria-expanded', String(open));
+    nav.classList.toggle('is-open', open);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { burger.click(); burger.focus(); }
+  });
+</script>
+</body>
+</html>

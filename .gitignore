@@ -15,3 +15,11 @@ dist/
 worker/node_modules/
 worker/.wrangler/
 exports/
+
+# >>> stardust
+.env
+.env.*
+# <<< stardust
+
+# impeccable review captures
+.impeccable/review/

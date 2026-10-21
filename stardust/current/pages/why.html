@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head>
+    <title>Why outbound link attribution matters</title>
+    <link rel="canonical" href="https://attribution.now/why">
+    <meta name="description" content="Why AI labs benefit from sending a referrer and a documented UTM tag, seen from both the lab and the website side.">
+    <meta property="og:title" content="Why outbound link attribution matters">
+    <meta property="og:description" content="Why AI labs benefit from sending a referrer and a documented UTM tag, seen from both the lab and the website side.">
+    <meta property="og:url" content="https://attribution.now/why">
+    <meta property="og:image" content="https://attribution.now/default-meta-image.png?width=1200&amp;format=pjpg&amp;optimize=medium">
+    <meta property="og:image:secure_url" content="https://attribution.now/default-meta-image.png?width=1200&amp;format=pjpg&amp;optimize=medium">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why outbound link attribution matters">
+    <meta name="twitter:description" content="Why AI labs benefit from sending a referrer and a documented UTM tag, seen from both the lab and the website side.">
+    <meta name="twitter:image" content="https://attribution.now/default-meta-image.png?width=1200&amp;format=pjpg&amp;optimize=medium">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script nonce="" src="/scripts/aem.js" type="module"></script>
+    <script nonce="" src="/scripts/scripts.js" type="module"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/fonts.css"><link rel="stylesheet" href="/blocks/header/header.css"><link rel="stylesheet" href="/blocks/footer/footer.css"><link rel="stylesheet" href="/styles/lazy-styles.css"></head>
+  <body class="appear">
+    <header class="header-wrapper"><div class="header block" data-block-name="header" data-block-status="loaded"><div class="nav-wrapper"><nav id="nav"><div class="nav-hamburger"><button type="button" aria-controls="nav" aria-label="Close navigation">
+      <span class="nav-hamburger-icon"></span>
+    </button></div><div class="section nav-brand" data-section-status="loaded" style="">
+  
+<div class="default-content-wrapper"><p><a href="/" title="attribution.now">attribution.now</a></p></div></div><div class="section nav-sections" data-section-status="loaded" style="">
+  
+<div class="default-content-wrapper"><ul>
+    <li><a href="/why">Why</a></li>
+    <li><a href="/best-practices">Best practices</a></li>
+    <li><a href="/labs/anthropic-claude">Claude</a></li>
+    <li><a href="/labs/google-gemini">Gemini</a></li>
+    <li><a href="/labs/openai-chatgpt">ChatGPT</a></li>
+    <li><a href="/tests">Tests</a></li>
+    <li><a href="/changelog">Changelog</a></li>
+  </ul></div></div><div class="section nav-tools" data-section-status="loaded" style="">
+  
+<div class="default-content-wrapper"><p><a href="/t/check" title="Check a link">Check a link</a></p></div></div></nav></div></div></header>
+    <main>
+      <div class="section" data-section-status="loaded" style="">
+        
+        
+        
+      <div class="default-content-wrapper"><h1 id="why-outbound-link-attribution-matters">Why outbound link attribution matters</h1><h2 id="the-ask-in-one-paragraph">The ask in one paragraph</h2><p>We'd like to work with AI labs on two signals that tell a website a visit came from their assistant: the assistant's origin as the HTTP referrer, and one documented <code>utm_source</code> value on outbound links. Both are cheap to add, they don't expose anything about the user or the conversation, and together they cover the web, mobile apps and desktop apps. This is a partnership. We track status so everyone can see progress, and we say thank you when it ships.</p></div></div>
+      <div class="section" data-section-status="loaded" style="">
+        
+        
+      <div class="default-content-wrapper"><h2 id="why-it-helps-labs">Why it helps labs</h2><ul>
+          <li><strong>Proof of value.</strong> Every attributed visit is evidence that the assistant sends real people to real sites. Unattributed visits can't be counted, so they can't be credited either.</li>
+          <li><strong>Better relationships with publishers and brands.</strong> Sites that can see assistant traffic can measure it, report it and invest in it. Sites that can't are left to guess.</li>
+          <li><strong>A fairer story about traffic.</strong> The common claim that "AI takes traffic" is harder to answer when the traffic AI sends is invisible. Attribution lets the numbers speak.</li>
+          <li><strong>A healthier ecosystem.</strong> When sites can see which content gets cited and clicked, they can make more of it.</li>
+          <li><strong>Fewer escalations.</strong> A documented, stable signal means fewer support threads, fewer press stories about sudden drops, and fewer one-off questions from partners.</li>
+        </ul></div></div>
+      <div class="section" data-section-status="loaded" style="">
+        
+        
+        
+        
+        
+      <div class="default-content-wrapper"><h2 id="seeing-it-from-both-sides">Seeing it from both sides</h2><h3 id="for-the-teams-who-build-assistants">For the teams who build assistants</h3><ul>
+          <li>Labs build chat experiences, not websites. Outbound links are a small part of a large surface that changes every week.</li>
+          <li>The referrer is optional by design. <a href="https://www.rfc-editor.org/rfc/rfc9110#section-10.1.3">RFC 9110 §10.1.3</a> lets clients leave it out, and privacy-minded defaults such as <code>noreferrer</code> are easy to reach for.</li>
+          <li>Privacy matters. Sending the full conversation URL would be wrong. Sending the origin is not.</li>
+          <li>Apps and webviews often can't send a referrer at all. A UTM tag is the only signal that survives there.</li>
+          <li>UI cycles are fast. A refactor of a link component can remove both signals without anyone noticing.</li>
+        </ul><h3 id="for-the-teams-who-run-websites">For the teams who run websites</h3><ul>
+          <li>Visits without a referrer or tag land in <strong>Direct</strong>, next to bookmarks and typed URLs.</li>
+          <li>Reports swing for no visible reason when a product update changes link behavior.</li>
+          <li>Assistant traffic is undercounted in every report that reaches leadership.</li>
+          <li>Analysts spend time on cleanup rules and guesswork instead of on the content people actually came for.</li>
+        </ul></div></div>
+      <div class="section" data-section-status="loaded" style="">
+        
+        
+        
+        
+        
+        
+      <div class="default-content-wrapper"><h2 id="what-teams-see-today">What teams see today</h2><p>Vendor studies, each from their own data, suggest a large share of assistant visits is not attributed. Treat these numbers as directional.</p><ul>
+          <li>One analytics vendor found that about 70% of AI visits in its data landed as Direct (<a href="https://www.loamly.ai/blog/ai-traffic-attribution-crisis">Loamly, updated February 2026</a>).</li>
+          <li>A study of one US ecommerce site in August 2026 found GA4 missed about 67% of Gemini visitors and about 95% of Claude visitors, while ChatGPT, which tags its links, was counted within about 3% (<a href="https://www.wislr.com/articles/ai-assistant-traffic-ga4-blind-spots/">WISLR, September 2026</a>).</li>
+        </ul><h3 id="a-shared-lesson-october-816-2026">A shared lesson: October 8–16, 2026</h3><p>Starting October 8, a growing share of ChatGPT links arrived without the <code>utm_source=chatgpt.com</code> tag and without a referrer, after a UI update. Many sites saw ChatGPT traffic drop and Direct rise, and spent days working out whether people had stopped clicking. By October 16 the tag was back on about 99% of answers with cited links (<a href="https://www.tryprofound.com/blog/chatgpt-missing-utm-tags" title="Profound">Profound</a>, <a href="https://www.searchenginejournal.com/chatgpt-traffic-drop-appears-to-be-a-tracking-problem/593157/" title="Search Engine Journal">Search Engine Journal</a>).</p><p>It was fixed quickly, and that is worth a thank-you. It also shows how easily link handling changes in a fast UI cycle. A regression test per link location and a short public changelog would have turned a week of guessing into a one-line note. Both are on our <a href="/best-practices" title="best practices">best practices</a> list.</p></div></div>
+    </main>
+    <footer class="footer-wrapper"><div class="footer block" data-block-name="footer" data-block-status="loaded"><div><div class="section" data-section-status="loaded" style="">
+  
+  
+<div class="default-content-wrapper"><p>attribution.now: helping AI labs and websites see where visits come from.</p><p><a href="/contribute" title="Contribute">Contribute</a> · <a href="https://github.com/keepthebyte/attribution-now" title="GitHub">GitHub</a> · Code, content and data under the <a href="https://github.com/keepthebyte/attribution-now/blob/main/LICENSE" title="Apache License 2.0">Apache License 2.0</a>.</p></div></div></div></div></footer>
+  
+
+</body></html>

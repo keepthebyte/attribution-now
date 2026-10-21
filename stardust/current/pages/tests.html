@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="en"><head>
+    <title>Tests and methodology</title>
+    <link rel="canonical" href="https://attribution.now/tests">
+    <meta name="description" content="The tests attribution.now runs on AI assistant outbound links, how results are recorded, and how to reproduce them.">
+    <meta property="og:title" content="Tests and methodology">
+    <meta property="og:description" content="The tests attribution.now runs on AI assistant outbound links, how results are recorded, and how to reproduce them.">
+    <meta property="og:url" content="https://attribution.now/tests">
+    <meta property="og:image" content="https://attribution.now/default-meta-image.png?width=1200&amp;format=pjpg&amp;optimize=medium">
+    <meta property="og:image:secure_url" content="https://attribution.now/default-meta-image.png?width=1200&amp;format=pjpg&amp;optimize=medium">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tests and methodology">
+    <meta name="twitter:description" content="The tests attribution.now runs on AI assistant outbound links, how results are recorded, and how to reproduce them.">
+    <meta name="twitter:image" content="https://attribution.now/default-meta-image.png?width=1200&amp;format=pjpg&amp;optimize=medium">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script nonce="" src="/scripts/aem.js" type="module"></script>
+    <script nonce="" src="/scripts/scripts.js" type="module"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/fonts.css"><link rel="stylesheet" href="/blocks/header/header.css"><link rel="stylesheet" href="/blocks/metadata/metadata.css"><link rel="stylesheet" href="/blocks/footer/footer.css"><link rel="stylesheet" href="/styles/lazy-styles.css"></head>
+  <body class="appear">
+    <header class="header-wrapper"><div class="header block" data-block-name="header" data-block-status="loaded"><div class="nav-wrapper"><nav id="nav"><div class="nav-hamburger"><button type="button" aria-controls="nav" aria-label="Close navigation">
+      <span class="nav-hamburger-icon"></span>
+    </button></div><div class="section nav-brand" data-section-status="loaded" style="">
+  
+<div class="default-content-wrapper"><p><a href="/" title="attribution.now">attribution.now</a></p></div></div><div class="section nav-sections" data-section-status="loaded" style="">
+  
+<div class="default-content-wrapper"><ul>
+    <li><a href="/why">Why</a></li>
+    <li><a href="/best-practices">Best practices</a></li>
+    <li><a href="/labs/anthropic-claude">Claude</a></li>
+    <li><a href="/labs/google-gemini">Gemini</a></li>
+    <li><a href="/labs/openai-chatgpt">ChatGPT</a></li>
+    <li><a href="/tests">Tests</a></li>
+    <li><a href="/changelog">Changelog</a></li>
+  </ul></div></div><div class="section nav-tools" data-section-status="loaded" style="">
+  
+<div class="default-content-wrapper"><p><a href="/t/check" title="Check a link">Check a link</a></p></div></div></nav></div></div></header>
+    <main>
+      <div class="section" data-section-status="loaded" style="">
+        
+        
+        
+        
+        
+        
+        
+      <div class="default-content-wrapper"><h1 id="tests-and-methodology">Tests and methodology</h1><p>We test each <strong>surface</strong> (for example the web app or the iOS app) at each <strong>link location</strong> where a link can appear (inline citations, the sources panel, cards, deep research reports and more). Each test has a stable ID used in the data, on lab pages and in the prompts.</p><h2 id="statuses">Statuses</h2><ul>
+          <li><strong>Works</strong>: verified passing.</li>
+          <li><strong>Partial</strong>: passes on some link locations, not others.</li>
+          <li><strong>Missing</strong>: verified not passing.</li>
+          <li><strong>Reported</strong>: from a public third-party report, not yet verified by us.</li>
+          <li><strong>Untested</strong>: no data yet.</li>
+          <li><strong>n/a</strong>: does not apply, for example link markup on a native app.</li>
+        </ul><p>The status shown for a cell is the most recent result by date. On the same date, a verified result (manual, automated or community) takes precedence over a reported one. Every cell links to its evidence.</p><h2 id="how-to-reproduce">How to reproduce</h2><ol>
+          <li>Ask the assistant to cite or link one of the target pages below. For a self-identifying link use <code>/t/&lt;test&gt;/&lt;lab&gt;/&lt;surface&gt;/&lt;location&gt;</code>, for example <code>/t/ref-01/openai-chatgpt/web-desktop/inline-citation</code>.</li>
+          <li>Open the link from the answer.</li>
+          <li>The page shows the server-side <code>Referer</code>, <code>document.referrer</code>, the query string and the fragment. The visit is also logged (without IP addresses).</li>
+          <li>Record the result as described on <a href="/contribute">Contribute</a>.</li>
+        </ol></div></div>
+      <div class="section" data-section-status="loaded" style="">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      <div class="default-content-wrapper"><h2 id="test-catalog">Test catalog</h2><h3 id="ref-01-referrer-present">REF-01: Referrer present</h3><p><strong>Pass criteria:</strong> Request to the target carries <code>Referer</code> with the assistant's origin (e.g. <code>https://chatgpt.com/</code>).</p><p>When a person clicks a link, the browser can send a <code>Referer</code> header that names the page they came from. Analytics tools use it to say where a visit came from. If an assistant sends its origin, such as <code>https://chatgpt.com/</code>, the website can count the visit as coming from that assistant instead of "Direct".</p><p>Scope: per surface and link location. Target: <a href="/t/ref-01" title="/t/ref-01"><code>/t/ref-01</code></a></p><h3 id="ref-02-no-full-url-leak">REF-02: No full-URL leak</h3><p><strong>Pass criteria:</strong> <code>Referer</code> is origin only; no conversation path or IDs.</p><p>The referrer should say which product sent the visit, not which conversation. Sending only the origin (<code>https://claude.ai/</code>) keeps conversation paths and IDs private while still giving websites the signal they need.</p><p>Scope: per surface and link location. Target: <a href="/t/ref-02" title="/t/ref-02"><code>/t/ref-02</code></a></p><h3 id="ref-03-link-markup-web-only">REF-03: Link markup (web only)</h3><p><strong>Pass criteria:</strong> Citation links use <code>noopener</code> without <code>noreferrer</code>; page/link referrer policy is <code>origin</code> or <code>strict-origin-when-cross-origin</code>.</p><p>On the web, <code>rel="noreferrer"</code> and <code>window.open(url, "_blank", "noopener,noreferrer")</code> remove the referrer. <code>rel="noopener"</code> alone keeps the security benefit and still lets the origin through. A referrer policy of <code>origin</code> or <code>strict-origin-when-cross-origin</code> sends the origin to other sites and never the full path.</p><p>Scope: per surface and link location, web surfaces only. Target: <a href="/t/ref-03" title="/t/ref-03"><code>/t/ref-03</code></a></p><h3 id="utm-01-utm-present">UTM-01: UTM present</h3><p><strong>Pass criteria:</strong> Landing URL contains <code>utm_source=&lt;documented value&gt;</code>.</p><p>Apps and webviews often cannot send a referrer. A <code>utm_source</code> parameter on the link still tells the website where the visit came from. It works in every browser and every app.</p><p>Scope: per surface and link location. Target: <a href="/t/utm-01" title="/t/utm-01"><code>/t/utm-01</code></a></p><h3 id="utm-02-utm-consistent">UTM-02: UTM consistent</h3><p><strong>Pass criteria:</strong> Same <code>utm_source</code> value on every surface and link location.</p><p>One stable value per product lets websites write one rule and keep it. Different values per app or per link type split the same traffic into several rows that teams then have to merge by hand.</p><p>Scope: once per lab. Target: <a href="/t/utm-02" title="/t/utm-02"><code>/t/utm-02</code></a></p><h3 id="utm-03-utm-documented">UTM-03: UTM documented</h3><p><strong>Pass criteria:</strong> Value published in the lab's public docs/help.</p><p>A documented value turns a guess into a contract. Analytics vendors and site owners can add it to their channel rules with confidence, and they know where to look if it changes.</p><p>Scope: once per lab. Target: <a href="/t/utm-03" title="/t/utm-03"><code>/t/utm-03</code></a></p><h3 id="mrg-01-keeps-existing-query">MRG-01: Keeps existing query</h3><p><strong>Pass criteria:</strong> Target <code>?a=1&amp;b=2</code> arrives with <code>a</code> and <code>b</code> intact.</p><p>Many links already carry query parameters for search, filters or product variants. Adding attribution must keep every existing parameter and its value exactly as it was.</p><p>Scope: per surface and link location. Target: <a href="/t/mrg-01?a=1&amp;b=2" title="/t/mrg-01?a=1&amp;b=2"><code>/t/mrg-01?a=1&amp;b=2</code></a></p><h3 id="mrg-02-keeps-fragment">MRG-02: Keeps fragment</h3><p><strong>Pass criteria:</strong> <code>#section</code> is preserved and the tag is inserted before it.</p><p>A fragment such as <code>#section-2</code> points to a place on the page. Query parameters must go before the <code>#</code>; anything after it never reaches the server and breaks the jump to the right section.</p><p>Scope: per surface and link location. Target: <a href="/t/mrg-02" title="/t/mrg-02#section-2"><code>/t/mrg-02#section-2</code></a></p><h3 id="mrg-03-no-overwrite">MRG-03: No overwrite</h3><p><strong>Pass criteria:</strong> Target with existing <code>utm_source=newsletter</code> keeps that value.</p><p>Some links already carry campaign tags set by the website itself. Replacing them would erase the site's own campaign data. The safe default is to leave existing <code>utm_*</code> parameters alone.</p><p>Scope: per surface and link location. Target: <a href="/t/mrg-03?utm_source=newsletter&amp;utm_medium=email" title="/t/mrg-03?utm_source=newsletter&amp;utm_medium=email"><code>/t/mrg-03?utm_source=newsletter&amp;utm_medium=email</code></a></p><h3 id="mrg-04-signed-urls-untouched">MRG-04: Signed URLs untouched</h3><p><strong>Pass criteria:</strong> Target with <code>signature</code>/<code>token</code>/<code>expires</code> params arrives byte-identical.</p><p>Signed and expiring URLs (downloads, cloud storage, one-time links) stop working if a single byte changes. Links with parameters such as <code>signature</code>, <code>token</code> or <code>expires</code> should be passed through unchanged.</p><p>Scope: per surface and link location. Target: <a href="/t/mrg-04?expires=2099-01-01&amp;signature=abc123" title="/t/mrg-04?expires=2099-01-01&amp;signature=abc123"><code>/t/mrg-04?expires=2099-01-01&amp;signature=abc123</code></a></p><h3 id="ops-01-changelog">OPS-01: Changelog</h3><p><strong>Pass criteria:</strong> Lab publishes link-behavior changes (help page, release notes).</p><p>Link behavior changes with UI updates. A short public note when it changes lets websites tell a product change from a real drop in traffic, and saves both sides time.</p><p>Scope: once per lab. Target: <a href="/t/ops-01" title="/t/ops-01"><code>/t/ops-01</code></a></p></div></div>
+      <div class="section metadata-container" data-section-status="loaded" style="">
+        
+        
+        
+        
+        
+      <div class="default-content-wrapper"><h2 id="test-vectors">Test vectors</h2><p>Use these input and output pairs to test a link-tagging function. They match the reference implementation on <a href="/best-practices" title="best practices">best practices</a>. Each one runs as a unit test in our build.</p><p>Source value <code>example.ai</code>. Machine-readable: <a href="https://github.com/keepthebyte/attribution-now/blob/main/lib/vectors.json" title="lib/vectors.json">lib/vectors.json</a>.</p><ul>
+          <li><strong>UTM-01</strong> Adds the tag to a plain URL<br>in: <code>https://example.com/page</code><br>out: <code>https://example.com/page?utm_source=example.ai</code></li>
+          <li><strong>UTM-01</strong> Adds source and medium (medium <code>ai-assistant</code>)<br>in: <code>https://example.com/page</code><br>out: <code>https://example.com/page?utm_source=example.ai&amp;utm_medium=ai-assistant</code></li>
+          <li><strong>MRG-01</strong> Keeps existing query<br>in: <code>https://example.com/p?a=1&amp;b=2</code><br>out: <code>https://example.com/p?a=1&amp;b=2&amp;utm_source=example.ai</code></li>
+          <li><strong>MRG-01</strong> Keeps existing encoding and valueless keys<br>in: <code>https://example.com/s?q=a%20b&amp;flag</code><br>out: <code>https://example.com/s?q=a%20b&amp;flag&amp;utm_source=example.ai</code></li>
+          <li><strong>MRG-02</strong> Inserts before the fragment<br>in: <code>https://example.com/doc#section-2</code><br>out: <code>https://example.com/doc?utm_source=example.ai#section-2</code></li>
+          <li><strong>MRG-02</strong> Query and fragment<br>in: <code>https://example.com/doc?a=1#section-2</code><br>out: <code>https://example.com/doc?a=1&amp;utm_source=example.ai#section-2</code></li>
+          <li><strong>MRG-03</strong> Leaves existing utm_source alone<br>in: <code>https://example.com/p?utm_source=newsletter&amp;utm_medium=email</code><br>out: <code>https://example.com/p?utm_source=newsletter&amp;utm_medium=email</code></li>
+          <li><strong>MRG-03</strong> Any utm_* key counts, any case<br>in: <code>https://example.com/p?UTM_Campaign=fall</code><br>out: <code>https://example.com/p?UTM_Campaign=fall</code></li>
+          <li><strong>MRG-04</strong> Signed URL untouched<br>in: <code>https://example.com/f?expires=2099-01-01&amp;signature=abc123</code><br>out: <code>https://example.com/f?expires=2099-01-01&amp;signature=abc123</code></li>
+          <li><strong>MRG-04</strong> Cloud storage signature untouched<br>in: <code>https://bucket.s3.amazonaws.com/k?X-Amz-Signature=abc&amp;X-Amz-Expires=60</code><br>out: <code>https://bucket.s3.amazonaws.com/k?X-Amz-Signature=abc&amp;X-Amz-Expires=60</code></li>
+          <li><strong>UTM-01</strong> Non-http links untouched<br>in: <code>mailto:hello@example.com</code><br>out: <code>mailto:hello@example.com</code></li>
+          <li><strong>UTM-01</strong> Invalid URL returned as is<br>in: <code>not a url</code><br>out: <code>not a url</code></li>
+        </ul></div><div class="metadata-wrapper"><div class="metadata block" data-block-name="metadata" data-block-status="loaded">
+          <div>
+            <div><p>title</p></div>
+            <div><p>Tests and methodology</p></div>
+          </div>
+          <div>
+            <div><p>description</p></div>
+            <div><p>The tests attribution.now runs on AI assistant outbound links, how results are recorded, and how to reproduce them.</p></div>
+          </div>
+        </div></div></div>
+    </main>
+    <footer class="footer-wrapper"><div class="footer block" data-block-name="footer" data-block-status="loaded"><div><div class="section" data-section-status="loaded" style="">
+  
+  
+<div class="default-content-wrapper"><p>attribution.now: helping AI labs and websites see where visits come from.</p><p><a href="/contribute" title="Contribute">Contribute</a> · <a href="https://github.com/keepthebyte/attribution-now" title="GitHub">GitHub</a> · Code, content and data under the <a href="https://github.com/keepthebyte/attribution-now/blob/main/LICENSE" title="Apache License 2.0">Apache License 2.0</a>.</p></div></div></div></div></footer>
+  
+
+</body></html>

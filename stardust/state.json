@@ -1,0 +1,111 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:prototype",
+    "writtenAt": "2026-10-21T07:23:46Z",
+    "stardustVersion": "0.34.0"
+  },
+  "site": {
+    "originUrl": "https://attribution.now",
+    "capturedFrom": "https://main--attribution-now--keepthebyte.aem.page",
+    "extractedAt": "2026-10-21T06:56:32.953Z",
+    "pageCap": 4,
+    "totalDiscovered": 4,
+    "crawled": 4
+  },
+  "direction": {
+    "resolvedAt": "2026-10-21T07:00:19.070Z",
+    "phrase": "Simple, colour-blocked, text-only site; background colours carry structure; delightful, clear, simple",
+    "directionFile": "stardust/direction.md",
+    "mode": "rebrand"
+  },
+  "handsOff": false,
+  "flow": "redesign",
+  "flowChosenAt": "2026-10-21T06:56:32.953Z",
+  "flowSource": "user: create a design language + prototype the homepage",
+  "pages": [
+    {
+      "slug": "index",
+      "url": "https://attribution.now/",
+      "status": "prototyped",
+      "type": null,
+      "stale": false,
+      "currentStatePath": "stardust/current/pages/index.json",
+      "prototypePath": null,
+      "migratedPath": null,
+      "history": [
+        {
+          "status": "extracted",
+          "at": "2026-10-21T06:56:32.953Z"
+        },
+        {
+          "status": "directed",
+          "at": "2026-10-21T07:00:19Z"
+        },
+        {
+          "status": "prototyped",
+          "at": "2026-10-21T07:23:46Z"
+        }
+      ]
+    },
+    {
+      "slug": "why",
+      "url": "https://attribution.now/why",
+      "status": "directed",
+      "type": null,
+      "stale": false,
+      "currentStatePath": "stardust/current/pages/why.json",
+      "prototypePath": null,
+      "migratedPath": null,
+      "history": [
+        {
+          "status": "extracted",
+          "at": "2026-10-21T06:56:32.953Z"
+        },
+        {
+          "status": "directed",
+          "at": "2026-10-21T07:00:19Z"
+        }
+      ]
+    },
+    {
+      "slug": "labs-openai-chatgpt",
+      "url": "https://attribution.now/labs/openai-chatgpt",
+      "status": "directed",
+      "type": null,
+      "stale": false,
+      "currentStatePath": "stardust/current/pages/labs-openai-chatgpt.json",
+      "prototypePath": null,
+      "migratedPath": null,
+      "history": [
+        {
+          "status": "extracted",
+          "at": "2026-10-21T06:56:32.953Z"
+        },
+        {
+          "status": "directed",
+          "at": "2026-10-21T07:00:19Z"
+        }
+      ]
+    },
+    {
+      "slug": "tests",
+      "url": "https://attribution.now/tests",
+      "status": "directed",
+      "type": null,
+      "stale": false,
+      "currentStatePath": "stardust/current/pages/tests.json",
+      "prototypePath": null,
+      "migratedPath": null,
+      "history": [
+        {
+          "status": "extracted",
+          "at": "2026-10-21T06:56:32.953Z"
+        },
+        {
+          "status": "directed",
+          "at": "2026-10-21T07:00:19Z"
+        }
+      ]
+    }
+  ]
+}

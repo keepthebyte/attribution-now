@@ -1,0 +1,156 @@
+<!doctype html>
+<!-- stardust:provenance writtenBy=stardust:prototype (logo concepts) writtenAt=2026-10-21T07:55:00Z againstDirection=stardust/direction.md (Active 2026-10-21T07:35:00Z) readArtifacts=DESIGN.md,DESIGN.json,PRODUCT.md synthesized="three two-dot mark concepts; mark-pink oklch(0.62 0.21 358) added for the mark only (3.9:1 on page, 3.4:1 on haze)" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two-dot mark: concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700..800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page: oklch(0.985 0.006 290);
+    --haze: oklch(0.945 0.035 295);
+    --violet: oklch(0.46 0.215 290);
+    --pink: oklch(0.78 0.13 355);
+    --ink: oklch(0.21 0.035 290);
+    --ink-soft: oklch(0.40 0.03 290);
+    --mark-pink: oklch(0.62 0.21 358);
+    --display: 'Bricolage Grotesque', system-ui, sans-serif;
+    --body: 'Hanken Grotesk', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--haze); color: var(--ink); font: 400 1.125rem/1.6 var(--body); }
+  main { max-width: 1200px; margin: 0 auto; padding: 48px 20px 96px; }
+  h1 { font: 800 clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem)/1.04 var(--display); letter-spacing: -0.02em; margin: 0 0 12px; }
+  h2 { font: 800 clamp(1.6rem, 1.3rem + 1.2vw, 2.25rem)/1.1 var(--display); margin: 0; }
+  p { max-width: 62ch; margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); }
+  .concept { background: var(--page); border-radius: 14px; padding: 32px; margin-top: 32px; }
+  .concept header { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; margin-bottom: 8px; }
+  .tag { font: 700 0.9rem/1.3 var(--body); color: var(--violet); }
+  .row { display: flex; flex-wrap: wrap; gap: 24px; align-items: end; margin-top: 24px; }
+  .size { display: grid; justify-items: center; gap: 6px; font-size: 0.8rem; color: var(--ink-soft); }
+  .grounds { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 24px; border-radius: 10px; overflow: hidden; }
+  .ground { padding: 20px; display: grid; gap: 10px; justify-items: start; font: 800 1.05rem/1 var(--display); letter-spacing: -0.01em; }
+  @media (width < 1000px) { .grounds { grid-template-columns: 1fr; } .ground { font-size: 1.25rem; } }
+  .ground small { font: 500 0.75rem/1.2 var(--body); letter-spacing: 0; opacity: 0.85; }
+  .g-page { background: var(--page); color: var(--ink); }
+  .g-haze { background: var(--haze); color: var(--ink); }
+  .g-violet { background: var(--violet); color: var(--page); }
+  .g-pink { background: var(--pink); color: var(--ink); }
+  .g-ink { background: var(--ink); color: var(--page); }
+  .lockup { display: inline-flex; align-items: center; gap: 8px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .tab { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 10px 10px 0 0; font: 500 0.85rem/1 system-ui, sans-serif; min-width: 210px; }
+  .tab.light { background: oklch(0.96 0.003 290); color: oklch(0.25 0.01 290); }
+  .tab.dark { background: oklch(0.27 0.005 290); color: oklch(0.92 0.005 290); }
+  .tab svg { width: 16px; height: 16px; flex: none; }
+  .verdict { margin-top: 20px; font-size: 1rem; }
+  .verdict strong { font-weight: 700; }
+  svg { display: block; }
+  /* colourways: default (light grounds) and reversed (violet / ink grounds) */
+  .mark { --a: var(--violet); --b: var(--mark-pink); --line: var(--ink); }
+  .g-violet .mark { --a: var(--page); --b: var(--pink); --line: var(--ink); }
+  .g-ink .mark { --a: var(--violet); --b: var(--pink); --line: var(--page); }
+  .g-pink .mark { --a: var(--violet); --b: var(--page); --line: var(--ink); }
+  .tab.dark .mark { --line: var(--page); --b: var(--pink); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="m-a" viewBox="0 0 64 64">
+      <rect x="16" y="28" width="32" height="8" fill="var(--line)"/>
+      <circle cx="16" cy="32" r="12" fill="var(--a)"/>
+      <circle cx="48" cy="32" r="12" fill="var(--b)"/>
+    </symbol>
+    <symbol id="m-b" viewBox="0 0 64 64">
+      <path d="M14 44 C14 14, 50 14, 50 44" fill="none" stroke="var(--line)" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="14" cy="44" r="11" fill="var(--a)"/>
+      <circle cx="50" cy="44" r="11" fill="var(--b)"/>
+    </symbol>
+    <symbol id="m-c" viewBox="0 0 64 64">
+      <clipPath id="clip-c"><circle cx="22" cy="32" r="15"/></clipPath>
+      <circle cx="22" cy="32" r="15" fill="var(--a)"/>
+      <circle cx="42" cy="32" r="15" fill="var(--b)"/>
+      <circle cx="42" cy="32" r="15" fill="var(--line)" clip-path="url(#clip-c)"/>
+    </symbol>
+  </defs>
+</svg>
+<main>
+  <h1>The two-dot mark</h1>
+  <p class="lede">Three ways to show two dots reconnecting. The left dot is the website (Report violet, the analysts' side); the right dot is the assistant that sent the visit (pink, the labs' side). Each concept is shown at favicon sizes, on every field colour, and in light and dark browser tabs.</p>
+
+  <section class="concept" aria-labelledby="ca">
+    <header><h2 id="ca">A · Reconnected</h2><span class="tag">Two dots joined by a short, heavy bar</span></header>
+    <p>The most literal reading: the link between the two is restored. Reads at 16px as a small dumbbell.</p>
+    <div class="row">
+      <div class="size"><svg class="mark" width="160" height="160" role="img" aria-label="Concept A at 160 pixels"><use href="#m-a"/></svg>160</div>
+      <div class="size"><svg class="mark" width="64" height="64" aria-hidden="true"><use href="#m-a"/></svg>64</div>
+      <div class="size"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-a"/></svg>32</div>
+      <div class="size"><svg class="mark" width="16" height="16" aria-hidden="true"><use href="#m-a"/></svg>16</div>
+    </div>
+    <div class="grounds">
+      <div class="ground g-page"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-a"/></svg>attribution.now</span><small>Page</small></div>
+      <div class="ground g-haze"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-a"/></svg>attribution.now</span><small>Direct haze</small></div>
+      <div class="ground g-violet"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-a"/></svg>attribution.now</span><small>Report violet</small></div>
+      <div class="ground g-pink"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-a"/></svg>attribution.now</span><small>Link pink</small></div>
+      <div class="ground g-ink"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-a"/></svg>attribution.now</span><small>Source ink</small></div>
+    </div>
+    <div class="tabs">
+      <div class="tab light"><svg class="mark" aria-hidden="true"><use href="#m-a"/></svg>attribution.now</div>
+      <div class="tab dark"><svg class="mark" aria-hidden="true"><use href="#m-a"/></svg>attribution.now</div>
+    </div>
+    <p class="verdict"><strong>At 16px:</strong> clear. In a dark tab the bar needs the light colourway, which an SVG favicon can switch with <code>prefers-color-scheme</code>.</p>
+  </section>
+
+  <section class="concept" aria-labelledby="cb">
+    <header><h2 id="cb">B · Bridge</h2><span class="tag">Two dots with an arc reaching across</span></header>
+    <p>A link drawn as a bridge from one side to the other. Warmer and more gestural; the arc thins out at small sizes.</p>
+    <div class="row">
+      <div class="size"><svg class="mark" width="160" height="160" role="img" aria-label="Concept B at 160 pixels"><use href="#m-b"/></svg>160</div>
+      <div class="size"><svg class="mark" width="64" height="64" aria-hidden="true"><use href="#m-b"/></svg>64</div>
+      <div class="size"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-b"/></svg>32</div>
+      <div class="size"><svg class="mark" width="16" height="16" aria-hidden="true"><use href="#m-b"/></svg>16</div>
+    </div>
+    <div class="grounds">
+      <div class="ground g-page"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-b"/></svg>attribution.now</span><small>Page</small></div>
+      <div class="ground g-haze"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-b"/></svg>attribution.now</span><small>Direct haze</small></div>
+      <div class="ground g-violet"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-b"/></svg>attribution.now</span><small>Report violet</small></div>
+      <div class="ground g-pink"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-b"/></svg>attribution.now</span><small>Link pink</small></div>
+      <div class="ground g-ink"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-b"/></svg>attribution.now</span><small>Source ink</small></div>
+    </div>
+    <div class="tabs">
+      <div class="tab light"><svg class="mark" aria-hidden="true"><use href="#m-b"/></svg>attribution.now</div>
+      <div class="tab dark"><svg class="mark" aria-hidden="true"><use href="#m-b"/></svg>attribution.now</div>
+    </div>
+    <p class="verdict"><strong>At 16px:</strong> the arc becomes a 1–2px hairline; recognisable but weakest of the three.</p>
+  </section>
+
+  <section class="concept" aria-labelledby="cc">
+    <header><h2 id="cc">C · Overlap</h2><span class="tag">Two dots that touch, the shared part drawn in ink</span></header>
+    <p>The two sides overlap and the place where they meet is drawn in ink: the connection is the thing both share. Partnership rather than a bridge; the most compact silhouette.</p>
+    <div class="row">
+      <div class="size"><svg class="mark" width="160" height="160" role="img" aria-label="Concept C at 160 pixels"><use href="#m-c"/></svg>160</div>
+      <div class="size"><svg class="mark" width="64" height="64" aria-hidden="true"><use href="#m-c"/></svg>64</div>
+      <div class="size"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-c"/></svg>32</div>
+      <div class="size"><svg class="mark" width="16" height="16" aria-hidden="true"><use href="#m-c"/></svg>16</div>
+    </div>
+    <div class="grounds">
+      <div class="ground g-page"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-c"/></svg>attribution.now</span><small>Page</small></div>
+      <div class="ground g-haze"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-c"/></svg>attribution.now</span><small>Direct haze</small></div>
+      <div class="ground g-violet"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-c"/></svg>attribution.now</span><small>Report violet</small></div>
+      <div class="ground g-pink"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-c"/></svg>attribution.now</span><small>Link pink</small></div>
+      <div class="ground g-ink"><span class="lockup"><svg class="mark" width="32" height="32" aria-hidden="true"><use href="#m-c"/></svg>attribution.now</span><small>Source ink</small></div>
+    </div>
+    <div class="tabs">
+      <div class="tab light"><svg class="mark" aria-hidden="true"><use href="#m-c"/></svg>attribution.now</div>
+      <div class="tab dark"><svg class="mark" aria-hidden="true"><use href="#m-c"/></svg>attribution.now</div>
+    </div>
+    <p class="verdict"><strong>At 16px:</strong> strong, compact silhouette. In a dark tab the ink lens needs the light colourway, like A. Risk: reads as a Venn diagram (overlap) more than as reconnecting.</p>
+  </section>
+</main>
+</body>
+</html>

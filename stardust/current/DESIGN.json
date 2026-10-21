@@ -1,0 +1,63 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:extract",
+    "writtenAt": "2026-10-21T06:55:40.650Z",
+    "readArtifacts": [
+      "stardust/current/_brand-extraction.json"
+    ],
+    "synthesizedInputs": []
+  },
+  "colors": {
+    "text": "#131313",
+    "link": "#3b63fb",
+    "border": "#dadada",
+    "surface": "#eeeeee",
+    "background": "#ffffff",
+    "status-works": "#d6f0dc",
+    "status-partial": "#fbeec2",
+    "status-missing": "#f6dcd6",
+    "status-reported": "#e3e7f7"
+  },
+  "extensions": {
+    "componentStyle": {
+      "buttons": "pill, dark fill primary / outline secondary (boilerplate)",
+      "chips": "pill pastel status chips (works/partial/missing/reported/untested)"
+    },
+    "motifs": {
+      "radius": {
+        "pill": "999px",
+        "card": "12px",
+        "table": "8px"
+      },
+      "shadows": [
+        "inset 0 0 0 1px #dadada"
+      ],
+      "gradients": [],
+      "patterns": [
+        "pill button",
+        "status chip",
+        "bordered card (lab tiles, work items)",
+        "data table"
+      ]
+    },
+    "voice": {
+      "heroHeadline": "AI assistants send you visitors. Most of those visits show up as \"Direct\".",
+      "ctaSamples": [
+        "Estimate your hidden AI traffic",
+        "See what each assistant sends",
+        "Why it matters"
+      ],
+      "tone": "plain, factual, courteous; partnership framing",
+      "heroImage": null,
+      "heroMedium": null
+    },
+    "breakpoints": {
+      "layout": [
+        "600px",
+        "900px"
+      ],
+      "containerMaxWidth": "1200px",
+      "source": "styles/styles.css (boilerplate)"
+    }
+  }
+}

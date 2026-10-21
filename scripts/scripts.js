@@ -9,6 +9,8 @@ import {
   loadSection,
   loadSections,
   loadCSS,
+  toCamelCase,
+  toClassName,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -78,6 +80,32 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Applies section metadata (Style → classes, Id → id, anything else → data-*).
+ * The delivery pipeline usually does this already; this covers content where it did not.
+ * @param {Element} main The container element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll(':scope > div > div.section-metadata').forEach((meta) => {
+    const section = meta.parentElement;
+    [...meta.children].forEach((row) => {
+      const [name, value] = row.children;
+      if (!name || !value) return;
+      const key = toClassName(name.textContent);
+      const text = value.textContent.trim();
+      if (key === 'style') {
+        text.split(',').map((c) => toClassName(c)).filter(Boolean)
+          .forEach((c) => section.classList.add(c));
+      } else if (key === 'id') {
+        section.id = toClassName(text);
+      } else if (key) {
+        section.dataset[toCamelCase(key)] = text;
+      }
+    });
+    meta.remove();
+  });
+}
+
+/**
  * Decorates formatted links to style them as buttons.
  * @param {HTMLElement} main The main container element
  */
@@ -124,6 +152,7 @@ function decorateButtons(main) {
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
+  decorateSectionMetadata(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
