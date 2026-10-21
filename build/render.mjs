@@ -55,7 +55,8 @@ function page({ title, description, robots }, sections) {
 <html>
 <head>
 <title>${esc(title)}</title>
-<meta name="description" content="${esc(description)}">
+<meta name="description" content="${esc(description)}">${robots ? `
+<meta name="robots" content="${esc(robots)}">` : ''}
 </head>
 <body>
 <header></header>
@@ -446,11 +447,19 @@ pages.set(LAB_STATUS_FRAGMENT, labStatusFragment);
 pages.set(SCORECARD_FRAGMENT, scorecardFragment);
 
 const authored = new Set(config.byom.authored_paths);
+
+/**
+ * BYOM pages carry their metadata as <meta> tags in <head>; the pipeline reads a metadata
+ * block too but leaves it in the body. Only pages pushed to SourceBus keep the block,
+ * because SourceBus stores <main> alone.
+ */
+const METADATA_BLOCK = /<div class="metadata">(?:<div><div>[^<]*<\/div><div>[^<]*<\/div><\/div>)*<\/div>/;
+const stripMetadata = (html) => html.replace(METADATA_BLOCK, '');
 rmSync(out, { recursive: true, force: true });
 const manifest = {};
 pages.forEach((render, path) => {
   if (byomOnly && authored.has(path)) return;
-  const html = render();
+  const html = authored.has(path) ? render() : stripMetadata(render());
   const file = join(out, `${path === '/' ? '/index' : path}.html`);
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);
