@@ -1,6 +1,6 @@
 ---
-title: Best practices for outbound link attribution
-description: For teams who build AI assistants. Five practices that let websites attribute the visits your assistant sends, with code, per-platform notes and test vectors.
+title: Outbound link attribution best practices for AI assistants
+description: "For teams who build AI assistants: send your origin as the referrer, never noreferrer; add one documented utm_source; keep sites' own UTM tags intact."
 template: guide
 ---
 

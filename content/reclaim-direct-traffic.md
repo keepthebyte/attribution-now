@@ -1,6 +1,6 @@
 ---
-title: Estimate your hidden AI traffic
-description: How to count the visits ChatGPT, Gemini and Claude send you, assistant by assistant, and estimate the ones hiding in Direct.
+title: Estimate hidden AI traffic from ChatGPT, Gemini and Claude
+description: "For SEO, GEO and analytics teams: count ChatGPT by its utm_source tag, multiply Gemini referrals by 2.1 to 2.5, and treat Claude's referrer as a floor."
 template: guide
 ---
 

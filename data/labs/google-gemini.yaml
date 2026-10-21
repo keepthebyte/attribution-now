@@ -10,6 +10,7 @@ what_works: >
   from links the user pasted. Its links use `rel="noopener"` without `noreferrer`, exactly as recommended. From
   September 18 to 28, 2026, Gemini links also carried `utm_source=gemini` (and `geminiforbusiness` for Workspace).
 what_works_date: 2026-10-20
+seo_summary: "Gemini on the web sends the gemini.google.com referrer but no UTM tag; its apps send neither, so visits land in Direct."
 # link_locations are candidates until confirmed by a verified test run.
 surfaces:
   - id: web

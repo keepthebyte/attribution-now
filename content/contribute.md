@@ -1,6 +1,6 @@
 ---
-title: Contribute
-description: How to submit test results to attribution.now, and how labs can request a review of their entry.
+title: Contribute AI assistant link test results
+description: "For anyone testing AI assistant links: submit dated results for ChatGPT, Gemini or Claude via the public GitHub repo, or request a review of your lab's entry."
 ---
 
 # Contribute
