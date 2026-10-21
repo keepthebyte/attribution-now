@@ -16,7 +16,7 @@ import { marked } from 'marked';
 import YAML from 'yaml';
 import { loadData } from '../lib/data.mjs';
 import {
-  labCell, labDates, surfaceCell,
+  aggregate, labCell, labDates, surfaceCell,
 } from '../lib/status.mjs';
 import { PROMPTS, renderPrompts } from '../lib/prompts.mjs';
 import { addAttribution } from '../lib/attribution.mjs';
@@ -184,6 +184,57 @@ function labTilesBlock() {
   }));
 }
 
+// Scorecard columns group surfaces by surface id; surfaces not listed (e.g. Workspace, Chrome) stay on lab pages.
+const SCORECARD_GROUPS = [
+  { name: 'Web', surfaces: ['web', 'web-desktop'] },
+  { name: 'Mobile apps', surfaces: ['ios', 'android'] },
+  { name: 'Desktop apps', surfaces: ['macos', 'windows'] },
+];
+const SCORECARD_SIGNALS = [{ name: 'Referrer', test: 'REF-01' }, { name: 'UTM', test: 'UTM-01' }];
+// Lab-page status rows get these ids (blocks/status-table), so the scorecard can link to them.
+const statusAnchor = (lab, testId) => `/labs/${lab.id}#status-${testId.toLowerCase()}`;
+
+/** One status for a group of surface cells: verified results win, otherwise reported findings. */
+function groupStatus(cells) {
+  const verified = cells.filter((c) => !['reported', 'untested', 'n/a'].includes(c.status));
+  if (verified.length) return { status: aggregate(verified.map((c) => c.status)), reported: false };
+  const reported = cells.filter((c) => c.status === 'reported');
+  if (reported.length) return { status: aggregate(reported.map((c) => c.finding)), reported: true };
+  return { status: 'untested', reported: false };
+}
+
+function scorecard() {
+  const tests = Object.fromEntries(data.tests.map((t) => [t.id, t]));
+  const both = [];
+  const rows = data.labs.map((lab) => {
+    const cells = SCORECARD_GROUPS.map((g) => {
+      const surfaces = lab.surfaces.filter((s) => g.surfaces.includes(s.id));
+      if (!surfaces.length) return p('n/a');
+      const signals = SCORECARD_SIGNALS.map((sig) => ({
+        ...sig,
+        ...groupStatus(surfaces.map((s) => surfaceCell(data.results, lab, s, tests[sig.test]))),
+      }));
+      if (signals.every((sig) => sig.status === 'works' && !sig.reported)) both.push(`${lab.name} (${g.name})`);
+      return signals.map((sig) => p(a(
+        statusAnchor(lab, sig.test),
+        `${sig.name}: ${sig.reported ? `Reported ${STATUS_LABEL[sig.status].toLowerCase()}` : STATUS_LABEL[sig.status]}`,
+      ))).join('');
+    });
+    const documented = lab.documented_utm
+      ? p(a(statusAnchor(lab, 'UTM-03'), `Yes: <code>${esc(lab.documented_utm)}</code>`))
+      : p(a(statusAnchor(lab, 'UTM-03'), 'No'));
+    return row(`<h3>${a(`/labs/${lab.id}`, esc(lab.name))}</h3>${p(esc(lab.company))}`, ...cells, documented);
+  });
+  const takeaway = both.length
+    ? `Both signals arrive verified from ${both.join(', ')}.`
+    : 'No assistant sends both signals yet, on any surface we have tested.';
+  return [
+    p(`<strong>${esc(takeaway)}</strong>`),
+    block('scorecard', [row('Assistant', ...SCORECARD_GROUPS.map((g) => g.name), 'Documented UTM'), ...rows]),
+    p('<strong>Reported</strong> means a third-party report we have not yet verified first-hand. Select a status to see the evidence on the lab page.'),
+  ].join('\n');
+}
+
 function testCatalog() {
   return data.tests.map((t) => [
     `<h3 id="${slug(testHeading(t))}">${esc(testHeading(t))}</h3>`,
@@ -208,10 +259,13 @@ function testVectors() {
 
 // The homepage is authored in SourceBus, so its lab tiles come from a generated fragment that CI keeps current.
 const LAB_STATUS_FRAGMENT = '/fragments/lab-status';
+const SCORECARD_FRAGMENT = '/fragments/scorecard';
 
 const GENERATED = {
   'lab-tiles': labTilesBlock,
   'lab-status-fragment': () => block('fragment', [row(p(a(LAB_STATUS_FRAGMENT, LAB_STATUS_FRAGMENT)))]),
+  scorecard,
+  'scorecard-fragment': () => block('fragment', [row(p(a(SCORECARD_FRAGMENT, SCORECARD_FRAGMENT)))]),
   'test-catalog': testCatalog,
   'test-vectors': testVectors,
   changelog: () => changelogBlock(data.changelog),
@@ -349,6 +403,13 @@ ${section(labTilesBlock())}
 `;
 }
 
+function scorecardFragment() {
+  return `<!DOCTYPE html><html><head><title>Scorecard</title></head><body><main>
+${section(scorecard())}
+</main></body></html>
+`;
+}
+
 function footer() {
   return `<!DOCTYPE html><html><head><title>Footer</title></head><body><main>
 ${section(
@@ -380,6 +441,7 @@ data.tests.forEach((t) => pages.set(`/t/${t.id.toLowerCase()}`, () => targetPage
 pages.set('/nav', nav);
 pages.set('/footer', footer);
 pages.set(LAB_STATUS_FRAGMENT, labStatusFragment);
+pages.set(SCORECARD_FRAGMENT, scorecardFragment);
 
 const authored = new Set(config.byom.authored_paths);
 rmSync(out, { recursive: true, force: true });

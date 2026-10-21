@@ -13,7 +13,7 @@ Delivered by AEM Edge Delivery Services behind a Cloudflare worker. Data and gen
 | `prompts/templates/` | Copy-paste prompt templates, filled per work item. |
 | `lib/` | Data loading, status resolution, prompt rendering, and the reference `addAttribution()` with test vectors. |
 | `build/` | `validate.mjs`, `render.mjs` (→ `dist/`), `preview.mjs` (local server), `sourcebus.mjs` (push pages to SourceBus + preview), `publish.mjs` (AEM Admin API), `config.json`. |
-| `blocks/`, `scripts/`, `styles/`, `head.html` | EDS site code (from `adobe/aem-boilerplate`). Blocks: `status-table`, `work-item`, `lab-tiles`, `changelog`, `test-echo`. |
+| `blocks/`, `scripts/`, `styles/`, `head.html` | EDS site code (from `adobe/aem-boilerplate`). Blocks: `status-table`, `work-item`, `scorecard`, `lab-tiles`, `changelog`, `test-echo`. |
 | `worker/` | Cloudflare worker: Adobe's AEM proxy (unchanged, `src/aem-proxy.mjs`) wrapped with the `/t/*` logger, D1 migrations, `export-hits`. |
 | `test-kit/` | Target URLs and the manual checklist. |
 

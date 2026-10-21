@@ -56,6 +56,9 @@ export default function decorate(block) {
     th.append(...(cells[0]?.childNodes || []));
     tr.append(th);
     const testName = th.textContent.trim();
+    // anchor for deep links from the homepage scorecard, e.g. #status-ref-01
+    const testId = th.querySelector('strong')?.textContent.trim();
+    if (testId) tr.id = `status-${testId.toLowerCase()}`;
     cells.slice(1).forEach((c, i) => {
       const td = document.createElement('td');
       const details = c.querySelector('ul');
@@ -98,4 +101,11 @@ export default function decorate(block) {
   scroller.setAttribute('aria-label', 'Status table');
   scroller.append(table);
   block.replaceChildren(scroller, panel);
+
+  // the row didn't exist when the browser handled the hash, so scroll to it now
+  const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+  if (target && block.contains(target)) {
+    target.classList.add('status-target');
+    target.scrollIntoView();
+  }
 }
