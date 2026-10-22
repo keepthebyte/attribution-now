@@ -1,0 +1,101 @@
+# ChatGPT iOS app 1.2026.279 on iOS 27.2 (iPhone). Link test session, 13:53-13:57 UTC; evidence is the worker's hit log.
+# Every link opened in an in-app browser sheet. Its user agent is plain Mobile Safari ("Version/27.2 Mobile/15E148
+# Safari/604.1"), which points to SFSafariViewController rather than a custom web view. Every tap arrived with
+# Sec-Fetch-Site: none, no Referer header and an empty document.referrer, the same as a typed URL. No ios-app://
+# referrer either, unlike the Android app's android-app://com.openai.chatgpt/. Links in ChatGPT's answers carry
+# utm_source=chatgpt.com; a link in the user's own message does not. Each cited URL was also fetched by
+# ChatGPT-User and by a link-preview bot (facebookexternalhit) before the tap.
+date: 2026-10-22
+lab: openai-chatgpt
+surface: ios
+method: manual
+tester: cedric
+client: ChatGPT 1.2026.279 (iOS app, in-app Safari sheet) / iOS 27.2
+source_url: null
+results:
+  - location: inline-citation
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/ios/inline-citation?utm_source=chatgpt.com
+      notes: Tapped the citation chip; opened in the in-app Safari sheet with Sec-Fetch-Site none.
+  - location: inline-citation
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent, so nothing can leak.
+  - location: inline-citation
+    test: UTM-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/ios/inline-citation?utm_source=chatgpt.com
+      notes: utm_source=chatgpt.com.
+  - location: inline-citation
+    test: MRG-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-01/openai-chatgpt/ios/inline-citation?a=1&b=2&utm_source=chatgpt.com
+      notes: "?a=1&b=2 kept, tag appended."
+  - location: inline-citation
+    test: MRG-02
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-02/openai-chatgpt/ios/inline-citation?utm_source=chatgpt.com#section-2
+      notes: Tag inserted before #section-2.
+  - location: inline-citation
+    test: MRG-03
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/mrg-03/openai-chatgpt/ios/inline-citation?utm_medium=email&utm_source=chatgpt.com
+      notes: utm_source=newsletter was replaced with chatgpt.com (and the parameters reordered), as on the web.
+  - location: inline-citation
+    test: MRG-04
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/mrg-04/openai-chatgpt/ios/inline-citation?expires=2099-01-01&signature=abc123&utm_source=chatgpt.com
+      notes: Tag appended to a signed URL.
+  # The sources sheet lists the same URL as the citation chip, so its tap logs under the inline-citation path.
+  - location: sources-panel
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/ios/inline-citation?utm_source=chatgpt.com
+      notes: Tapped the source in the Sources sheet; it pointed at the inline-citation test URL. No Referer.
+  - location: sources-panel
+    test: UTM-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/ios/inline-citation?utm_source=chatgpt.com
+      notes: utm_source=chatgpt.com.
+  - location: bare-url
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/ios/bare-url?utm_source=chatgpt.com
+      notes: Tapped the URL written out in the answer. No Referer.
+  - location: bare-url
+    test: UTM-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/ios/bare-url?utm_source=chatgpt.com
+      notes: utm_source=chatgpt.com.
+  - location: pasted-link
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/ios/pasted-link
+      notes: Tapped the link in the user's own message. No Referer.
+  - location: pasted-link
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/openai-chatgpt/ios/pasted-link
+      notes: No tag on a link in the user's own message (on the web, pasted links are tagged).
