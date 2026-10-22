@@ -11,7 +11,8 @@ function token(el, name) {
 
 const day = (iso) => new Date(`${iso}T00:00:00Z`);
 const short = (iso) => `${MONTHS[day(iso).getUTCMonth()]} ${day(iso).getUTCDate()}`;
-const indexed = (v) => Math.round(v);
+// one decimal below 10, so the small lines at the end of the year stay readable
+const indexed = (v) => (v === null ? '–' : Number(v.toFixed(v < 10 ? 1 : 0)));
 
 /** "Oct 23–29, 2025" */
 function weekRange(data, i) {
@@ -30,11 +31,11 @@ function weekPosition(data, iso) {
 
 function renderTable(widget, data) {
   const rows = data.weeks.map((w, i) => `<tr><th scope="row">${weekRange(data, i)}</th>
-    <td>${indexed(data.utm[i])}</td><td>${indexed(data.referrer[i])}</td>
-    <td>${data.withReferrerPct[i]}%</td></tr>`).join('');
+    <td>${indexed(data.utm[i])}</td><td>${indexed(data.referrer[i])}</td><td>${indexed(data.androidApp[i])}</td>
+    <td>${data.withReferrerPct[i]}%</td><td>${data.androidSharePct[i]}%</td></tr>`).join('');
   widget.querySelector('.chatgpt-utm-table').innerHTML = `<table>
-    <thead><tr><th scope="col">Week</th><th scope="col">Tagged</th><th scope="col">Referrer</th>
-    <th scope="col">Tagged with referrer</th></tr></thead><tbody>${rows}</tbody></table>`;
+    <thead><tr><th scope="col">Week</th><th scope="col">Tagged</th><th scope="col">Referrer</th><th scope="col">Android app</th>
+    <th scope="col">Tagged with referrer</th><th scope="col">Referrer from Android app</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 /** Grey exception week and dashed milestone lines; labels only where they fit */
@@ -75,8 +76,8 @@ function annotations(data, exception, colors) {
 }
 
 /**
- * Two charts of ChatGPT landings by week: tagged visits against referred ones,
- * and the share of tagged visits that still carry the referrer.
+ * Three charts of ChatGPT landings by week: tagged visits against referred ones, the share
+ * of tagged visits that still carry the referrer, and the Android app's share of the referrer.
  * @param {Element} widget The widget element
  */
 export default async function decorate(widget) {
@@ -89,6 +90,7 @@ export default async function decorate(widget) {
   const colors = {
     utm: token(widget, '--violet'),
     referrer: token(widget, '--mark-pink'),
+    android: token(widget, '--ink'),
     fill: token(widget, '--haze'),
     band: token(widget, '--line-color'),
     ink: token(widget, '--ink-soft'),
@@ -146,6 +148,9 @@ export default async function decorate(widget) {
           label: 'Referrer', data: bridged(data.referrer), borderColor: colors.referrer, borderDash: [6, 4], spanGaps: true,
         },
         {
+          label: 'Android app referrer', data: data.androidApp, borderColor: colors.android, borderWidth: 2,
+        },
+        {
           label: 'Tagged (bug week)', data: only(data.utm), borderColor: colors.utm, backgroundColor: colors.fill, pointRadius: 4, showLine: false,
         },
         {
@@ -201,6 +206,46 @@ export default async function decorate(widget) {
           callbacks: {
             title: ([item]) => weekRange(data, item.dataIndex),
             label: (item) => ` ${item.raw}% of tagged visits had the referrer`,
+            footer: ([item]) => note(item.dataIndex),
+          },
+        },
+      },
+      scales: {
+        x: xAxis,
+        y: {
+          beginAtZero: true,
+          max: 60,
+          border: { display: false },
+          grid: { color: colors.line },
+          ticks: { stepSize: 25, callback: (v) => `${v}%` },
+        },
+      },
+    },
+    plugins: [annotations(data, exception, colors)],
+  });
+
+  // eslint-disable-next-line no-new
+  new Chart(widget.querySelector('.chatgpt-utm-android canvas'), {
+    type: 'line',
+    data: {
+      labels: data.weeks,
+      datasets: [{
+        label: 'From the Android app',
+        data: data.androidSharePct,
+        borderColor: colors.android,
+        backgroundColor: colors.fill,
+        borderWidth: 2,
+        fill: 'origin',
+      }],
+    },
+    options: {
+      ...base,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: ([item]) => weekRange(data, item.dataIndex),
+            label: (item) => ` ${item.raw}% of referrer visits came from the Android app`,
             footer: ([item]) => note(item.dataIndex),
           },
         },
