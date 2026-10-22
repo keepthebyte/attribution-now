@@ -8,8 +8,9 @@ what_works: >
   OpenAI publishes the `utm_source=chatgpt.com` value in its publisher FAQ, and ChatGPT adds it to every
   outbound link we tested on the web: citations, links in the answer text and links the user pasted. It keeps
   existing query parameters and inserts the tag before a `#fragment`. After a UI update in early October 2026,
-  the tag was restored within about a week.
-what_works_date: 2026-10-20
+  the tag was restored within about a week. The Android app also sends its own app referrer,
+  `android-app://com.openai.chatgpt/`.
+what_works_date: 2026-10-22
 seo_summary: "ChatGPT tags every web link we tested with utm_source=chatgpt.com, but most arrive with no referrer."
 # link_locations are candidates until confirmed by a verified test run.
 surfaces:
@@ -63,12 +64,16 @@ work_items:
     title: Pass an app referrer from the Android app
     tests: [REF-01]
     surfaces: [android]
-    status: open
+    status: shipped
+    shipped_date: 2026-10-22
     summary: >
-      The Android app carries the UTM tag, but no referrer arrives, so tools that rely on the referrer see Direct.
+      The Android app now sends `android-app://com.openai.chatgpt/` as the referrer, on top of the UTM tag. We
+      first saw it in AEM CDN logs on October 22, 2026, on pages across more than 100 sites; we don't know when it
+      started. An April 2026 report had found no referrer from the app.
     suggested_fix: >
       Open links in a Custom Tab and set `Intent.EXTRA_REFERRER` to `android-app://com.openai.chatgpt`, so the
       browser can pass an app referrer.
+    thank_you: Thank you to the ChatGPT Android team for passing an app referrer, the model for other Android assistants.
   - id: chatgpt-changelog
     title: Publish a changelog for link behavior
     tests: [OPS-01]

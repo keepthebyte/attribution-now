@@ -352,7 +352,7 @@ Seed lab files and results with these, each with source URL and `method: reporte
 **ChatGPT**
 - Documented `utm_source=chatgpt.com` (OpenAI Publishers FAQ).
 - Web: Sources/citations pass `chatgpt.com` referrer; tag on sources and citations.
-- iOS/Android/Mac/Windows apps: no referrer, tag carried (WISLR, Apr 2026).
+- iOS/Mac/Windows apps: no referrer, tag carried (WISLR, Apr 2026). Android app: `android-app://com.openai.chatgpt/` referrer plus tag (AEM CDN logs, Oct 22, 2026).
 - Oct 8–16, 2026: tag and referrer missing on most answers after a UI update; restored ~Oct 16 (Profound). After the fix, referrer reportedly still missing on many clicks.
 
 **Gemini**

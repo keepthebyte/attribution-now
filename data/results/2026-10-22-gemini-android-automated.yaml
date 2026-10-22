@@ -1,0 +1,19 @@
+# AEM as a Cloud Service CDN logs (Splunk), 24 hours to 2026-10-22, HTML page requests only. The Gemini app's
+# package (com.google.android.apps.bard) never appeared as an android-app:// referrer, and Android sent about
+# 3% as many gemini.google.com referrals as Windows. Gemini app clicks likely land in Direct or carry the
+# Google app's referrer (android-app://com.google.android.googlequicksearchbox/), where they look like Search
+# and Discover. The logs can't tell which; a tap test from the app would.
+date: 2026-10-22
+lab: google-gemini
+surface: android
+method: automated
+tester: AEM CDN logs
+client: Gemini Android app (version not recorded)
+source_url: null
+results:
+  - location: "*"
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      notes: No android-app://com.google.android.apps.bard/ referrer in AEM as a Cloud Service CDN logs, and few gemini.google.com referrals from Android. ChatGPT's Android app does send its own app referrer.
