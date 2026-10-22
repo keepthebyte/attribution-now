@@ -13,7 +13,7 @@ source_url: null
 results:
   - location: "*"
     test: REF-01
-    status: works
+    status: partial
     evidence:
       referer: android-app://com.openai.chatgpt/
-      notes: App referrer seen in AEM as a Cloud Service CDN logs on HTML pageviews across more than 100 sites. Per-location coverage not tested.
+      notes: App referrer seen in AEM as a Cloud Service CDN logs on HTML pageviews across more than 100 sites. Since Oct 11-13, 2026, on links without the chatgpt.com tag; tagged Android visits (about 35x as many) still arrive with no referrer. Per-location coverage not tested.
