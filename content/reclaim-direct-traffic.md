@@ -48,6 +48,10 @@ Links in Claude's answers on claude.ai send `https://claude.ai/` as the referrer
 1. Count visits with a `claude.ai` referrer.
 2. Treat that number as a floor. Claude has never tagged its links, so we have no measured share for its hidden visits yet. We'll add one here when we can measure it.
 
+Visits with a claude.ai referrer fell by about two thirds between June and September 2026. We can't tell yet whether Claude sent fewer visits or sent more of them without a referrer, through its citation chips or its apps.
+
+<p><a href="/widgets/ai-traffic/ai-traffic.html?assistant=claude">/widgets/ai-traffic/ai-traffic.html?assistant=claude</a></p>
+
 
 ## Copilot: the referrer, now the tag is fading
 
@@ -57,7 +61,9 @@ Microsoft Copilot sends a referrer from each of its sites: `copilot.com` and `co
 2. Add visits tagged `utm_source=copilot.com` that arrived with no referrer. Match values that start with `copilot.com`: some links arrive as `utm_source=copilot.com?form=MG0AUO`.
 3. Treat the total as a floor, especially on mobile. On sites measured by AEM Operational Telemetry in the 8 weeks to October 18, 2026, 93% of tagged mobile visits came with no referrer, so as the tag fades, those visits move to Direct.
 
-Between late August and mid-October 2026, visits from copilot.com grew more than tenfold, while tagged visits from copilot.microsoft.com fell by almost half.
+The tag is fading fast: 85% of Copilot visits carried it in late April 2026, 17% by mid-October, as copilot.com (from July) and Microsoft 365 Copilot took over from copilot.microsoft.com.
+
+<p><a href="/widgets/ai-traffic/ai-traffic.html?assistant=copilot">/widgets/ai-traffic/ai-traffic.html?assistant=copilot</a></p>
 
 
 ## Perplexity: the referrer plus the tag
@@ -67,7 +73,9 @@ Perplexity on the web sends `https://www.perplexity.ai/` as the referrer, and no
 1. Count visits with a `perplexity.ai` referrer.
 2. Add visits tagged `utm_source=perplexity`.
 
-Skip the second step and you miss more than a third of Perplexity's visits, nearly all of them on mobile.
+Skip the second step and you miss more than a third of Perplexity's visits, nearly all of them on mobile. That share has held steady since April 2026.
+
+<p><a href="/widgets/ai-traffic/ai-traffic.html?assistant=perplexity">/widgets/ai-traffic/ai-traffic.html?assistant=perplexity</a></p>
 
 
 ## Set up your reports so they keep counting

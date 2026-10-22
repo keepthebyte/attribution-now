@@ -1,0 +1,89 @@
+.ai-traffic {
+  margin-block: 24px;
+}
+
+.ai-traffic .ai-traffic-figure {
+  margin: 0;
+  padding: 24px clamp(16px, 3vw, 32px);
+  border-radius: var(--radius);
+  background: var(--page);
+}
+
+.ai-traffic .ai-traffic-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0 0 16px;
+  padding: 0;
+  font-size: var(--body-font-size-xs);
+  list-style: none;
+}
+
+.ai-traffic .ai-traffic-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* line keys: solid for the tag, dashed for a referrer, as in the chart */
+.ai-traffic .ai-traffic-legend li::before {
+  content: '';
+  flex: none;
+  width: 20px;
+  border-top: 3px solid var(--key);
+}
+
+.ai-traffic .ai-traffic-legend .ai-traffic-key-dash::before {
+  border-top-style: dashed;
+}
+
+/* fixed heights so jumping to the section doesn't shift when the charts draw */
+.ai-traffic .ai-traffic-chart {
+  position: relative;
+  height: clamp(260px, 42vw, 380px);
+}
+
+.ai-traffic .ai-traffic-share {
+  height: clamp(130px, 16vw, 170px);
+}
+
+.ai-traffic .ai-traffic-subtitle {
+  margin: 24px 0 8px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+}
+
+.ai-traffic figcaption {
+  margin-top: 16px;
+  text-wrap: pretty;
+  color: var(--ink-soft);
+  font-size: var(--body-font-size-xs);
+}
+
+.ai-traffic .ai-traffic-data {
+  margin-top: 12px;
+  font-size: var(--body-font-size-xs);
+}
+
+.ai-traffic .ai-traffic-data summary {
+  padding-block: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.ai-traffic .ai-traffic-data table {
+  margin-top: 8px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.ai-traffic .ai-traffic-data th,
+.ai-traffic .ai-traffic-data td {
+  padding: 2px 16px 2px 0;
+  text-align: right;
+}
+
+.ai-traffic .ai-traffic-data th[scope='row'],
+.ai-traffic .ai-traffic-data thead th:first-child {
+  text-align: left;
+}
