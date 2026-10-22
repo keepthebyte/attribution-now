@@ -61,7 +61,7 @@ Microsoft Copilot sends a referrer from each of its sites: `copilot.com` and `co
 2. Add visits tagged `utm_source=copilot.com` that arrived with no referrer. Match values that start with `copilot.com`: some links arrive as `utm_source=copilot.com?form=MG0AUO`.
 3. Treat the total as a floor, especially on mobile. On sites measured by AEM Operational Telemetry in the 8 weeks to October 18, 2026, 93% of tagged mobile visits came with no referrer, so as the tag fades, those visits move to Direct.
 
-The tag is fading fast: 85% of Copilot visits carried it in late April 2026, 17% by mid-October, as copilot.com (from July) and Microsoft 365 Copilot took over from copilot.microsoft.com.
+The tag is fading fast: 85% of Copilot visits carried it in late April 2026, 17% by mid-October, as copilot.com (from mid-August) and Microsoft 365 Copilot took over from copilot.microsoft.com.
 
 <p><a href="/widgets/ai-traffic/ai-traffic.html?assistant=copilot">/widgets/ai-traffic/ai-traffic.html?assistant=copilot</a></p>
 
