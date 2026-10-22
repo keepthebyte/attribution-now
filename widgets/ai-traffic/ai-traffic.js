@@ -97,7 +97,7 @@ export default async function decorate(widget) {
   renderLegend(widget, lines);
   renderTable(widget, data, assistant);
   widget.querySelector('.ai-traffic-volume canvas').setAttribute('aria-label', ariaLabel(data, assistant));
-  widget.querySelector('figcaption').textContent = `Visits per week, indexed: ${assistant.index}.${list.length ? ` Dashed lines: ${list.map((m) => m.label).join('; ')}.` : ''} Source: ${data.source}`;
+  widget.querySelector('figcaption').textContent = `Visits per week, indexed: ${assistant.index}.${list.length ? ` Vertical lines: ${list.map((m) => m.label).join('; ')}. ${assistant.milestonesNote || ''}` : ''} Source: ${data.source}`;
 
   const colors = {
     fill: token(widget, '--haze'),

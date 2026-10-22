@@ -330,7 +330,25 @@
     17
    ]
   },
-  "milestones": []
+  "milestones": [
+   {
+    "date": "2026-06-22",
+    "label": "Jun 22: Microsoft 365 Copilot redesign"
+   },
+   {
+    "date": "2026-08-18",
+    "label": "Aug 18: new Copilot app, copilot.com"
+   },
+   {
+    "date": "2026-09-01",
+    "label": "Early Sep: 365 moves to copilot.cloud.microsoft"
+   },
+   {
+    "date": "2026-10-01",
+    "label": "Early Oct: remaining 365 users moved"
+   }
+  ],
+  "milestonesNote": "These are dates from Microsoft's announcements; the timing matches, but Microsoft has said nothing about tags or referrers."
  },
  "claude": {
   "name": "Claude",
