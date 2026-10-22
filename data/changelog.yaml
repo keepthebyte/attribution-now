@@ -2,6 +2,19 @@
 # type: shipped | change | site
 # Every shipped improvement gets a thank_you line.
 entries:
+  - date: 2026-10-22
+    lab: openai-chatgpt
+    type: shipped
+    title: ChatGPT's Android app sends an app referrer
+    text: >
+      AEM CDN logs show `android-app://com.openai.chatgpt/` as the referrer on ChatGPT visits from Android, on pages
+      across more than 100 sites, on top of the `utm_source=chatgpt.com` tag. That is the app referrer Android
+      passes when an app opens a Custom Tab with `Intent.EXTRA_REFERRER`, as our best practices recommend. We
+      don't know when it started; an April 2026 report found no referrer from the app. The Gemini Android app
+      sends no app referrer of its own in the same logs.
+    source_url: null
+    verified: true
+    thank_you: Thank you to the ChatGPT Android team for passing an app referrer, the model for other Android assistants.
   - date: 2026-10-15
     lab: openai-chatgpt
     type: shipped

@@ -11,8 +11,8 @@ what_works: >
   about as many visits again as the referrer shows, mostly on mobile. On the web, Gemini still sends
   `https://gemini.google.com/` as the referrer (the origin only) from answer links, sources, Deep Research and
   shared conversations, but not from Canvas. The iOS app opens links in its own web view with no referrer, so
-  those visits land in Direct.
-what_works_date: 2026-10-21
+  those visits land in Direct. On Android, CDN logs show no app referrer from the Gemini app.
+what_works_date: 2026-10-22
 evidence_widget: /widgets/gemini-utm/gemini-utm.html
 seo_summary: "Gemini on the web sends the gemini.google.com referrer but no UTM tag; its apps send neither, so visits land in Direct."
 # link_locations are candidates until confirmed by a verified test run.
@@ -61,7 +61,7 @@ work_items:
     suggested_fix: >
       Add `utm_source=gemini` to outbound links on the web and in the iOS and Android apps with a safe merge (keep
       existing query, fragment and `utm_*` values; skip signed URLs). On Android also set an app referrer when
-      opening Custom Tabs.
+      opening Custom Tabs, as ChatGPT's Android app already does with `android-app://com.openai.chatgpt/`.
   - id: gemini-deep-research-referrer
     title: Keep the referrer on Deep Research sources
     tests: [REF-01, REF-03]
