@@ -9,7 +9,8 @@ what_works: >
   outbound link we tested on the web: citations, links in the answer text and links the user pasted. It keeps
   existing query parameters and inserts the tag before a `#fragment`. After a UI update in early October 2026,
   the tag was restored within about a week. The Android app also sends its own app referrer,
-  `android-app://com.openai.chatgpt/`.
+  `android-app://com.openai.chatgpt/`. The iOS app tags the links in its answers too; it opens them in an in-app
+  Safari sheet, which can't pass a referrer, so the tag is the signal there.
 what_works_date: 2026-10-22
 seo_summary: "ChatGPT tags every web link we tested with utm_source=chatgpt.com, but most arrive with no referrer."
 # link_locations are candidates until confirmed by a verified test run.
