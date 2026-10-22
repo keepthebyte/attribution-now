@@ -1,7 +1,8 @@
 # AEM as a Cloud Service CDN logs (Splunk), 24 hours to 2026-10-22, HTML page requests only. The Referer
 # android-app://com.openai.chatgpt/ arrived on pages across more than 100 sites. That is the app referrer
 # Android passes from a Custom Tab with Intent.EXTRA_REFERRER set. The logs don't show which link location
-# was tapped, so this covers the app as a whole. It replaces the April 2026 WISLR report of no referrer.
+# was tapped, so this covers the app as a whole. AEM Operational Telemetry dates the start to Oct 11-13, 2026;
+# before that the app sent no referrer, as the April 2026 WISLR report found.
 date: 2026-10-22
 lab: openai-chatgpt
 surface: android

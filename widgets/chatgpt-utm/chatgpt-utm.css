@@ -25,7 +25,7 @@
   gap: 8px;
 }
 
-/* line keys: solid for the tag, dashed for the referrer, as in the chart */
+/* line keys: solid for the tag, dashed for the referrer, thin ink for the Android app, as in the chart */
 .chatgpt-utm .chatgpt-utm-legend li::before {
   content: '';
   flex: none;
@@ -36,6 +36,11 @@
 .chatgpt-utm .chatgpt-utm-legend .chatgpt-utm-key-referrer::before {
   border-top-style: dashed;
   border-top-color: var(--mark-pink);
+}
+
+.chatgpt-utm .chatgpt-utm-legend .chatgpt-utm-key-android::before {
+  border-top-width: 2px;
+  border-top-color: var(--ink);
 }
 
 /* fixed heights so jumping to the section doesn't shift when the charts draw */

@@ -65,11 +65,11 @@ work_items:
     tests: [REF-01]
     surfaces: [android]
     status: shipped
-    shipped_date: 2026-10-22
+    shipped_date: 2026-10-12
     summary: >
-      The Android app now sends `android-app://com.openai.chatgpt/` as the referrer, on top of the UTM tag. We
-      first saw it in AEM CDN logs on October 22, 2026, on pages across more than 100 sites; we don't know when it
-      started. An April 2026 report had found no referrer from the app.
+      The Android app now sends `android-app://com.openai.chatgpt/` as the referrer, on top of the UTM tag. It
+      first appears in AEM Operational Telemetry on October 11–13, 2026; before that the app sent no referrer of its
+      own. By the week of October 15 it made up about a third of ChatGPT referrer visits.
     suggested_fix: >
       Open links in a Custom Tab and set `Intent.EXTRA_REFERRER` to `android-app://com.openai.chatgpt`, so the
       browser can pass an app referrer.
