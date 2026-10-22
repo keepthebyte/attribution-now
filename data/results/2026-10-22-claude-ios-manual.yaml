@@ -1,0 +1,110 @@
+# Claude iOS app V1.261019.51 on iOS 27.2 (iPhone). Link test session, 17:04-17:12 UTC; evidence is the worker's hit log.
+# Every link opened in an in-app browser sheet. Its user agent is plain Mobile Safari ("Version/27.2 Mobile/15E148
+# Safari/604.1"), which points to SFSafariViewController, the same as the ChatGPT iOS app. Every tap arrived with
+# Sec-Fetch-Site: none, no Referer header, an empty document.referrer and no utm_* parameter, the same as a typed URL,
+# so every visit lands in Direct. Claude adds no tag, so the merge targets arrived unchanged. Claude's own fetches of
+# the cited URLs show up separately with user agent "Claude-User/1.0".
+date: 2026-10-22
+lab: anthropic-claude
+surface: ios
+method: manual
+tester: cedric
+client: Claude V1.261019.51 (iOS app, in-app Safari sheet) / iOS 27.2
+source_url: null
+results:
+  - location: inline-citation
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/ios/inline-citation
+      notes: Tapped the citation chip in the answer; opened in the in-app sheet with Sec-Fetch-Site none.
+  - location: inline-citation
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/ios/inline-citation
+      notes: No utm_* parameter on the landing URL.
+  - location: inline-citation
+    test: MRG-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-01/anthropic-claude/ios/inline-citation?a=1&b=2
+      notes: "?a=1&b=2 arrived intact (no tag is added, so the link is unchanged)."
+  - location: inline-citation
+    test: MRG-02
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-02/anthropic-claude/ios/inline-citation#section-2
+      notes: "#section-2 arrived intact (no tag is added)."
+  - location: inline-citation
+    test: MRG-03
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-03/anthropic-claude/ios/inline-citation?utm_source=newsletter&utm_medium=email
+      notes: utm_source=newsletter kept (no tag is added).
+  - location: inline-citation
+    test: MRG-04
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-04/anthropic-claude/ios/inline-citation?expires=2099-01-01&signature=abc123
+      notes: Signed URL unchanged (no tag is added).
+  # Claude fetched the sources-panel test URL but didn't list it as a source. The second tap on the inline-citation
+  # URL (17:05:22) is taken to be the tap in the sources list.
+  - location: sources-panel
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/ios/inline-citation
+      notes: Tapped the source in the sources list; it pointed at the inline-citation test URL. No Referer.
+  - location: sources-panel
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/ios/inline-citation
+      notes: No utm_* parameter on the landing URL.
+  - location: bare-url
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/ios/bare-url
+      notes: Tapped the URL written out in the answer. No Referer.
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/ios/bare-url
+      notes: No utm_* parameter on the landing URL.
+  - location: pasted-link
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/ios/pasted-link
+      notes: Tapped the link in the user's own message. No Referer.
+  - location: pasted-link
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/ios/pasted-link
+      notes: No utm_* parameter on the landing URL.
+  - location: deep-research
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/ios/deep-research
+      notes: Tapped the citation in the Research report (logged twice, 2 s apart). No Referer.
+  - location: deep-research
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/anthropic-claude/ios/deep-research
+      notes: No utm_* parameter on the landing URL.
