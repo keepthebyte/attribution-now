@@ -1,0 +1,314 @@
+{
+  "_provenance": {
+    "renderedBy": "playwright",
+    "fetchedAt": "2026-10-23T21:29:11.590Z",
+    "waitMode": "medium",
+    "waitMs": 2500,
+    "httpStatus": 200
+  },
+  "slug": "reclaim-direct-traffic",
+  "url": "https://attribution.now/reclaim-direct-traffic",
+  "renderedBy": "playwright",
+  "fetchedAt": "2026-10-23T21:29:11.590Z",
+  "finalUrl": "https://attribution.now/reclaim-direct-traffic",
+  "title": "Estimate hidden AI traffic from ChatGPT, Gemini, Claude, Copilot and Perplexity",
+  "description": "For SEO, GEO and analytics teams: count ChatGPT by its tag, multiply Gemini referrals by 2.1 to 2.5, add Perplexity's tag to its referrer, treat Claude and Copilot as floors.",
+  "og": {
+    "title": "Estimate hidden AI traffic from ChatGPT, Gemini, Claude, Copilot and Perplexity",
+    "description": "For SEO, GEO and analytics teams: count ChatGPT by its tag, multiply Gemini referrals by 2.1 to 2.5, add Perplexity's tag to its referrer, treat Claude and Copilot as floors.",
+    "image": "https://attribution.now/default-meta-image.png?width=1200&format=pjpg&optimize=medium",
+    "type": null
+  },
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Estimate your hidden AI traffic"
+    },
+    {
+      "tag": "h2",
+      "text": "ChatGPT: start with the tag"
+    },
+    {
+      "tag": "h2",
+      "text": "Gemini: the referrer, then the hidden share"
+    },
+    {
+      "tag": "h2",
+      "text": "Claude: the referrer, as a floor"
+    },
+    {
+      "tag": "h2",
+      "text": "Copilot: the referrer, now the tag is fading"
+    },
+    {
+      "tag": "h2",
+      "text": "Perplexity: the referrer plus the tag"
+    },
+    {
+      "tag": "h2",
+      "text": "Set up your reports so they keep counting"
+    }
+  ],
+  "body": [
+    "Each assistant leaves different traces on the visits it sends: a referrer, a UTM tag, both or neither. So count them one assistant at a time. Start with what you can see, then add what we know is hidden. These steps reflect our tests as of October 2026; the scorecard shows the current state.",
+    "ChatGPT",
+    "Gemini",
+    "Claude",
+    "Copilot",
+    "Perplexity",
+    "Set up your reports",
+    "ChatGPT adds utm_source=chatgpt.com to the links it sends, and OpenAI documents that value. On most surfaces it sends no referrer, so the tag is your main signal. Since mid-October 2026, some links from the Android app arrive with android-app://com.openai.chatgpt/ as the referrer instead, usually with no ChatGPT tag. They are a small share of ChatGPT's visits, but only the referrer identifies them.",
+    "Count visits with utm_source=chatgpt.com.",
+    "Remove the ones whose referrer is a Google domain. Google lists some pages with ChatGPT's tag still in the URL, so those visits came from search, not from ChatGPT.",
+    "Add visits with a chatgpt.com or android-app://com.openai.chatgpt/ referrer and no tag. There are few, but they are ChatGPT's.",
+    "If you advertise in ChatGPT, remove your ad clicks. They carry oppref or olref in the landing page URL. Count them with your other ads.",
+    "Count a visit with both the tag and the referrer once.",
+    "Why the click ID and not the tag: ad clicks carry the UTMs the advertiser set. On sites measured by AEM Operational Telemetry, August 27 to October 21, 2026, nearly three in four ChatGPT ad clicks were tagged utm_source=chatgpt, one in twenty chatgpt.com, and one in eight had no paid utm_medium. On sites that advertise, ad clicks were a median of about a third of their ChatGPT-tagged visits.",
+    "Why the tag first: over the past year, tagged ChatGPT visits more than quadrupled on sites measured by AEM Operational Telemetry, while visits with a chatgpt.com referrer fell by 95%. By October 2026, only 0.7% of tagged visits still carried the referrer.",
+    "Tagged utm_source=chatgpt.com",
+    "ChatGPT referrer, with or without the tag",
+    "Of which android-app://com.openai.chatgpt/, the Android app",
+    "Share of tagged visits that also carry a ChatGPT referrer",
+    "Share of ChatGPT referrer visits from the Android app",
+    "Count the tag and both referrers, and expect little of ChatGPT's traffic in Direct. OpenAI tags most of the links ChatGPT generates, so unlike Gemini, there is no hidden share to add on top. The Android referrer matters here: those visits mostly carry no ChatGPT tag, so without it they would land in Direct.",
+    "Gemini on the web sends https://gemini.google.com/ as the referrer, and no tag. Its apps send neither, so those visits land in Direct.",
+    "Count visits with a gemini.google.com referrer.",
+    "Multiply by 2.1 to 2.5. 2.1 is measured. From Sep 18 to 28, 2026, Gemini tagged its links: for every 100 visits with the referrer, 108 more arrived with only the tag. The chart below shows that window. 2.5 adds an estimate for the links that weren't tagged and arrived with no referrer either.",
+    "2.1 is measured. From Sep 18 to 28, 2026, Gemini tagged its links: for every 100 visits with the referrer, 108 more arrived with only the tag. The chart below shows that window.",
+    "2.5 adds an estimate for the links that weren't tagged and arrived with no referrer either.",
+    "Visible: gemini.google.com referrer",
+    "Hidden: no referrer, only the utm_source=gemini tag",
+    "Use 2.1 when you need a number nobody can dispute, and 2.5 as your best estimate. Workspace accounts tagged links utm_source=geminiforbusiness in the same window.",
+    "Links in Claude's answers on claude.ai send https://claude.ai/ as the referrer. Its citation chips and its apps send no referrer, and Claude adds no tag.",
+    "Count visits with a claude.ai referrer.",
+    "Treat that number as a floor. Claude has never tagged its links, so we have no measured share for its hidden visits yet. We'll add one here when we can measure it.",
+    "Visits with a claude.ai referrer fell by about two thirds between June and September 2026. We can't tell yet whether Claude sent fewer visits or sent more of them without a referrer, through its citation chips or its apps.",
+    "claude.ai referrer",
+    "Microsoft Copilot sends a referrer from each of its sites: copilot.com and copilot.microsoft.com for consumers, copilot.cloud.microsoft and m365copilotapp.svc.cloud.microsoft for Microsoft 365. Links from copilot.microsoft.com also carried utm_source=copilot.com, but Copilot is moving its users to copilot.com, whose links carry no tag.",
+    "Count visits with a referrer from any of the four Copilot sites.",
+    "Add visits tagged utm_source=copilot.com that arrived with no referrer. Match values that start with copilot.com: some links arrive as utm_source=copilot.com?form=MG0AUO.",
+    "Treat the total as a floor, especially on mobile. On sites measured by AEM Operational Telemetry in the 8 weeks to October 18, 2026, 93% of tagged mobile visits came with no referrer, so as the tag fades, those visits move to Direct.",
+    "The tag is fading fast: 85% of Copilot visits carried it in late April 2026, 17% by mid-October, as copilot.com (from mid-August) and Microsoft 365 Copilot took over from copilot.microsoft.com.",
+    "Tagged utm_source=copilot.com, with or without a referrer",
+    "copilot.com referrer",
+    "copilot.microsoft.com referrer",
+    "Microsoft 365 Copilot referrer",
+    "Share of Copilot visits that carry the tag",
+    "Perplexity on the web sends https://www.perplexity.ai/ as the referrer, and no tag. Its apps do the opposite: they tag links utm_source=perplexity and send no referrer. On sites measured by AEM Operational Telemetry, August 24 to October 18, 2026, no visit carried both.",
+    "Count visits with a perplexity.ai referrer.",
+    "Add visits tagged utm_source=perplexity.",
+    "Skip the second step and you miss more than a third of Perplexity's visits, nearly all of them on mobile. That share has held steady since April 2026.",
+    "Only the utm_source=perplexity tag (the apps)",
+    "perplexity.ai referrer (the web)",
+    "Share of Perplexity visits that arrive with only the tag",
+    "The same steps work in any analytics tool. For the exact settings, see our guides for Google Analytics 4, Adobe Analytics and Customer Journey Analytics.",
+    "Keep the UTM tag on the landing URL. Many app visits carry a tag and no referrer, so if a redirect or your tag setup drops the query string, they land in Direct.",
+    "Create one channel for AI assistants and put it below your paid channels and above Referral and Organic Search, so it wins.",
+    "Match a visit on the referrers and utm_source values from the steps above, whichever of the two it carries.",
+    "Keep the Google exception from the ChatGPT steps: a utm_source=chatgpt.com visit with a Google referrer stays in Organic Search.",
+    "Send ChatGPT ad clicks to Paid: match oppref or olref in the landing page URL, not the UTM tags. To report everything ChatGPT sends you, show ad clicks as their own line next to the AI channel, not inside it.",
+    "Check a link yourself now and then: ask an assistant to link to attribution.now/t/check and see what arrives. Assistants change their links without notice."
+  ],
+  "codeBlocks": [],
+  "ctas": [
+    {
+      "label": "attribution.now",
+      "href": "/"
+    },
+    {
+      "label": "Why",
+      "href": "/why"
+    },
+    {
+      "label": "Best practices",
+      "href": "/best-practices"
+    },
+    {
+      "label": "Claude",
+      "href": "/labs/anthropic-claude"
+    },
+    {
+      "label": "Gemini",
+      "href": "/labs/google-gemini"
+    },
+    {
+      "label": "ChatGPT",
+      "href": "/labs/openai-chatgpt"
+    },
+    {
+      "label": "Tests",
+      "href": "/tests"
+    },
+    {
+      "label": "Changelog",
+      "href": "/changelog"
+    },
+    {
+      "label": "Check a link",
+      "href": "/t/check"
+    },
+    {
+      "label": "scorecard",
+      "href": "/#scorecard"
+    },
+    {
+      "label": "ChatGPT",
+      "href": "#chatgpt-start-with-the-tag"
+    },
+    {
+      "label": "Gemini",
+      "href": "#gemini-the-referrer-then-the-hidden-share"
+    },
+    {
+      "label": "Claude",
+      "href": "#claude-the-referrer-as-a-floor"
+    },
+    {
+      "label": "Copilot",
+      "href": "#copilot-the-referrer-now-the-tag-is-fading"
+    },
+    {
+      "label": "Perplexity",
+      "href": "#perplexity-the-referrer-plus-the-tag"
+    },
+    {
+      "label": "Set up your reports",
+      "href": "#set-up-your-reports-so-they-keep-counting"
+    },
+    {
+      "label": "Google Analytics 4",
+      "href": "/google-analytics-ai-traffic"
+    },
+    {
+      "label": "Adobe Analytics",
+      "href": "/adobe-analytics-ai-traffic"
+    },
+    {
+      "label": "Customer Journey Analytics",
+      "href": "/customer-journey-analytics-ai-traffic"
+    },
+    {
+      "label": "attribution.now/t/check",
+      "href": "/t/check"
+    },
+    {
+      "label": "Cedric Huesler",
+      "href": "https://www.linkedin.com/in/cedrichuesler/"
+    },
+    {
+      "label": "Adobe Experience Manager",
+      "href": "https://www.aem.live/"
+    },
+    {
+      "label": "Adobe Brand Visibility",
+      "href": "https://business.adobe.com/products/brand-visibility.html"
+    },
+    {
+      "label": "Contribute",
+      "href": "/contribute"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/keepthebyte/attribution-now"
+    },
+    {
+      "label": "Apache License 2.0",
+      "href": "https://github.com/keepthebyte/attribution-now/blob/main/LICENSE"
+    }
+  ],
+  "links": [
+    "https://attribution.now/",
+    "https://attribution.now/why",
+    "https://attribution.now/best-practices",
+    "https://attribution.now/labs/anthropic-claude",
+    "https://attribution.now/labs/google-gemini",
+    "https://attribution.now/labs/openai-chatgpt",
+    "https://attribution.now/tests",
+    "https://attribution.now/changelog",
+    "https://attribution.now/t/check",
+    "https://attribution.now/#scorecard",
+    "https://attribution.now/reclaim-direct-traffic#chatgpt-start-with-the-tag",
+    "https://attribution.now/reclaim-direct-traffic#gemini-the-referrer-then-the-hidden-share",
+    "https://attribution.now/reclaim-direct-traffic#claude-the-referrer-as-a-floor",
+    "https://attribution.now/reclaim-direct-traffic#copilot-the-referrer-now-the-tag-is-fading",
+    "https://attribution.now/reclaim-direct-traffic#perplexity-the-referrer-plus-the-tag",
+    "https://attribution.now/reclaim-direct-traffic#set-up-your-reports-so-they-keep-counting",
+    "https://attribution.now/google-analytics-ai-traffic",
+    "https://attribution.now/adobe-analytics-ai-traffic",
+    "https://attribution.now/customer-journey-analytics-ai-traffic",
+    "https://www.linkedin.com/in/cedrichuesler/",
+    "https://www.aem.live/",
+    "https://business.adobe.com/products/brand-visibility.html",
+    "https://attribution.now/contribute",
+    "https://github.com/keepthebyte/attribution-now",
+    "https://github.com/keepthebyte/attribution-now/blob/main/LICENSE"
+  ],
+  "media": {
+    "imgs": [],
+    "allImgCount": 0,
+    "cssBackgrounds": [],
+    "modals": [],
+    "videos": [],
+    "iframes": []
+  },
+  "customProps": {
+    "--page": "oklch(98.5% 0.006 290deg)",
+    "--haze": "oklch(94.5% 0.035 295deg)",
+    "--violet": "oklch(46% 0.215 290deg)",
+    "--violet-deep": "oklch(36% 0.18 290deg)",
+    "--violet-soft": "oklch(84% 0.09 290deg)",
+    "--pink": "oklch(78% 0.13 355deg)",
+    "--pink-deep": "oklch(52% 0.19 355deg)",
+    "--pink-ink": "oklch(36% 0.12 355deg)",
+    "--mark-pink": "oklch(62% 0.21 358deg)",
+    "--ink": "oklch(21% 0.035 290deg)",
+    "--ink-soft": "oklch(40% 0.03 290deg)",
+    "--haze-ink": "oklch(40% 0.20 292deg)",
+    "--works": "oklch(52% 0.13 150deg)",
+    "--partial": "oklch(52% 0.11 70deg)",
+    "--missing": "oklch(53% 0.19 27deg)",
+    "--background-color": "oklch(94.5% 0.035 295deg)",
+    "--light-color": "oklch(98.5% 0.006 290deg)",
+    "--dark-color": "oklch(40% 0.03 290deg)",
+    "--text-color": "oklch(21% 0.035 290deg)",
+    "--link-color": "oklch(21% 0.035 290deg)",
+    "--link-hover-color": "oklch(36% 0.18 290deg)",
+    "--line-color": "oklch(88% 0.04 295deg)",
+    "--chip-works": "oklch(94.5% 0.035 295deg)",
+    "--chip-partial": "oklch(94.5% 0.035 295deg)",
+    "--chip-missing": "oklch(94.5% 0.035 295deg)",
+    "--chip-reported": "oklch(98.5% 0.006 290deg)",
+    "--chip-untested": "oklch(98.5% 0.006 290deg)",
+    "--body-font-family": "'Hanken Grotesk', hanken-fallback, system-ui, sans-serif",
+    "--heading-font-family": "'Bricolage Grotesque', bricolage-fallback, 'Hanken Grotesk', system-ui, sans-serif",
+    "--mono-font-family": "ui-monospace, sfmono-regular, menlo, consolas, monospace",
+    "--body-font-size-m": "1.125rem",
+    "--body-font-size-s": "1rem",
+    "--body-font-size-xs": "0.9rem",
+    "--heading-font-size-xxl": "clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem)",
+    "--heading-font-size-xl": "clamp(1.9rem, 1.4rem + 1.6vw, 2.75rem)",
+    "--heading-font-size-l": "clamp(1.6rem, 1.3rem + 1vw, 2.2rem)",
+    "--heading-font-size-m": "1.375rem",
+    "--heading-font-size-s": "1.2rem",
+    "--heading-font-size-xs": "1.1rem",
+    "--max-width": "1200px",
+    "--gutter": "20px",
+    "--edge": "max(20px, calc((100vw - 1200px) / 2 + 20px))",
+    "--section-padding": "64px",
+    "--radius": "14px",
+    "--nav-height": "80px",
+    "--ease-out": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "--arrow": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 10h13M11 4.5 16.5 10 11 15.5' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")"
+  },
+  "_signals": {
+    "filteredInterstitials": 0,
+    "distinctHeadings": 7,
+    "mainTextLen": 12963,
+    "realImageCount": 0,
+    "trackingOnlyMedia": false,
+    "spaShellSuspect": false,
+    "screenshotMode": "fullPage"
+  },
+  "screenshot": "assets/screenshots/reclaim-direct-traffic.png",
+  "renderedHtml": "pages/reclaim-direct-traffic.html"
+}

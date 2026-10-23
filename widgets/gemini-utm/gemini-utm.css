@@ -78,3 +78,9 @@
 .gemini-utm .gemini-utm-data thead th:first-child {
   text-align: left;
 }
+
+/* wide tables scroll inside their box, never the page */
+.gemini-utm .gemini-utm-table {
+  max-width: 100%;
+  overflow-x: auto;
+}

@@ -1,0 +1,41 @@
+.precedence {
+  margin: 0 0 32px;
+}
+
+.precedence .precedence-label {
+  margin: 0 0 8px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.precedence ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.precedence li {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--page);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+}
+
+.precedence li.is-current {
+  background: var(--violet);
+  color: var(--page);
+}
+
+.precedence li.precedence-sep {
+  padding: 0;
+  background: none;
+  font-size: var(--body-font-size-xs);
+  font-weight: 500;
+  color: var(--ink-soft);
+}

@@ -200,6 +200,7 @@ pre {
 
 :not(pre) > code {
   overflow-wrap: anywhere;
+  box-decoration-break: clone;
   color: var(--code-color, inherit);
   padding: 1px 6px;
   border-radius: 6px;
@@ -247,6 +248,46 @@ a:hover {
 /* guides (template: guide): running text at a readable measure */
 body.guide main .default-content-wrapper > :is(p, ol, ul) {
   max-width: 65ch;
+}
+
+/* guides: a heading inside a topic is a subheading */
+body.guide main .default-content-wrapper h3 {
+  margin-top: 32px;
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+}
+
+/* guides: the link back to the "at a glance" list */
+body.guide main a[href="#at-a-glance"]:any-link {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 0;
+  font-size: var(--body-font-size-xs);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+body.guide main a[href="#at-a-glance"]::before {
+  content: '';
+  width: 1em;
+  height: 1em;
+  background: currentcolor;
+  mask: var(--arrow) center / contain no-repeat;
+  transform: rotate(-90deg);
+}
+
+body.guide main a[href="#at-a-glance"]:hover {
+  text-decoration: underline;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* homepage evidence section: keep running text to a readable measure */
@@ -435,6 +476,11 @@ main > .section:first-of-type:is(.analysts, .labs) {
 
 main > .section > .default-content-wrapper > :first-child {
   margin-top: 0;
+}
+
+/* guides: one field per topic, separated by a rule */
+body.guide main > .section + .section:not(.analysts, .labs) {
+  border-top: 1px solid var(--line-color);
 }
 
 /* section metadata */

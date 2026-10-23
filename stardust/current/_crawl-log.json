@@ -1,28 +1,21 @@
 {
   "discovery": {
     "fetchTechnique": "headless",
-    "count": 4,
-    "concurrency": 4
+    "count": 1,
+    "concurrency": 1
   },
   "consent": {
     "method": "auto"
   },
   "favicon": {
-    "url": "https://main--attribution-now--keepthebyte.aem.page/favicon.ico",
-    "file": "assets/favicon.ico"
+    "url": "https://attribution.now/icons/favicon.svg",
+    "file": "assets/favicon.svg"
   },
   "crawl": {
     "failures": []
   },
   "captureGaps": {
-    "roots": [
-      {
-        "root": "/why",
-        "slug": "why",
-        "linked": 0,
-        "uncaptured": []
-      }
-    ],
-    "detail": "uncaptured first-level targets: why 0"
+    "roots": [],
+    "detail": "uncaptured first-level targets: none (no locale root captured)"
   }
 }
