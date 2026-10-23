@@ -87,3 +87,9 @@
 .ai-traffic .ai-traffic-data thead th:first-child {
   text-align: left;
 }
+
+/* wide tables scroll inside their box, never the page */
+.ai-traffic .ai-traffic-table {
+  max-width: 100%;
+  overflow-x: auto;
+}

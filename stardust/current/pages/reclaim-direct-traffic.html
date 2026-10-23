@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="en"><head>
+    <title>Estimate hidden AI traffic from ChatGPT, Gemini, Claude, Copilot and Perplexity</title>
+    <link rel="canonical" href="https://attribution.now/reclaim-direct-traffic">
+    <meta name="description" content="For SEO, GEO and analytics teams: count ChatGPT by its tag, multiply Gemini referrals by 2.1 to 2.5, add Perplexity's tag to its referrer, treat Claude and Copilot as floors.">
+    <meta property="og:title" content="Estimate hidden AI traffic from ChatGPT, Gemini, Claude, Copilot and Perplexity">
+    <meta property="og:description" content="For SEO, GEO and analytics teams: count ChatGPT by its tag, multiply Gemini referrals by 2.1 to 2.5, add Perplexity's tag to its referrer, treat Claude and Copilot as floors.">
+    <meta property="og:url" content="https://attribution.now/reclaim-direct-traffic">
+    <meta property="og:image" content="https://attribution.now/default-meta-image.png?width=1200&amp;format=pjpg&amp;optimize=medium">
+    <meta property="og:image:secure_url" content="https://attribution.now/default-meta-image.png?width=1200&amp;format=pjpg&amp;optimize=medium">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Estimate hidden AI traffic from ChatGPT, Gemini, Claude, Copilot and Perplexity">
+    <meta name="twitter:description" content="For SEO, GEO and analytics teams: count ChatGPT by its tag, multiply Gemini referrals by 2.1 to 2.5, add Perplexity's tag to its referrer, treat Claude and Copilot as floors.">
+    <meta name="twitter:image" content="https://attribution.now/default-meta-image.png?width=1200&amp;format=pjpg&amp;optimize=medium">
+    <meta name="template" content="guide">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script nonce="" src="/scripts/aem.js" type="module"></script>
+    <script nonce="" src="/scripts/scripts.js" type="module"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin="">
+    <meta property="og:site_name" content="attribution.now">
+  <link rel="stylesheet" href="/blocks/toc/toc.css"><link rel="stylesheet" href="/blocks/widget/widget.css"><link rel="stylesheet" href="/widgets/chatgpt-utm/chatgpt-utm.css"><script src="https://attribution.now/scripts/vendor/chart.umd.min.js"></script><link rel="stylesheet" href="/widgets/gemini-utm/gemini-utm.css"><link rel="stylesheet" href="/widgets/ai-traffic/ai-traffic.css"><link rel="stylesheet" href="/styles/fonts.css"><link rel="stylesheet" href="/blocks/header/header.css"><link rel="stylesheet" href="/blocks/footer/footer.css"><link rel="stylesheet" href="/styles/lazy-styles.css"></head>
+  <body class="guide appear">
+    <header class="header-wrapper"><div class="header block" data-block-name="header" data-block-status="loaded"><div class="nav-wrapper"><nav id="nav" aria-label="Main"><a class="nav-brand" href="/"><svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><clipPath id="brand-mark-clip-2"><circle cx="22" cy="32" r="15"></circle></clipPath></defs><circle cx="22" cy="32" r="15" fill="#5e2dc4"></circle><circle class="dot-b" cx="42" cy="32" r="15" fill="#e13b86"></circle><g clip-path="url(#brand-mark-clip-2)"><circle class="lens" cx="42" cy="32" r="15" fill="#181527"></circle></g></svg><svg class="brand-fix" viewBox="-5.5 8 51.5 53.5" aria-hidden="true" focusable="false"><g transform="rotate(-8 20 34)"><path class="brand-fix-glyphs" d="M0 29.2Q-0.5 29.2-0.8 28.7Q-1 28.1-1 27.4Q-1 27.1-1 26.8Q-0.9 26.5-0.8 26.3Q-0.7 26.1-0.5 25.9Q-0.4 25.8-0.1 25.8Q0.6 25.8 1.5 25.7Q2.5 25.7 3.6 25.6Q4.1 25.5 4.2 25Q4.3 22.1 4.6 20.1Q5 18 5.4 16.6Q5.9 15.2 6.4 14.3Q7 13.4 7.7 13Q7.9 12.8 8.2 12.6Q8.5 12.5 8.8 12.5Q9.3 12.5 9.8 12.7Q10.3 13 10.8 13.3Q11.3 13.7 11.5 14.2Q11.8 14.7 11.8 15.2Q11.8 15.3 11.8 15.4Q11.7 15.5 11.6 15.6Q10.8 16.2 10.2 16.9Q9.6 17.6 9.2 18.6Q8.8 19.6 8.5 21.1Q8.3 22.5 8.1 24.5Q8.1 24.8 8.2 25Q8.3 25.1 8.6 25.1Q9.4 25.1 10.2 25Q10.9 24.9 11.6 24.8Q12.3 24.6 13 24.5Q13.6 24.4 14.1 24.4Q14.4 24.4 14.6 24.8Q14.8 25.2 14.8 25.8Q14.8 26.2 14.7 26.6Q14.6 26.9 14.5 27.2Q14.4 27.5 14.2 27.7Q14 27.9 13.7 28L8.5 28.5Q8.1 28.6 8 28.8Q7.9 29.1 7.9 29.6Q7.9 33.9 8.1 37Q8.4 40.1 8.6 42.3Q8.9 44.4 9.1 45.6Q9.3 46.8 9.3 47.4Q9.3 47.8 9 48.1Q8.7 48.4 8.2 48.7Q7.7 48.9 7.1 49Q6.5 49.2 6 49.2Q5.5 49.2 5.1 49Q4.7 48.8 4.7 48.4Q4.5 47.1 4.4 45.4Q4.2 43.8 4.1 41.8Q4 39.8 4 37.5Q4 35.1 4 32.3Q4 31.6 4 30.9Q4 30.2 4 29.6Q4 29 3.4 29L0 29.2ZM16.8 20.1Q16.2 20.1 15.7 19.9Q15.2 19.7 14.9 19.4Q14.5 19.1 14.3 18.7Q14.1 18.3 14.1 17.8Q14.1 17 14.7 16.5Q15.4 16 16.5 16Q17 16 17.5 16.2Q17.9 16.4 18.3 16.7Q18.7 17 18.9 17.4Q19.1 17.8 19.1 18.3Q19.1 19.1 18.5 19.6Q17.9 20.1 16.8 20.1ZM14.1 26Q14.1 25.4 14.7 24.9Q15.3 24.5 16.3 24.5Q18 24.5 18.2 25.7Q18.2 26.5 18.3 27.6Q18.4 28.6 18.5 29.8Q18.6 31 18.7 32.3Q18.7 33.5 18.8 34.7Q18.8 36 18.9 37.1Q18.9 38.2 18.9 39.2Q18.9 40.1 18.2 40.6Q17.5 41.1 16.2 41.1Q15.6 41.1 15.3 40.8Q14.9 40.5 14.9 40Q14.9 37.3 14.8 35Q14.7 32.6 14.5 30.8Q14.4 28.9 14.2 27.7Q14.1 26.5 14.1 26ZM23.1 23.5Q22.8 23.1 22.8 22.8Q22.7 22.5 22.7 22.4Q22.7 22 23 21.7Q23.3 21.3 23.7 21Q24.1 20.8 24.6 20.6Q25.1 20.4 25.5 20.4Q25.7 20.4 25.9 20.6Q26.2 20.7 26.6 21.4Q27.3 22.5 28 23.7Q28.8 24.9 29.6 26.1Q30 26.6 30.3 26.6Q30.7 26.6 31 26.2Q32.4 24.7 33.7 23.4Q35.1 22.2 36.4 21.4Q37.2 20.9 37.8 20.8Q38.3 20.6 38.5 20.6Q38.9 20.6 39.3 20.8Q39.7 21.1 40 21.4Q40.3 21.8 40.5 22.1Q40.7 22.5 40.7 22.8Q40.7 23.2 40.2 23.7Q39.6 24.1 38.6 24.7Q37.1 25.6 35.8 26.8Q34.5 28 33.2 29.4Q33 29.6 33 29.8Q32.9 29.9 32.9 30.1Q32.9 30.3 33 30.4Q33 30.6 33.2 30.8Q33.9 31.6 34.6 32.3Q35.4 33 36 33.5Q36.7 34 37.4 34.3Q38 34.6 38.6 34.6Q39 34.6 39.5 34.5Q40 34.4 40.4 34.4Q41 34.4 41.2 34.7Q41.4 35 41.4 35.6Q41.4 36.3 41.2 36.8Q41 37.3 40.6 37.6Q40.2 37.9 39.6 38.1Q39.1 38.3 38.5 38.3Q37.5 38.3 36.6 38Q35.6 37.7 34.6 37.1Q33.6 36.5 32.7 35.7Q31.7 34.9 30.8 34Q30.4 33.6 30.1 33.6Q29.7 33.6 29.4 34Q28.4 35.1 27.6 36.1Q26.7 37.1 25.9 37.9Q25.2 38.6 24.4 39Q23.7 39.5 23 39.5Q22.5 39.5 22.1 39.3Q21.7 39.1 21.5 38.8Q21.2 38.5 21.1 38.2Q21 37.9 21 37.6Q21 37.4 21.2 37.1Q21.3 36.9 21.7 36.6Q22.1 36.3 22.6 35.8Q23.1 35.4 23.7 34.8Q24.4 34.1 25.2 33.1Q26 32.1 27 30.9Q27.1 30.8 27.1 30.7Q27.2 30.5 27.2 30.4Q27.2 29.8 26.6 29Q25.4 27.3 24.5 25.8Q23.6 24.4 23.1 23.5Z"></path><path class="brand-fix-line" pathLength="1" d="M0 52.5c9-1.5 24-2.3 41-1.4"></path><path class="brand-fix-line" pathLength="1" d="M5 57c8-1 19-1.5 30-.9"></path></g></svg><span class="nav-brand-name">attribution.now</span></a><button type="button" class="nav-menu-button" aria-expanded="false" aria-controls="nav-links"><span class="nav-menu-icon" aria-hidden="true"></span><span class="nav-menu-label">Menu</span></button><ul id="nav-links" class="nav-links"><li><a href="/why">Why</a></li><li><a href="/best-practices">Best practices</a></li><li><a href="/labs/anthropic-claude" class="nav-lab">Claude</a></li><li><a href="/labs/google-gemini" class="nav-lab">Gemini</a></li><li><a href="/labs/openai-chatgpt" class="nav-lab">ChatGPT</a></li><li><a href="/tests">Tests</a></li><li><a href="/changelog">Changelog</a></li><li><a href="/t/check" class="nav-tool">Check a link</a></li></ul></nav></div></div></header>
+    <main>
+      <div class="section toc-container chatgpt-utm-container" data-section-status="loaded" style="">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      <div class="default-content-wrapper"><h1 id="estimate-your-hidden-ai-traffic">Estimate your hidden AI traffic</h1><p>Each assistant leaves different traces on the visits it sends: a referrer, a UTM tag, both or neither. So count them one assistant at a time. Start with what you can see, then add what we know is hidden. These steps reflect our tests as of October 2026; the <a href="/#scorecard" title="scorecard">scorecard</a> shows the current state.</p></div><div class="toc-wrapper"><div class="toc block" data-block-name="toc" data-block-status="loaded"><nav aria-label="On this page"><ul>
+                <li><a href="#chatgpt-start-with-the-tag">ChatGPT</a></li>
+                <li><a href="#gemini-the-referrer-then-the-hidden-share">Gemini</a></li>
+                <li><a href="#claude-the-referrer-as-a-floor">Claude</a></li>
+                <li><a href="#copilot-the-referrer-now-the-tag-is-fading">Copilot</a></li>
+                <li><a href="#perplexity-the-referrer-plus-the-tag">Perplexity</a></li>
+                <li><a href="#set-up-your-reports-so-they-keep-counting">Set up your reports</a></li>
+              </ul></nav></div></div><div class="default-content-wrapper"><h2 id="chatgpt-start-with-the-tag">ChatGPT: start with the tag</h2><p>ChatGPT adds <code>utm_source=chatgpt.com</code> to the links it sends, and OpenAI documents that value. On most surfaces it sends no referrer, so the tag is your main signal. Since mid-October 2026, some links from the Android app arrive with <code>android-app://com.openai.chatgpt/</code> as the referrer instead, usually with no ChatGPT tag. They are a small share of ChatGPT's visits, but only the referrer identifies them.</p><ol>
+          <li>Count visits with <code>utm_source=chatgpt.com</code>.</li>
+          <li>Remove the ones whose referrer is a Google domain. Google lists some pages with ChatGPT's tag still in the URL, so those visits came from search, not from ChatGPT.</li>
+          <li>Add visits with a <code>chatgpt.com</code> or <code>android-app://com.openai.chatgpt/</code> referrer and no tag. There are few, but they are ChatGPT's.</li>
+          <li>If you advertise in ChatGPT, remove your ad clicks. They carry <code>oppref</code> or <code>olref</code> in the landing page URL. Count them with your other ads.</li>
+        </ol><p>Count a visit with both the tag and the referrer once.</p><p>Why the click ID and not the tag: ad clicks carry the UTMs the advertiser set. On sites measured by AEM Operational Telemetry, August 27 to October 21, 2026, nearly three in four ChatGPT ad clicks were tagged <code>utm_source=chatgpt</code>, one in twenty <code>chatgpt.com</code>, and one in eight had no paid <code>utm_medium</code>. On sites that advertise, ad clicks were a median of about a third of their ChatGPT-tagged visits.</p><p>Why the tag first: over the past year, tagged ChatGPT visits more than quadrupled on sites measured by AEM Operational Telemetry, while visits with a chatgpt.com referrer fell by 95%. By October 2026, only 0.7% of tagged visits still carried the referrer.</p></div><div class="chatgpt-utm-wrapper"><div class="widget chatgpt-utm" data-block-name="widget" data-block-status="loaded" data-source="https://attribution.now/widgets/chatgpt-utm/chatgpt-utm.html"><figure class="chatgpt-utm-figure">
+  <ul class="chatgpt-utm-legend">
+    <li class="chatgpt-utm-key-utm">Tagged <code>utm_source=chatgpt.com</code></li>
+    <li class="chatgpt-utm-key-referrer">ChatGPT referrer, with or without the tag</li>
+    <li class="chatgpt-utm-key-android">Of which <code>android-app://com.openai.chatgpt/</code>, the Android app</li>
+  </ul>
+  <div class="chatgpt-utm-chart chatgpt-utm-volume">
+    <canvas role="img" aria-label="ChatGPT visits per day, weekly, indexed, Oct 2025 to Oct 2026. Tagged visits grow from 100 to 424. Visits with a ChatGPT referrer stay between 40 and 130 until September 2026, then fall to 7. Referrers from the ChatGPT Android app appear in mid-October 2026 and reach 2.4, about a third of the referrer line." height="380" style="display: block; box-sizing: border-box; height: 380px; width: 1096px;" width="1096"></canvas>
+  </div>
+  <p class="chatgpt-utm-subtitle">Share of tagged visits that also carry a ChatGPT referrer</p>
+  <div class="chatgpt-utm-chart chatgpt-utm-share">
+    <canvas role="img" aria-label="Share of tagged ChatGPT visits that also carry the referrer: 53% in October 2025, under 30% by summer 2026, 0.7% in October 2026." height="170" style="display: block; box-sizing: border-box; height: 170px; width: 1096px;" width="1096"></canvas>
+  </div>
+  <p class="chatgpt-utm-subtitle">Share of ChatGPT referrer visits from the Android app</p>
+  <div class="chatgpt-utm-chart chatgpt-utm-share chatgpt-utm-android">
+    <canvas role="img" aria-label="Share of ChatGPT referrer visits that came from the Android app's android-app://com.openai.chatgpt/ referrer: 0% from October 2025 to early October 2026, 5% in the week of October 8, 35% in the week of October 15." height="170" style="display: block; box-sizing: border-box; height: 170px; width: 1096px;" width="1096"></canvas>
+  </div>
+  <figcaption>
+    Average visits per day, by week (Thursday to Wednesday), Oct 23, 2025 to Oct 20, 2026, indexed: 100 is the average day of tagged visits in the first week. The last week is 6 days.
+    The grey week, Oct 8–14, is a GPT-6 rollout bug that stripped both the tag and the referrer; the lines bridge it.
+    Dashed lines, from public reporting: May 7, links to brands in ChatGPT answers; Aug 6, GPT-5.6 for Free &amp; Go; Oct 8, GPT-6 for Free &amp; Go.
+    The ChatGPT referrer is chatgpt.com, chat.openai.com or the Android app. The Android app referrer first appears on October 11–13, 2026. It makes up 35% of ChatGPT referrer visits in the last week and over 40% by October 20.
+    Source: AEM Operational Telemetry, sites it measures, bots excluded.
+  </figcaption>
+  <details class="chatgpt-utm-data">
+    <summary>Weekly numbers</summary>
+    <div class="chatgpt-utm-table"><table>
+    <thead><tr><th scope="col">Week</th><th scope="col">Tagged</th><th scope="col">Referrer</th><th scope="col">Android app</th>
+    <th scope="col">Tagged with referrer</th><th scope="col">Referrer from Android app</th></tr></thead><tbody><tr><th scope="row">Oct 23–29, 2025</th>
+    <td>100</td><td>95</td><td>–</td>
+    <td>52.85%</td><td>0%</td></tr><tr><th scope="row">Oct 30–Nov 5, 2025</th>
+    <td>102</td><td>94</td><td>–</td>
+    <td>50.6%</td><td>0%</td></tr><tr><th scope="row">Nov 6–12, 2025</th>
+    <td>106</td><td>97</td><td>–</td>
+    <td>50.21%</td><td>0%</td></tr><tr><th scope="row">Nov 13–19, 2025</th>
+    <td>108</td><td>86</td><td>–</td>
+    <td>49.06%</td><td>0%</td></tr><tr><th scope="row">Nov 20–26, 2025</th>
+    <td>107</td><td>82</td><td>–</td>
+    <td>47.67%</td><td>0%</td></tr><tr><th scope="row">Nov 27–Dec 3, 2025</th>
+    <td>98</td><td>76</td><td>–</td>
+    <td>46.54%</td><td>0%</td></tr><tr><th scope="row">Dec 4–10, 2025</th>
+    <td>93</td><td>74</td><td>–</td>
+    <td>46.94%</td><td>0%</td></tr><tr><th scope="row">Dec 11–17, 2025</th>
+    <td>89</td><td>68</td><td>–</td>
+    <td>43.47%</td><td>0%</td></tr><tr><th scope="row">Dec 18–24, 2025</th>
+    <td>76</td><td>49</td><td>–</td>
+    <td>38.46%</td><td>0%</td></tr><tr><th scope="row">Dec 25–31, 2025</th>
+    <td>75</td><td>41</td><td>–</td>
+    <td>32.01%</td><td>0%</td></tr><tr><th scope="row">Jan 1–7, 2026</th>
+    <td>89</td><td>53</td><td>–</td>
+    <td>36.44%</td><td>0%</td></tr><tr><th scope="row">Jan 8–14, 2026</th>
+    <td>93</td><td>64</td><td>–</td>
+    <td>42.47%</td><td>0%</td></tr><tr><th scope="row">Jan 15–21, 2026</th>
+    <td>100</td><td>68</td><td>–</td>
+    <td>41.18%</td><td>0%</td></tr><tr><th scope="row">Jan 22–28, 2026</th>
+    <td>104</td><td>69</td><td>–</td>
+    <td>41.8%</td><td>0%</td></tr><tr><th scope="row">Jan 29–Feb 4, 2026</th>
+    <td>100</td><td>67</td><td>–</td>
+    <td>41.45%</td><td>0%</td></tr><tr><th scope="row">Feb 5–11, 2026</th>
+    <td>102</td><td>69</td><td>–</td>
+    <td>40.63%</td><td>0%</td></tr><tr><th scope="row">Feb 12–18, 2026</th>
+    <td>91</td><td>61</td><td>–</td>
+    <td>38.46%</td><td>0%</td></tr><tr><th scope="row">Feb 19–25, 2026</th>
+    <td>93</td><td>65</td><td>–</td>
+    <td>39.88%</td><td>0%</td></tr><tr><th scope="row">Feb 26–Mar 4, 2026</th>
+    <td>100</td><td>66</td><td>–</td>
+    <td>36.87%</td><td>0%</td></tr><tr><th scope="row">Mar 5–11, 2026</th>
+    <td>79</td><td>68</td><td>–</td>
+    <td>38.32%</td><td>0%</td></tr><tr><th scope="row">Mar 12–18, 2026</th>
+    <td>91</td><td>69</td><td>–</td>
+    <td>37.61%</td><td>0%</td></tr><tr><th scope="row">Mar 19–25, 2026</th>
+    <td>102</td><td>67</td><td>–</td>
+    <td>36.17%</td><td>0%</td></tr><tr><th scope="row">Mar 26–Apr 1, 2026</th>
+    <td>107</td><td>68</td><td>–</td>
+    <td>35.21%</td><td>0%</td></tr><tr><th scope="row">Apr 2–8, 2026</th>
+    <td>102</td><td>63</td><td>–</td>
+    <td>34.43%</td><td>0%</td></tr><tr><th scope="row">Apr 9–15, 2026</th>
+    <td>101</td><td>69</td><td>–</td>
+    <td>35.15%</td><td>0%</td></tr><tr><th scope="row">Apr 16–22, 2026</th>
+    <td>102</td><td>70</td><td>–</td>
+    <td>37.03%</td><td>0%</td></tr><tr><th scope="row">Apr 23–29, 2026</th>
+    <td>95</td><td>64</td><td>–</td>
+    <td>35.26%</td><td>0%</td></tr><tr><th scope="row">Apr 30–May 6, 2026</th>
+    <td>97</td><td>62</td><td>–</td>
+    <td>34.7%</td><td>0%</td></tr><tr><th scope="row">May 7–13, 2026</th>
+    <td>270</td><td>130</td><td>–</td>
+    <td>37.84%</td><td>0%</td></tr><tr><th scope="row">May 14–20, 2026</th>
+    <td>279</td><td>129</td><td>–</td>
+    <td>36.01%</td><td>0%</td></tr><tr><th scope="row">May 21–27, 2026</th>
+    <td>269</td><td>121</td><td>–</td>
+    <td>33.99%</td><td>0%</td></tr><tr><th scope="row">May 28–Jun 3, 2026</th>
+    <td>243</td><td>98</td><td>–</td>
+    <td>32.01%</td><td>0%</td></tr><tr><th scope="row">Jun 4–10, 2026</th>
+    <td>225</td><td>91</td><td>–</td>
+    <td>32.14%</td><td>0%</td></tr><tr><th scope="row">Jun 11–17, 2026</th>
+    <td>210</td><td>86</td><td>–</td>
+    <td>32.38%</td><td>0%</td></tr><tr><th scope="row">Jun 18–24, 2026</th>
+    <td>220</td><td>87</td><td>–</td>
+    <td>30.94%</td><td>0%</td></tr><tr><th scope="row">Jun 25–Jul 1, 2026</th>
+    <td>204</td><td>79</td><td>–</td>
+    <td>29.72%</td><td>0%</td></tr><tr><th scope="row">Jul 2–8, 2026</th>
+    <td>202</td><td>75</td><td>–</td>
+    <td>28.79%</td><td>0%</td></tr><tr><th scope="row">Jul 9–15, 2026</th>
+    <td>214</td><td>79</td><td>–</td>
+    <td>28.87%</td><td>0%</td></tr><tr><th scope="row">Jul 16–22, 2026</th>
+    <td>218</td><td>77</td><td>–</td>
+    <td>28.12%</td><td>0%</td></tr><tr><th scope="row">Jul 23–29, 2026</th>
+    <td>224</td><td>80</td><td>–</td>
+    <td>28.32%</td><td>0%</td></tr><tr><th scope="row">Jul 30–Aug 5, 2026</th>
+    <td>229</td><td>81</td><td>–</td>
+    <td>28.43%</td><td>0%</td></tr><tr><th scope="row">Aug 6–12, 2026</th>
+    <td>297</td><td>94</td><td>–</td>
+    <td>27.15%</td><td>0%</td></tr><tr><th scope="row">Aug 13–19, 2026</th>
+    <td>324</td><td>102</td><td>–</td>
+    <td>27.68%</td><td>0%</td></tr><tr><th scope="row">Aug 20–26, 2026</th>
+    <td>336</td><td>101</td><td>–</td>
+    <td>27.23%</td><td>0%</td></tr><tr><th scope="row">Aug 27–Sep 2, 2026</th>
+    <td>353</td><td>100</td><td>–</td>
+    <td>25.73%</td><td>0%</td></tr><tr><th scope="row">Sep 3–9, 2026</th>
+    <td>369</td><td>105</td><td>–</td>
+    <td>25.67%</td><td>0%</td></tr><tr><th scope="row">Sep 10–16, 2026</th>
+    <td>367</td><td>107</td><td>–</td>
+    <td>26.31%</td><td>0%</td></tr><tr><th scope="row">Sep 17–23, 2026</th>
+    <td>363</td><td>105</td><td>–</td>
+    <td>26.05%</td><td>0%</td></tr><tr><th scope="row">Sep 24–30, 2026</th>
+    <td>374</td><td>71</td><td>–</td>
+    <td>17.43%</td><td>0%</td></tr><tr><th scope="row">Oct 1–7, 2026</th>
+    <td>370</td><td>49</td><td>0</td>
+    <td>11.92%</td><td>0%</td></tr><tr><th scope="row">Oct 8–14, 2026</th>
+    <td>156</td><td>12</td><td>0.6</td>
+    <td>5.7%</td><td>5%</td></tr><tr><th scope="row">Oct 15–20, 2026</th>
+    <td>424</td><td>6.7</td><td>2.4</td>
+    <td>0.69%</td><td>35.2%</td></tr></tbody></table></div>
+  </details>
+</figure>
+</div></div><div class="default-content-wrapper"><p>Count the tag and both referrers, and expect little of ChatGPT's traffic in Direct. OpenAI tags most of the links ChatGPT generates, so unlike Gemini, there is no hidden share to add on top. The Android referrer matters here: those visits mostly carry no ChatGPT tag, so without it they would land in Direct.</p><h2 id="gemini-the-referrer-then-the-hidden-share">Gemini: the referrer, then the hidden share</h2><p>Gemini on the web sends <code>https://gemini.google.com/</code> as the referrer, and no tag. Its apps send neither, so those visits land in Direct.</p><ol>
+          <li>Count visits with a <code>gemini.google.com</code> referrer.</li>
+          <li>Multiply by 2.1 to 2.5.
+            <ul>
+              <li>2.1 is measured. From Sep 18 to 28, 2026, Gemini tagged its links: for every 100 visits with the referrer, 108 more arrived with only the tag. The chart below shows that window.</li>
+              <li>2.5 adds an estimate for the links that weren't tagged and arrived with no referrer either.</li>
+            </ul>
+          </li>
+        </ol></div><div class="gemini-utm-wrapper"><div class="widget gemini-utm" data-block-name="widget" data-block-status="loaded" data-source="https://attribution.now/widgets/gemini-utm/gemini-utm.html"><figure class="gemini-utm-figure">
+  <ul class="gemini-utm-legend">
+    <li class="gemini-utm-key-visible">Visible: gemini.google.com referrer</li>
+    <li class="gemini-utm-key-hidden">Hidden: no referrer, only the utm_source=gemini tag</li>
+  </ul>
+  <div class="gemini-utm-chart">
+    <canvas role="img" aria-label="Daily Gemini visits, Sep 11 to Oct 11, 2026. Visits with a Gemini referrer stay level the whole time. From Sep 18 to 28, about as many tagged visits with no referrer appear on top of them. On Sep 29 the tag stops and they disappear." height="380" style="display: block; box-sizing: border-box; height: 380px; width: 1096px;" width="1096"></canvas>
+  </div>
+  <figcaption>
+    Daily visits, indexed: 100 is the average day of referred Gemini visits, Sep 11–17, 2026.
+    Source: AEM Operational Telemetry, real-user visits on 1,000+ domains, bots excluded.
+  </figcaption>
+  <details class="gemini-utm-data">
+    <summary>Daily numbers</summary>
+    <div class="gemini-utm-table"><table>
+    <thead><tr><th scope="col">Day</th><th scope="col">Visible</th><th scope="col">Hidden</th></tr></thead>
+    <tbody><tr><th scope="row">Sep 11</th><td>101</td><td>8</td></tr><tr><th scope="row">Sep 12</th><td>68</td><td>6</td></tr><tr><th scope="row">Sep 13</th><td>66</td><td>8</td></tr><tr><th scope="row">Sep 14</th><td>116</td><td>10</td></tr><tr><th scope="row">Sep 15</th><td>117</td><td>14</td></tr><tr><th scope="row">Sep 16</th><td>118</td><td>11</td></tr><tr><th scope="row">Sep 17</th><td>115</td><td>17</td></tr><tr><th scope="row">Sep 18</th><td>95</td><td>93</td></tr><tr><th scope="row">Sep 19</th><td>73</td><td>93</td></tr><tr><th scope="row">Sep 20</th><td>80</td><td>80</td></tr><tr><th scope="row">Sep 21</th><td>113</td><td>96</td></tr><tr><th scope="row">Sep 22</th><td>114</td><td>100</td></tr><tr><th scope="row">Sep 23</th><td>123</td><td>121</td></tr><tr><th scope="row">Sep 24</th><td>121</td><td>132</td></tr><tr><th scope="row">Sep 25</th><td>101</td><td>116</td></tr><tr><th scope="row">Sep 26</th><td>67</td><td>102</td></tr><tr><th scope="row">Sep 27</th><td>66</td><td>106</td></tr><tr><th scope="row">Sep 28</th><td>124</td><td>120</td></tr><tr><th scope="row">Sep 29</th><td>121</td><td>15</td></tr><tr><th scope="row">Sep 30</th><td>113</td><td>19</td></tr><tr><th scope="row">Oct 1</th><td>117</td><td>5</td></tr><tr><th scope="row">Oct 2</th><td>118</td><td>5</td></tr><tr><th scope="row">Oct 3</th><td>69</td><td>3</td></tr><tr><th scope="row">Oct 4</th><td>77</td><td>2</td></tr><tr><th scope="row">Oct 5</th><td>122</td><td>4</td></tr><tr><th scope="row">Oct 6</th><td>107</td><td>3</td></tr><tr><th scope="row">Oct 7</th><td>122</td><td>1</td></tr><tr><th scope="row">Oct 8</th><td>108</td><td>3</td></tr><tr><th scope="row">Oct 9</th><td>94</td><td>3</td></tr><tr><th scope="row">Oct 10</th><td>69</td><td>1</td></tr><tr><th scope="row">Oct 11</th><td>69</td><td>1</td></tr></tbody></table></div>
+  </details>
+</figure>
+</div></div><div class="default-content-wrapper"><p>Use 2.1 when you need a number nobody can dispute, and 2.5 as your best estimate. Workspace accounts tagged links <code>utm_source=geminiforbusiness</code> in the same window.</p><h2 id="claude-the-referrer-as-a-floor">Claude: the referrer, as a floor</h2><p>Links in Claude's answers on claude.ai send <code>https://claude.ai/</code> as the referrer. Its citation chips and its apps send no referrer, and Claude adds no tag.</p><ol>
+          <li>Count visits with a <code>claude.ai</code> referrer.</li>
+          <li>Treat that number as a floor. Claude has never tagged its links, so we have no measured share for its hidden visits yet. We'll add one here when we can measure it.</li>
+        </ol><p>Visits with a claude.ai referrer fell by about two thirds between June and September 2026. We can't tell yet whether Claude sent fewer visits or sent more of them without a referrer, through its citation chips or its apps.</p></div><div class="ai-traffic-wrapper"><div class="widget ai-traffic" data-block-name="widget" data-block-status="loaded" data-source="https://attribution.now/widgets/ai-traffic/ai-traffic.html?assistant=claude" data-assistant="claude"><figure class="ai-traffic-figure">
+  <ul class="ai-traffic-legend"><li class="ai-traffic-key-dash" style="--key: var(--mark-pink)">claude.ai referrer</li></ul>
+  <div class="ai-traffic-chart ai-traffic-volume">
+    <canvas role="img" aria-label="Claude visits per week, indexed. claude.ai referrer: 107 in the week of Apr 20, 38 in the week of Oct 12." height="380" style="display: block; box-sizing: border-box; height: 380px; width: 1096px;" width="1096"></canvas>
+  </div>
+  <p class="ai-traffic-subtitle" hidden=""></p>
+  <div class="ai-traffic-chart ai-traffic-share" hidden="">
+    <canvas role="img"></canvas>
+  </div>
+  <figcaption>Visits per week, indexed: 100 = the average week of claude.ai-referred visits, Apr 20 to May 17, 2026. Source: AEM Operational Telemetry: real-user visits on the sites it measures, bots excluded, sampled and weighted. Weeks start on Monday.</figcaption>
+  <details class="ai-traffic-data">
+    <summary>Weekly numbers</summary>
+    <div class="ai-traffic-table"><table>
+    <thead><tr><th scope="col">Week</th><th scope="col">claude.ai referrer</th></tr></thead><tbody><tr><th scope="row">Apr 20–26, 2026</th><td>107</td></tr><tr><th scope="row">Apr 27–May 3, 2026</th><td>99</td></tr><tr><th scope="row">May 4–10, 2026</th><td>94</td></tr><tr><th scope="row">May 11–17, 2026</th><td>99</td></tr><tr><th scope="row">May 18–24, 2026</th><td>94</td></tr><tr><th scope="row">May 25–31, 2026</th><td>93</td></tr><tr><th scope="row">Jun 1–7, 2026</th><td>98</td></tr><tr><th scope="row">Jun 8–14, 2026</th><td>99</td></tr><tr><th scope="row">Jun 15–21, 2026</th><td>95</td></tr><tr><th scope="row">Jun 22–28, 2026</th><td>86</td></tr><tr><th scope="row">Jun 29–Jul 5, 2026</th><td>62</td></tr><tr><th scope="row">Jul 6–12, 2026</th><td>71</td></tr><tr><th scope="row">Jul 13–19, 2026</th><td>60</td></tr><tr><th scope="row">Jul 20–26, 2026</th><td>65</td></tr><tr><th scope="row">Jul 27–Aug 2, 2026</th><td>60</td></tr><tr><th scope="row">Aug 3–9, 2026</th><td>60</td></tr><tr><th scope="row">Aug 10–16, 2026</th><td>62</td></tr><tr><th scope="row">Aug 17–23, 2026</th><td>59</td></tr><tr><th scope="row">Aug 24–30, 2026</th><td>44</td></tr><tr><th scope="row">Aug 31–Sep 6, 2026</th><td>44</td></tr><tr><th scope="row">Sep 7–13, 2026</th><td>37</td></tr><tr><th scope="row">Sep 14–20, 2026</th><td>26</td></tr><tr><th scope="row">Sep 21–27, 2026</th><td>23</td></tr><tr><th scope="row">Sep 28–Oct 4, 2026</th><td>25</td></tr><tr><th scope="row">Oct 5–11, 2026</th><td>30</td></tr><tr><th scope="row">Oct 12–18, 2026</th><td>38</td></tr></tbody></table></div>
+  </details>
+</figure>
+</div></div><div class="default-content-wrapper"><h2 id="copilot-the-referrer-now-the-tag-is-fading">Copilot: the referrer, now the tag is fading</h2><p>Microsoft Copilot sends a referrer from each of its sites: <code>copilot.com</code> and <code>copilot.microsoft.com</code> for consumers, <code>copilot.cloud.microsoft</code> and <code>m365copilotapp.svc.cloud.microsoft</code> for Microsoft 365. Links from copilot.microsoft.com also carried <code>utm_source=copilot.com</code>, but Copilot is moving its users to copilot.com, whose links carry no tag.</p><ol>
+          <li>Count visits with a referrer from any of the four Copilot sites.</li>
+          <li>Add visits tagged <code>utm_source=copilot.com</code> that arrived with no referrer. Match values that start with <code>copilot.com</code>: some links arrive as <code>utm_source=copilot.com?form=MG0AUO</code>.</li>
+          <li>Treat the total as a floor, especially on mobile. On sites measured by AEM Operational Telemetry in the 8 weeks to October 18, 2026, 93% of tagged mobile visits came with no referrer, so as the tag fades, those visits move to Direct.</li>
+        </ol><p>The tag is fading fast: 85% of Copilot visits carried it in late April 2026, 17% by mid-October, as copilot.com (from mid-August) and Microsoft 365 Copilot took over from copilot.microsoft.com.</p></div><div class="ai-traffic-wrapper"><div class="widget ai-traffic" data-block-name="widget" data-block-status="loaded" data-source="https://attribution.now/widgets/ai-traffic/ai-traffic.html?assistant=copilot" data-assistant="copilot"><figure class="ai-traffic-figure">
+  <ul class="ai-traffic-legend"><li class="" style="--key: var(--violet)">Tagged utm_source=copilot.com, with or without a referrer</li><li class="ai-traffic-key-dash" style="--key: var(--mark-pink)">copilot.com referrer</li><li class="ai-traffic-key-dash" style="--key: var(--pink-ink)">copilot.microsoft.com referrer</li><li class="ai-traffic-key-dash" style="--key: var(--violet-soft)">Microsoft 365 Copilot referrer</li></ul>
+  <div class="ai-traffic-chart ai-traffic-volume">
+    <canvas role="img" aria-label="Copilot visits per week, indexed. Tagged utm_source=copilot.com, with or without a referrer: 93 in the week of Apr 20, 32 in the week of Oct 12. copilot.com referrer: 0 in the week of Apr 20, 52 in the week of Oct 12. copilot.microsoft.com referrer: 74 in the week of Apr 20, 36 in the week of Oct 12. Microsoft 365 Copilot referrer: 5 in the week of Apr 20, 87 in the week of Oct 12." height="380" style="display: block; box-sizing: border-box; height: 380px; width: 1096px;" width="1096"></canvas>
+  </div>
+  <p class="ai-traffic-subtitle">Share of Copilot visits that carry the tag</p>
+  <div class="ai-traffic-chart ai-traffic-share">
+    <canvas role="img" aria-label="Share of Copilot visits that carry the tag: 85% in the week of Apr 20, 17% in the week of Oct 12." height="170" style="display: block; box-sizing: border-box; height: 170px; width: 1096px;" width="1096"></canvas>
+  </div>
+  <figcaption>Visits per week, indexed: 100 = the average week of all Copilot visits, Apr 20 to May 17, 2026. Vertical lines: Jun 22: Microsoft 365 Copilot redesign; Aug 18: new Copilot app, copilot.com; Early Sep: 365 moves to copilot.cloud.microsoft; Early Oct: remaining 365 users moved. These are dates from Microsoft's announcements; the timing matches, but Microsoft has said nothing about tags or referrers. Source: AEM Operational Telemetry: real-user visits on the sites it measures, bots excluded, sampled and weighted. Weeks start on Monday.</figcaption>
+  <details class="ai-traffic-data">
+    <summary>Weekly numbers</summary>
+    <div class="ai-traffic-table"><table>
+    <thead><tr><th scope="col">Week</th><th scope="col">Tagged utm_source=copilot.com, with or without a referrer</th><th scope="col">copilot.com referrer</th><th scope="col">copilot.microsoft.com referrer</th><th scope="col">Microsoft 365 Copilot referrer</th><th scope="col">Share of Copilot visits that carry the tag</th></tr></thead><tbody><tr><th scope="row">Apr 20–26, 2026</th><td>93</td><td>0</td><td>74</td><td>5</td><td>85%</td></tr><tr><th scope="row">Apr 27–May 3, 2026</th><td>77</td><td>0</td><td>62</td><td>4</td><td>82%</td></tr><tr><th scope="row">May 4–10, 2026</th><td>86</td><td>0</td><td>70</td><td>4</td><td>83%</td></tr><tr><th scope="row">May 11–17, 2026</th><td>79</td><td>0</td><td>65</td><td>3</td><td>84%</td></tr><tr><th scope="row">May 18–24, 2026</th><td>78</td><td>0</td><td>64</td><td>4</td><td>82%</td></tr><tr><th scope="row">May 25–31, 2026</th><td>71</td><td>0</td><td>60</td><td>3</td><td>80%</td></tr><tr><th scope="row">Jun 1–7, 2026</th><td>81</td><td>0</td><td>71</td><td>4</td><td>80%</td></tr><tr><th scope="row">Jun 8–14, 2026</th><td>81</td><td>0</td><td>71</td><td>3</td><td>79%</td></tr><tr><th scope="row">Jun 15–21, 2026</th><td>77</td><td>0</td><td>66</td><td>3</td><td>82%</td></tr><tr><th scope="row">Jun 22–28, 2026</th><td>66</td><td>0</td><td>59</td><td>3</td><td>77%</td></tr><tr><th scope="row">Jun 29–Jul 5, 2026</th><td>54</td><td>0</td><td>55</td><td>3</td><td>71%</td></tr><tr><th scope="row">Jul 6–12, 2026</th><td>51</td><td>1</td><td>50</td><td>5</td><td>68%</td></tr><tr><th scope="row">Jul 13–19, 2026</th><td>47</td><td>1</td><td>49</td><td>5</td><td>66%</td></tr><tr><th scope="row">Jul 20–26, 2026</th><td>50</td><td>0</td><td>49</td><td>6</td><td>67%</td></tr><tr><th scope="row">Jul 27–Aug 2, 2026</th><td>50</td><td>0</td><td>43</td><td>5</td><td>69%</td></tr><tr><th scope="row">Aug 3–9, 2026</th><td>40</td><td>1</td><td>40</td><td>3</td><td>68%</td></tr><tr><th scope="row">Aug 10–16, 2026</th><td>46</td><td>3</td><td>46</td><td>2</td><td>67%</td></tr><tr><th scope="row">Aug 17–23, 2026</th><td>62</td><td>5</td><td>62</td><td>6</td><td>66%</td></tr><tr><th scope="row">Aug 24–30, 2026</th><td>60</td><td>6</td><td>63</td><td>7</td><td>64%</td></tr><tr><th scope="row">Aug 31–Sep 6, 2026</th><td>65</td><td>10</td><td>66</td><td>10</td><td>62%</td></tr><tr><th scope="row">Sep 7–13, 2026</th><td>56</td><td>12</td><td>56</td><td>21</td><td>52%</td></tr><tr><th scope="row">Sep 14–20, 2026</th><td>59</td><td>18</td><td>56</td><td>48</td><td>41%</td></tr><tr><th scope="row">Sep 21–27, 2026</th><td>50</td><td>39</td><td>49</td><td>36</td><td>36%</td></tr><tr><th scope="row">Sep 28–Oct 4, 2026</th><td>45</td><td>49</td><td>42</td><td>40</td><td>31%</td></tr><tr><th scope="row">Oct 5–11, 2026</th><td>40</td><td>62</td><td>42</td><td>51</td><td>24%</td></tr><tr><th scope="row">Oct 12–18, 2026</th><td>32</td><td>52</td><td>36</td><td>87</td><td>17%</td></tr></tbody></table></div>
+  </details>
+</figure>
+</div></div><div class="default-content-wrapper"><h2 id="perplexity-the-referrer-plus-the-tag">Perplexity: the referrer plus the tag</h2><p>Perplexity on the web sends <code>https://www.perplexity.ai/</code> as the referrer, and no tag. Its apps do the opposite: they tag links <code>utm_source=perplexity</code> and send no referrer. On sites measured by AEM Operational Telemetry, August 24 to October 18, 2026, no visit carried both.</p><ol>
+          <li>Count visits with a <code>perplexity.ai</code> referrer.</li>
+          <li>Add visits tagged <code>utm_source=perplexity</code>.</li>
+        </ol><p>Skip the second step and you miss more than a third of Perplexity's visits, nearly all of them on mobile. That share has held steady since April 2026.</p></div><div class="ai-traffic-wrapper"><div class="widget ai-traffic" data-block-name="widget" data-block-status="loaded" data-source="https://attribution.now/widgets/ai-traffic/ai-traffic.html?assistant=perplexity" data-assistant="perplexity"><figure class="ai-traffic-figure">
+  <ul class="ai-traffic-legend"><li class="" style="--key: var(--violet)">Only the utm_source=perplexity tag (the apps)</li><li class="ai-traffic-key-dash" style="--key: var(--mark-pink)">perplexity.ai referrer (the web)</li></ul>
+  <div class="ai-traffic-chart ai-traffic-volume">
+    <canvas role="img" aria-label="Perplexity visits per week, indexed. Only the utm_source=perplexity tag (the apps): 40 in the week of Apr 20, 23 in the week of Oct 12. perplexity.ai referrer (the web): 66 in the week of Apr 20, 39 in the week of Oct 12." height="380" style="display: block; box-sizing: border-box; height: 380px; width: 1096px;" width="1096"></canvas>
+  </div>
+  <p class="ai-traffic-subtitle">Share of Perplexity visits that arrive with only the tag</p>
+  <div class="ai-traffic-chart ai-traffic-share">
+    <canvas role="img" aria-label="Share of Perplexity visits that arrive with only the tag: 38% in the week of Apr 20, 38% in the week of Oct 12." height="170" style="display: block; box-sizing: border-box; height: 170px; width: 1096px;" width="1096"></canvas>
+  </div>
+  <figcaption>Visits per week, indexed: 100 = the average week of all Perplexity visits, Apr 20 to May 17, 2026. Source: AEM Operational Telemetry: real-user visits on the sites it measures, bots excluded, sampled and weighted. Weeks start on Monday.</figcaption>
+  <details class="ai-traffic-data">
+    <summary>Weekly numbers</summary>
+    <div class="ai-traffic-table"><table>
+    <thead><tr><th scope="col">Week</th><th scope="col">Only the utm_source=perplexity tag (the apps)</th><th scope="col">perplexity.ai referrer (the web)</th><th scope="col">Share of Perplexity visits that arrive with only the tag</th></tr></thead><tbody><tr><th scope="row">Apr 20–26, 2026</th><td>40</td><td>66</td><td>38%</td></tr><tr><th scope="row">Apr 27–May 3, 2026</th><td>41</td><td>61</td><td>40%</td></tr><tr><th scope="row">May 4–10, 2026</th><td>39</td><td>58</td><td>41%</td></tr><tr><th scope="row">May 11–17, 2026</th><td>37</td><td>57</td><td>40%</td></tr><tr><th scope="row">May 18–24, 2026</th><td>38</td><td>58</td><td>39%</td></tr><tr><th scope="row">May 25–31, 2026</th><td>35</td><td>49</td><td>42%</td></tr><tr><th scope="row">Jun 1–7, 2026</th><td>36</td><td>48</td><td>43%</td></tr><tr><th scope="row">Jun 8–14, 2026</th><td>29</td><td>43</td><td>40%</td></tr><tr><th scope="row">Jun 15–21, 2026</th><td>25</td><td>40</td><td>38%</td></tr><tr><th scope="row">Jun 22–28, 2026</th><td>32</td><td>46</td><td>41%</td></tr><tr><th scope="row">Jun 29–Jul 5, 2026</th><td>29</td><td>35</td><td>45%</td></tr><tr><th scope="row">Jul 6–12, 2026</th><td>27</td><td>33</td><td>45%</td></tr><tr><th scope="row">Jul 13–19, 2026</th><td>24</td><td>37</td><td>39%</td></tr><tr><th scope="row">Jul 20–26, 2026</th><td>27</td><td>41</td><td>40%</td></tr><tr><th scope="row">Jul 27–Aug 2, 2026</th><td>23</td><td>37</td><td>38%</td></tr><tr><th scope="row">Aug 3–9, 2026</th><td>18</td><td>33</td><td>35%</td></tr><tr><th scope="row">Aug 10–16, 2026</th><td>22</td><td>27</td><td>45%</td></tr><tr><th scope="row">Aug 17–23, 2026</th><td>18</td><td>29</td><td>38%</td></tr><tr><th scope="row">Aug 24–30, 2026</th><td>23</td><td>30</td><td>44%</td></tr><tr><th scope="row">Aug 31–Sep 6, 2026</th><td>15</td><td>27</td><td>36%</td></tr><tr><th scope="row">Sep 7–13, 2026</th><td>19</td><td>33</td><td>36%</td></tr><tr><th scope="row">Sep 14–20, 2026</th><td>19</td><td>32</td><td>38%</td></tr><tr><th scope="row">Sep 21–27, 2026</th><td>18</td><td>35</td><td>34%</td></tr><tr><th scope="row">Sep 28–Oct 4, 2026</th><td>21</td><td>35</td><td>37%</td></tr><tr><th scope="row">Oct 5–11, 2026</th><td>22</td><td>40</td><td>36%</td></tr><tr><th scope="row">Oct 12–18, 2026</th><td>23</td><td>39</td><td>38%</td></tr></tbody></table></div>
+  </details>
+</figure>
+</div></div><div class="default-content-wrapper"><h2 id="set-up-your-reports-so-they-keep-counting">Set up your reports so they keep counting</h2><p>The same steps work in any analytics tool. For the exact settings, see our guides for <a href="/google-analytics-ai-traffic" title="Google Analytics 4">Google Analytics 4</a>, <a href="/adobe-analytics-ai-traffic" title="Adobe Analytics">Adobe Analytics</a> and <a href="/customer-journey-analytics-ai-traffic" title="Customer Journey Analytics">Customer Journey Analytics</a>.</p><ol>
+          <li>Keep the UTM tag on the landing URL. Many app visits carry a tag and no referrer, so if a redirect or your tag setup drops the query string, they land in Direct.</li>
+          <li>Create one channel for AI assistants and put it below your paid channels and above Referral and Organic Search, so it wins.</li>
+          <li>Match a visit on the referrers and <code>utm_source</code> values from the steps above, whichever of the two it carries.</li>
+          <li>Keep the Google exception from the ChatGPT steps: a <code>utm_source=chatgpt.com</code> visit with a Google referrer stays in Organic Search.</li>
+          <li>Send ChatGPT ad clicks to Paid: match <code>oppref</code> or <code>olref</code> in the landing page URL, not the UTM tags. To report everything ChatGPT sends you, show ad clicks as their own line next to the AI channel, not inside it.</li>
+          <li>Check a link yourself now and then: ask an assistant to link to <a href="/t/check">attribution.now/t/check</a> and see what arrives. Assistants change their links without notice.</li>
+        </ol></div></div>
+    </main>
+    <footer class="footer-wrapper"><div class="footer block" data-block-name="footer" data-block-status="loaded"><div><svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><clipPath id="brand-mark-clip-1"><circle cx="22" cy="32" r="15"></circle></clipPath></defs><circle cx="22" cy="32" r="15" fill="#faf9fe"></circle><circle class="dot-b" cx="42" cy="32" r="15" fill="#f893bc"></circle><g clip-path="url(#brand-mark-clip-1)"><circle class="lens" cx="42" cy="32" r="15" fill="#181527"></circle></g></svg><div class="section" data-section-status="loaded" style="">
+  
+  
+<div class="default-content-wrapper"><p class="footer-mission">A side project by <a href="https://www.linkedin.com/in/cedrichuesler/" title="Cedric Huesler">Cedric Huesler</a>, running on <a href="https://www.aem.live/" title="Adobe Experience Manager">Adobe Experience Manager</a>, with traffic data from <a href="https://business.adobe.com/products/brand-visibility.html" title="Adobe Brand Visibility">Adobe Brand Visibility</a>.</p><p><a href="/contribute" title="Contribute">Contribute</a> · <a href="https://github.com/keepthebyte/attribution-now" title="GitHub">GitHub</a> · Code, content and data under the <a href="https://github.com/keepthebyte/attribution-now/blob/main/LICENSE" title="Apache License 2.0">Apache License 2.0</a>.</p></div></div></div></div></footer>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" nonce="" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;2272176cff8341e197a2fdecc16d41dc&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
+
+
+</body></html>

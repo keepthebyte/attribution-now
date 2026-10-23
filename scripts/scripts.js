@@ -189,6 +189,22 @@ function decorateAudienceLines(main) {
 }
 
 /**
+ * Long code values (hosts, referrers) may break before a dot or after a slash, never mid-word.
+ * @param {Element} main The main element
+ */
+function decorateLongCode(main) {
+  main.querySelectorAll(':not(pre) > code').forEach((code) => {
+    const text = code.textContent;
+    if (text.length <= 26 || code.children.length) return;
+    code.replaceChildren();
+    text.split(/(?<=\/)(?=[^/])|(?<=[^.])(?=\.[^.])/).forEach((part, i) => {
+      if (i) code.append(document.createElement('wbr'));
+      code.append(part);
+    });
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -199,6 +215,7 @@ export function decorateMain(main) {
   decorateSectionMetadata(main);
   decorateSections(main);
   decorateAudienceLines(main);
+  decorateLongCode(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

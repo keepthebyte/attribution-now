@@ -1,0 +1,81 @@
+.glance {
+  max-width: 46rem;
+  margin: 32px 0 0;
+}
+
+.glance nav {
+  padding: 8px 24px;
+  border-radius: var(--radius);
+  background: var(--page);
+  color: var(--ink);
+}
+
+.glance ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.glance li + li {
+  border-top: 1px solid var(--line-color);
+}
+
+.glance a:any-link {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 4px 16px;
+  align-items: baseline;
+  padding: 14px 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.glance a:focus-visible {
+  outline-color: var(--ink);
+}
+
+.glance .glance-name {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.glance a:hover .glance-name {
+  text-decoration: underline;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.2em;
+}
+
+.glance .glance-formula {
+  font-size: var(--body-font-size-s);
+  color: var(--ink-soft);
+}
+
+.glance .op {
+  padding: 0 0.12em;
+  font-family: var(--heading-font-family);
+  font-size: 1.15em;
+  font-weight: 800;
+  color: var(--violet);
+}
+
+.glance .op-lead {
+  display: inline-block;
+  min-width: 1.2em;
+  padding: 0;
+}
+
+.glance .glance-more a:any-link {
+  display: inline-flex;
+}
+
+@media (width < 700px) {
+  .glance nav {
+    padding: 4px 16px;
+  }
+
+  .glance a:any-link {
+    grid-template-columns: 1fr;
+  }
+}

@@ -20,16 +20,17 @@
 }
 
 .chatgpt-utm .chatgpt-utm-legend li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  padding-left: 28px;
+  text-indent: -28px;
 }
 
 /* line keys: solid for the tag, dashed for the referrer, thin ink for the Android app, as in the chart */
 .chatgpt-utm .chatgpt-utm-legend li::before {
   content: '';
-  flex: none;
+  display: inline-block;
   width: 20px;
+  margin-right: 8px;
+  vertical-align: 0.3em;
   border-top: 3px solid var(--violet);
 }
 
@@ -92,4 +93,10 @@
 .chatgpt-utm .chatgpt-utm-data th[scope='row'],
 .chatgpt-utm .chatgpt-utm-data thead th:first-child {
   text-align: left;
+}
+
+/* wide tables scroll inside their box, never the page */
+.chatgpt-utm .chatgpt-utm-table {
+  max-width: 100%;
+  overflow-x: auto;
 }
