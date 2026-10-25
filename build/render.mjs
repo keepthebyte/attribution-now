@@ -20,6 +20,7 @@ import {
 } from '../lib/status.mjs';
 import { PROMPTS, renderPrompts } from '../lib/prompts.mjs';
 import { addAttribution } from '../lib/attribution.mjs';
+import { article } from '../lib/jsonld.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const config = JSON.parse(readFileSync(join(root, 'build', 'config.json'), 'utf8'));
@@ -48,10 +49,10 @@ function metadata(meta) {
 }
 
 function page({
-  title, description, robots, template,
+  title, description, robots, template, jsonLd,
 }, sections) {
   const meta = metadata({
-    Title: title, Description: description, Robots: robots, Template: template,
+    Title: title, Description: description, Robots: robots, Template: template, 'json-ld': jsonLd,
   });
   const body = [...sections];
   body[body.length - 1] = body[body.length - 1].replace(/<\/div>$/, `${meta}</div>`);
@@ -61,7 +62,8 @@ function page({
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">${robots ? `
 <meta name="robots" content="${esc(robots)}">` : ''}${template ? `
-<meta name="template" content="${esc(template)}">` : ''}
+<meta name="template" content="${esc(template)}">` : ''}${jsonLd ? `
+<meta name="json-ld" content="${esc(jsonLd)}">` : ''}
 </head>
 <body>
 <header></header>
@@ -351,9 +353,17 @@ function labPage(lab) {
       p(`Work on ${esc(lab.name)} and see something out of date? ${a(reviewUrl, 'Request a review')} and we will update the entry.`),
     ),
   ];
+  const title = `${lab.name} link attribution: referrer and UTM status`;
+  const description = `For ${lab.company} teams and analysts: ${lab.seo_summary}`;
   return page({
-    title: `${lab.name} link attribution: referrer and UTM status`,
-    description: `For ${lab.company} teams and analysts: ${lab.seo_summary}`,
+    title,
+    description,
+    jsonLd: article({
+      path: `/labs/${lab.id}`,
+      headline: title,
+      description,
+      dateModified: [lastChecked, lab.what_works_date].filter(Boolean).sort().pop(),
+    }),
   }, sections);
 }
 
