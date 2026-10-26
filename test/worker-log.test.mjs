@@ -8,6 +8,7 @@ const HIT = '123e4567-e89b-12d3-a456-426614174000';
 
 test('unique test URLs map to the test page', () => {
   assert.equal(originPath('/t/ref-01/openai-chatgpt/web-desktop/inline-citation'), '/t/ref-01');
+  assert.equal(originPath('/t/ref-01/'), '/t/ref-01');
   assert.equal(originPath('/t/check'), '/t/check');
   assert.equal(originPath('/t/mrg-01'), '/t/mrg-01');
 });
