@@ -6,7 +6,7 @@ const HIT = /^[0-9a-f-]{36}$/;
 
 /** Unique test URLs /t/<test>/<lab>/<surface>/<location> are served by the page at /t/<test>. */
 export function originPath(pathname) {
-  const m = pathname.match(/^\/t\/([a-z0-9-]+)\/.+$/);
+  const m = pathname.match(/^\/t\/([a-z0-9-]+)\/.*$/);
   return m ? `/t/${m[1]}` : pathname;
 }
 
