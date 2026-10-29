@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  beaconRecord, echoJson, hitRecord, insert, originPath,
+  beaconRecord, echoJson, hitRecord, insert, isRumBeacon, originPath,
 } from '../worker/src/log.mjs';
 
 const HIT = '123e4567-e89b-12d3-a456-426614174000';
@@ -49,6 +49,13 @@ test('beacon keeps the cloud browser hint and client values as JSON', () => {
   assert.equal(rec.agent_hint, 'arm-software-gpu');
   assert.deepEqual(JSON.parse(rec.client), { architecture: 'arm', renderer: 'SwiftShader' });
   assert.equal(beaconRecord({ hit: HIT, path: '/t/check', client: 'x' }).client, null);
+});
+
+test('only RUM beacon POSTs are logged, not the enhancer script', () => {
+  assert.equal(isRumBeacon(new Request('https://attribution.now/.rum/1', { method: 'POST' })), true);
+  assert.equal(isRumBeacon(new Request('https://attribution.now/.rum/100', { method: 'POST' })), true);
+  assert.equal(isRumBeacon(new Request('https://attribution.now/.rum/@adobe/helix-rum-enhancer@^2/src/index.js')), false);
+  assert.equal(isRumBeacon(new Request('https://attribution.now/.rum/1')), false);
 });
 
 test('beacon validation', () => {

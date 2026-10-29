@@ -10,6 +10,11 @@ export function originPath(pathname) {
   return m ? `/t/${m[1]}` : pathname;
 }
 
+/** RUM beacons (POST /.rum/<weight>), not the enhancer script GETs. */
+export function isRumBeacon(request) {
+  return request.method === 'POST' && /^\/\.(rum|optel)\/\d+$/.test(new URL(request.url).pathname);
+}
+
 /** Row for the hits table. Deliberately no IP address or cf-connecting-ip. */
 export function hitRecord(request, hit, now = new Date()) {
   const url = new URL(request.url);

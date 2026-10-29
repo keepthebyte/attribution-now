@@ -36,7 +36,7 @@ const sql = `SELECT h.ts, h.hit, h.method, h.path, h.query, h.referer, h.sec_fet
   h.asn, h.as_org, h.accept_language, h.sec_ch_ua, h.sec_ch_ua_platform, h.signature_agent, h.signed,
   b.document_referrer, b.search AS client_search, b.hash AS client_hash, b.agent_hint, b.client
 FROM hits h LEFT JOIN beacons b ON b.hit = h.hit
-WHERE h.ts >= '${args.since}' ${until}
+WHERE h.ts >= '${args.since}' AND h.path LIKE '/t/%' ${until}
 ORDER BY h.ts`;
 
 const output = execFileSync('npx', [
