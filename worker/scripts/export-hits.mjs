@@ -33,7 +33,8 @@ if (!args.since || !DATE.test(args.since) || (args.until && !DATE.test(args.unti
 const until = args.until ? `AND h.ts < date('${args.until}', '+1 day')` : '';
 const sql = `SELECT h.ts, h.hit, h.method, h.path, h.query, h.referer, h.sec_fetch_site, h.sec_fetch_dest,
   h.sec_fetch_mode, h.sec_purpose, h.country, h.user_agent,
-  b.document_referrer, b.search AS client_search, b.hash AS client_hash
+  h.asn, h.as_org, h.accept_language, h.sec_ch_ua, h.sec_ch_ua_platform, h.signature_agent, h.signed,
+  b.document_referrer, b.search AS client_search, b.hash AS client_hash, b.agent_hint, b.client
 FROM hits h LEFT JOIN beacons b ON b.hit = h.hit
 WHERE h.ts >= '${args.since}' ${until}
 ORDER BY h.ts`;
@@ -50,7 +51,8 @@ if (rows.length < all.length) console.error(`Ignored ${all.length - rows.length}
 
 const columns = ['ts', 'hit', 'test', 'lab', 'surface', 'location', 'utm_source', 'referer', 'document_referrer',
   'query', 'client_search', 'client_hash', 'sec_fetch_site', 'sec_fetch_dest', 'sec_fetch_mode', 'sec_purpose',
-  'country', 'method', 'path', 'user_agent'];
+  'country', 'method', 'path', 'user_agent', 'asn', 'as_org', 'accept_language', 'sec_ch_ua',
+  'sec_ch_ua_platform', 'signature_agent', 'signed', 'agent_hint', 'client'];
 const csvCell = (v) => {
   const s = v === null || v === undefined ? '' : String(v);
   return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;

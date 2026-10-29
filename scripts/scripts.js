@@ -10,6 +10,7 @@ import {
   loadSection,
   loadSections,
   loadCSS,
+  sampleRUM,
   toCamelCase,
   toClassName,
 } from './aem.js';
@@ -270,6 +271,13 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   import('./consent-check.js');
+  // RUM gets only a short label (e.g. arm-software-gpu), and only for sampled page views
+  if (window.hlx?.rum?.isSelected) {
+    import('./agent-hint.js')
+      .then(({ cloudBrowserHint }) => cloudBrowserHint())
+      .then((hint) => hint && sampleRUM('agent', { source: 'cloud', target: hint }))
+      .catch(() => {});
+  }
   // load anything that can be postponed to the latest here
 }
 

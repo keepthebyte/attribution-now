@@ -26,6 +26,31 @@ test('hit record keeps the fields we need and no IP', () => {
   assert.ok(!JSON.stringify(rec).includes('203.0.113.9'));
 });
 
+test('hit record keeps agent signals', () => {
+  const req = new Request('https://attribution.now/t/check', {
+    headers: {
+      'signature-agent': '"https://agent.example"', 'signature-input': 'sig1=("@authority");tag="web-bot-auth"', signature: 'sig1=:abc:', 'sec-ch-ua-platform': '"Linux"',
+    },
+  });
+  Object.defineProperty(req, 'cf', { value: { asn: 32934, asOrganization: 'Facebook' } });
+  const rec = hitRecord(req, HIT);
+  assert.equal(rec.asn, 32934);
+  assert.equal(rec.as_org, 'Facebook');
+  assert.equal(rec.signature_agent, '"https://agent.example"');
+  assert.equal(rec.signed, 1);
+  assert.equal(rec.sec_ch_ua_platform, '"Linux"');
+  assert.equal(hitRecord(new Request('https://attribution.now/t/check'), HIT).signed, 0);
+});
+
+test('beacon keeps the cloud browser hint and client values as JSON', () => {
+  const rec = beaconRecord({
+    hit: HIT, path: '/t/check', agent_hint: 'arm-software-gpu', client: { architecture: 'arm', renderer: 'SwiftShader' },
+  });
+  assert.equal(rec.agent_hint, 'arm-software-gpu');
+  assert.deepEqual(JSON.parse(rec.client), { architecture: 'arm', renderer: 'SwiftShader' });
+  assert.equal(beaconRecord({ hit: HIT, path: '/t/check', client: 'x' }).client, null);
+});
+
 test('beacon validation', () => {
   assert.equal(beaconRecord({ hit: 'x', path: '/t/check' }), null);
   assert.equal(beaconRecord({ hit: HIT, path: '/elsewhere' }), null);
