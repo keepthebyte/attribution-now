@@ -1,7 +1,7 @@
 // Pure helpers for the /t/* logger, kept free of Workers globals so they run under node --test.
 
 const MAX = 2048;
-const clip = (v) => (typeof v === 'string' ? v.slice(0, MAX) : null);
+const clip = (v, max = MAX) => (typeof v === 'string' ? v.slice(0, max) : null);
 const HIT = /^[0-9a-f-]{36}$/;
 
 /** Unique test URLs /t/<test>/<lab>/<surface>/<location> are served by the page at /t/<test>. */
@@ -27,6 +27,16 @@ export function hitRecord(request, hit, now = new Date()) {
     sec_fetch_mode: clip(h.get('sec-fetch-mode')),
     sec_purpose: clip(h.get('sec-purpose') || h.get('purpose')),
     country: clip(request.cf?.country ?? null),
+    // network and self-declaration signals for agents (Web Bot Auth, Client Hints)
+    asn: Number.isInteger(request.cf?.asn) ? request.cf.asn : null,
+    as_org: clip(request.cf?.asOrganization ?? null),
+    accept_language: clip(h.get('accept-language')),
+    sec_ch_ua: clip(h.get('sec-ch-ua')),
+    sec_ch_ua_platform: clip(h.get('sec-ch-ua-platform')),
+    sec_ch_ua_mobile: clip(h.get('sec-ch-ua-mobile')),
+    signature_agent: clip(h.get('signature-agent')),
+    signature_input: clip(h.get('signature-input')),
+    signed: h.has('signature') ? 1 : 0,
   };
 }
 
@@ -41,6 +51,8 @@ export function beaconRecord(body, now = new Date()) {
     document_referrer: clip(body.document_referrer),
     search: clip(body.search),
     hash: clip(body.hash),
+    agent_hint: clip(body.agent_hint),
+    client: body.client && typeof body.client === 'object' ? clip(JSON.stringify(body.client), 4096) : null,
   };
 }
 

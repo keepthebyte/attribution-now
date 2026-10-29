@@ -1,6 +1,9 @@
 // Shows what arrived with the visit. Server-side values are injected by the Cloudflare
 // worker as <script type="application/json" id="server-echo">; fragments never reach a
 // server, so the page also beacons document.referrer, query and hash to /t/beacon.
+// It also shows and beacons browser values that tell hosted (cloud) browsers apart.
+
+import { probe } from '../../scripts/agent-hint.js';
 
 function serverEcho() {
   const el = document.getElementById('server-echo');
@@ -18,7 +21,7 @@ function value(text) {
   return code;
 }
 
-function sendBeacon(server) {
+function sendBeacon(server, env) {
   if (!server?.hit || !navigator.sendBeacon) return;
   const payload = JSON.stringify({
     hit: server.hit,
@@ -26,11 +29,25 @@ function sendBeacon(server) {
     document_referrer: document.referrer,
     search: window.location.search,
     hash: window.location.hash,
+    agent_hint: env?.label ?? null,
+    client: env?.values ?? null,
   });
   navigator.sendBeacon('/t/beacon', new Blob([payload], { type: 'application/json' }));
 }
 
-export default function decorate(block) {
+function list(rows) {
+  const dl = document.createElement('dl');
+  rows.forEach(([label, v]) => {
+    const dt = document.createElement('dt');
+    dt.textContent = label;
+    const dd = document.createElement('dd');
+    dd.append(value(v));
+    dl.append(dt, dd);
+  });
+  return dl;
+}
+
+export default async function decorate(block) {
   const heading = block.textContent.trim() || 'What this page received';
   const server = serverEcho();
   const params = new URLSearchParams(window.location.search);
@@ -49,19 +66,37 @@ export default function decorate(block) {
 
   const h = document.createElement('h2');
   h.textContent = heading;
-  const dl = document.createElement('dl');
-  rows.forEach(([label, v]) => {
-    const dt = document.createElement('dt');
-    dt.textContent = label;
-    const dd = document.createElement('dd');
-    dd.append(value(v));
-    dl.append(dt, dd);
-  });
+  const dl = list(rows);
   const note = document.createElement('p');
   note.className = 'test-echo-note';
   note.textContent = server
     ? `Logged as hit ${server.hit}. No IP address is stored.`
     : 'The server-side referrer is only shown on attribution.now.';
   block.replaceChildren(h, dl, note);
-  sendBeacon(server);
+
+  let env = null;
+  try {
+    env = await probe();
+  } catch {
+    // keep the page and the referrer beacon working
+  }
+  if (env) {
+    const h3 = document.createElement('h3');
+    h3.textContent = 'Browser environment';
+    const v = env.values;
+    note.before(h3, list([
+      ['Cloud browser hint', env.label || 'none'],
+      ['CPU architecture (Client Hints)', [v.architecture, v.bitness && `${v.bitness}-bit`].filter(Boolean).join(', ')],
+      ['Platform', [v.platform, v.platformVersion].filter(Boolean).join(' ')],
+      ['Browser brands', v.brands],
+      ['WebGL renderer', v.renderer === null ? 'WebGL unavailable' : v.renderer],
+      ['navigator.webdriver', String(v.webdriver)],
+      ['Screen / viewport', `${v.screen} / ${v.viewport} @${v.devicePixelRatio}x`],
+      ['Time zone', v.timezone],
+      ['Languages', v.languages],
+      ['CPU cores / memory', `${v.hardwareConcurrency ?? '?'} / ${v.deviceMemory ?? '?'} GB`],
+      ['Touch points', String(v.maxTouchPoints)],
+    ]));
+  }
+  sendBeacon(server, env);
 }
