@@ -2,9 +2,10 @@
 //  - www → apex redirect
 //  - a logger for /t/* that runs on every request, before the cache (SPEC §10)
 //  - /t/beacon for client-side values (document.referrer, fragment)
+//  - headers (never the body) of RUM beacons, to see which reach the collector
 import aem from './aem-proxy.mjs';
 import {
-  beaconRecord, echoJson, hitRecord, insert, originPath,
+  beaconRecord, echoJson, hitRecord, insert, isRumBeacon, originPath,
 } from './log.mjs';
 
 async function write(env, table, record) {
@@ -70,6 +71,7 @@ export default {
     }
     if (url.pathname === '/t/beacon') return handleBeacon(request, env, ctx);
     if (url.pathname.startsWith('/t/')) return handleTarget(request, env, ctx);
+    if (isRumBeacon(request)) ctx.waitUntil(write(env, 'hits', hitRecord(request, crypto.randomUUID())));
     return aem.fetch(request, env, ctx);
   },
 };
