@@ -2,8 +2,8 @@ import { getMetadata } from '../../scripts/aem.js';
 import { brandFix, brandMark } from '../../scripts/brand-mark.js';
 import { loadFragment } from '../fragment/fragment.js';
 
-// eight items, the mark and "fix" need about 1080px; below that the nav sits behind a menu button
-const isDesktop = window.matchMedia('(min-width: 1120px)');
+// nine items, the mark and "fix" need about 1195px; below that the nav sits behind a menu button
+const isDesktop = window.matchMedia('(min-width: 1200px)');
 
 /**
  * Opens or closes the mobile menu
