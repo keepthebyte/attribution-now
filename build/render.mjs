@@ -415,6 +415,8 @@ ${section(`<ul>${[
     ['/why', 'Why'], ['/best-practices', 'Best practices'],
     ...data.labs.map((l) => [`/labs/${l.id}`, esc(l.name)]),
     ['/tests', 'Tests'], ['/changelog', 'Changelog'],
+    // visible hint for browsing agents (Muse, Grok Bot); the card is served by the worker
+    ['/.well-known/agent-card.json', 'Agent (Agent Card)'],
   ].map(([href, text]) => `<li>${a(href, text)}</li>`).join('')}</ul>`)}
 ${section(p(a('/t/check', 'Check a link')))}
 </main></body></html>
