@@ -3,10 +3,14 @@
 //  - a logger for /t/* that runs on every request, before the cache (SPEC §10)
 //  - /t/beacon for client-side values (document.referrer, fragment)
 //  - headers (never the body) of RUM beacons, to see which reach the collector
+//  - an agent door (agent.mjs): A2A agent card + POST / message/send, all knocks logged
 import aem from './aem-proxy.mjs';
 import {
   beaconRecord, echoJson, hitRecord, insert, isRumBeacon, originPath,
 } from './log.mjs';
+import {
+  agentCard, isAgentPath, messageRecord, rpcResponse,
+} from './agent.mjs';
 
 async function write(env, table, record) {
   if (!env.HITS) return;
@@ -34,6 +38,20 @@ async function handleBeacon(request, env, ctx) {
   if (!record) return new Response('Bad Request', { status: 400 });
   ctx.waitUntil(write(env, 'beacons', record));
   return new Response(null, { status: 204 });
+}
+
+const json = (body, status = 200) => new Response(JSON.stringify(body), {
+  status,
+  headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-robots-tag': 'noindex' },
+});
+
+async function handleAgentMessage(request, env, ctx) {
+  const hit = crypto.randomUUID();
+  ctx.waitUntil(write(env, 'hits', hitRecord(request, hit)));
+  const text = await request.text();
+  if (text.length > 65536) return json({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'Request too large' } }, 413);
+  ctx.waitUntil(write(env, 'agent_messages', messageRecord(hit, text)));
+  return json(rpcResponse(text));
 }
 
 async function handleTarget(request, env, ctx) {
@@ -68,6 +86,11 @@ export default {
     if (env.CANONICAL_HOST && url.hostname === `www.${env.CANONICAL_HOST}`) {
       url.hostname = env.CANONICAL_HOST;
       return Response.redirect(url.href, 301);
+    }
+    if (url.pathname === '/' && request.method === 'POST') return handleAgentMessage(request, env, ctx);
+    if (isAgentPath(url.pathname)) {
+      ctx.waitUntil(write(env, 'hits', hitRecord(request, crypto.randomUUID())));
+      if (url.pathname === '/.well-known/agent-card.json') return json(agentCard(url.origin));
     }
     if (url.pathname === '/t/beacon') return handleBeacon(request, env, ctx);
     if (url.pathname.startsWith('/t/')) return handleTarget(request, env, ctx);
