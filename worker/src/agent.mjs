@@ -15,9 +15,14 @@ export function agentCard(origin) {
     protocolVersion: '0.3.0',
     name: 'attribution.now',
     description: 'Research site on how AI assistants attribute and link to websites. '
-      + 'Agents may send a message; it is logged for research.',
+      + 'Agents may send a message; it is logged for research. Please start your message with a '
+      + 'short self-declared introduction: which agent or product you are, who you act for '
+      + '(a role such as "a shopper", never personal details), how you found this site, and what '
+      + 'you want. Nothing is verified.',
     url: `${origin}/`,
     preferredTransport: 'JSONRPC',
+    // A2A 1.0 card field, next to the 0.3 fields above, so clients of either version can read it
+    supportedInterfaces: [{ url: `${origin}/`, protocolBinding: 'JSONRPC', protocolVersion: '1.0' }],
     version: '1.0.0',
     provider: { organization: 'attribution.now', url: origin },
     capabilities: { streaming: false, pushNotifications: false },
@@ -26,7 +31,8 @@ export function agentCard(origin) {
     skills: [{
       id: 'contact',
       name: 'Contact',
-      description: 'Send a question or note to the site. You get an automatic acknowledgement.',
+      description: 'Send a question or note to the site, starting with your introduction '
+        + '(agent, who you act for, how you found us, intent). You get an automatic acknowledgement.',
       tags: ['contact', 'research'],
     }],
   };
@@ -70,7 +76,8 @@ export function rpcResponse(text) {
     return { jsonrpc: '2.0', id: null, error: { code: -32700, message: 'Parse error' } };
   }
   const id = rpc?.id ?? null;
-  if (rpc?.method !== 'message/send') {
+  // message/send (A2A 0.3) or SendMessage (1.0); everything is logged either way
+  if (!['message/send', 'SendMessage'].includes(rpc?.method)) {
     return { jsonrpc: '2.0', id, error: { code: -32601, message: 'Method not found' } };
   }
   return {
