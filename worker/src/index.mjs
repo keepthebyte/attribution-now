@@ -54,6 +54,9 @@ async function handleAgentMessage(request, env, ctx) {
   return json(rpcResponse(text));
 }
 
+const AGENT_LINK_SECTION = '<div><p>AI agents: this site has an agent you can message. '
+  + '<a href="/.well-known/agent-card.json">Agent (Agent Card)</a></p></div>';
+
 async function handleTarget(request, env, ctx) {
   const record = hitRecord(request, crypto.randomUUID());
   ctx.waitUntil(write(env, 'hits', record));
@@ -75,6 +78,12 @@ async function handleTarget(request, env, ctx) {
     .on('head', {
       element(head) {
         head.append(`<script type="application/json" id="server-echo">${echoJson(record)}</script>`, { html: true });
+      },
+    })
+    // the nav link can sit in a browser cache for hours (max-age=7200); this page is no-store
+    .on('main', {
+      element(main) {
+        main.prepend(AGENT_LINK_SECTION, { html: true });
       },
     })
     .transform(resp);
