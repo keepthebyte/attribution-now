@@ -9,7 +9,7 @@ import {
   beaconRecord, echoJson, hitRecord, insert, isRumBeacon, originPath,
 } from './log.mjs';
 import {
-  agentCard, isAgentPath, messageRecord, rpcResponse,
+  agentCard, corsHeaders, isAgentPath, isDoorPath, messageRecord, readBody, rpcResponse,
 } from './agent.mjs';
 
 async function write(env, table, record) {
@@ -40,18 +40,21 @@ async function handleBeacon(request, env, ctx) {
   return new Response(null, { status: 204 });
 }
 
-const json = (body, status = 200) => new Response(JSON.stringify(body), {
+const json = (request, body, status = 200) => new Response(JSON.stringify(body), {
   status,
-  headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-robots-tag': 'noindex' },
+  headers: {
+    'content-type': 'application/json', 'cache-control': 'no-store', 'x-robots-tag': 'noindex', ...corsHeaders(request),
+  },
 });
 
 async function handleAgentMessage(request, env, ctx) {
   const hit = crypto.randomUUID();
   ctx.waitUntil(write(env, 'hits', hitRecord(request, hit)));
-  const text = await request.text();
-  if (text.length > 65536) return json({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'Request too large' } }, 413);
-  ctx.waitUntil(write(env, 'agent_messages', messageRecord(hit, text)));
-  return json(rpcResponse(text));
+  const body = await readBody(request);
+  if (!body) return json(request, { jsonrpc: '2.0', id: null, error: { code: -32600, message: 'Request too large' } }, 413);
+  const meta = { contentType: request.headers.get('content-type'), encoding: body.encoding };
+  ctx.waitUntil(write(env, 'agent_messages', messageRecord(hit, body.text, new Date(), meta)));
+  return json(request, rpcResponse(body.text));
 }
 
 const AGENT_LINK_SECTION = '<div><p>AI agents: this site has an agent you can message. '
@@ -96,10 +99,15 @@ export default {
       url.hostname = env.CANONICAL_HOST;
       return Response.redirect(url.href, 301);
     }
+    if (request.method === 'OPTIONS' && isDoorPath(url.pathname)) {
+      // preflight from a browser-based agent: log it, it shows who tries to call from a page
+      ctx.waitUntil(write(env, 'hits', hitRecord(request, crypto.randomUUID())));
+      return new Response(null, { status: 204, headers: corsHeaders(request) });
+    }
     if (url.pathname === '/' && request.method === 'POST') return handleAgentMessage(request, env, ctx);
     if (isAgentPath(url.pathname)) {
       ctx.waitUntil(write(env, 'hits', hitRecord(request, crypto.randomUUID())));
-      if (url.pathname === '/.well-known/agent-card.json') return json(agentCard(url.origin));
+      if (url.pathname === '/.well-known/agent-card.json') return json(request, agentCard(url.origin));
     }
     if (url.pathname === '/t/beacon') return handleBeacon(request, env, ctx);
     if (url.pathname.startsWith('/t/')) return handleTarget(request, env, ctx);
