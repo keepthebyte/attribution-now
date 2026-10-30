@@ -22,6 +22,13 @@ test('agent card points at the root endpoint', () => {
   assert.equal(card.url, 'https://attribution.now/');
   assert.equal(card.preferredTransport, 'JSONRPC');
   assert.ok(card.skills.length > 0);
+  assert.equal(card.supportedInterfaces[0].url, 'https://attribution.now/');
+  assert.match(card.description, /how you found this site/);
+});
+
+test('A2A 1.0 SendMessage gets the same acknowledgement', () => {
+  const res = rpcResponse(JSON.stringify({ jsonrpc: '2.0', id: 2, method: 'SendMessage', params: { message: { parts: [{ text: 'hi' }] } } }));
+  assert.equal(res.result.parts[0].text, REPLY);
 });
 
 test('knocks on well-known paths and llms.txt are logged', () => {
