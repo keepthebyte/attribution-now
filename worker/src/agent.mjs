@@ -38,13 +38,73 @@ export function agentCard(origin) {
   };
 }
 
+export const MAX_BODY = 65536;
+
+/** CORS headers so browser-based agents can read the card and POST from any page. */
+export function corsHeaders(request) {
+  return {
+    'access-control-allow-origin': '*',
+    'access-control-allow-methods': 'GET, POST, OPTIONS',
+    'access-control-allow-headers': request.headers.get('access-control-request-headers') || 'content-type',
+    'access-control-max-age': '86400',
+  };
+}
+
+/** Is this a door path that answers CORS preflights? */
+export function isDoorPath(pathname) {
+  return pathname === '/' || pathname === '/.well-known/agent-card.json';
+}
+
+async function readCapped(stream, max) {
+  const reader = stream.getReader();
+  const chunks = [];
+  let size = 0;
+  for (;;) {
+    // eslint-disable-next-line no-await-in-loop
+    const { done, value } = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > max) {
+      reader.cancel();
+      return null;
+    }
+    chunks.push(value);
+  }
+  const out = new Uint8Array(size);
+  let at = 0;
+  chunks.forEach((c) => { out.set(c, at); at += c.byteLength; });
+  return out;
+}
+
+/**
+ * Request body as text, decompressed when sent with Content-Encoding gzip/deflate or when it
+ * starts with the gzip magic bytes. Returns { text, encoding } or null when it is too large.
+ */
+export async function readBody(request, max = MAX_BODY) {
+  if (!request.body) return { text: '', encoding: null };
+  const raw = await readCapped(request.body, max);
+  if (!raw) return null;
+  const header = (request.headers.get('content-encoding') || '').trim().toLowerCase();
+  let encoding = ['gzip', 'x-gzip', 'deflate'].includes(header) ? header.replace('x-', '') : null;
+  if (!encoding && raw[0] === 0x1f && raw[1] === 0x8b) encoding = 'gzip';
+  if (!encoding) return { text: new TextDecoder().decode(raw), encoding: header || null };
+  try {
+    const inflated = new Blob([raw]).stream().pipeThrough(new DecompressionStream(encoding));
+    const bytes = await readCapped(inflated, max);
+    if (!bytes) return null;
+    return { text: new TextDecoder().decode(bytes), encoding };
+  } catch {
+    return { text: new TextDecoder().decode(raw), encoding: `${encoding} (failed)` };
+  }
+}
+
 /** Is this a knock on the door, i.e. a path we log even when we answer 404? */
 export function isAgentPath(pathname) {
   return pathname.startsWith('/.well-known/') || pathname === '/llms.txt';
 }
 
 /** Row for the agent_messages table from a raw POST body (any shape is logged). */
-export function messageRecord(hit, text, now = new Date()) {
+export function messageRecord(hit, text, now = new Date(), via = {}) {
   let rpc = null;
   try {
     rpc = JSON.parse(text);
@@ -64,6 +124,8 @@ export function messageRecord(hit, text, now = new Date()) {
     text: clip(said || null),
     metadata: meta && typeof meta === 'object' ? clip(JSON.stringify(meta)) : null,
     body: clip(text, 16384),
+    content_type: clip(via.contentType ?? null, 256),
+    content_encoding: clip(via.encoding ?? null, 64),
   };
 }
 
