@@ -223,7 +223,7 @@ header .nav-links .nav-tool:hover {
   text-decoration: none;
 }
 
-@media (width >= 1120px) {
+@media (width >= 1200px) {
   header .nav-menu-button {
     display: none;
   }
