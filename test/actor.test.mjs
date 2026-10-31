@@ -50,6 +50,16 @@ test('branded browsers and missing signals stay human', () => {
   assert.equal(classify().actor, 'human');
 });
 
+test('Claude Duet names itself in an otherwise ordinary Chrome user agent', () => {
+  const r = classify({
+    user_agent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; compatible; Claude-Agent/1.0) Chrome/156.0.0.0 Safari/537.36',
+    sec_ch_ua: GOOGLE_CHROME,
+  });
+  assert.deepEqual(r, {
+    actor: 'agent-hosted', assistant: 'anthropic-claude', confidence: 'declared', evidence: ['ua:Claude-Agent'],
+  });
+});
+
 test('local agents are only reported when declared', () => {
   const r = classify({
     user_agent: MAC, sec_ch_ua: GOOGLE_CHROME, declared_actor: 'agent-local', declared_assistant: 'anthropic-claude',
