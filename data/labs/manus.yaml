@@ -1,0 +1,43 @@
+id: manus
+name: Manus
+company: Manus AI
+documented_utm: null
+docs_url: null
+contact: null
+what_works: >
+  Manus's cloud browser names itself with `Manus-User/1.0` and signs its page loads with Web Bot Auth, so a site
+  can verify a visit against the key Manus publishes. It runs the page's JavaScript, so analytics tags count it,
+  and its analytics beacons carry the name but no signature.
+what_works_date: 2026-10-31
+seo_summary: "Manus's cloud browser names itself (Manus-User/1.0) and signs page loads with Web Bot Auth, so sites can verify it."
+assistant_note: We haven't tested the links in Manus's answers yet. This page covers its cloud browser.
+surfaces: []
+work_items: []
+# Personal agent: browses for one person in its own cloud browser (see /detect-personal-agent-traffic).
+agent:
+  id: manus-cloud-browser
+  name: Manus cloud browser
+  launched: March 2025
+  source_url: https://manus.im
+  summary: >
+    Manus works through a task for one person on its own cloud computer, with a browser it uses to read and act on
+    websites. Browser Operator, which drives the person's own browser instead, is a different path and looks like
+    the person.
+  recognize: >
+    The user agent is a normal Chrome one with `; Manus-User/1.0` added. Page loads also carry a Web Bot Auth
+    signature with `Signature-Agent: "https://api.manus.im"`. Verify it against the key directory at
+    `api.manus.im/.well-known/http-message-signatures-directory` to prove the visit is Manus.
+  signals:
+    names:
+      status: works
+      date: 2026-10-31
+      method: manual
+      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) … Chrome/156.0.0.0 Safari/537.36; Manus-User/1.0`, from Google Cloud's network. Also on its analytics beacons. One run."
+    signs:
+      status: works
+      date: 2026-10-31
+      method: manual
+      notes: "The page load and the agent card fetch carried `Signature-Agent: \"https://api.manus.im\"` with an Ed25519 signature over `@authority` and `signature-agent`. Its key id matches the one key in the published directory. Analytics beacons were unsigned. One run."
+      source_url: https://api.manus.im/.well-known/http-message-signatures-directory
+    tags:
+      status: untested

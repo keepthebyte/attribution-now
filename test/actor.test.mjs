@@ -69,6 +69,16 @@ test('Google-Agent names itself in a Chrome user agent without client hints', ()
   });
 });
 
+test('Manus names itself and signs its page loads', () => {
+  const ua = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36; Manus-User/1.0';
+  assert.deepEqual(classify({ user_agent: ua }), {
+    actor: 'agent-hosted', assistant: 'manus', confidence: 'declared', evidence: ['ua:Manus-User'],
+  });
+  const signed = classify({ user_agent: ua, signature_agent: '"https://api.manus.im"', signed: 1 });
+  assert.equal(signed.assistant, 'manus');
+  assert.equal(signed.confidence, 'signed');
+});
+
 test('local agents are only reported when declared', () => {
   const r = classify({
     user_agent: MAC, sec_ch_ua: GOOGLE_CHROME, declared_actor: 'agent-local', declared_assistant: 'anthropic-claude',
