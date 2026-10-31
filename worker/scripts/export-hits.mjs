@@ -7,12 +7,16 @@
 //
 // Uses wrangler with the worker's wrangler.toml, so run `npx wrangler login` once first.
 // The CSV splits unique test paths (/t/<test>/<lab>/<surface>/<location>) into columns
-// to make converting rows into data/results/ entries straightforward.
+// to make converting rows into data/results/ entries straightforward, and adds who drove each
+// request (lib/actor.mjs: human, fetcher, crawler or agent).
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
+// runs from the root package (npm run export-hits), so lib/ is in reach
+// eslint-disable-next-line import/no-relative-packages
+import { classify } from '../../lib/actor.mjs';
 
 const workerDir = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({
@@ -49,7 +53,7 @@ const all = JSON.parse(output).flatMap((r) => r.results || []);
 const rows = all.filter((r) => !isIgnored(r.ts));
 if (rows.length < all.length) console.error(`Ignored ${all.length - rows.length} hits in windows from ignored-hits.json`);
 
-const columns = ['ts', 'hit', 'test', 'lab', 'surface', 'location', 'utm_source', 'referer', 'document_referrer',
+const columns = ['ts', 'hit', 'test', 'lab', 'surface', 'location', 'utm_source', 'actor', 'actor_assistant', 'actor_confidence', 'referer', 'document_referrer',
   'query', 'client_search', 'client_hash', 'sec_fetch_site', 'sec_fetch_dest', 'sec_fetch_mode', 'sec_purpose',
   'country', 'method', 'path', 'user_agent', 'asn', 'as_org', 'accept_language', 'sec_ch_ua',
   'sec_ch_ua_platform', 'signature_agent', 'signed', 'agent_hint', 'client'];
@@ -60,8 +64,17 @@ const csvCell = (v) => {
 const lines = rows.map((r) => {
   const [, , test = '', lab = '', surface = '', location = ''] = r.path.split('/');
   const utm = new URLSearchParams(r.query || r.client_search || '').get('utm_source');
+  const who = classify(r);
   const row = {
-    ...r, test, lab, surface, location, utm_source: utm,
+    ...r,
+    test,
+    lab,
+    surface,
+    location,
+    utm_source: utm,
+    actor: who.actor,
+    actor_assistant: who.assistant,
+    actor_confidence: who.confidence,
   };
   return columns.map((c) => csvCell(row[c])).join(',');
 });
