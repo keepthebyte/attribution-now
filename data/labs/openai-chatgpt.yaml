@@ -86,3 +86,29 @@ work_items:
     suggested_fix: >
       Add a dated "Link attribution" section to the publisher FAQ or release notes, and note there whenever
       the referrer or UTM behavior changes.
+# Personal agent: browses for one person in its own cloud browser (see /detect-personal-agent-traffic).
+agent:
+  id: chatgpt-dots
+  name: ChatGPT Dots
+  launched: September 29, 2026
+  source_url: https://techradar.com/pro/openai-launches-dots-its-always-on-ai-agents-that-are-always-watching
+  summary: >
+    Dots are always-on agents inside ChatGPT. Each Dot has its own cloud computer and browser and keeps working
+    toward a goal between conversations.
+  recognize: >
+    Reported: requests carry a Web Bot Auth signature with `Signature-Agent: "https://chatgpt.com"`, verifiable
+    against the key directory at `chatgpt.com/.well-known/http-message-signatures-directory`. The user agent is a
+    normal Chrome one.
+  signals:
+    names:
+      status: reported
+      finding: missing
+      notes: Reported to send a normal Chrome user agent.
+      source_url: https://www.centinelanalytica.com/blog/ai-browser-agents
+    signs:
+      status: reported
+      finding: works
+      notes: Reported to sign requests from OpenAI's cloud browser with Web Bot Auth.
+      source_url: https://www.centinelanalytica.com/blog/ai-browser-agents
+    tags:
+      status: untested

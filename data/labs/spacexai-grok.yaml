@@ -1,0 +1,32 @@
+id: spacexai-grok
+name: Grok
+company: SpaceXAI
+documented_utm: null
+docs_url: null
+contact: null
+what_works: >
+  Grok Bot hands CAPTCHAs and human confirmation steps back to the person instead of bypassing them, according to its
+  documentation.
+what_works_date: 2026-10-31
+seo_summary: "Grok Bot browses from a persistent cloud computer, with no documented user agent or signature."
+assistant_note: We don't test Grok's links yet. This page tracks its personal agent.
+surfaces: []
+work_items: []
+# Personal agent: browses for one person in its own cloud browser (see /detect-personal-agent-traffic).
+agent:
+  id: grok-bot
+  name: Grok Bot
+  launched: August 2026, beta
+  source_url: https://docs.x.ai/grok-bot/overview
+  summary: >
+    Each Bot works on a persistent cloud computer with a browser, a filesystem and a terminal.
+  recognize: >
+    Not documented. When a site blocks cloud computers, the person can route the Bot's traffic through their own
+    computer, and those visits look like the person.
+  signals:
+    names:
+      status: untested
+    signs:
+      status: untested
+    tags:
+      status: untested
