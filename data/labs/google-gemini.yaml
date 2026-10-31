@@ -74,3 +74,30 @@ work_items:
     suggested_fix: >
       Use the same link component as chat answers: `rel="noopener"` without `noreferrer`, with a
       `strict-origin-when-cross-origin` referrer policy.
+# Personal agent: browses for one person in its own cloud browser (see /detect-personal-agent-traffic).
+agent:
+  id: google-agent
+  name: Google-Agent (Gemini Agent)
+  launched: May 2026, when Gemini Agent took over from Project Mariner
+  source_url: https://developers.google.com/crawling/docs/crawlers-fetchers/google-user-triggered-fetchers#google-agent
+  summary: >
+    Gemini Agent browses and acts for one person in a remote browser on Google's infrastructure, after the person
+    allows it. Google calls this user agent Google-Agent.
+  recognize: >
+    The user agent is a Linux or Android Chrome one with `compatible; Google-Agent` and a link to Google's docs
+    added. It comes from the IP ranges Google publishes in `user-triggered-agents.json`, which lets you check the
+    name. In our run it ran the page's JavaScript, so analytics tags see it.
+  signals:
+    names:
+      status: works
+      date: 2026-10-31
+      method: manual
+      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) … (KHTML, like Gecko; compatible; Google-Agent; +https://developers.google.com/crawling/docs/crawlers-fetchers/google-agent) Chrome/156.0.8078.47 …`, from Google's network (AS396178). No `Sec-CH-UA` brands. One run."
+    signs:
+      status: missing
+      date: 2026-10-31
+      method: manual
+      notes: No `Signature-Agent` or `Signature` header in our run. Google says it is experimenting with Web Bot Auth under the `https://agent.bot.goog` identity.
+      source_url: https://developers.google.com/crawling/docs/crawlers-fetchers/google-user-triggered-fetchers#google-agent
+    tags:
+      status: untested

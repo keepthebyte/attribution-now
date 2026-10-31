@@ -60,6 +60,15 @@ test('Claude Duet names itself in an otherwise ordinary Chrome user agent', () =
   });
 });
 
+test('Google-Agent names itself in a Chrome user agent without client hints', () => {
+  const r = classify({
+    user_agent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; compatible; Google-Agent; +https://developers.google.com/crawling/docs/crawlers-fetchers/google-agent) Chrome/156.0.8078.47 Safari/537.36',
+  });
+  assert.deepEqual(r, {
+    actor: 'agent-hosted', assistant: 'google-gemini', confidence: 'declared', evidence: ['ua:Google-Agent'],
+  });
+});
+
 test('local agents are only reported when declared', () => {
   const r = classify({
     user_agent: MAC, sec_ch_ua: GOOGLE_CHROME, declared_actor: 'agent-local', declared_assistant: 'anthropic-claude',
