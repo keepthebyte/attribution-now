@@ -67,8 +67,10 @@ function navGroup(item, sub, index) {
   button.className = 'nav-group-button';
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-controls', menu.id);
-  button.textContent = [...item.childNodes]
-    .filter((n) => n.nodeType === Node.TEXT_NODE).map((n) => n.textContent).join('').trim();
+  // the label is the item's text without its list; the pipeline may wrap it in a <p>
+  const label = item.cloneNode(true);
+  label.querySelector('ul')?.remove();
+  button.textContent = label.textContent.trim();
   if (menu.querySelector('[aria-current]')) button.classList.add('nav-group-current');
   button.addEventListener('click', () => toggleGroup(li));
   li.append(button, menu);
