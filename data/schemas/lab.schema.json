@@ -8,7 +8,24 @@
     "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
     "date": { "type": "string", "format": "date" },
     "nullableString": { "type": ["string", "null"] },
-    "nullableUri": { "type": ["string", "null"], "format": "uri" }
+    "nullableUri": { "type": ["string", "null"], "format": "uri" },
+    "agentSignal": {
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "enum": ["works", "missing", "reported", "untested"] },
+        "finding": { "enum": ["works", "missing"], "description": "What a third party reports, when status is reported." },
+        "date": { "$ref": "#/$defs/date" },
+        "method": { "enum": ["manual", "automated"] },
+        "notes": { "type": "string" },
+        "source_url": { "$ref": "#/$defs/nullableUri" }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "const": "reported" } } }, "then": { "required": ["finding", "source_url"] } },
+        { "if": { "properties": { "status": { "enum": ["works", "missing"] } } }, "then": { "required": ["date", "method"] } }
+      ]
+    }
   },
   "properties": {
     "id": { "$ref": "#/$defs/slug" },
@@ -23,9 +40,10 @@
     "what_works_date": { "$ref": "#/$defs/date" },
     "evidence_widget": { "type": "string", "pattern": "^/widgets/[a-z0-9-]+/[a-z0-9-]+\\.html$", "description": "Optional chart shown on the lab page under What works today." },
     "seo_summary": { "type": "string", "minLength": 1, "maxLength": 125, "description": "The key finding in one sentence, for the meta description (after \"For <company> teams and analysts: \")." },
+    "assistant_note": { "type": "string", "description": "Shown in place of the link status when a lab has no tested surfaces." },
     "surfaces": {
       "type": "array",
-      "minItems": 1,
+      "description": "Assistant surfaces whose links we test. Empty for labs we track only for their personal agent.",
       "items": {
         "type": "object",
         "required": ["id", "name", "platform", "link_locations"],
@@ -36,6 +54,30 @@
           "platform": { "enum": ["web", "native"] },
           "observed_utm": { "$ref": "#/$defs/nullableString" },
           "link_locations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/slug" } }
+        }
+      }
+    },
+    "agent": {
+      "type": "object",
+      "description": "The lab's personal agent: browses the web for one person in its own cloud browser.",
+      "required": ["id", "name", "launched", "summary", "recognize", "signals"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "name": { "type": "string" },
+        "launched": { "type": "string", "description": "Launch date or month and the stage, e.g. \"October 21, 2026, research preview\"." },
+        "summary": { "type": "string", "minLength": 1 },
+        "recognize": { "type": "string", "minLength": 1, "description": "How a site can recognize a visit today." },
+        "source_url": { "$ref": "#/$defs/nullableUri" },
+        "signals": {
+          "type": "object",
+          "required": ["names", "signs", "tags"],
+          "additionalProperties": false,
+          "properties": {
+            "names": { "$ref": "#/$defs/agentSignal" },
+            "signs": { "$ref": "#/$defs/agentSignal" },
+            "tags": { "$ref": "#/$defs/agentSignal" }
+          }
         }
       }
     },

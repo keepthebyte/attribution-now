@@ -165,6 +165,49 @@ function workItemBlock(lab, item) {
   return block('work-item', rows);
 }
 
+// Personal agents: what a site can see when the lab's agent browses it
+const AGENT_GUIDE = '/detect-personal-agent-traffic';
+const AGENT_SIGNALS = [
+  { id: 'names', name: 'Names itself', explainer: 'A name in the user agent. Easy to read, but anyone can copy it.' },
+  { id: 'signs', name: 'Signs its requests', explainer: 'A Web Bot Auth signature a site can verify.' },
+  { id: 'tags', name: 'Tags its visits', explainer: 'A `utm_source` on the first page, so the visit has a source.' },
+];
+
+function agentSignalCell(lab, sig) {
+  let label = STATUS_LABEL[sig.status];
+  if (sig.status === 'reported') label = `Reported: ${STATUS_LABEL[sig.finding].toLowerCase()}`;
+  const head = p(sig.date ? `${label} <em>(${sig.date})</em>` : label);
+  if (sig.status === 'untested') return head;
+  const parts = [sig.date, METHOD_LABEL[sig.method || 'reported']].filter(Boolean);
+  const extra = [
+    sig.notes ? md(sig.notes) : '',
+    sig.source_url ? a(sig.source_url, 'Source') : '',
+    a(`${repoUrl}/blob/main/${lab.file}`, 'Data'),
+  ].filter(Boolean);
+  const line = [STATUS_LABEL[sig.status], ...parts].join(' · ');
+  return `${head}<ul><li><strong>${esc(lab.agent.name)}</strong>: ${line}. ${extra.join(' ')}</li></ul>`;
+}
+
+function agentSection(lab) {
+  const { agent } = lab;
+  return section(
+    `<h2>Personal agent: ${esc(agent.name)}</h2>`,
+    p(`${md(agent.summary)} Launched ${esc(agent.launched)}${agent.source_url ? ` (${a(agent.source_url, 'source')})` : ''}.`),
+    p('It browses your site in a browser of its own, so its visits run your pages and your analytics tag like a person\'s. '
+      + `See ${a(AGENT_GUIDE, 'Detect personal agent traffic')} for how to label and report them.`),
+    block('status-table lab', [
+      row('Signal', esc(agent.name)),
+      // no <strong> in the first cell: status-table turns it into a row id
+      ...AGENT_SIGNALS.map((s) => row(
+        p(s.name) + p(md(s.explainer)),
+        agentSignalCell(lab, agent.signals[s.id]),
+      )),
+    ]),
+    '<h3>How to recognize it today</h3>',
+    p(md(agent.recognize)),
+  );
+}
+
 const CHANGE_TYPES = { shipped: 'Fix shipped', change: 'Change', site: 'Site update' };
 
 function changelogBlock(entries) {
@@ -183,8 +226,11 @@ function changelogBlock(entries) {
   }));
 }
 
+// labs tracked only for their personal agent have no link status: keep them off tiles and scorecard
+const linkLabs = () => data.labs.filter((lab) => lab.surfaces.length);
+
 function labTilesBlock() {
-  return block('lab-tiles', data.labs.map((lab) => {
+  return block('lab-tiles', linkLabs().map((lab) => {
     const open = lab.work_items.filter((w) => ['open', 'in-progress'].includes(w.status)).length;
     const { lastChecked } = labDates(data.results, lab.id);
     return row(
@@ -217,7 +263,7 @@ function groupStatus(cells) {
 function scorecard() {
   const tests = Object.fromEntries(data.tests.map((t) => [t.id, t]));
   const both = [];
-  const rows = data.labs.map((lab) => {
+  const rows = linkLabs().map((lab) => {
     const cells = SCORECARD_GROUPS.map((g) => {
       const surfaces = lab.surfaces.filter((s) => g.surfaces.includes(s.id));
       if (!surfaces.length) return p('n/a');
@@ -316,17 +362,11 @@ function labPage(lab) {
   const shipped = lab.work_items.filter((w) => w.status === 'shipped');
   const thanks = data.changelog.filter((e) => e.lab === lab.id && e.type === 'shipped');
   const reviewUrl = `${repoUrl}/issues/new?template=lab-review.yml&labels=lab-review&title=${encodeURIComponent(`Review request: ${lab.name}`)}`;
-  const sections = [
+  const hasLinks = lab.surfaces.length > 0;
+  const utmLine = hasLinks ? ` ${lab.documented_utm ? `Documented UTM: <code>utm_source=${esc(lab.documented_utm)}</code>${lab.docs_url ? ` (${a(lab.docs_url, 'docs')})` : ''}.` : 'No UTM value documented yet.'}` : '';
+  const linkSections = hasLinks ? [
     section(
-      `<h1>${esc(lab.name)}</h1>`,
-      p(`By ${esc(lab.company)}. ${lab.documented_utm ? `Documented UTM: <code>utm_source=${esc(lab.documented_utm)}</code>${lab.docs_url ? ` (${a(lab.docs_url, 'docs')})` : ''}.` : 'No UTM value documented yet.'}`),
-      '<h2>What works today</h2>',
-      p(md(lab.what_works)),
-      lab.evidence_widget ? p(a(lab.evidence_widget, lab.evidence_widget)) : '',
-      p(`<em>As of ${lab.what_works_date}.</em>`),
-    ),
-    section(
-      '<h2>Status</h2>',
+      `<h2>${lab.agent ? 'AI assistant: link status' : 'Status'}</h2>`,
       p('Rows are tests, columns are surfaces. Select a cell to see each link location, the date, the method and the evidence. <strong>Reported</strong> means a third-party report we have not yet verified first-hand. '
         + `See ${a('/tests', 'how we test')}.`),
       ...statusTables(lab),
@@ -338,7 +378,19 @@ function labPage(lab) {
         : p('No open improvements. Thank you.'),
       ...open.map((item) => workItemBlock(lab, item)),
     ),
+  ] : [section('<h2>AI assistant links</h2>', p(esc(lab.assistant_note || `We don't test ${lab.name}'s links yet.`)))];
+  const sections = [
     section(
+      `<h1>${esc(lab.name)}</h1>`,
+      p(`By ${esc(lab.company)}.${utmLine}`),
+      '<h2>What works today</h2>',
+      p(md(lab.what_works)),
+      lab.evidence_widget ? p(a(lab.evidence_widget, lab.evidence_widget)) : '',
+      p(`<em>As of ${lab.what_works_date}.</em>`),
+    ),
+    ...linkSections,
+    ...(lab.agent ? [agentSection(lab)] : []),
+    ...(hasLinks ? [section(
       '<h2>Shipped</h2>',
       shipped.length || thanks.length
         ? `<ul>${[
@@ -347,13 +399,15 @@ function labPage(lab) {
         ].join('')}</ul>`
         : p('Nothing recorded yet.'),
       p(`Full history on the ${a('/changelog', 'changelog')}.`),
-    ),
+    )] : []),
     section(
       p(`<strong>Last verified:</strong> ${lastVerified || 'not yet verified first-hand'}${lastChecked ? `. Last checked: ${lastChecked}` : ''}.`),
       p(`Work on ${esc(lab.name)} and see something out of date? ${a(reviewUrl, 'Request a review')} and we will update the entry.`),
     ),
   ];
-  const title = `${lab.name} link attribution: referrer and UTM status`;
+  const title = hasLinks
+    ? `${lab.name} link attribution: referrer and UTM status`
+    : `${lab.agent.name}: how the personal agent shows up on websites`;
   const description = `For ${lab.company} teams and analysts: ${lab.seo_summary}`;
   return page({
     title,
@@ -413,11 +467,14 @@ function nav() {
 ${section(p(a('/', 'attribution.now')))}
 ${section(`<ul>${[
     ['/why', 'Why'], ['/best-practices', 'Best practices'],
-    ...data.labs.map((l) => [`/labs/${l.id}`, esc(l.name)]),
+    // a nested list becomes a drop-down in the header block
+    ['Results by lab', [...data.labs].sort((x, y) => x.name.localeCompare(y.name)).map((l) => [`/labs/${l.id}`, esc(l.name)])],
     ['/tests', 'Tests'], ['/changelog', 'Changelog'],
     // visible hint for browsing agents (Muse, Grok Bot); the card is served by the worker
     ['/.well-known/agent-card.json', 'Agent (Agent Card)'],
-  ].map(([href, text]) => `<li>${a(href, text)}</li>`).join('')}</ul>`)}
+  ].map(([href, text]) => (Array.isArray(text)
+    ? `<li>${esc(href)}<ul>${text.map(([h, t]) => `<li>${a(h, t)}</li>`).join('')}</ul></li>`
+    : `<li>${a(href, text)}</li>`)).join('')}</ul>`)}
 ${section(p(a('/t/check', 'Check a link')))}
 </main></body></html>
 `;

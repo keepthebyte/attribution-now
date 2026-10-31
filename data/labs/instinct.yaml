@@ -1,0 +1,34 @@
+id: instinct
+name: Instinct
+company: Spear Street Technology
+documented_utm: null
+docs_url: null
+contact: null
+what_works: >
+  Nothing verified yet. Instinct is invite only, and we haven't run a test.
+what_works_date: 2026-10-31
+seo_summary: "Instinct is a personal agent you text; it browses in a cloud browser and reportedly doesn't name itself."
+assistant_note: Instinct has no chat assistant whose links we test. People reach the agent by text message.
+surfaces: []
+work_items: []
+# Personal agent: browses for one person in its own cloud browser (see /detect-personal-agent-traffic).
+agent:
+  id: instinct
+  name: Instinct
+  launched: Invite only
+  source_url: https://builtin.com/articles/instinct-ai
+  summary: >
+    A personal agent people reach by text message or phone call. It runs on its own cloud computer with a browser
+    and keeps working between messages.
+  recognize: >
+    Not documented. Reports say it browses in a leased cloud browser and doesn't name itself to websites.
+  signals:
+    names:
+      status: reported
+      finding: missing
+      notes: Reported not to identify itself by name when browsing.
+      source_url: https://www.tryprofound.com/blog/the-era-of-personal-agents-muse-and-instinct
+    signs:
+      status: untested
+    tags:
+      status: untested

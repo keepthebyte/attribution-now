@@ -1,0 +1,40 @@
+id: meta-ai
+name: Meta AI
+company: Meta
+documented_utm: null
+docs_url: null
+contact: null
+what_works: >
+  Muse reads an A2A agent card when it finds one. When it found ours, it messaged us and introduced itself as an
+  AI browser agent acting for a researcher.
+what_works_date: 2026-10-30
+seo_summary: "Meta's personal agent Muse browses like a person, without naming itself or signing its requests."
+assistant_note: We don't test Meta AI's links yet. This page tracks its personal agent.
+surfaces: []
+work_items: []
+# Personal agent: browses for one person in its own cloud browser (see /detect-personal-agent-traffic).
+agent:
+  id: meta-muse
+  name: Meta Muse
+  launched: September 8, 2026
+  source_url: https://axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent
+  summary: >
+    Muse runs errands for one person: it books travel, fills forms and checks out, in a dedicated cloud machine
+    with its own browser.
+  recognize: >
+    Only by inference. Muse claims Linux x86_64 and sends only the "Chromium" brand in `Sec-CH-UA`, where Chrome
+    also sends "Google Chrome". It comes from Cloudflare's network and renders with a software GPU on an ARM
+    processor.
+  signals:
+    names:
+      status: missing
+      date: 2026-10-30
+      method: manual
+      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36`, no name. 13 runs from October 29 to 30."
+    signs:
+      status: missing
+      date: 2026-10-30
+      method: manual
+      notes: No `Signature-Agent` or `Signature` header in 13 runs.
+    tags:
+      status: untested
