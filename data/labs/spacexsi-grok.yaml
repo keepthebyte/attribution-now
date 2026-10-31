@@ -1,5 +1,4 @@
-# id keeps the earlier name SpaceXAI so /labs/spacexai-grok stays stable
-id: spacexai-grok
+id: spacexsi-grok
 name: Grok
 company: SpaceXSI
 documented_utm: null
