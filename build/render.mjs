@@ -356,6 +356,25 @@ function renderMarkdown(file) {
   return page(meta, html);
 }
 
+// Lab pages grow with each part (links, agent); a pill row of in-page links sits under the intro.
+const TOC_SLOT = '<!-- toc -->';
+const TOC_LABELS = [
+  [/^What works today$/, 'What works'],
+  [/^(AI assistant: link status|Status)$/, 'Link status'],
+  [/^AI assistant links$/, 'Assistant links'],
+  [/^Personal agent: (.+)$/, '$1'],
+];
+
+/** A toc block linking every h2 in the sections, with short labels. */
+function tocBlock(sections) {
+  const headings = [...sections.join('').matchAll(/<h2>([^<]+)<\/h2>/g)].map((m) => m[1]);
+  const items = headings.map((h) => {
+    const [re, label] = TOC_LABELS.find(([pattern]) => pattern.test(h)) || [/^.*$/, h];
+    return `<li>${a(`#${slug(h)}`, h.replace(re, label))}</li>`;
+  });
+  return block('toc', [row(`<ul>${items.join('')}</ul>`)]);
+}
+
 function labPage(lab) {
   const { lastChecked, lastVerified } = labDates(data.results, lab.id);
   const open = lab.work_items.filter((w) => ['open', 'in-progress'].includes(w.status));
@@ -383,6 +402,7 @@ function labPage(lab) {
     section(
       `<h1>${esc(lab.name)}</h1>`,
       p(`By ${esc(lab.company)}.${utmLine}`),
+      TOC_SLOT,
       '<h2>What works today</h2>',
       p(md(lab.what_works)),
       lab.evidence_widget ? p(a(lab.evidence_widget, lab.evidence_widget)) : '',
@@ -405,6 +425,7 @@ function labPage(lab) {
       p(`Work on ${esc(lab.name)} and see something out of date? ${a(reviewUrl, 'Request a review')} and we will update the entry.`),
     ),
   ];
+  sections[0] = sections[0].replace(TOC_SLOT, tocBlock(sections));
   const title = hasLinks
     ? `${lab.name} link attribution: referrer and UTM status`
     : `${lab.agent.name}: how the personal agent shows up on websites`;
