@@ -8,7 +8,7 @@ what_works: >
   Grok Bot hands CAPTCHAs and human confirmation steps back to the person instead of bypassing them, according to its
   documentation.
 what_works_date: 2026-10-31
-seo_summary: "Grok Bot browses from a persistent cloud computer, with no documented user agent or signature."
+seo_summary: "Grok Bot browses from a persistent cloud computer that looks like ordinary Chrome on Linux: no agent name and no signature."
 assistant_note: We don't test Grok's links yet. This page tracks its personal agent.
 surfaces: []
 work_items: []
@@ -21,12 +21,21 @@ agent:
   summary: >
     Each Bot works on a persistent cloud computer with a browser, a filesystem and a terminal.
   recognize: >
-    Not documented. When a site blocks cloud computers, the person can route the Bot's traffic through their own
-    computer, and those visits look like the person.
+    Not documented, and in our run there was nothing to go on: the browser sent a plain Chrome on Linux user agent
+    with normal client hints, from Cloudflare's network. It ran the page's JavaScript, so analytics tags count it as
+    a desktop visitor. It read a JSON link through Exa's fetcher instead of its browser; those requests name and
+    sign themselves as `ExaUser`. When a site blocks cloud computers, the person can route the Bot's traffic through
+    their own computer, and those visits look like the person.
   signals:
     names:
-      status: untested
+      status: missing
+      date: 2026-10-31
+      method: manual
+      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) … Chrome/156.0.0.0 Safari/537.36` with Google Chrome `Sec-CH-UA` brands, from Cloudflare (AS13335). No agent token. One run."
     signs:
-      status: untested
+      status: missing
+      date: 2026-10-31
+      method: manual
+      notes: No `Signature-Agent` or `Signature` header on the browser's requests. The agent card it read came through Exa (`ExaUser/1.0`), signed with Web Bot Auth as `https://exauser.crawler.exa.ai`.
     tags:
       status: untested
