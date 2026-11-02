@@ -92,3 +92,10 @@ test('other bots are crawlers without an assistant', () => {
   const r = classify({ user_agent: 'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)' });
   assert.deepEqual([r.actor, r.assistant], ['crawler', null]);
 });
+
+test('link previews are fetchers, not people', () => {
+  assert.deepEqual(classify({ user_agent: 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)' }), {
+    actor: 'fetcher', assistant: null, confidence: 'declared', evidence: ['ua:facebookexternalhit'],
+  });
+  assert.equal(classify({ user_agent: 'WhatsApp/2.23.20.0' }).actor, 'fetcher');
+});
