@@ -9,8 +9,31 @@ what_works: >
   AI browser agent acting for a researcher.
 what_works_date: 2026-10-30
 seo_summary: "Meta's personal agent Muse browses like a person, without naming itself or signing its requests."
-assistant_note: We don't test Meta AI's links yet. This page tracks its personal agent.
-surfaces: []
+assistant_note: >
+  We're testing the links Muse shows in chat, on muse.ai, in its apps and in WhatsApp. No results yet.
+# Muse chat: muse.ai, the mobile and Mac apps, and WhatsApp. link_locations are candidates until a verified run.
+# AEM Operational Telemetry already shows a few visits with the `https://muse.ai/` referrer (Sep–Oct 2026).
+surfaces:
+  - id: web
+    name: muse.ai web
+    platform: web
+    link_locations: [inline-citation, sources-panel, bare-url, pasted-link]
+  - id: ios
+    name: iOS app
+    platform: native
+    link_locations: [inline-citation, sources-panel, bare-url, pasted-link]
+  - id: android
+    name: Android app
+    platform: native
+    link_locations: [inline-citation, sources-panel, bare-url, pasted-link]
+  - id: macos
+    name: macOS app
+    platform: native
+    link_locations: [inline-citation, sources-panel, bare-url, pasted-link]
+  - id: whatsapp
+    name: Muse in WhatsApp
+    platform: native
+    link_locations: [bare-url, pasted-link]
 work_items: []
 # Personal agent: browses for one person in its own cloud browser (see /detect-personal-agent-traffic).
 agent:
