@@ -51,3 +51,11 @@ Use `/t/<test>/<lab>/<surface>/<location>`; the worker serves the `/t/<test>` pa
 - **macOS app** (`macos`): `inline-citation`, `sources-panel`, `search-cards`, `deep-research`, `canvas`, `bare-url`, `pasted-link`
 - **Windows app** (`windows`): `inline-citation`, `sources-panel`, `search-cards`, `deep-research`, `canvas`, `bare-url`, `pasted-link`
 
+
+### Meta AI (Muse)
+
+- **muse.ai web** (`web`): `inline-citation`, `sources-panel`, `bare-url`, `pasted-link`
+- **iOS app** (`ios`): `inline-citation`, `sources-panel`, `bare-url`, `pasted-link`
+- **Android app** (`android`): `inline-citation`, `sources-panel`, `bare-url`, `pasted-link`
+- **macOS app** (`macos`): `inline-citation`, `sources-panel`, `bare-url`, `pasted-link`
+- **Muse in WhatsApp** (`whatsapp`): `bare-url`, `pasted-link`
