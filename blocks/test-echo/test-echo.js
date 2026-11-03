@@ -61,6 +61,10 @@ export default async function decorate(block) {
     ['Query string', window.location.search],
     ['Fragment', window.location.hash],
     ['Sec-Fetch-Site', server?.sec_fetch_site],
+    // Web Bot Auth: page JS can't read request headers, so the worker echoes them
+    ['Signature-Agent', server?.signature_agent],
+    ['Signature-Input', server?.signature_input],
+    ['Signature', server?.signature],
     ['User agent', navigator.userAgent],
   ];
 

@@ -61,13 +61,20 @@ export function beaconRecord(body, now = new Date()) {
   };
 }
 
-/** JSON for <script type="application/json" id="server-echo">, safe inside HTML. */
-export function echoJson(record) {
+/**
+ * JSON for <script type="application/json" id="server-echo">, safe inside HTML.
+ * The Web Bot Auth headers are echoed back to the requester only (the page is no-store).
+ * The raw `Signature` is not stored in the hits table, so it comes from the request.
+ */
+export function echoJson(record, request = null) {
   return JSON.stringify({
     hit: record.hit,
     referer: record.referer,
     sec_fetch_site: record.sec_fetch_site,
     path: record.path,
+    signature_agent: record.signature_agent ?? null,
+    signature_input: record.signature_input ?? null,
+    signature: clip(request?.headers.get('signature') ?? null),
   }).replace(/</g, '\\u003c');
 }
 

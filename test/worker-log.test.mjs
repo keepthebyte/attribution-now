@@ -72,6 +72,21 @@ test('echo JSON cannot close the script tag', () => {
   assert.ok(!echoJson({ hit: HIT, referer: '</script><b>', path: '/t/check' }).includes('<'));
 });
 
+test('echo JSON carries the Web Bot Auth headers', () => {
+  const request = new Request('https://attribution.now/t/check', {
+    headers: {
+      'signature-agent': '"https://agent.example"',
+      'signature-input': 'sig1=("@authority" "signature-agent");created=1;keyid="k";tag="web-bot-auth"',
+      signature: 'sig1=:YWJj:',
+    },
+  });
+  const echo = JSON.parse(echoJson(hitRecord(request, HIT), request));
+  assert.equal(echo.signature_agent, '"https://agent.example"');
+  assert.match(echo.signature_input, /tag="web-bot-auth"/);
+  assert.equal(echo.signature, 'sig1=:YWJj:');
+  assert.equal(JSON.parse(echoJson(hitRecord(new Request('https://attribution.now/t/check'), HIT))).signature, null);
+});
+
 test('insert builds a parameterized statement', () => {
   assert.deepEqual(insert('hits', { a: 1, b: null }), { sql: 'INSERT INTO hits (a, b) VALUES (?, ?)', values: [1, null] });
 });
