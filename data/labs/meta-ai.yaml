@@ -10,14 +10,17 @@ what_works: >
 what_works_date: 2026-10-30
 seo_summary: "Meta's personal agent Muse browses like a person, without naming itself or signing its requests."
 assistant_note: >
-  We're testing the links Muse shows in chat, on muse.ai, in its apps and in WhatsApp. No results yet.
-# Muse chat: muse.ai, the mobile and Mac apps, and WhatsApp. link_locations are candidates until a verified run.
+  On muse.ai, links in Muse's answers pass through Meta's link shim and arrive with the referrer
+  `https://l.meta.ai/`, not `https://muse.ai/`. In the Mac app they arrive with no referrer. Muse adds no UTM tag
+  anywhere we tested. Its apps on iOS, Android and WhatsApp are next.
+# Muse chat: muse.ai, the mobile and Mac apps, and WhatsApp. web confirmed 2026-11-02 (no sources panel; sources are
+# links in the answer text); the other surfaces' link_locations are candidates until a verified run.
 # AEM Operational Telemetry already shows a few visits with the `https://muse.ai/` referrer (Sep–Oct 2026).
 surfaces:
   - id: web
     name: muse.ai web
     platform: web
-    link_locations: [inline-citation, sources-panel, bare-url, pasted-link]
+    link_locations: [inline-citation, bare-url, pasted-link]
   - id: ios
     name: iOS app
     platform: native

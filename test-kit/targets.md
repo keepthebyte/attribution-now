@@ -54,7 +54,7 @@ Use `/t/<test>/<lab>/<surface>/<location>`; the worker serves the `/t/<test>` pa
 
 ### Meta AI (Muse)
 
-- **muse.ai web** (`web`): `inline-citation`, `sources-panel`, `bare-url`, `pasted-link`
+- **muse.ai web** (`web`): `inline-citation`, `bare-url`, `pasted-link`
 - **iOS app** (`ios`): `inline-citation`, `sources-panel`, `bare-url`, `pasted-link`
 - **Android app** (`android`): `inline-citation`, `sources-panel`, `bare-url`, `pasted-link`
 - **macOS app** (`macos`): `inline-citation`, `sources-panel`, `bare-url`, `pasted-link`

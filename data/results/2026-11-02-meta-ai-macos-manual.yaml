@@ -1,0 +1,97 @@
+# Muse 10.1 (com.meta.endo) macOS app, logged in, fresh side chat. Session 2026-11-03 06:18-06:20 UTC (Nov 2 local);
+# evidence is the worker's hit log. The tester typed the prompts and clicked; Claude Code read the log (no computer
+# use in this session). Every link opened in the default browser (Chrome 156, already running), not in an in-app
+# view. Every click arrived with Sec-Fetch-Site: none, no Referer header, an empty document.referrer and no utm_*
+# parameter, the same as a typed URL, so every visit lands in Direct. On muse.ai web the same links arrive with
+# Referer https://l.meta.ai/ (see 2026-11-02-meta-ai-web-manual.yaml). Not checked: whether the app opens the
+# l.meta.ai shim or the target URL directly. Muse adds no tag, so the merge targets arrived unchanged, fragment
+# included. Muse read the cited page as `meta-webindexer/1.1`; unlike on the web, no `EctoBot` preview fetch was
+# logged for the bare URL.
+date: 2026-11-02
+lab: meta-ai
+surface: macos
+method: manual
+tester: cedric (prompts and clicks by hand, log read by Claude Code)
+client: Muse 10.1 (macOS app) → Chrome 156 / macOS 27.2
+source_url: null
+results:
+  - location: inline-citation
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/meta-ai/macos/inline-citation
+      notes: Clicked the attribution.now link in the answer's sources; opened in Chrome with Sec-Fetch-Site none.
+  - location: inline-citation
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent, so nothing can leak.
+  - location: inline-citation
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/meta-ai/macos/inline-citation
+      notes: No utm_* parameter on the landing URL.
+  - location: bare-url
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/meta-ai/macos/bare-url
+      notes: Opened in Chrome with Sec-Fetch-Site none.
+  - location: bare-url
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent.
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/meta-ai/macos/bare-url
+      notes: No utm_* parameter.
+  - location: pasted-link
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/meta-ai/macos/pasted-link
+      notes: Clicked the link Muse echoed back; opened in Chrome with Sec-Fetch-Site none.
+  - location: pasted-link
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent.
+  - location: pasted-link
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on any echoed link.
+  - location: pasted-link
+    test: MRG-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-01/meta-ai/macos/pasted-link?a=1&b=2
+      notes: "?a=1&b=2 arrived intact (no tag is added)."
+  - location: pasted-link
+    test: MRG-02
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-02/meta-ai/macos/pasted-link#section-2
+      notes: "#section-2 reached the page (no tag is added)."
+  - location: pasted-link
+    test: MRG-03
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-03/meta-ai/macos/pasted-link?utm_source=newsletter&utm_medium=email
+      notes: utm_source=newsletter kept (no tag is added).
+  - location: pasted-link
+    test: MRG-04
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-04/meta-ai/macos/pasted-link?expires=2099-01-01&signature=abc123
+      notes: Signed URL arrived byte-identical.
