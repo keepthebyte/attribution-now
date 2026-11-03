@@ -10,8 +10,15 @@ what_works: >
   and its analytics beacons carry the name but no signature.
 what_works_date: 2026-10-31
 seo_summary: "Manus's cloud browser names itself (Manus-User/1.0) and signs page loads with Web Bot Auth, so sites can verify it."
-assistant_note: We haven't tested the links in Manus's answers yet. This page covers its cloud browser.
-surfaces: []
+assistant_note: >
+  Links in Manus's answers on manus.im open with no referrer and no UTM tag, so sites count those visits as
+  "Direct". Its cloud browser names itself and signs its requests.
+# Manus chat on manus.im. web confirmed 2026-11-02: sources show as a "Source:" link in the answer text.
+surfaces:
+  - id: web
+    name: manus.im web
+    platform: web
+    link_locations: [inline-citation, bare-url, pasted-link]
 work_items: []
 # Personal agent: browses for one person in its own cloud browser (see /detect-personal-agent-traffic).
 agent:
@@ -37,7 +44,8 @@ agent:
       status: works
       date: 2026-10-31
       method: manual
-      notes: "The page load and the agent card fetch carried `Signature-Agent: \"https://api.manus.im\"` with an Ed25519 signature over `@authority` and `signature-agent`. Its key id matches the one key in the published directory. Analytics beacons were unsigned. One run."
+      notes: "The page load and the agent card fetch carried `Signature-Agent: \"https://api.manus.im\"` with an Ed25519 signature over `@authority` and `signature-agent`. Its key id matches the one key in the published directory. Analytics beacons were unsigned. Second run 2026-11-02: the `/t/check` page showed the headers to the agent itself,
+        and the Ed25519 signature verified against the published key; valid for 120 seconds, with a nonce."
       source_url: https://api.manus.im/.well-known/http-message-signatures-directory
     tags:
       status: untested

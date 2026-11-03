@@ -1,0 +1,111 @@
+# manus.im in Chrome on macOS, logged in (Manus 2.0 Lite), one new task. Session 2026-11-03 06:48-06:51 UTC
+# (Nov 2 local); evidence is the worker's hit log. Answer links point straight at the target (no redirect wrapper)
+# with rel="noopener noreferrer" target="_blank" and a click handler; manus.im sets no referrer policy. Every click
+# arrived with Sec-Fetch-Site: cross-site but no Referer header, an empty document.referrer and no utm_* parameter,
+# so every visit lands in Direct. Manus adds no tag, so the merge targets arrived unchanged.
+# The cited source showed as a "Source:" link with a favicon below the answer text; there's no separate panel.
+# Before answering, Manus's cloud browser opened the cited page and /t/check itself (user agent `…; Manus-User/1.0`,
+# signed with Web Bot Auth as "https://api.manus.im"; the signature verified against the published key).
+date: 2026-11-02
+lab: manus
+surface: web
+method: manual
+tester: cedric (via Claude in Chrome)
+client: Chrome 156.0.8078.80 / macOS 27.2
+source_url: null
+results:
+  - location: inline-citation
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/manus/web/inline-citation
+      notes: "Clicked the \"Source: REF-01: Referrer present\" link below the answer."
+  - location: inline-citation
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent, so nothing can leak.
+  - location: inline-citation
+    test: REF-03
+    status: missing
+    evidence:
+      notes: Direct link with rel="noopener noreferrer"; manus.im sets no referrer policy (browser default).
+  - location: inline-citation
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/manus/web/inline-citation
+      notes: No utm_* parameter.
+  - location: bare-url
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/manus/web/bare-url
+      notes: Clicked the URL Manus wrote as a plain link in the answer.
+  - location: bare-url
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent.
+  - location: bare-url
+    test: REF-03
+    status: missing
+    evidence:
+      notes: rel="noopener noreferrer".
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/manus/web/bare-url
+      notes: No utm_* parameter.
+  - location: pasted-link
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/manus/web/pasted-link
+      notes: Clicked the link Manus echoed back in its answer.
+  - location: pasted-link
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent.
+  - location: pasted-link
+    test: REF-03
+    status: missing
+    evidence:
+      notes: Echoed links (and links in the user's own message) use rel="noopener noreferrer".
+  - location: pasted-link
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on any echoed link.
+  - location: pasted-link
+    test: MRG-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-01/manus/web/pasted-link?a=1&b=2
+      notes: "?a=1&b=2 arrived intact (no tag is added)."
+  - location: pasted-link
+    test: MRG-02
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-02/manus/web/pasted-link#section-2
+      notes: "#section-2 reached the page (no tag is added)."
+  - location: pasted-link
+    test: MRG-03
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-03/manus/web/pasted-link?utm_source=newsletter&utm_medium=email
+      notes: utm_source=newsletter kept (no tag is added).
+  - location: pasted-link
+    test: MRG-04
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-04/manus/web/pasted-link?expires=2099-01-01&signature=abc123
+      notes: Signed URL arrived byte-identical.

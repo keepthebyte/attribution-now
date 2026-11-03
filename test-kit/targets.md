@@ -59,3 +59,7 @@ Use `/t/<test>/<lab>/<surface>/<location>`; the worker serves the `/t/<test>` pa
 - **Android app** (`android`): `inline-citation`, `sources-panel`, `bare-url`, `pasted-link`
 - **macOS app** (`macos`): `inline-citation`, `sources-panel`, `bare-url`, `pasted-link`
 - **Muse in WhatsApp** (`whatsapp`): `bare-url`, `pasted-link`
+
+### Manus
+
+- **manus.im web** (`web`): `inline-citation`, `bare-url`, `pasted-link`
