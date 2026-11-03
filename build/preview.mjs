@@ -75,9 +75,10 @@ createServer((req, res) => {
     let extra = '';
     if (isTarget) {
       const headers = new Headers(Object.entries(req.headers).map(([k, v]) => [k, String(v)]));
-      const record = hitRecord(new Request(url, { headers }), randomUUID());
+      const echoRequest = new Request(url, { headers });
+      const record = hitRecord(echoRequest, randomUUID());
       console.log('hit', record.path, record.query, record.referer);
-      extra = `<script type="application/json" id="server-echo">${echoJson(record)}</script>`;
+      extra = `<script type="application/json" id="server-echo">${echoJson(record, echoRequest)}</script>`;
     }
     send(200, fullPage(readFileSync(file, 'utf8'), extra));
     return;

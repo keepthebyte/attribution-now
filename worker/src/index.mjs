@@ -80,7 +80,7 @@ async function handleTarget(request, env, ctx) {
   return new HTMLRewriter()
     .on('head', {
       element(head) {
-        head.append(`<script type="application/json" id="server-echo">${echoJson(record)}</script>`, { html: true });
+        head.append(`<script type="application/json" id="server-echo">${echoJson(record, request)}</script>`, { html: true });
       },
     })
     // the nav link can sit in a browser cache for hours (max-age=7200); this page is no-store
