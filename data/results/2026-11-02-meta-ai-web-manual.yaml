@@ -1,0 +1,125 @@
+# muse.ai in Chrome on macOS, logged in, fresh side chat. Session 2026-11-03 05:55-05:58 UTC (Nov 2 local);
+# evidence is the worker's hit log. Every link in a Muse answer is wrapped in Meta's link shim
+# `https://l.meta.ai/?u=<target>&h=<hash>` with rel="noopener noreferrer" target="_blank". muse.ai itself sends
+# Referrer-Policy: strict-origin-when-cross-origin, but noreferrer strips it on the hop to the shim; the shim then
+# sends its own origin. Every click arrived with Referer `https://l.meta.ai/` (origin only, Sec-Fetch-Site
+# cross-site), never `https://muse.ai/`, and with no utm_* parameter. The shim passed query strings, fragments,
+# existing utm_* and signed parameters through byte-identical.
+# Muse has no inline citation markers and no separate sources panel: asked to cite with inline citations, it wrote
+# a plain "Sources:" list of links at the end of the answer text. A bare URL in the answer renders as a link preview
+# card, fetched first by `EctoBot/1.0 (OpenGraph Preview)`; Muse read the cited page as
+# `meta-webindexer/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)`.
+date: 2026-11-02
+lab: meta-ai
+surface: web
+method: manual
+tester: cedric (via Claude in Chrome)
+client: Chrome 156.0.8078.80 / macOS 27.2
+source_url: null
+results:
+  - location: inline-citation
+    test: REF-01
+    status: partial
+    evidence:
+      referer: https://l.meta.ai/
+      document_referrer: https://l.meta.ai/
+      landing_url: https://attribution.now/t/ref-01/meta-ai/web/inline-citation
+      notes: >
+        No inline citation markers exist; this is the cited source in the answer's "Sources:" list. The referrer is
+        Meta's link shim, not muse.ai, so it names Meta but not Muse and is not on the usual AI-referrer lists.
+  - location: inline-citation
+    test: REF-02
+    status: works
+    evidence:
+      referer: https://l.meta.ai/
+      notes: Origin only; no thread path or ID.
+  - location: inline-citation
+    test: REF-03
+    status: missing
+    evidence:
+      notes: >
+        Link is l.meta.ai/?u=…&h=… with rel="noopener noreferrer". The noreferrer is offset by the shim, which sends
+        its own origin.
+  - location: inline-citation
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/meta-ai/web/inline-citation
+      notes: No utm_* parameter in the shim's u= target or on the landing URL.
+  - location: bare-url
+    test: REF-01
+    status: partial
+    evidence:
+      referer: https://l.meta.ai/
+      document_referrer: https://l.meta.ai/
+      landing_url: https://attribution.now/t/ref-01/meta-ai/web/bare-url
+      notes: The URL Muse wrote rendered as a link preview card (title + og:image); clicked the card.
+  - location: bare-url
+    test: REF-02
+    status: works
+    evidence:
+      referer: https://l.meta.ai/
+      notes: Origin only.
+  - location: bare-url
+    test: REF-03
+    status: missing
+    evidence:
+      notes: Card link is l.meta.ai/?u=…&h=… with rel="noopener noreferrer".
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/meta-ai/web/bare-url
+      notes: No utm_* parameter.
+  - location: pasted-link
+    test: REF-01
+    status: partial
+    evidence:
+      referer: https://l.meta.ai/
+      document_referrer: https://l.meta.ai/
+      landing_url: https://attribution.now/t/ref-01/meta-ai/web/pasted-link
+      notes: Clicked the link Muse echoed back as plain text links.
+  - location: pasted-link
+    test: REF-02
+    status: works
+    evidence:
+      referer: https://l.meta.ai/
+      notes: Origin only.
+  - location: pasted-link
+    test: REF-03
+    status: missing
+    evidence:
+      notes: Echoed links (and links in the user's own message) are l.meta.ai shim links with rel="noopener noreferrer".
+  - location: pasted-link
+    test: UTM-01
+    status: missing
+    evidence:
+      notes: No utm_* parameter on any echoed link.
+  - location: pasted-link
+    test: MRG-01
+    status: works
+    evidence:
+      referer: https://l.meta.ai/
+      landing_url: https://attribution.now/t/mrg-01/meta-ai/web/pasted-link?a=1&b=2
+      notes: "?a=1&b=2 arrived intact through the shim (no tag is added)."
+  - location: pasted-link
+    test: MRG-02
+    status: works
+    evidence:
+      referer: https://l.meta.ai/
+      landing_url: https://attribution.now/t/mrg-02/meta-ai/web/pasted-link#section-2
+      notes: "#section-2 survived the shim (it is URL-encoded inside u=)."
+  - location: pasted-link
+    test: MRG-03
+    status: works
+    evidence:
+      referer: https://l.meta.ai/
+      landing_url: https://attribution.now/t/mrg-03/meta-ai/web/pasted-link?utm_source=newsletter&utm_medium=email
+      notes: utm_source=newsletter kept (no tag is added).
+  - location: pasted-link
+    test: MRG-04
+    status: works
+    evidence:
+      referer: https://l.meta.ai/
+      landing_url: https://attribution.now/t/mrg-04/meta-ai/web/pasted-link?expires=2099-01-01&signature=abc123
+      notes: Signed URL arrived byte-identical through the shim.
