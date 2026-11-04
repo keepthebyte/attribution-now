@@ -96,19 +96,21 @@ agent:
     Dots are always-on agents inside ChatGPT. Each Dot has its own cloud computer and browser and keeps working
     toward a goal between conversations.
   recognize: >
-    Reported: requests carry a Web Bot Auth signature with `Signature-Agent: "https://chatgpt.com"`, verifiable
-    against the key directory at `chatgpt.com/.well-known/http-message-signatures-directory`. The user agent is a
-    normal Chrome one.
+    The user agent is a normal Chrome one, so nothing in it names Dots. Page loads and analytics beacons carry a Web
+    Bot Auth signature with `Signature-Agent: "https://chatgpt.com"`. Verify it against the key directory at
+    `chatgpt.com/.well-known/http-message-signatures-directory` to prove the visit is OpenAI's. Other OpenAI agents
+    may sign the same way, so it doesn't prove the visit is a Dot.
   signals:
     names:
-      status: reported
-      finding: missing
-      notes: Reported to send a normal Chrome user agent.
-      source_url: https://www.centinelanalytica.com/blog/ai-browser-agents
+      status: missing
+      date: 2026-11-04
+      method: manual
+      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) … Chrome/156.0.0.0 Safari/537.36`, with only the `Chromium` brand in `Sec-CH-UA`. `navigator.webdriver` was false. Cloudflare reports the network as OpenAI. One run."
     signs:
-      status: reported
-      finding: works
-      notes: Reported to sign requests from OpenAI's cloud browser with Web Bot Auth.
-      source_url: https://www.centinelanalytica.com/blog/ai-browser-agents
+      status: works
+      date: 2026-11-04
+      method: manual
+      notes: "The page load and all 11 analytics beacons carried `Signature-Agent: \"https://chatgpt.com\"` with an Ed25519 signature over `@authority`, `@method` and `signature-agent`, valid for one hour, with a new nonce on each request. Its key id matches the one key in the published directory. We didn't verify the signature itself. One run."
+      source_url: https://chatgpt.com/.well-known/http-message-signatures-directory
     tags:
       status: untested
