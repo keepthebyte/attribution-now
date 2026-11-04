@@ -50,6 +50,7 @@ Set up per [Cloudflare Setup (worker)](https://www.aem.live/docs/byo-cdn-cloudfl
 
 - **Domain**: registered at Gandi, nameservers delegated to Cloudflare.
 - **Cloudflare** (zone `attribution.now`, Free plan): proxied CNAMEs for `@` and `www` to the `aem.live` origin, Always Use HTTPS, Browser Cache TTL "Respect Existing Headers", one cache rule (hostname contains `attribution.now` → eligible for cache, browser TTL from origin). The worker routes `attribution.now/*` and `www.attribution.now/*`.
+- **Markdown for agents**: handled by Cloudflare rules in the dashboard, not by the worker or this repo. Two Single Redirect rules send `GET`/`HEAD` requests with `Accept: text/markdown` to `{path}.md` (`/` goes to `/index.md`) with a 302, and a Response Header Transform rule adds `Vary: Accept`. Redirects run before the worker, so `/t/*` is excluded to keep the logger seeing those requests, and `POST /` is left for the agent door. The older URL Rewrite rules, which returned a 200 at the same URL, are disabled as a rollback.
 - **EDS site config** (configuration service; `fstab.yaml` is retired):
   - `content.source`: SourceBus, `https://api.aem.live/keepthebyte/sites/attribution-now/source`
   - `content.overlay`: `https://keepthebyte.github.io/attribution-now` (`markup`, suffix `.html`), deployed by the Build and publish workflow
