@@ -9,8 +9,12 @@ what_works: >
   documentation.
 what_works_date: 2026-10-31
 seo_summary: "Grok Bot browses from a persistent cloud computer that looks like ordinary Chrome on Linux: no agent name and no signature."
-assistant_note: We don't test Grok's links yet. This page tracks its personal agent.
-surfaces: []
+assistant_note: We've tested Grok Bot's links in the iOS app. Regular Grok chat isn't tested yet.
+surfaces:
+  - id: ios
+    name: Grok Bot iOS app
+    platform: native
+    link_locations: [inline-citation, bare-url]
 work_items: []
 # Personal agent: browses for one person in its own cloud browser (see /detect-personal-agent-traffic).
 agent:
@@ -25,17 +29,21 @@ agent:
     with normal client hints, from Cloudflare's network. It ran the page's JavaScript, so analytics tags count it as
     a desktop visitor. It read a JSON link through Exa's fetcher instead of its browser; those requests name and
     sign themselves as `ExaUser`. When a site blocks cloud computers, the person can route the Bot's traffic through
-    their own computer, and those visits look like the person.
+    their own computer, and those visits look like the person. Its terminal sends a plain `curl` user agent from the
+    same network. The browser renders with SwiftShader, a software GPU, which suggests a server but is common to other
+    cloud browsers and doesn't identify Grok. The iOS app fetched URLs in the person's message with a
+    `Grok%20Bot/… CFNetwork/…` user agent, apparently from the person's phone, and showed them as chips with the page
+    title. That's a link preview and not a Bot visit.
   signals:
     names:
       status: missing
-      date: 2026-10-31
+      date: 2026-11-06
       method: manual
-      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) … Chrome/156.0.0.0 Safari/537.36` with Google Chrome `Sec-CH-UA` brands, from Cloudflare (AS13335). No agent token. One run."
+      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) … Chrome/156.0.0.0 Safari/537.36` with Google Chrome `Sec-CH-UA` brands, from Cloudflare (AS13335). No agent token. Second run 2026-11-06: same result, and its terminal sent `curl/8.14.1`."
     signs:
       status: missing
-      date: 2026-10-31
+      date: 2026-11-06
       method: manual
-      notes: No `Signature-Agent` or `Signature` header on the browser's requests. The agent card it read came through Exa (`ExaUser/1.0`), signed with Web Bot Auth as `https://exauser.crawler.exa.ai`.
+      notes: No `Signature-Agent` or `Signature` header on the browser's or terminal's requests in either run. The agent card it read came through Exa (`ExaUser/1.0`), signed with Web Bot Auth as `https://exauser.crawler.exa.ai`.
     tags:
       status: untested

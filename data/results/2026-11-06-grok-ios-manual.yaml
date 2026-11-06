@@ -1,0 +1,69 @@
+# Grok Bot iOS app 1.24.1 on an iPhone, one task, clicks by hand. Session 2026-11-06 22:34-22:36 UTC; evidence is the
+# worker's hit log. Test URLs say /web/ because the surface wasn't known when the prompt was written; every click below
+# came from the iOS app. Links opened in Safari, not an in-app web view (full Safari user agent, as the tester saw).
+# Every click arrived with Sec-Fetch-Site: none, no Referer, an empty document.referrer and no utm_* parameter, so
+# every visit lands in Direct. Grok adds no tag, so the merge targets arrived unchanged.
+# Three clients touched the URLs: the iOS app on the phone (`Grok%20Bot/29176 CFNetwork/3896.300.31 Darwin/27.3.0`, same
+# network as the clicks, fetching the bare URLs in the prompt, which it then showed as chips with the page title; the
+# URLs inside Markdown links stayed raw and weren't fetched, and neither were the answer's links); the cloud
+# browser (Chrome on Linux, AS13335, SwiftShader, no agent token, no signature); and the Bot's terminal (curl/8.14.1, AS13335).
+# Links in the answer are underlined chips with a globe icon. Screenshots show no numbered citations or sources panel.
+# The Bot's own report of /t/check (no Referer, no Signature-Agent, Signature-Input or Signature) matches the worker log.
+date: 2026-11-06
+lab: spacexsi-grok
+surface: ios
+method: manual
+tester: cedric
+client: Grok Bot 1.24.1 (iOS app) → Safari 27.3 / iPhone
+source_url: null
+results:
+  - location: inline-citation
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/spacexsi-grok/web/inline-citation
+      notes: Clicked the "REF-01 test page" chip inside the answer sentence. Opened in Safari with Sec-Fetch-Site none.
+  - location: inline-citation
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent, so nothing can leak.
+  - location: inline-citation
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/spacexsi-grok/web/inline-citation
+      notes: No utm_* parameter.
+  - location: inline-citation
+    test: MRG-01
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-01/spacexsi-grok/web/inline-citation?a=1&b=2
+      notes: "?a=1&b=2 arrived intact (no tag is added)."
+  - location: inline-citation
+    test: MRG-03
+    status: works
+    evidence:
+      landing_url: https://attribution.now/t/mrg-03/spacexsi-grok/web/inline-citation?utm_source=newsletter&utm_medium=email
+      notes: utm_source=newsletter kept (no tag is added).
+  - location: bare-url
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/spacexsi-grok/web/bare-url
+      notes: Asked for the plain URL, but the answer showed it as a chip labelled "Bare URL test". Opened in Safari with Sec-Fetch-Site none.
+  - location: bare-url
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent.
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/spacexsi-grok/web/bare-url
+      notes: No utm_* parameter.
