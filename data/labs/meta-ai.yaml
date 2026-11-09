@@ -15,6 +15,8 @@ assistant_note: >
   anywhere we tested. Its apps on iOS, Android and WhatsApp are next.
 # Muse chat: muse.ai, the mobile and Mac apps, and WhatsApp. web confirmed 2026-11-02 (no sources panel; sources are
 # links in the answer text); the other surfaces' link_locations are candidates until a verified run.
+# Since 2026-11-08 a URL pasted into a Muse chat is first fetched by `facebookexternalhit/1.1` (link preview, unsigned),
+# where it was `EctoBot/1.0 (OpenGraph Preview)` on November 2.
 # AEM Operational Telemetry already shows a few visits with the `https://muse.ai/` referrer (Sep–Oct 2026).
 surfaces:
   - id: web
@@ -54,13 +56,15 @@ agent:
   signals:
     names:
       status: missing
-      date: 2026-10-30
+      date: 2026-11-08
       method: manual
-      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36`, no name. 13 runs from October 29 to 30."
+      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36`, no name. 13 runs from October 29 to 30, and 3 on November 8 started from muse.ai, the iOS app and the Mac app."
     signs:
       status: missing
-      date: 2026-10-30
+      date: 2026-11-08
       method: manual
-      notes: No `Signature-Agent` or `Signature` header in 13 runs.
+      notes: >
+        No `Signature-Agent`, `Signature-Input` or `Signature` header in 13 runs from October 29 to 30, nor in 3
+        runs on November 8 started from muse.ai, the iOS app and the Mac app (run-sig-1 on each).
     tags:
       status: untested
