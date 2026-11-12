@@ -1,0 +1,57 @@
+# Muse 15.1.0 iOS app on iOS 18.7, logged in, a fresh chat per location. Session 2026-11-12 00:33-00:42 UTC
+# (Nov 11 local); evidence is the worker's hit log. The tester typed the prompts and tapped; Claude Code read the log.
+# Links open in an in-app browser (SFSafariViewController: Safari 27.3 user agent, 342x563 viewport on a 393x852
+# screen). Every tap arrived with Sec-Fetch-Site: none, no Referer, an empty document.referrer and no utm_*
+# parameter, so every visit lands in Direct, as in the Mac app. The tester saw no tag on the link itself either.
+# This build doesn't add the utm_source=l.metamuse.ai seen in field data on Nov 10-11
+# (2026-11-10-meta-ai-ios-automated.yaml), probably because that comes from a newer build still rolling out.
+# Each cited URL was first fetched by facebookexternalhit/1.1 from the tester's own network (link preview, unsigned),
+# then read by meta-webindexer/1.1 from Cloudflare, signed with Signature-Agent "https://www.meta.com".
+# No sources panel: the cited link appears only in the answer text. pasted-link not tested (no hit logged).
+# Merge tests skipped: Muse adds no tag here.
+date: 2026-11-11
+lab: meta-ai
+surface: ios
+method: manual
+tester: cedric (prompts and taps by hand, log read by Claude Code)
+client: Muse 15.1.0 (iOS app, in-app browser) / iOS 18.7
+source_url: null
+results:
+  - location: inline-citation
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/meta-ai/ios/inline-citation
+      notes: Tapped the cited link in the answer; opened in the in-app browser with Sec-Fetch-Site none.
+  - location: inline-citation
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent, so nothing can leak.
+  - location: inline-citation
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/meta-ai/ios/inline-citation
+      notes: No utm_* parameter on the landing URL (Muse 15.1.0).
+  - location: bare-url
+    test: REF-01
+    status: missing
+    evidence:
+      referer: null
+      document_referrer: null
+      landing_url: https://attribution.now/t/ref-01/meta-ai/ios/bare-url
+      notes: Tapped the URL Muse wrote in the answer; opened in the in-app browser with Sec-Fetch-Site none.
+  - location: bare-url
+    test: REF-02
+    status: n/a
+    evidence:
+      notes: No referrer is sent.
+  - location: bare-url
+    test: UTM-01
+    status: missing
+    evidence:
+      landing_url: https://attribution.now/t/ref-01/meta-ai/ios/bare-url
+      notes: No utm_* parameter (Muse 15.1.0).
