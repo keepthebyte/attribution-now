@@ -11,15 +11,15 @@ what_works_date: 2026-10-30
 seo_summary: "Meta's personal agent Muse browses like a person, without naming itself or signing its requests."
 assistant_note: >
   Muse sends traffic two ways. On muse.ai, links in Muse's answers pass through Meta's link shim and arrive with the
-  referrer `https://l.meta.ai/` and no UTM tag; in the Mac app they arrive with neither. In the field, `l.meta.ai`
-  visits come mostly from Windows and Mac desktops. Muse's mobile apps tag links instead: since November 10 we see
-  visits with `utm_source=l.metamuse.ai` from Android and iPhone, which look like people tapping links in the app,
-  not Muse's cloud browser. We have not yet confirmed this in a lab run.
+  referrer `https://l.meta.ai/` and no UTM tag; in the Mac app and the iOS app (15.1.0, in-app browser) they arrive
+  with neither. In the field, `l.meta.ai` visits come mostly from Windows and Mac desktops. Since November 10 we also
+  see phone visits tagged `utm_source=l.metamuse.ai`, which look like taps in a newer mobile build that is still
+  rolling out.
 # Field data, AEM Operational Telemetry, November 2026 (not shown on the page):
 # - utm_source=l.metamuse.ai: corporate.walmart.com (Android, Nov 11) and sparkdriverapp.com (iPhone, Nov 10).
 # - Referrer https://l.meta.ai/: 46 sampled entries on 37 sites, 28 Windows, 13 Mac, 1 Linux, none with the Muse UTM.
-# Muse chat: muse.ai, the mobile and Mac apps, and WhatsApp. web confirmed 2026-11-02 (no sources panel; sources are
-# links in the answer text); the other surfaces' link_locations are candidates until a verified run.
+# Muse chat: muse.ai, the mobile and Mac apps, and WhatsApp. web confirmed 2026-11-02 and ios 2026-11-11 (no sources
+# panel; sources are links in the answer text); the other surfaces' link_locations are candidates until a verified run.
 # Since 2026-11-08 a URL pasted into a Muse chat is first fetched by `facebookexternalhit/1.1` (link preview, unsigned),
 # where it was `EctoBot/1.0 (OpenGraph Preview)` on November 2.
 # AEM Operational Telemetry already shows a few visits with the `https://muse.ai/` referrer (Sep–Oct 2026).
@@ -31,7 +31,7 @@ surfaces:
   - id: ios
     name: iOS app
     platform: native
-    link_locations: [inline-citation, sources-panel, bare-url, pasted-link]
+    link_locations: [inline-citation, bare-url, pasted-link]
   - id: android
     name: Android app
     platform: native
@@ -61,15 +61,19 @@ agent:
   signals:
     names:
       status: missing
-      date: 2026-11-08
+      date: 2026-11-11
       method: manual
-      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36`, no name. 13 runs from October 29 to 30, and 3 on November 8 started from muse.ai, the iOS app and the Mac app."
+      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36`, no name. 13 runs from October 29 to 30, 3 on November 8 started from muse.ai, the iOS app and the Mac app, and 1 on November 11 from the iOS app (15.1.0)."
     signs:
       status: missing
-      date: 2026-11-08
+      date: 2026-11-11
       method: manual
       notes: >
-        No `Signature-Agent`, `Signature-Input` or `Signature` header in 13 runs from October 29 to 30, nor in 3
-        runs on November 8 started from muse.ai, the iOS app and the Mac app (run-sig-1 on each).
+        No `Signature-Agent`, `Signature-Input` or `Signature` header in 13 runs from October 29 to 30, in 3 runs on
+        November 8 started from muse.ai, the iOS app and the Mac app, nor in 1 run on November 11 from the iOS app
+        (15.1.0). Meta's page reader `meta-webindexer/1.1` does sign, with `Signature-Agent: "https://www.meta.com"`.
     tags:
-      status: untested
+      status: missing
+      date: 2026-11-11
+      method: manual
+      notes: "No `utm_*` parameter and no referrer on the first page in 1 run from the iOS app (15.1.0) on November 11."
