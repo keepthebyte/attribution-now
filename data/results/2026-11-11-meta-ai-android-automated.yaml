@@ -1,0 +1,21 @@
+# AEM Operational Telemetry, field data. One pageview on corporate.walmart.com from an Android phone on 2026-11-11 landed with
+# utm_source=l.metamuse.ai. A phone user agent points to a person tapping a link in the Muse app, not Muse's cloud
+# browser (Linux x86_64). The data doesn't show which link location was tapped or whether a referrer was sent, so this
+# covers the app as a whole and records UTM only. Meta documents no UTM value; not yet reproduced in a lab run.
+# For contrast, field visits with the Referer https://l.meta.ai/ (the muse.ai web shim) come mostly from Windows and
+# Mac desktops and none carry this tag.
+date: 2026-11-11
+lab: meta-ai
+surface: android
+method: automated
+tester: AEM Operational Telemetry
+client: Muse Android app (version not recorded)
+source_url: null
+results:
+  - location: "*"
+    test: UTM-01
+    status: partial
+    evidence:
+      notes: >
+        Field visit with `utm_source=l.metamuse.ai`, which names Muse. Seen once on this platform; Meta documents no
+        value, and we haven't confirmed which link locations carry it.

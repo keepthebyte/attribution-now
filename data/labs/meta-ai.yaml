@@ -10,9 +10,14 @@ what_works: >
 what_works_date: 2026-10-30
 seo_summary: "Meta's personal agent Muse browses like a person, without naming itself or signing its requests."
 assistant_note: >
-  On muse.ai, links in Muse's answers pass through Meta's link shim and arrive with the referrer
-  `https://l.meta.ai/`, not `https://muse.ai/`. In the Mac app they arrive with no referrer. Muse adds no UTM tag
-  anywhere we tested. Its apps on iOS, Android and WhatsApp are next.
+  Muse sends traffic two ways. On muse.ai, links in Muse's answers pass through Meta's link shim and arrive with the
+  referrer `https://l.meta.ai/` and no UTM tag; in the Mac app they arrive with neither. In the field, `l.meta.ai`
+  visits come mostly from Windows and Mac desktops. Muse's mobile apps tag links instead: since November 10 we see
+  visits with `utm_source=l.metamuse.ai` from Android and iPhone, which look like people tapping links in the app,
+  not Muse's cloud browser. We have not yet confirmed this in a lab run.
+# Field data, AEM Operational Telemetry, November 2026 (not shown on the page):
+# - utm_source=l.metamuse.ai: corporate.walmart.com (Android, Nov 11) and sparkdriverapp.com (iPhone, Nov 10).
+# - Referrer https://l.meta.ai/: 46 sampled entries on 37 sites, 28 Windows, 13 Mac, 1 Linux, none with the Muse UTM.
 # Muse chat: muse.ai, the mobile and Mac apps, and WhatsApp. web confirmed 2026-11-02 (no sources panel; sources are
 # links in the answer text); the other surfaces' link_locations are candidates until a verified run.
 # Since 2026-11-08 a URL pasted into a Muse chat is first fetched by `facebookexternalhit/1.1` (link preview, unsigned),
