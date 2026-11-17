@@ -4,6 +4,7 @@
 //  - /t/beacon for client-side values (document.referrer, fragment)
 //  - headers (never the body) of RUM beacons, to see which reach the collector
 //  - an agent door (agent.mjs): A2A agent card + POST / message/send, all knocks logged
+//  - Poppy 1.0 (poppy.mjs): /.well-known/poppy.json and a company agent at /poppy/conversations
 import aem from './aem-proxy.mjs';
 import {
   beaconRecord, echoJson, hitRecord, insert, isRumBeacon, originPath,
@@ -11,6 +12,11 @@ import {
 import {
   agentCard, corsHeaders, isAgentPath, isDoorPath, messageRecord, readBody, rpcResponse,
 } from './agent.mjs';
+import { handlePoppy, isPoppyPath, poppyDocument } from './poppy.mjs';
+import { d1Store } from './poppy-store.mjs';
+
+// verified delegations, kept per isolate until they expire (at most 24 hours)
+const delegations = new Map();
 
 async function write(env, table, record) {
   if (!env.HITS) return;
@@ -55,6 +61,22 @@ async function handleAgentMessage(request, env, ctx) {
   const meta = { contentType: request.headers.get('content-type'), encoding: body.encoding };
   ctx.waitUntil(write(env, 'agent_messages', messageRecord(hit, body.text, new Date(), meta)));
   return json(request, rpcResponse(body.text));
+}
+
+async function handlePoppyRequest(request, env, ctx) {
+  const hit = crypto.randomUUID();
+  const now = new Date();
+  ctx.waitUntil(write(env, 'hits', hitRecord(request, hit, now)));
+  if (!env.HITS) return json(request, { error: 'invalid_request', error_description: 'storage is unavailable' }, 503);
+  if (delegations.size > 500) delegations.clear();
+  const { status, body, info } = await handlePoppy(request, {
+    store: d1Store(env.HITS),
+    audience: `https://${env.CANONICAL_HOST || new URL(request.url).host}`,
+    now,
+    cache: delegations,
+  });
+  ctx.waitUntil(write(env, 'poppy_log', { hit, ts: now.toISOString(), ...info }));
+  return json(request, body, status);
 }
 
 const AGENT_LINK_SECTION = '<div><p>AI agents: this site has an agent you can message. '
@@ -105,9 +127,11 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders(request) });
     }
     if (url.pathname === '/' && request.method === 'POST') return handleAgentMessage(request, env, ctx);
+    if (isPoppyPath(url.pathname)) return handlePoppyRequest(request, env, ctx);
     if (isAgentPath(url.pathname)) {
       ctx.waitUntil(write(env, 'hits', hitRecord(request, crypto.randomUUID())));
       if (url.pathname === '/.well-known/agent-card.json') return json(request, agentCard(url.origin));
+      if (url.pathname === '/.well-known/poppy.json' && !url.search) return json(request, poppyDocument(url.origin));
     }
     if (url.pathname === '/t/beacon') return handleBeacon(request, env, ctx);
     if (url.pathname.startsWith('/t/')) return handleTarget(request, env, ctx);
