@@ -88,6 +88,11 @@ test('local agents are only reported when declared', () => {
   assert.equal(r.confidence, 'declared');
 });
 
+test('Muse\'s Poppy client is a fetcher for Meta AI', () => {
+  const r = classify({ user_agent: 'Muse-PersonalAgent/0.3' });
+  assert.deepEqual([r.actor, r.assistant, r.confidence], ['fetcher', 'meta-ai', 'declared']);
+});
+
 test('other bots are crawlers without an assistant', () => {
   const r = classify({ user_agent: 'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)' });
   assert.deepEqual([r.actor, r.assistant], ['crawler', null]);
