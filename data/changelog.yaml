@@ -66,3 +66,16 @@ entries:
     source_url: https://www.linkedin.com/posts/cedrichuesler_for-11-days-in-september-gemini-tagged-its-share-7516660753714663425-52Pm/
     verified: true
     thank_you: Thank you to the Gemini team. Eleven days of tagging showed the size of the gap more clearly than any estimate.
+  - date: 2026-11-16
+    lab: meta-ai
+    type: change
+    title: Muse checks sites for poppy.json and names itself when it does
+    text: >
+      Meta's personal agent Muse now requests `/.well-known/poppy.json` from a site a few seconds before its browser
+      loads the first page, with the user agent `Muse-PersonalAgent/0.3`. The file belongs to the Personal Agent
+      Protocol (Poppy), which reached version 1.0 on November 14. We published a poppy.json and an agent that asks
+      one question, how did you find us, and Muse held a conversation with it. Its requests were signed and verified
+      against the keys Muse publishes. Muse opened the conversation only when its user asked for it, and its browser
+      visits are still unnamed and unsigned.
+    source_url: https://personalagentprotocol.org/docs/changelog
+    verified: true

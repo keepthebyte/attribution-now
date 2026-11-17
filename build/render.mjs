@@ -173,6 +173,17 @@ const AGENT_SIGNALS = [
   { id: 'tags', name: 'Tags its visits', explainer: 'A `utm_source` on the first page, so the visit has a source.' },
 ];
 
+// Personal Agent Protocol (Poppy): what the agent does with our poppy.json and company agent
+const POPPY_SPEC = 'https://personalagentprotocol.org/docs/1.0/spec';
+const POPPY_TESTS = [
+  { id: 'discovers', name: 'Checks for poppy.json', explainer: 'Requests `/.well-known/poppy.json` before it loads a page.' },
+  { id: 'names', name: 'Names itself on protocol requests', explainer: 'A name in the user agent of its Poppy requests.' },
+  { id: 'signs', name: 'Signs its session', explainer: 'A `Poppy-Session` token a site can verify against the agent\'s published keys.' },
+  { id: 'converses', name: 'Talks to the site\'s agent unprompted', explainer: 'Opens a conversation with the site\'s agent without its user asking for it.' },
+  { id: 'consent', name: 'Asks its user first', explainer: 'Gets the person\'s approval before it shares anything with the site.' },
+  { id: 'answers', name: 'Says how it found the site', explainer: 'Asked by the site\'s agent, it names what led it there, and gets it right.' },
+];
+
 function agentSignalCell(lab, sig) {
   let label = STATUS_LABEL[sig.status];
   if (sig.status === 'reported') label = `Reported: ${STATUS_LABEL[sig.finding].toLowerCase()}`;
@@ -203,6 +214,19 @@ function agentSection(lab) {
         agentSignalCell(lab, agent.signals[s.id]),
       )),
     ]),
+    ...(agent.poppy ? [
+      '<h3>Personal Agent Protocol (Poppy)</h3>',
+      p(`${a(POPPY_SPEC, 'Poppy')} lets a personal agent talk to a site's own agent instead of clicking through its pages. `
+        + `This site publishes ${a('/.well-known/poppy.json', 'a poppy.json')} and an agent that asks one question: how did you find us? `
+        + 'These are the tests we run against it.'),
+      block('status-table lab', [
+        row('Test', esc(agent.name)),
+        ...POPPY_TESTS.map((t) => row(
+          p(t.name) + p(md(t.explainer)),
+          agentSignalCell(lab, agent.poppy[t.id] || { status: 'untested' }),
+        )),
+      ]),
+    ] : []),
     '<h3>How to recognize it today</h3>',
     p(md(agent.recognize)),
   );

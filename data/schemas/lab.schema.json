@@ -78,6 +78,19 @@
             "signs": { "$ref": "#/$defs/agentSignal" },
             "tags": { "$ref": "#/$defs/agentSignal" }
           }
+        },
+        "poppy": {
+          "type": "object",
+          "description": "Personal Agent Protocol (Poppy) tests, run against our poppy.json and company agent. A test left out shows as untested.",
+          "additionalProperties": false,
+          "properties": {
+            "discovers": { "$ref": "#/$defs/agentSignal" },
+            "names": { "$ref": "#/$defs/agentSignal" },
+            "signs": { "$ref": "#/$defs/agentSignal" },
+            "converses": { "$ref": "#/$defs/agentSignal" },
+            "consent": { "$ref": "#/$defs/agentSignal" },
+            "answers": { "$ref": "#/$defs/agentSignal" }
+          }
         }
       }
     },
