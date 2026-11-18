@@ -161,7 +161,10 @@ export default {
     if (isAgentPath(url.pathname)) {
       ctx.waitUntil(write(env, 'hits', hitRecord(request, crypto.randomUUID())));
       if (url.pathname === '/.well-known/agent-card.json') return json(request, agentCard(url.origin));
-      if (url.pathname === '/.well-known/poppy.json' && !url.search) return json(request, poppyDocument(url.origin));
+      // only on the canonical host: organization.domain must be the serving host, and the
+      // other host (workers.dev) answers 404, which shows how often an agent re-checks a miss
+      const canonical = !env.CANONICAL_HOST || url.hostname === env.CANONICAL_HOST;
+      if (url.pathname === '/.well-known/poppy.json' && !url.search && canonical) return json(request, poppyDocument(url.origin));
     }
     if (url.pathname === '/t/beacon') return handleBeacon(request, env, ctx);
     if (url.pathname.startsWith('/t/')) return handleTarget(request, env, ctx);
