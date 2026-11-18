@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { DatabaseSync } from 'node:sqlite';
 import {
-  POPPY_PATH, QUESTION, THANKS, NO_HUMAN, b64uEncode, handlePoppy, isPoppyPath, jwkThumbprint,
-  poppyDocument, publicHttpsUrl, versionSupported,
+  POPPY_PATH, QUESTION, SKILL_MARKER, SKILL_NAME, SKILL_PATH, TASKS_PATH, THANKS, NO_HUMAN, b64uEncode, handlePoppy,
+  handleTasks, isPoppyPath, jwkThumbprint, poppyDocument, publicHttpsUrl, skillDocument, tasksDocument, versionSupported,
 } from '../worker/src/poppy.mjs';
 import { d1Store } from '../worker/src/poppy-store.mjs';
 
@@ -364,4 +364,53 @@ test('an access token must match ath', async () => {
     headers: { authorization: 'Bearer tok-2' }, session: { claims: { ath } },
   });
   assert.match(bad.body.error_description, /ath does not match/);
+});
+
+test('poppy.json names the tasks endpoint, and the tasks response lists one skill with its digest', async () => {
+  assert.deepEqual(poppyDocument(ORIGIN).tasks, { endpoint: `${ORIGIN}${TASKS_PATH}` });
+  const doc = await tasksDocument(ORIGIN);
+  assert.deepEqual(Object.keys(doc), ['skill_index']);
+  assert.equal(doc.skill_index.$schema, 'https://schemas.agentskills.io/discovery/0.2.0/schema.json');
+  const [skill] = doc.skill_index.skills;
+  assert.deepEqual(Object.keys(skill), ['name', 'description', 'type', 'url', 'digest']);
+  assert.equal(skill.name, SKILL_NAME);
+  assert.equal(skill.type, 'skill-md');
+  assert.equal(skill.url, `${ORIGIN}${SKILL_PATH}`);
+  const file = skillDocument(ORIGIN);
+  const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(file));
+  assert.equal(skill.digest, `sha256:${Buffer.from(hash).toString('hex')}`);
+  // Agent Skills: frontmatter name equals the directory name
+  assert.match(file, new RegExp(`^---\\nname: ${SKILL_NAME}\\ndescription: .+\\n---\\n`));
+  assert.equal(SKILL_PATH.split('/').at(-2), SKILL_NAME);
+  // the marker is in the file only, so a reply with it shows the file was read
+  assert.ok(file.includes(`Skill: ${SKILL_NAME} ${SKILL_MARKER}`));
+  assert.equal(JSON.stringify(doc).includes(SKILL_MARKER), false);
+  assert.equal(JSON.stringify(poppyDocument(ORIGIN)).includes(SKILL_MARKER), false);
+});
+
+test('the tasks endpoint answers every GET and logs whether the Session verified', async () => {
+  const agent = await personalAgent();
+  const url = `${ORIGIN}${TASKS_PATH}`;
+  const get = async (token) => handleTasks(new Request(url, {
+    headers: { 'poppy-version': '1.0', ...(token ? { 'poppy-session': token } : {}) },
+  }), { audience: ORIGIN, fetcher: agent.fetcher, now: NOW });
+
+  const signed = await get(await agent.session('GET', url));
+  assert.equal(signed.status, 200);
+  assert.equal(signed.body.skill_index.skills.length, 1);
+  assert.deepEqual([signed.info.verified, signed.info.client_id, signed.info.agent_id, signed.info.error], [1, CLIENT, 'muse-test', null]);
+  assert.equal(signed.info.path, TASKS_PATH);
+
+  const unsigned = await get(null);
+  assert.equal(unsigned.status, 200);
+  assert.deepEqual(unsigned.body, signed.body);
+  assert.deepEqual([unsigned.info.verified, unsigned.info.error], [0, 'invalid_session']);
+
+  const wrongUrl = await get(await agent.session('GET', ENDPOINT));
+  assert.equal(wrongUrl.status, 200);
+  assert.deepEqual([wrongUrl.info.verified, wrongUrl.info.client_id], [0, CLIENT]);
+
+  const post = await handleTasks(new Request(url, { method: 'POST', body: '{}' }), { audience: ORIGIN, now: NOW });
+  assert.equal(post.status, 405);
+  assert.equal(post.info.status, 405);
 });
