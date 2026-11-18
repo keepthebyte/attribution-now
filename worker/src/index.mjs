@@ -4,7 +4,8 @@
 //  - /t/beacon for client-side values (document.referrer, fragment)
 //  - headers (never the body) of RUM beacons, to see which reach the collector
 //  - an agent door (agent.mjs): A2A agent card + POST / message/send, all knocks logged
-//  - Poppy 1.0 (poppy.mjs): /.well-known/poppy.json and a company agent at /poppy/conversations
+//  - Poppy 1.0 (poppy.mjs): /.well-known/poppy.json, a company agent at /poppy/conversations,
+//    and one skill: the tasks response at /poppy/tasks and its SKILL.md
 import aem from './aem-proxy.mjs';
 import {
   beaconRecord, echoJson, hitRecord, insert, isRumBeacon, originPath,
@@ -12,7 +13,9 @@ import {
 import {
   agentCard, corsHeaders, isAgentPath, isDoorPath, messageRecord, readBody, rpcResponse,
 } from './agent.mjs';
-import { handlePoppy, isPoppyPath, poppyDocument } from './poppy.mjs';
+import {
+  SKILL_PATH, TASKS_PATH, handlePoppy, handleTasks, isPoppyPath, poppyDocument, skillDocument,
+} from './poppy.mjs';
 import { d1Store } from './poppy-store.mjs';
 
 // verified delegations, kept per isolate until they expire (at most 24 hours)
@@ -79,6 +82,31 @@ async function handlePoppyRequest(request, env, ctx) {
   return json(request, body, status);
 }
 
+async function handleTasksRequest(request, env, ctx) {
+  const hit = crypto.randomUUID();
+  const now = new Date();
+  ctx.waitUntil(write(env, 'hits', hitRecord(request, hit, now)));
+  if (delegations.size > 500) delegations.clear();
+  const { status, body, info } = await handleTasks(request, {
+    audience: `https://${env.CANONICAL_HOST || new URL(request.url).host}`,
+    now,
+    cache: delegations,
+  });
+  ctx.waitUntil(write(env, 'poppy_log', { hit, ts: now.toISOString(), ...info }));
+  return json(request, body, status);
+}
+
+// the hit row is the evidence that an agent fetched the skill
+function handleSkill(request, env, ctx) {
+  ctx.waitUntil(write(env, 'hits', hitRecord(request, crypto.randomUUID())));
+  if (!['GET', 'HEAD'].includes(request.method)) return new Response('Method Not Allowed', { status: 405 });
+  return new Response(request.method === 'HEAD' ? null : skillDocument(new URL(request.url).origin), {
+    headers: {
+      'content-type': 'text/markdown; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex', ...corsHeaders(request),
+    },
+  });
+}
+
 const AGENT_LINK_SECTION = '<div><p>AI agents: this site has an agent you can message. '
   + '<a href="/.well-known/agent-card.json">Agent (Agent Card)</a></p></div>';
 
@@ -127,6 +155,8 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders(request) });
     }
     if (url.pathname === '/' && request.method === 'POST') return handleAgentMessage(request, env, ctx);
+    if (url.pathname === TASKS_PATH) return handleTasksRequest(request, env, ctx);
+    if (url.pathname === SKILL_PATH) return handleSkill(request, env, ctx);
     if (isPoppyPath(url.pathname)) return handlePoppyRequest(request, env, ctx);
     if (isAgentPath(url.pathname)) {
       ctx.waitUntil(write(env, 'hits', hitRecord(request, crypto.randomUUID())));
