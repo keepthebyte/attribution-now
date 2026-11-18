@@ -228,6 +228,7 @@ function agentSection(lab) {
         )),
       ]),
     ] : []),
+    ...(agent.field_notes || []).flatMap((n) => [`<h3>${esc(n.title)}</h3>`, marked.parse(n.body.trim())]),
     '<h3>How to recognize it today</h3>',
     p(md(agent.recognize)),
   );
