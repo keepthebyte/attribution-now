@@ -65,64 +65,84 @@ agent:
       status: missing
       date: 2026-11-11
       method: manual
-      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36`, no name. 13 runs from October 29 to 30, 3 on November 8 started from muse.ai, the iOS app and the Mac app, and 1 on November 11 from the iOS app (15.1.0). Unchanged in 2 runs from muse.ai on November 16. Its Poppy requests do carry a name, see below."
+      notes: "User agent: `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36`, no name. 13 runs from October 29 to 30, 3 on November 8 started from muse.ai, the iOS app and the Mac app, and 1 on November 11 from the iOS app (15.1.0). Unchanged in 2 runs from muse.ai on November 16 and 9 on November 17. Its Poppy requests do carry a name, see below."
     signs:
       status: missing
-      date: 2026-11-11
+      date: 2026-11-17
       method: manual
       notes: >
         No `Signature-Agent`, `Signature-Input` or `Signature` header in 13 runs from October 29 to 30, in 3 runs on
-        November 8 started from muse.ai, the iOS app and the Mac app, nor in 1 run on November 11 from the iOS app
-        (15.1.0). Meta's page reader `meta-webindexer/1.1` does sign, with `Signature-Agent: "https://www.meta.com"`.
+        November 8 started from muse.ai, the iOS app and the Mac app, in 1 run on November 11 from the iOS app
+        (15.1.0), nor in 9 runs from muse.ai on November 17. Meta's page reader `meta-webindexer/1.1` does sign, with
+        `Signature-Agent: "https://www.meta.com"`.
     tags:
       status: missing
-      date: 2026-11-11
+      date: 2026-11-17
       method: manual
-      notes: "No `utm_*` parameter and no referrer on the first page in 1 run from the iOS app (15.1.0) on November 11."
-  # Runs from muse.ai on 2026-11-16 local (05:53 to 06:19 UTC on November 17), evidence in the worker's hits and
-  # poppy_log tables. Our side: /.well-known/poppy.json and the company agent at /poppy/conversations (worker/src/poppy.mjs).
+      notes: >
+        No `utm_*` parameter and no referrer on the first page in 1 run from the iOS app (15.1.0) on November 11
+        and in 9 runs from muse.ai on November 17.
+  # Runs from muse.ai on 2026-11-16 local (05:53 to 06:19 UTC on November 17) and on 2026-11-17 local (04:59 to
+  # 06:02 UTC on November 18), evidence in the worker's hits, poppy_log and agent_messages tables. Our side:
+  # /.well-known/poppy.json, the company agent at /poppy/conversations, and one skill listed at /poppy/tasks
+  # (worker/src/poppy.mjs). The workers.dev hostname answers 404 for poppy.json; the "miss" runs went there.
+  # Re-check timing on November 18 UTC. Found file (200) fetched 04:59:08: no request at 5, 36 and 37 minutes
+  # (the last from a new side chat), next request at 62.5 minutes. Missing file (404) fetched 05:39:37: no request
+  # at 1, 6 and 13 minutes, next request at 21 minutes. On November 17 UTC a 404 was re-checked after 16.5 minutes.
   poppy:
     discovers:
       status: works
-      date: 2026-11-16
+      date: 2026-11-17
       method: manual
       notes: >
-        In 2 runs, Muse requested `/.well-known/poppy.json` 3 and 9 seconds before its browser loaded the page it was
-        sent to. When the file existed, it then requested `/.well-known/oauth-protected-resource` to see whether the
-        site offers sign-in.
+        Muse requests `/.well-known/poppy.json` 2 to 9 seconds before its browser loads the page it was sent to, but
+        not on every visit: it remembers the answer. After a 404 it did not ask again at 13 minutes and did at 17 and
+        21 minutes. After it found our file it did not ask again at 37 minutes, also not from a new chat, and did at
+        62 minutes. It ignored our `Cache-Control: no-store`. When the file exists, it also requests
+        `/.well-known/oauth-protected-resource` to see whether the site offers sign-in. 11 browser runs on 2 days.
     names:
       status: works
-      date: 2026-11-16
+      date: 2026-11-17
       method: manual
       notes: >
         User agent `Muse-PersonalAgent/0.3` on the discovery requests and on the conversation, from Cloudflare's
-        network. These are not browser requests: no `Sec-Fetch-*` or `Sec-CH-UA` headers.
+        network. These are not browser requests: no `Sec-Fetch-*` or `Sec-CH-UA` headers. Unchanged on November 17.
     signs:
       status: works
-      date: 2026-11-16
+      date: 2026-11-17
       method: manual
       notes: >
-        Both conversation requests carried a `Poppy-Session` token and `Poppy-Version: 1.0`. The token and its
-        delegation verified against the keys Muse publishes, with the client ID `https://muse.ai/poppy/agent.json`.
-        The discovery requests are unsigned, as the protocol expects.
+        Every conversation request carried a `Poppy-Session` token and `Poppy-Version: 1.0`: 2 on November 16 and 5
+        on November 17. The token and its delegation verified against the keys Muse publishes, with the client ID
+        `https://muse.ai/poppy/agent.json`. The discovery requests are unsigned, as the protocol expects.
     converses:
       status: missing
-      date: 2026-11-16
+      date: 2026-11-17
       method: manual
       notes: >
         Sent to a page, Muse read our poppy.json and opened no conversation. Asked to contact the site, it used
-        the A2A agent card instead. It opened a Poppy conversation only when its user asked for one by name. 1 run each.
+        the A2A agent card instead, with an unsigned `curl` request. It opened a Poppy conversation only when its
+        user asked for one by name. 1 run each on November 16, and the same in 1 run each on November 17.
     consent:
       status: works
-      date: 2026-11-16
+      date: 2026-11-17
       method: manual
       notes: >
         Before the conversation, Muse asked its user "Allow Byter to chat with attribution.now?" and listed what it
-        would say and its limits: no personal details, no sign-in, no orders. 1 run.
+        would say and its limits: no personal details, no sign-in, no orders. 1 run each on November 16 and 17.
+        It also asked before it sent a message to the A2A agent.
     answers:
       status: missing
-      date: 2026-11-16
+      date: 2026-11-17
       method: manual
       notes: >
-        Muse answered our agent's question, but not correctly. It said it came through "the researcher's attribution
-        testing" and not through a URL from its user, when its user had typed the URL into the chat. 1 run.
+        Muse answered our agent's question, but not correctly. It said it came through "attribution testing" and not
+        through a URL from its user, when its user had typed the URL into the chat. 1 run each on November 16 and 17.
+    skills:
+      status: missing
+      date: 2026-11-17
+      method: manual
+      notes: >
+        Our poppy.json names a tasks endpoint, and its response lists one skill: how to answer our agent's question.
+        Muse read the poppy.json and requested neither the tasks response nor the skill, and its answer did not
+        follow the skill. 1 run sent to a page and 1 run with a conversation. The protocol makes skills optional.

@@ -89,7 +89,8 @@
             "signs": { "$ref": "#/$defs/agentSignal" },
             "converses": { "$ref": "#/$defs/agentSignal" },
             "consent": { "$ref": "#/$defs/agentSignal" },
-            "answers": { "$ref": "#/$defs/agentSignal" }
+            "answers": { "$ref": "#/$defs/agentSignal" },
+            "skills": { "$ref": "#/$defs/agentSignal" }
           }
         }
       }
