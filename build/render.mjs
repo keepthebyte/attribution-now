@@ -182,6 +182,7 @@ const POPPY_TESTS = [
   { id: 'converses', name: 'Talks to the site\'s agent unprompted', explainer: 'Opens a conversation with the site\'s agent without its user asking for it.' },
   { id: 'consent', name: 'Asks its user first', explainer: 'Gets the person\'s approval before it shares anything with the site.' },
   { id: 'answers', name: 'Says how it found the site', explainer: 'Asked by the site\'s agent, it names what led it there, and gets it right.' },
+  { id: 'skills', name: 'Uses the site\'s skills', explainer: 'Requests the tasks response that poppy.json names and loads a skill from it.' },
 ];
 
 function agentSignalCell(lab, sig) {
@@ -227,6 +228,7 @@ function agentSection(lab) {
         )),
       ]),
     ] : []),
+    ...(agent.field_notes || []).flatMap((n) => [`<h3>${esc(n.title)}</h3>`, marked.parse(n.body.trim())]),
     '<h3>How to recognize it today</h3>',
     p(md(agent.recognize)),
   );

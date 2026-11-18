@@ -66,6 +66,18 @@ entries:
     source_url: https://www.linkedin.com/posts/cedrichuesler_for-11-days-in-september-gemini-tagged-its-share-7516660753714663425-52Pm/
     verified: true
     thank_you: Thank you to the Gemini team. Eleven days of tagging showed the size of the gap more clearly than any estimate.
+  - date: 2026-11-17
+    lab: meta-ai
+    type: change
+    title: Muse remembers a poppy.json answer and does not use a site's skills yet
+    text: >
+      Muse does not request `/.well-known/poppy.json` on every visit. After a 404 it asked again once 17 minutes had
+      passed, but not at 13 minutes. After it found our file it waited longer: no request at 37 minutes, one at 62.
+      A site without the file is therefore checked more often than a site with one. We also published a skill
+      through the protocol's tasks endpoint. Muse read the poppy.json that names it and requested neither the tasks
+      response nor the skill. Its browser visits were unnamed and unsigned in all 9 runs.
+    source_url: https://personalagentprotocol.org/docs/1.0/spec
+    verified: true
   - date: 2026-11-16
     lab: meta-ai
     type: change

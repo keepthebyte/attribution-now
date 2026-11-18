@@ -79,6 +79,20 @@
             "tags": { "$ref": "#/$defs/agentSignal" }
           }
         },
+        "field_notes": {
+          "type": "array",
+          "description": "Write-ups of a test session, shown below the tables. `body` is Markdown: paragraphs, lists and h4 headings.",
+          "items": {
+            "type": "object",
+            "required": ["date", "title", "body"],
+            "additionalProperties": false,
+            "properties": {
+              "date": { "$ref": "#/$defs/date" },
+              "title": { "type": "string", "minLength": 1 },
+              "body": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
         "poppy": {
           "type": "object",
           "description": "Personal Agent Protocol (Poppy) tests, run against our poppy.json and company agent. A test left out shows as untested.",
@@ -89,7 +103,8 @@
             "signs": { "$ref": "#/$defs/agentSignal" },
             "converses": { "$ref": "#/$defs/agentSignal" },
             "consent": { "$ref": "#/$defs/agentSignal" },
-            "answers": { "$ref": "#/$defs/agentSignal" }
+            "answers": { "$ref": "#/$defs/agentSignal" },
+            "skills": { "$ref": "#/$defs/agentSignal" }
           }
         }
       }
