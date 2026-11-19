@@ -6,6 +6,8 @@
 //  - an agent door (agent.mjs): A2A agent card + POST / message/send, all knocks logged
 //  - Poppy 1.0 (poppy.mjs): /.well-known/poppy.json, a company agent at /poppy/conversations,
 //    and one skill: the tasks response at /poppy/tasks and its SKILL.md
+//  - with POPPY_GATEWAY set, poppy.json comes from Adobe's Personal Agent Gateway instead
+//    (poppy-gateway.mjs): its MCP search_site tool logs each visitor's intent
 import aem from './aem-proxy.mjs';
 import {
   beaconRecord, echoJson, hitRecord, insert, isRumBeacon, originPath,
@@ -17,6 +19,7 @@ import {
   SKILL_PATH, TASKS_PATH, handlePoppy, handleTasks, isPoppyPath, poppyDocument, skillDocument,
 } from './poppy.mjs';
 import { d1Store } from './poppy-store.mjs';
+import { gatewayPoppy } from './poppy-gateway.mjs';
 
 // verified delegations, kept per isolate until they expire (at most 24 hours)
 const delegations = new Map();
@@ -107,6 +110,20 @@ function handleSkill(request, env, ctx) {
   });
 }
 
+// the same headers wknd.site sends: a minute of caching, as the document changes with the gateway
+async function handleGatewayPoppy(request, env, host) {
+  const { status, body } = await gatewayPoppy(env.POPPY_GATEWAY, host);
+  return new Response(status === 200 ? body : JSON.stringify({ error: 'gateway_unavailable' }), {
+    status,
+    headers: {
+      'content-type': 'application/json; charset=utf-8',
+      'cache-control': status === 200 ? 'max-age=60' : 'no-store',
+      'x-robots-tag': 'noindex, nofollow',
+      ...corsHeaders(request),
+    },
+  });
+}
+
 const AGENT_LINK_SECTION = '<div><p>AI agents: this site has an agent you can message. '
   + '<a href="/.well-known/agent-card.json">Agent (Agent Card)</a></p></div>';
 
@@ -164,7 +181,10 @@ export default {
       // only on the canonical host: organization.domain must be the serving host, and the
       // other host (workers.dev) answers 404, which shows how often an agent re-checks a miss
       const canonical = !env.CANONICAL_HOST || url.hostname === env.CANONICAL_HOST;
-      if (url.pathname === '/.well-known/poppy.json' && !url.search && canonical) return json(request, poppyDocument(url.origin));
+      if (url.pathname === '/.well-known/poppy.json' && !url.search && canonical) {
+        if (env.POPPY_GATEWAY) return handleGatewayPoppy(request, env, url.hostname);
+        return json(request, poppyDocument(url.origin));
+      }
     }
     if (url.pathname === '/t/beacon') return handleBeacon(request, env, ctx);
     if (url.pathname.startsWith('/t/')) return handleTarget(request, env, ctx);

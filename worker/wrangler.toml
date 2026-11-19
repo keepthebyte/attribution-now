@@ -12,6 +12,8 @@ routes = [
 [vars]
 ORIGIN_HOSTNAME = "main--attribution-now--keepthebyte.aem.live"
 CANONICAL_HOST = "attribution.now"
+# poppy.json from Adobe's Personal Agent Gateway (intent logging); remove to serve our own
+POPPY_GATEWAY = "https://m.adobe.io"
 # PUSH_INVALIDATION = "disabled"
 # ORIGIN_AUTHENTICATION is a secret: wrangler secret put ORIGIN_AUTHENTICATION
 
