@@ -414,3 +414,25 @@ test('the tasks endpoint answers every GET and logs whether the Session verified
   assert.equal(post.status, 405);
   assert.equal(post.info.status, 405);
 });
+
+test('with a gateway, poppy.json is the gateway document for this host', async () => {
+  const { gatewayPoppy, GATEWAY_PATH } = await import('../worker/src/poppy-gateway.mjs');
+  const organization = { name: 'attribution.now', domain: 'attribution.now' };
+  const doc = { protocol_version: '1.0', organization };
+  const seen = [];
+  const fetcher = async (url, init) => {
+    seen.push({ url, host: init.headers['x-forwarded-host'] });
+    return new Response(JSON.stringify(doc), { status: 200 });
+  };
+  const ok = await gatewayPoppy('https://m.adobe.io', 'attribution.now', fetcher);
+  assert.equal(ok.status, 200);
+  assert.deepEqual(JSON.parse(ok.body), doc);
+  assert.deepEqual(seen, [{ url: `https://m.adobe.io${GATEWAY_PATH}`, host: 'attribution.now' }]);
+
+  const status = async (host, f) => (await gatewayPoppy('https://m.adobe.io', host, f)).status;
+  const answer = (res) => async () => res;
+  assert.equal(await status('other.example', fetcher), 502);
+  assert.equal(await status('attribution.now', answer(new Response('x', { status: 500 }))), 502);
+  assert.equal(await status('attribution.now', answer(new Response('<html>'))), 502);
+  assert.equal(await status('attribution.now', async () => { throw new Error('down'); }), 502);
+});
