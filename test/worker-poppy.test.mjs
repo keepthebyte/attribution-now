@@ -421,15 +421,19 @@ test('with a gateway, poppy.json is the gateway document for this host', async (
   const doc = { protocol_version: '1.0', organization };
   const seen = [];
   const fetcher = async (url, init) => {
-    seen.push({ url, host: init.headers['x-forwarded-host'] });
+    seen.push({ url, host: init.headers['x-forwarded-host'], service: init.headers['x-poppy-aem-service'] });
     return new Response(JSON.stringify(doc), { status: 200 });
   };
-  const ok = await gatewayPoppy('https://m.adobe.io', 'attribution.now', fetcher);
+  const ok = await gatewayPoppy('https://m.adobe.io', 'attribution.now', 'eds-keepthebyte--attribution-now', fetcher);
   assert.equal(ok.status, 200);
   assert.deepEqual(JSON.parse(ok.body), doc);
-  assert.deepEqual(seen, [{ url: `https://m.adobe.io${GATEWAY_PATH}`, host: 'attribution.now' }]);
+  assert.deepEqual(seen, [{
+    url: `https://m.adobe.io${GATEWAY_PATH}`, host: 'attribution.now', service: 'eds-keepthebyte--attribution-now',
+  }]);
+  await gatewayPoppy('https://m.adobe.io', 'attribution.now', undefined, fetcher);
+  assert.equal(seen[1].service, undefined);
 
-  const status = async (host, f) => (await gatewayPoppy('https://m.adobe.io', host, f)).status;
+  const status = async (host, f) => (await gatewayPoppy('https://m.adobe.io', host, 'eds-x--y', f)).status;
   const answer = (res) => async () => res;
   assert.equal(await status('other.example', fetcher), 502);
   assert.equal(await status('attribution.now', answer(new Response('x', { status: 500 }))), 502);
