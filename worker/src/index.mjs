@@ -112,7 +112,7 @@ function handleSkill(request, env, ctx) {
 
 // the same headers wknd.site sends: a minute of caching, as the document changes with the gateway
 async function handleGatewayPoppy(request, env, host) {
-  const { status, body } = await gatewayPoppy(env.POPPY_GATEWAY, host);
+  const { status, body } = await gatewayPoppy(env.POPPY_GATEWAY, host, env.POPPY_AEM_SERVICE);
   return new Response(status === 200 ? body : JSON.stringify({ error: 'gateway_unavailable' }), {
     status,
     headers: {

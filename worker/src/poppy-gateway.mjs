@@ -1,21 +1,26 @@
 // poppy.json from Adobe's Personal Agent Gateway, the same setup as wknd.site: the gateway is
 // multi-tenant and builds the document from X-Forwarded-Host. It lists the gateway's Poppy agent
 // and a read-only MCP server with one tool, search_site; every call logs the visitor's intent
-// (scrubbed) to Splunk on Adobe's side. Our own company agent stays at /poppy/conversations.
+// (scrubbed) to Splunk on Adobe's side. x-poppy-aem-service names the site's service, which the
+// gateway puts in the endpoint paths (/h/{host}/s/{service}/poppy/...): eds-<owner>--<repo> for
+// an Edge Delivery site, cm-p<program>-e<environment> for AEM Cloud Service (wknd.site). Our own company agent stays at /poppy/conversations.
 // Kept free of Workers bindings (fetch is passed in) so it runs under node --test.
 
 export const GATEWAY_PATH = '/personal-agent-gateway/.well-known/poppy.json';
 const MAX_DOCUMENT = 65536;
 
 /**
- * Fetch the gateway's poppy.json for `host`. Returns { status, body } where body is the
+ * Fetch the gateway's poppy.json for `host`, sending `service` (when set) as x-poppy-aem-service.
+ * Returns { status, body } where body is the
  * document text as served, or null with status 502 when the gateway fails or answers non-JSON.
  */
-export async function gatewayPoppy(gateway, host, fetcher = fetch) {
+export async function gatewayPoppy(gateway, host, service, fetcher = fetch) {
+  const headers = { 'x-forwarded-host': host, accept: 'application/json' };
+  if (service) headers['x-poppy-aem-service'] = service;
   let res;
   try {
     res = await fetcher(new URL(GATEWAY_PATH, gateway).href, {
-      headers: { 'x-forwarded-host': host, accept: 'application/json' },
+      headers,
       redirect: 'manual',
     });
   } catch {
